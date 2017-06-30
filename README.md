@@ -13,6 +13,6 @@ Every branch in upstream must starts with a prefix that is based on user initial
 
 ### Lectures schedule
 
-1. July 5th - [Git](./blob/master/lectures/01_git/README.md)
+1. July 5th - [Git](./lectures/01_git/README.md)
 2. July 6th - HTML & CSS, The basics
 3. July 7th - HTML & CSS, Advanced
