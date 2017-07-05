@@ -24,3 +24,6 @@ The main goal of this task is to learn basic git commands + github pull request 
 18. Merge pull request(on github)
 19. Checkout to `master` branch and pull latest changes
 20. Inspect `git log master` and compare it with `git log solid-train`. Compare commit hashes and explain yourself commits sequence on `master` branch.
+21. Clone this repository. Checkout to the new branch firstname-lastname. 
+22. Create new file `lectures/01_git/{firstname-lastname.txt}`.
+23. Put link to your repository and make pull request to master branch.
