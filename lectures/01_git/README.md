@@ -18,7 +18,7 @@ Git - distributed version control system. The main purpose of this lection is to
 ### Home reading list
 
 1. [Pro git](https://git-scm.com/book/en/v2)
-2. [Github SSG](https://help.github.com/articles/connecting-to-github-with-ssh/)
+2. [Github SSH](https://help.github.com/articles/connecting-to-github-with-ssh/)
 2. Man pages: man git [command]
     a) man git
     b) man git add
