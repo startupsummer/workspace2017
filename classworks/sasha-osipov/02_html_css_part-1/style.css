@@ -20,6 +20,7 @@ html,body {
 
 .user-navigation {
 	padding: 10px;
+	padding-top: 20px;
 }
 
 .user-navigation>img {
@@ -40,6 +41,8 @@ html,body {
 }
 
 .user-navigation-item>h1 {
+	line-height: 25px;
+	font-weight: 300;
 	color: white;
 }
 
@@ -98,9 +101,10 @@ html,body {
 }
 
 .menu-navigation-footer {
-	position: relative;
-	top: 60%;
-	transform: translateY(-60%);
+	position: absolute;
+	bottom: 20px;
+	left: 0px;
+	width: 100%;
 }
 
 .menu-navigation-footer-list {
@@ -166,7 +170,7 @@ html,body {
 	border: 0;
 	margin-top: 40px;
 	color: white;
-	transition-property: color, background-color;
+	transition-property: background-color;
 	transition-duration: 0.5s;
 	-webkit-box-shadow: 5px 7px 15px -6px rgba(0,0,0,0.54);
 	-moz-box-shadow: 5px 7px 15px -6px rgba(0,0,0,0.54);
@@ -174,8 +178,7 @@ html,body {
 }
 
 .main-page-button:hover {
-	background-color: rgba(154, 192, 205, 0.8);
-	color: black;
+	background-color: #6DACE4;	
 	cursor: pointer;
 }
 
@@ -185,7 +188,6 @@ html,body {
 
 .portfolio-page {
 	padding-left: 300px; 
-	height: 100%;
 	background-color: rgb(242, 247, 247);
 }
 
@@ -196,7 +198,7 @@ html,body {
 }
 
 .portfolio-header>h1 {
-	color: rgb(184, 187, 187);
+	color: rgb(135, 135, 136);
 	font-weight: 200;
 	margin-bottom: 20px;
 }
@@ -204,48 +206,76 @@ html,body {
 .portfolio-header>p {
 	color: rgb(184, 187, 187);
 	padding: 20px;
+	line-height: 25px;
 }
 
 .portfolio-elements {
-	height: 100%;
+	padding-bottom: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.portfolio-elements:after {
+	content: "";
+    display: table;
+    clear: both;
+}
+
+.portfolio-block {
+	float: left;
+	background-color: rgb(242, 247, 247);
+	width: calc(100% / 3);
+}
+
+.portfolio-inner-block {
+	background-color: rgb(242, 247, 247);
 	padding-left: 10px;
 	padding-right: 10px;
+	padding: 10px;
 }
 
-/* .portfolio-elements-list {
-
-}
-
-.portfolio-elements-item {
-	float: left;
-	margin: 20px;
-	list-style-type: none;
+.portfolio-supp-block {
 	background-color: white;
-} */
-
-.portfolio-block1 {
-	background-color: black;
-	width: 30%;
 }
 
-.portfolio-block2 {
-	background-color: black;
-	width: 30%;
-}
-
-.portfolio-block3 {
-	background-color: black;
-	width: 30%;
+.portfolio-supp-block>p {
+	text-align: center;
+	padding: 15px;
+	color: rgb(184, 187, 187);
 }
 
 .portfolio-elements-img {
-	padding: auto;
-	width: 300px;
+	width: 100%;
+}
+
+.portfolio-supp-block:hover {
+	animation-iteration-count: 1;
+	animation: swing 0.6s ease;
+}
+
+@keyframes swing {
+	15% {
+    	transform: translateX(9px);
+  	}
+  	30% {
+    	transform: translateX(-9px);
+  	}
+  	40% {
+    	transform: translateX(6px);
+  	}
+  	50% {
+    	transform: translateX(-6px);
+  	}
+  	65% {
+    	transform: translateX(3px);
+  	}
+  	100% {
+    	transform: translateX(0);
+  	}
 }
 
 .contact-page {
 	padding-left: 300px; 
-	height: 100%;
 	background-color: rgb(228, 233, 232);
 }
 
@@ -256,7 +286,7 @@ html,body {
 }
 
 .contact-header>h1 {
-	color: rgb(184, 187, 187);
+	color: rgb(135, 135, 136);
 	font-weight: 200;
 	margin-bottom: 20px;
 }
@@ -264,6 +294,7 @@ html,body {
 .contact-header>p {
 	color: rgb(184, 187, 187);
 	padding: 20px;
+	line-height: 25px;
 }
 
 .contact-form {
@@ -285,7 +316,7 @@ html,body {
 .contact-textarea {
 	width: 86%;
 	height: 400px;
-	margin: 4%;
+	margin: 2%;
 	margin-bottom: 10px;
 	margin-top: 10px;
 	padding: 10px;
@@ -304,8 +335,9 @@ html,body {
 	border-radius: 10px;
 	border: 0;
 	margin-top: 40px;
+	margin-bottom: 40px;
 	color: white;
-	transition-property: color, background-color;
+	transition-property: background-color;
 	transition-duration: 0.5s;
 	-webkit-box-shadow: 5px 7px 15px -6px rgba(0,0,0,0.54);
 	-moz-box-shadow: 5px 7px 15px -6px rgba(0,0,0,0.54);
@@ -313,16 +345,13 @@ html,body {
 }
 
 .contact-button:hover {
-	background-color: rgba(154, 192, 205, 0.7);
-	color: black;
+	background-color: #6DACE4;
 	cursor: pointer;
 }
 
 .contact-button:focus {
 	outline: none;
 }
-
-
 
 input::-webkit-input-placeholder       {opacity: 0.9; transition: opacity 0.3s ease; color: #7a7a7a;}
 input::-moz-placeholder                {opacity: 0.9; transition: opacity 0.3s ease; color: #7a7a7a;}
