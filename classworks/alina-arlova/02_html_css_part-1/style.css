@@ -130,6 +130,7 @@
   height: 100vh;
   margin-left: 350px;
   background-color: #f0f5f5;
+  clear: both;
 }
 
 .portfolio__title h1 {
@@ -150,6 +151,46 @@
   color: #98888e;
 }
 
+.image-item {
+  float: left;
+  width: calc(100% / 3);
+  background-color: #f0f5f5;
+  text-align: center;
+}
+
 .image {
   background-color: #ffffff;
+  display: inline-block;
+  margin-top: 30px;
+}
+
+.image p {
+  text-align: center;
+  padding: 20px 0 20px 0;
+  color: #666666;
+}
+
+.contact {
+  position: relative;
+  height: 100vh;
+  margin-left: 350px;
+  background-color: #e4e9e8;
+}
+
+.contact__title h1 {
+  padding-top: 50px;
+  text-align: center;
+  font-weight: lighter;
+  color: #666666;
+}
+
+.contact__title h2 {
+  padding-top: 40px;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 130%;
+  padding-left: 40px;
+  padding-right: 40px;
+  line-height: 35px;
+  color: #98888e;
 }
