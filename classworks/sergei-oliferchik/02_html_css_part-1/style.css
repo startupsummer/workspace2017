@@ -2,6 +2,7 @@
 {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 h1 {
   color: #fff;
@@ -16,7 +17,7 @@ button {
 }
 aside footer li {
   float: left;
-  margin: 5px;
+  width: calc(100% / 5);
 }
 .menu {
   background-color: #212528;
@@ -66,17 +67,12 @@ span {
 .wrapper footer {
   background-color: #e6ebea;
 }
-main li{
-  float: left;
-  width: calc(100%/3.5);
-  margin: 10px;
-}
 main li img {
   width: 100%;
 }
-figure {
+figure img {
   background-color: grey;
-  padding-bottom: 5px;
+  width: 100%;
   vertical-align: top;
 }
 .clearfix:after {
@@ -96,6 +92,36 @@ textarea {
 .fa {
   font-size: 25px;
 }
-main section li {
+main section figure {
   display: inline;
+  float: left;
+  width: calc(100% / 3);
+  padding: 10px;
+}
+.list {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.list__item {
+  display: inline;
+  float: left;
+  width: calc(100% / 3);
+  padding: 10px;
+}
+
+figcaption {
+  padding: 15px;
+  background: #fff;
+}
+aside footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+aside footer ul {
+  width: 100%;
+text-align: center;
+padding: 0 40px;
 }
