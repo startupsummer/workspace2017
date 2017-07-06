@@ -14,66 +14,95 @@
 
 	<aside class="aside " > 
 
-		<div class="aside-header clearfix">
-			<img class="aside-header__avatar" src="images/avatar.jpg">
-			<div class="aside-header__author">
-				<div class="aside-header__name">
-					John Doe
+
+
+		<div class="wrapper">
+
+
+			<div class="aside-header clearfix">
+				<img class="aside-header__avatar" src="images/avatar.jpg">
+				<div class="aside-header__author">
+					<div class="aside-header__name">
+						John Doe
+					</div>
+					<div class="aside-header__occup">
+						Super Engineer
+					</div>
 				</div>
-				<div class="aside-header__occup">
-					Super Engineer
-				</div>
+
 			</div>
+
+
+			<nav class="aside__nav">
+				<ul class="l-items" onclick="()=>{var items = document.getElementsByClassName("")} ">
+					<li class="l-items__item">
+						<a class="nav-ref nav-ref--home" href="#main__header">Intro</a>
+					</li>
+
+					<li class="l-items__item">
+						<a class="nav-ref nav-ref--portf" href="#main__portfolio">Portfolio</a>
+					</li>
+					<li class="l-items__item">
+						<a class="nav-ref nav-ref--portf" href="#">About Me</a>
+					</li>
+					<li class="l-items__item">
+						<a class="nav-ref nav-ref--contact" href="#footer">Contact</a>
+					</li>
+				</ul>
+
+			</nav>
 
 		</div>
 
+		<footer class="aside__footer">
 
-		<nav class="aside-nav">
-			<ul class="l-items">
-				<li class="l-items__item">
-					<a class="nav-ref nav-ref--home" href="#">Intro</a>
+			<ul class="l-icons clearfix">
+				<li class="l-icons__item">
+					<a class="icon-twitter" href=""></a>
+				</li>			
+				<li class="l-icons__item">
+					<a class="icon-facebook" href=""></a>
+				</li>			
+				<li class="l-icons__item">
+					<a class="icon-github" href=""></a>
+				</li>			
+				<li class="l-icons__item">
+					<a class="icon" href=""></a>
+				</li>			
+				<li class="l-icons__item">
+					<a class="icon-letter" href=""></a>
 				</li>
 
-				<li class="l-items__item">
-					<a class="nav-ref nav-ref--portf" href="#">Intro</a>
-				</li>
-				<li class="l-items__item">
-					<a class="nav-ref nav-ref--portf" href="#">Intro</a>
-				</li>
-				<li class="l-items__item">
-					<a class="nav-ref nav-ref--contact" href="#">Intro</a>
-				</li>
 			</ul>
-
-		</nav>
+		</footer>
 
 
 	</aside>
 
 	<main class="main">
-		<header class="main__header">
+		<header class="main__header" id="main__header">
 
-		<div class="h-wrapper"> 
-			<h1 class="header-title">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			</h1>
-			<h2 class="header_subtitle">
-				Etiam ac sapien eget sem consequat pharetra. Nulla ultrices nulla eu sem iaculis egestas.
-			</h2>
-			<button class="header__button">Magna Aliquam</button>
+			<div class="h-wrapper"> 
+				<h1 class="header-title">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</h1>
+				<h2 class="header_subtitle">
+					Etiam ac sapien eget sem consequat pharetra. Nulla ultrices nulla eu sem iaculis egestas.
+				</h2>
+				<button class="header__button">Magna Aliquam</button>
 			</div>
 		</header>
 
-		<div class="main__portfolio">
+		<div class="main__portfolio clearfix" id="main__portfolio">
 			<h2 class="block-title">Portfolio</h2>
 			<div class="block-text">Etiam ac sapien eget sem consequat pharetra. Nulla ultrices nulla eu sem iaculis egestas. Donec porta convallis turpis id iaculis. Proin leo leo, congue condimentum dolor quis, fringilla rutrum felis. Cras quis hendrerit augue. Donec sit amet diam egestas, fringilla tellus et, accumsan ante. </div>
 
 			<ul class="portfolio-images clearfix">
 				<li class="portfolio-images__item"> 
-				<div>
-				  <img class="img-item"  src="images/pic02.jpg">
-				  <img class="img-item"  src="images/pic03.jpg">
-				</div>
+					<div>
+						<img class="img-item"  src="images/pic02.jpg">
+						<img class="img-item"  src="images/pic03.jpg">
+					</div>
 				</li>
 
 
@@ -92,17 +121,16 @@
 		</div>
 
 
-		<footer class="footer">
-		<h2 class="block-title">Contact</h2>
+		<footer class="footer" id="footer">
+			<h2 class="block-title">Contact</h2>
 			<div class="block-text">Etiam ac sapien eget sem consequat pharetra. Nulla ultrices nulla eu sem iaculis egestas. Donec porta convallis turpis id iaculis. Proin leo leo, congue condimentum dolor quis, fringilla rutrum felis. Cras quis hendrerit augue. Donec sit amet diam egestas, fringilla tellus et, accumsan ante. </div>
 
 			<form class="footer-form clearfix">
-			<input class="footer-form__txt-inp footer-form__txt-inp--left" type="text" name="" placeholder="Name">
+				<input class="footer-form__txt-inp footer-form__txt-inp--left" type="text" name="" placeholder="Name">
 
-			<input class="footer-form__txt-inp footer-form__txt-inp--right " type="email" name="" placeholder="Email">			
+				<input class="footer-form__txt-inp footer-form__txt-inp--right " type="email" name="" placeholder="Email">			
 
-			<textarea class="footer-form__txt-inp footer-form--message" name="" placeholder="Message">
-			</textarea>
+				<textarea class="footer-form__txt-inp footer-form--message" name="" placeholder="Message"></textarea>
 
 				<input type="submit" class="form__button" name="" value="Send Message">
 

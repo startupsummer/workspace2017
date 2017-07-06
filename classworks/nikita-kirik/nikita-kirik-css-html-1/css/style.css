@@ -9,6 +9,14 @@ a {
 	text-decoration: none;
 }
 
+.wrapper {
+	/*width: 250px;*/
+	background-color: #555555;
+	height: 100vh;
+
+
+}
+
 .clearfix:after {
 	visibility: hidden;
 	display: block;
@@ -21,16 +29,15 @@ a {
 
 .aside {
 	position: fixed;
-
-	/*float: left;*/
-	display: block;
 	background-color: #141e2d;
 	width: 250px;
-	height: 100%;
-	/*height: 400px;*/
+	height: 100vh;
 	min-width: 100px;
 	max-width: 300px;
 	overflow: auto;
+
+	color: #C4C4C4;
+
 }
 
 .aside-header {
@@ -45,7 +52,6 @@ a {
 
 .l-items {
 	font-size: 2rem;
-	color: #6d6d6d;
 }
 
 .l-items__item {
@@ -119,9 +125,6 @@ a {
 
 
 
-
-
-
 .nav-ref--home:before:hover {
 	color: #C8738C;
 }
@@ -138,34 +141,24 @@ a {
 }
 
 .aside-header__name {
-			margin-bottom: 10px;
-			font-size: 1.8rem;
+	margin-bottom: 10px;
+	font-size: 1.8rem;
 	font-weight: bold;
 
 	color: white;
 }
 
 .aside-header__occup {
-	color: #C4C4C4;
 	font-size: 1.2rem;
 
 }
 
 
-.aside-nav {
-
-}
-
-
 .main {
-	/*width: 80%;*/
-	/*float: right;*/
-		padding-left: 250px;
-
+	padding-left: 250px;
 	width: 100%;
 	display: block;
 	background-color: #b3e557;
-	/*height: 40%;*/
 }
 
 .main__header {
@@ -206,7 +199,7 @@ a {
 	font-size: 2rem;
 	color: #DBE2DD;
 	text-align: center;
-		margin-bottom: 40px;
+	margin-bottom: 40px;
 
 }
 
@@ -216,7 +209,7 @@ a {
 	border-radius: 5px;
 	padding: 20px 20px;
 	background-color: #5BAC83;
-		color: #D6D8D7;
+	color: #D6D8D7;
 	border: none;
 
 }
@@ -234,6 +227,7 @@ a {
 	padding: 80px 40px;
 	text-align: center;
 	height: 100vH;
+	overflow: hidden;
 
 	background-color: #DBDBDB;
 
@@ -281,8 +275,8 @@ a {
 }
 
 .footer {
-		padding: 80px 40px;
-		height: 100vH;
+	padding: 80px 40px;
+	height: 100vH;
 	text-align: center;
 	background-color: #CDCDCD;
 }
@@ -319,6 +313,48 @@ a {
 	border-radius: 5px;
 	padding: 20px 20px;
 	background-color: #5BAC83;
-		color: #D6D8D7;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #D6D8D7;
 	border: none;
+}
+
+.form__button:hover {
+	background-color: #3E7358;
+	color: white;
+	box-shadow: 1px 1px 10px 2px #888888;
+}
+
+.aside__footer {
+	margin-top: -25px; 
+	font-size: 1.6rem;
+	text-align: center;
+}
+
+.l-icons {
+	display: inline-block;
+	height: 25px;
+	margin: 0 auto;
+}
+
+.icon-twitter:before {
+	content: "\f099";
+}
+
+.icon-facebook:before {
+	content: "\f09a";
+}
+
+.icon-letter:before {
+	content: "\f0e0";
+}
+
+.icon-github:before {
+	content: "\f09b";
+}
+
+
+.l-icons__item {
+	padding-right: 16px;
+	float: left;
 }
