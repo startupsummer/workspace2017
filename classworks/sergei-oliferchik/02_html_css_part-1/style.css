@@ -1,0 +1,101 @@
+*
+{
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: #fff;
+}
+button {
+  background-color: #19d0a9;
+  border: 0;
+  padding: 10px;
+  border-radius: 5%;
+  color: #41403c;
+  margin-top: 20px;
+}
+aside footer li {
+  float: left;
+  margin: 5px;
+}
+.menu {
+  background-color: #212528;
+  position: fixed;
+  float: left;
+  height: 100%;
+  width: 20%;
+  color: #fff;
+}
+.menu header {
+  margin: 40px 15px;
+}
+.menu header img {
+  float: left;
+}
+.menu hgroup {
+  float: right;
+  text-align: end;
+}
+.menu header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+li {
+  padding: 10px;
+  list-style-type: none;
+}
+span {
+  float: right;
+}
+.wrapper {
+  position: relative;
+  text-align: center;
+  float: right;
+  width: 80%;
+}
+.wrapper header {
+  background-image: url(images/banner.jpg);
+}
+.wrapper-context {
+  padding: 10%;
+}
+.wrapper-context>h1,h2,p {
+  margin-bottom: 40px;
+}
+.wrapper footer {
+  background-color: #e6ebea;
+}
+main li{
+  float: left;
+  width: calc(100%/3.5);
+  margin: 10px;
+}
+main li img {
+  width: 100%;
+}
+figure {
+  background-color: grey;
+  padding-bottom: 5px;
+  vertical-align: top;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+input {
+  width: 40%;
+  padding: 1%;
+  margin: 0 3% 3% 3%;
+}
+textarea {
+  padding: 1%;
+  width: 90%;
+}
+.fa {
+  font-size: 25px;
+}
+main section li {
+  display: inline;
+}
