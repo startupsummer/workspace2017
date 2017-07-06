@@ -14,5 +14,5 @@ Every branch in upstream must starts with a prefix that is based on user initial
 ### Lectures schedule
 
 1. July 5th - [Git](./lectures/01_git/README.md)
-2. July 6th - HTML & CSS, The basics
+2. July 6th - [HTML & CSS, The basics](./lectures/02_html_css_part-1/README.md)
 3. July 7th - HTML & CSS, Advanced
