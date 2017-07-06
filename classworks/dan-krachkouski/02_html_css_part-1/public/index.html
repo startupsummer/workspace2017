@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<head>
+    <meta name="charset" content="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://goo.gl/BJeB71" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <header class="sidebar__header">
+            <image class="sidebar__header__image" src="../images/avatar.jpg"/>
+            <div class="sidebar__header__wrap">
+                <h class="sidebar__header__wrap__username">Jane Doe</h>
+                <h class="sidebar__header__wrap__workplace">Hypedyper Engineer</h>
+            </div>
+        </header>
+        <section class="sidebar__navigation">
+            <ul class="sidebar__navigation__list">
+                <li class="sidebar__navigation__list-item">
+                    <a href="#intro">
+                        <i class="fa fa-home
+                            sidebar__navigation__list-item__icon"></i>
+                        <div class="sidebar__navigation__list-item__text">
+                            Intro
+                        </div>
+                    </a>
+                </li>
+                <li class="sidebar__navigation__list-item">
+                    <a href="#portfolio">
+                        <i class="fa fa-th
+                            sidebar__navigation__list-item__icon"></i>
+                        <div class="sidebar__navigation__list-item__text">
+                            Portfolio
+                        </div>
+                    </a>
+                </li>
+                <li class="sidebar__navigation__list-item">
+                    <a href="#about">
+                        <i class="fa fa-user
+                            sidebar__navigation__list-item__icon"></i>
+                        <div class="sidebar__navigation__list-item__text">
+                            About Me
+                        </div>
+                    </a>
+                </li>
+                <li class="sidebar__navigation__list-item">
+                    <a href="#contact">
+                        <i class="fa fa-envelope
+                            sidebar__navigation__list-item__icon"></i>
+                        <div class="sidebar__navigation__list-item__text">
+                            Contact
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </aside>
+    <main class="main-content">
+        <section class="intro" id="intro">
+            <h class="intro__caption">
+                Hi! I'm <span>Lorem</span> ipsum dolor sit amet, consectetur adipisicing <span>elit</span>.
+            </h>
+            <h class="intro__text">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </h>
+            <div class="intro__button">
+                Alrin Bakys
+            </div>
+        </section>
+        <section class="portfolio" id="portfolio">
+            <div class="portfolio__caption">Portfolio</div>
+            <div class="portfolio__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__column">
+                        <figure class="card">
+                            <img class="card__image"src="../images/pic02.jpg">
+                            <div class="card__descr">
+                                Lorem Ipsum
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="grid__column">
+                        <figure class="card">
+                            <img class="card__image"src="../images/pic03.jpg">
+                            <div class="card__descr">
+                                Dolor Sit
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="grid__column">
+                        <figure class="card">
+                            <img class="card__image"src="../images/pic04.jpg">
+                            <div class="card__descr">
+                                Amet Consectetur
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="grid__row">
+                    <div class="grid__column">
+                        <figure class="card">
+                            <img class="card__image"src="../images/pic05.jpg">
+                            <div class="card__descr">
+                                Adipisicing
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="grid__column">
+                        <figure class="card">
+                            <img class="card__image"src="../images/pic06.jpg">
+                            <div class="card__descr">
+                                Excepteur Sint
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="grid__column">
+                        <figure class="card">
+                            <img class="card__image"src="../images/pic07.jpg">
+                            <div class="card__descr">
+                                Occaecat Cupidatat
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="grid__row">
+                    <div class="grid__column">
+                        <figure class="card">
+                            <img class="card__image"src="../images/pic08.jpg">
+                            <div class="card__descr">
+                                Non Proident
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about" id="about">
+
+        </section>
+        <section class="contact" id="contact">
+            <div class="contact__caption">Contact</div>
+            <div class="contact__text">
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </div>
+            <form class="contact__form" onsubmit="return false;">
+                <div class="contact__form__wrap">
+                        <input class="
+                        contact__form__input
+                        contact__form__input_name"
+                    type="text" name="name" placeholder="Name">
+                    <input class="
+                        contact__form__input
+                        contact__form__input_email"
+                    type="email" name="email" placeholder="Email">
+                </div>
+                <textarea class="
+                    contact__form__input
+                    contact__form__textarea
+                " name="message" rows="8" cols="80" placeholder="Message"></textarea>
+
+                <div class="wrap">
+                    <div class="button">
+                        Hey Berkley!
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
