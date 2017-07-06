@@ -1,6 +1,15 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:active {
+  outline:none;
 }
 
 .sidebar {
@@ -120,10 +129,11 @@
 }
 
 .main-part__button:hover {
-  background-color: #74a4a2;
-  border: 1px solid #74a4a2;
+  background-color: #659a98;
+  border: 1px solid #659a98;
   color: #ffffff;
   cursor: pointer;
+  box-shadow: 1px 1px 2px 0.3px #324d4c;
 }
 
 .portfolio {
@@ -198,7 +208,7 @@
 }
 
 .form-input {
-  margin-top: 40px;
+  padding-top: 40px;
   display: flex;
   justify-content: space-around;
 }
@@ -241,10 +251,11 @@
 }
 
 .form-submit:hover {
-  background-color: #74a4a2;
-  border: 1px solid #74a4a2;
+  background-color: #659a98;
+  border: 1px solid #659a98;
   color: #ffffff;
   cursor: pointer;
+  box-shadow: 1px 1px 2px 0.3px #324d4c;
 }
 
 .sidebar__footer {
@@ -271,4 +282,8 @@
 .footer-item i:hover {
   color: #E27689;
   cursor: pointer;
+}
+
+.text-modifier {
+  color: #ffffff;
 }
