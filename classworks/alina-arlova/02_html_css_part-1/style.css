@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  width: 350px;
+  height: 100%;
+  position: fixed;
+  background-color: #262626;
+}
+
+.sidebar__name {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin: 30px 35px 40px 0px;
+}
+
+.sidebar__name img {
+  position: absolute;
+  float: left;
+  width: 50px;
+  height: 50px;
+  padding-left: 35px;
+}
+
+.sidebar__name h1 {
+  color: #ffffff;
+  font-weight: normal;
+  line-height: 40px;
+  text-align: right;
+}
+
+.sidebar__name h2 {
+  color: #919ca1;
+  font-weight: lighter;
+  font-size: 90%;
+  text-align: right;
+}
+
+.menu-item i{
+  position: absolute;
+  float: left;
+  color: #5e696e;
+  padding: 18px;
+  padding-left: 35px;
+  margin: 0;
+}
+
+.menu-text {
+  list-style-type: none;
+  text-align: right;
+  padding-right: 35px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #919ca1;
+}
+
+.{
+  float: left;
+  padding: 20px;
+}
+
+.menu-item:hover {
+  cursor: pointer;
+  background-color: #000000;
+}
+
+.menu-item:hover i {
+  color: #E27689;
+  cursor: pointer;
+}
+
+.menu-item:hover .menu-text {
+  color: #f1f3f3;
+}
+
+.main-part {
+  position: relative;
+  height: 100vh;
+  margin-left: 350px;
+  background-image: url(images/banner.jpg);
+  background-size: cover;
+}
+
+.main-part h1 {
+  text-align: center;
+  color: #CFCFCF;
+  font-weight: lighter;
+  margin: auto;
+  width: 630px;
+  line-height: 60px;
+  padding-top: 250px;
+}
+
+.main-part h2 {
+  text-align: center;
+  color: #CFCFCF;
+  font-weight: lighter;
+  font-size: 130%;
+  margin: auto;
+  margin-top: 50px;
+  line-height: 40px;
+  width: 600px;
+}
+
+.main-part__button {
+  border-radius: 8px;
+  height: 60px;
+  padding: 10px 40px 10px 40px;
+  position: absolute;
+  margin-top: 70px;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #f2f2f2;
+  background-color: #7FABA9;
+  border: 1px solid #7FABA9;
+  font-size: 110%;
+}
+
+.main-part__button:hover {
+  background-color: #74a4a2;
+  border: 1px solid #74a4a2;
+  cursor: pointer;
+}
+
+.portfolio {
+  position: relative;
+  height: 100vh;
+  margin-left: 350px;
+  background-color: #f0f5f5;
+}
+
+.portfolio__title h1 {
+  padding-top: 50px;
+  text-align: center;
+  font-weight: lighter;
+  color: #666666;
+}
+
+.portfolio__title h2 {
+  padding-top: 40px;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 130%;
+  padding-left: 40px;
+  padding-right: 40px;
+  line-height: 35px;
+  color: #98888e;
+}
+
+.image {
+  background-color: #ffffff;
+}
