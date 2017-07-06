@@ -1,0 +1,334 @@
+html,body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: Arial;
+}
+
+* {
+	margin: 0;
+}
+
+.leftside-menu {
+	float: left;
+	width: 300px;
+	height: 100%;
+	background-color: rgb(33, 37, 40);
+	position: fixed; 
+}
+
+.user-navigation {
+	padding: 10px;
+}
+
+.user-navigation>img {
+	border-radius: 50px;
+}
+
+.user-navigation-list {
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	float: right;
+}
+
+.user-navigation-item {
+	font-family: Arial;
+	text-align: right;
+	list-style-type: none;
+}
+
+.user-navigation-item>h1 {
+	color: white;
+}
+
+.user-navigation-item>h5 {
+	color: gray;
+	font-weight: 300;
+}
+
+.menu-navigation {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.menu-navigation-list {
+	padding-left: 0;
+	margin-top: 10px;
+}
+
+.menu-navigation-item {
+	list-style-type: none;
+	cursor: pointer;
+	padding: 10px;
+	height: 40px;
+}
+
+.menu-navigation-item>a {
+	display: inline-block;
+	width: 100%;
+}
+
+.menu-navigation-item:hover  {
+	background-color: rgb(28, 32, 34);
+} 
+
+.menu-icon {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	float: left;
+	color: gray;
+}
+
+.menu-navigation-item:hover  .menu-icon {
+	color: rgb(226, 118, 137);
+}
+
+.menu-text {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+	font-family: Arial;
+	float: right;
+	color: gray;
+}
+
+.menu-navigation-footer {
+	position: relative;
+	top: 60%;
+	transform: translateY(-60%);
+}
+
+.menu-navigation-footer-list {
+	padding-left: 0px;
+	text-align: center;
+}
+
+.menu-navigation-footer-item {
+	padding: 10px;
+	display: inline;
+}
+
+.menu-navigation-footer-item>a {
+	cursor: pointer;
+	color: rgb(128, 128, 128);
+}
+
+.menu-navigation-footer-item>a:hover {
+	color: rgb(226, 118, 137);
+}
+
+.main-page {
+	padding-left: 300px;
+	height: 100%;
+	background-image: url('pic/banner.jpg');
+	background-size: cover;
+}
+
+.main-page-block {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 10px;
+	font-family: Arial;
+	text-align: center;
+	color: white;
+}
+
+.main-page-block>h1 {
+	line-height: 45px;
+	font-weight: 200;
+	font-size: 35px;
+	margin-top: 40px; 
+}
+
+.main-page-block>h4 {
+	line-height: 30px;
+	font-weight: 200;
+	margin-top: 40px; 
+}
+
+.main-page-block-a {
+	border-bottom: 2px solid white;
+    border-radius: 1px;
+	cursor: pointer;
+}
+
+.main-page-button {
+	width: 150px;
+	height: 50px;
+	background-color: #9AC0CD;
+	border-radius: 10px;
+	border: 0;
+	margin-top: 40px;
+	color: white;
+	transition-property: color, background-color;
+	transition-duration: 0.5s;
+	-webkit-box-shadow: 5px 7px 15px -6px rgba(0,0,0,0.54);
+	-moz-box-shadow: 5px 7px 15px -6px rgba(0,0,0,0.54);
+	box-shadow: 5px 7px 15px -6px rgba(0,0,0,0.54);
+}
+
+.main-page-button:hover {
+	background-color: rgba(154, 192, 205, 0.8);
+	color: black;
+	cursor: pointer;
+}
+
+.main-page-button:focus {
+	outline: none;
+}
+
+.portfolio-page {
+	padding-left: 300px; 
+	height: 100%;
+	background-color: rgb(242, 247, 247);
+}
+
+.portfolio-header {
+	padding-top: 50px;
+	font-family: Arial;
+	text-align: center;
+}
+
+.portfolio-header>h1 {
+	color: rgb(184, 187, 187);
+	font-weight: 200;
+	margin-bottom: 20px;
+}
+
+.portfolio-header>p {
+	color: rgb(184, 187, 187);
+	padding: 20px;
+}
+
+.portfolio-elements {
+	height: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* .portfolio-elements-list {
+
+}
+
+.portfolio-elements-item {
+	float: left;
+	margin: 20px;
+	list-style-type: none;
+	background-color: white;
+} */
+
+.portfolio-block1 {
+	background-color: black;
+	width: 30%;
+}
+
+.portfolio-block2 {
+	background-color: black;
+	width: 30%;
+}
+
+.portfolio-block3 {
+	background-color: black;
+	width: 30%;
+}
+
+.portfolio-elements-img {
+	padding: auto;
+	width: 300px;
+}
+
+.contact-page {
+	padding-left: 300px; 
+	height: 100%;
+	background-color: rgb(228, 233, 232);
+}
+
+.contact-header {
+	padding-top: 50px;
+	font-family: Arial;
+	text-align: center;
+}
+
+.contact-header>h1 {
+	color: rgb(184, 187, 187);
+	font-weight: 200;
+	margin-bottom: 20px;
+}
+
+.contact-header>p {
+	color: rgb(184, 187, 187);
+	padding: 20px;
+}
+
+.contact-form {
+	padding: 5px;
+	text-align: center;
+}
+
+.contact-input {
+	margin: 2%;
+	width: 40%;
+	padding: 10px;
+    border: 2px solid #e2e2e2;
+    border-radius: 3px;
+    font-size: 14px;
+    color: black;
+    outline: none;
+}
+
+.contact-textarea {
+	width: 86%;
+	height: 400px;
+	margin: 4%;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 10px;
+    border: 2px solid #e2e2e2;
+    border-radius: 3px;
+    font-size: 14px;
+    color: rgba(122, 122, 122, 0.9);
+    outline: none;
+    resize: none;
+}
+
+.contact-button {
+	width: 150px;
+	height: 50px;
+	background-color: #9AC0CD;
+	border-radius: 10px;
+	border: 0;
+	margin-top: 40px;
+	color: white;
+	transition-property: color, background-color;
+	transition-duration: 0.5s;
+	-webkit-box-shadow: 5px 7px 15px -6px rgba(0,0,0,0.54);
+	-moz-box-shadow: 5px 7px 15px -6px rgba(0,0,0,0.54);
+	box-shadow: 5px 7px 15px -6px rgba(0,0,0,0.54);
+}
+
+.contact-button:hover {
+	background-color: rgba(154, 192, 205, 0.7);
+	color: black;
+	cursor: pointer;
+}
+
+.contact-button:focus {
+	outline: none;
+}
+
+
+
+input::-webkit-input-placeholder       {opacity: 0.9; transition: opacity 0.3s ease; color: #7a7a7a;}
+input::-moz-placeholder                {opacity: 0.9; transition: opacity 0.3s ease; color: #7a7a7a;}
+input:-moz-placeholder                 {opacity: 0.9; transition: opacity 0.3s ease; color: #7a7a7a;}
+input:-ms-input-placeholder            {opacity: 0.9; transition: opacity 0.3s ease; color: #7a7a7a;}
+input:focus::-webkit-input-placeholder {opacity: 0.4; transition: opacity 0.3s ease; color: #7a7a7a;}
+input:focus::-moz-placeholder          {opacity: 0.4; transition: opacity 0.3s ease; color: #7a7a7a;}
+input:focus:-moz-placeholder           {opacity: 0.4; transition: opacity 0.3s ease; color: #7a7a7a;}
+input:focus:-ms-input-placeholder      {opacity: 0.4; transition: opacity 0.3s ease; color: #7a7a7a;}
