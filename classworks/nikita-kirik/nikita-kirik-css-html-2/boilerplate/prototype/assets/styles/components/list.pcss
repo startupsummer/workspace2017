@@ -1,0 +1,48 @@
+.list {
+
+	&__item {
+
+	}
+
+	&__ref {
+
+		display: block;
+		height: 100%;
+		padding: 20px 0px;
+
+		// @mixin icon home {  
+		// 	content: "\f015";
+		// }
+
+
+		// @mixin icon portf {  
+		// 	content: "\f015";
+		// }
+
+		// @mixin icon about {  
+		// 	content: "\f015";
+		// }
+
+		// @mixin icon contact {  
+		// 	content: "\f015";
+		// }
+
+		&::before {
+			float: left;
+			display: block;
+		}
+
+		&:hover {
+			&::before {
+				color: #C8738C;
+			}
+		}
+
+		&--home:before {
+			content: "\f015";
+		}
+
+
+	}
+
+}
