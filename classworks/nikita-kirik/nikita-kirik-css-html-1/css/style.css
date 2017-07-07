@@ -40,13 +40,13 @@ a {
 
 }
 
-.aside-header {
+.aside-head {
 	padding: 20px;
 
 	/*margin-bottom: 30px;*/
 }
 
-.aside-header__avatar {
+.aside-head__avatar {
 	float: left;
 }
 
@@ -135,12 +135,12 @@ a {
 	padding: 20px 0px;
 }
 
-.aside-header__author {
+.aside-head__author {
 	display: block;
 	float: right;
 }
 
-.aside-header__name {
+.aside-head__name {
 	margin-bottom: 10px;
 	font-size: 1.8rem;
 	font-weight: bold;
@@ -148,7 +148,7 @@ a {
 	color: white;
 }
 
-.aside-header__occup {
+.aside-head__occup {
 	font-size: 1.2rem;
 
 }
