@@ -26,7 +26,7 @@ If lecturer decline pull request, he will assign label `Work In Progress` and pr
 
 1. July 5th - [Git](./lectures/01_git/README.md)
 2. July 6th - [HTML & CSS, The basics](./lectures/02_html_css_part-1/README.md)
-3. July 7th - HTML & CSS, Advanced
+3. July 7th - [HTML & CSS, Advanced](./lectures/03_html_css_part-2/README.md)
 4. July 10th - Webpack 3
 5. July 11th - Javascript
 6. July 12th - ES6 Introduction
