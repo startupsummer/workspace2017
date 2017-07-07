@@ -16,13 +16,11 @@ module.exports = {
     rules: [
       {
         test: /\.pcss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            'postcss-loader',
-          ],
-        }),
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+        ],
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
@@ -45,6 +43,5 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({ template: './prototype/index.html', filename: 'index.html' }),
-    new ExtractTextPlugin('style.css'),
   ],
 };
