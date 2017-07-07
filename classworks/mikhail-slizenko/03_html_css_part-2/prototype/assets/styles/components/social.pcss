@@ -1,0 +1,41 @@
+.social {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social__link {
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-size: 18px 18px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    opacity: .6;
+    transition: opacity .3s ease;
+
+    &:hover {
+        opacity: .8;
+    }
+
+    &--tw {
+        background-image: svg-load('../svg/twitter.svg', fill=#fff);
+    }
+
+    &--fb {
+        background-image: svg-load('../svg/facebook.svg', fill=#fff);
+    }
+
+    &--git {
+        background-image: svg-load('../svg/github.svg', fill=#fff);
+    }
+
+    &--drib {
+        background-image: svg-load('../svg/dribbble.svg', fill=#fff);
+    }
+
+    &--mail {
+        background-image: svg-load('../svg/mail.svg', fill=#fff);
+    }
+}

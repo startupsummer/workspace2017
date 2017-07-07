@@ -1,0 +1,52 @@
+.navigation__link {
+    display: block;
+    padding: 25px 40px;
+    text-align: right;
+    color: #aaa;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color .3s ease;
+    position: relative;
+
+    &:hover {
+        color: #fff;
+    }
+
+    &:hover:before {
+        opacity: .8;
+    }
+
+    &--active {
+        color: #fff;
+        background-color: #1C2022;
+        box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, .3);
+        pointer-events: none;
+    }
+
+    &:before {
+        display: block;
+        position: absolute;
+        content: "";
+        width: 24px;
+        height: 24px;
+        background-size: contain;
+        transition: opacity .3s ease;
+        opacity: .6;
+    }
+
+    &--intro:before {
+        background-image: svg-load('../svg/home.svg', fill=#fff);
+    }
+
+    &--portfolio:before {
+        background-image: svg-load('../svg/menu.svg', fill=#fff);
+    }
+
+    &--about:before {
+        background-image: svg-load('../svg/user.svg', fill=#fff);
+    }
+
+    &--contact:before {
+        background-image: svg-load('../svg/mail.svg', fill=#fff);
+    }
+}

@@ -1,0 +1,26 @@
+.sidebar {
+    display: none;
+}
+
+@media (--desktop-viewport) {
+    .sidebar {
+        width: 300px;
+        background-color: #212528;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+
+    .sidebar__header {
+        padding: 40px;
+    }
+
+    .sidebar__main {
+        flex-grow: 1;
+    }
+
+    .sidebar__footer {
+        padding: 0 40px 40px;
+    }
+}

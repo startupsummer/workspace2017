@@ -1,0 +1,50 @@
+.page {
+    padding: 40px 20px 0;
+    background-color: #EDF2F2;
+    display: flex;
+    flex-direction: column;
+
+    &:last-child {
+        padding-bottom: 40px;
+    }
+
+}
+
+.page__title {
+    font-size: 32px;
+    margin-bottom: 1em;
+    color: #555;
+    text-align: center;
+}
+
+.page__subtitle {
+    color: #777;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.page__inner {
+    margin-top: 40px;
+    width: 100%;
+}
+
+@media (--desktop-viewport) {
+    .page {
+        padding: 50px;
+        min-height: 100vh;
+    }
+
+    .page__title {
+        font-size: 38px;
+    }
+
+    .page__subtitle {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .page__inner {
+        margin-top: 70px;
+    }
+}

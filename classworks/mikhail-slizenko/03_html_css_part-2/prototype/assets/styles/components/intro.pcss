@@ -1,0 +1,42 @@
+.intro {
+    padding: 0 20px;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(http://allswalls.com/images/blurred-wallpaper-8.jpg) no-repeat;
+    background-size: cover;
+}
+
+.intro__title {
+    color: rgba(255, 255, 255, .8);
+    font-size: 28px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.intro__subtitle {
+    color: rgba(255, 255, 255, .7);
+    font-size: 18px;
+    text-align: center;
+    margin: 20px auto 40px;
+    line-height: 1.5;
+}
+
+@media (--desktop-viewport) {
+    .intro {
+        height: 100vh;
+    }
+
+    .intro__title {
+        font-size: 42px;
+        max-width: 750px;
+    }
+
+    .intro__subtitle {
+        font-size: 22px;
+        max-width: 600px;
+        line-height: 2;
+    }
+}
