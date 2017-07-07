@@ -4,15 +4,6 @@
   "description": "Startup Summer",
   "scripts": {
     "start": "webpack-dev-server",
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "gitDir": "../../../../",
-    "*.pcss": [
-      "prettier --write --parser postcss",
-      "stylelint",
-      "git add"
-    ]
   },
   "dependencies": {
     "webpack": "3.0.0"
