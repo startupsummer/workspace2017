@@ -3,7 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: `${__dirname}/prototype/assets/styles/index.pcss`,
+  entry: `${__dirname}/prototype/assets/styles/__index.pcss`,
 
   output: {
     path: `${__dirname}/build/`,

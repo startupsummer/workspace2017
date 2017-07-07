@@ -8,7 +8,7 @@ root = true
 
 # change these settings to your own preference
 indent_style = space
-indent_size = 2
+indent_size = 4
 
 # we recommend you to keep these unchanged
 end_of_line = lf
@@ -19,4 +19,4 @@ max_line_length = off
 
 [{package,bower}.json]
 indent_style = space
-indent_size = 2
+indent_size = 4
