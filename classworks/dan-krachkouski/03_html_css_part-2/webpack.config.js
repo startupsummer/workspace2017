@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   entry: `${__dirname}/prototype/assets/styles/__index.pcss`,
@@ -15,13 +16,11 @@ module.exports = {
     rules: [
       {
         test: /\.pcss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
+        loaders: [
+            'style-loader',
             'css-loader',
             'postcss-loader',
-          ],
-        }),
+        ],
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
@@ -35,15 +34,14 @@ module.exports = {
 
   devServer: {
     hot: true,
-    contentBase: `${__dirname}/`,
     publicPath: '/',
+    contentBase: path.join(__dirname, "prototype/assets"),
   },
 
   devtool: 'source-map',
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({ template: './prototype/index.html', filename: 'index.html' }),
-    new ExtractTextPlugin('style.css'),
+    new HtmlWebpackPlugin({ template: './prototype/index.html', filename: 'index.html' })
   ],
 };
