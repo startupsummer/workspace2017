@@ -20,10 +20,33 @@
     padding-bottom: 15px;
 
     &--home {
-      background-image: svg-load("mail.svg", fill: #fff);
+      background-image: svg-load("icon.svg", fill:  #909293);
       background-repeat: no-repeat;
       background-size: contain;
-      padding-left: 30px;
+      padding-left: 280px;
+      padding-right: 30px;
+    }
+
+    &--menu {
+      background-image: svg-load("menu.svg", fill:  #909293);
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding-left: 280px;
+      margin-right:100px;
+    }
+
+    &--user {
+      background-image: svg-load("man-user.svg", fill: #909293);
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding-left: 280px;
+    }
+
+    &--message {
+      background-image: svg-load("mail.svg", fill:  #909293);
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding-left: 280px;
     }
   }
 
@@ -32,8 +55,10 @@
     color: white;
   }
 
-  &__link:hover .mainNavbar__img {
-    /* fill: currentColor;*/
-    color: #e17b8d;
+  &__link:hover .mainNavbar__link--home {
+    background-image: svg-load("icon.svg", fill:  #fff);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 30px;
   }
 }
