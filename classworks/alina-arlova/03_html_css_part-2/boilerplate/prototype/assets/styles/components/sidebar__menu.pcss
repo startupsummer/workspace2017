@@ -1,0 +1,60 @@
+
+.menu__item {
+  line-height: 60px;
+}
+
+.menu__link {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #919ca1;
+  font-size: 16px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #000000;
+    color: #f1f3f3;
+  }
+
+  &:hover .menu__icon--mail {
+    background-image: svg-load("ic_mail_black_24px.svg", fill: #E27689);
+  }
+
+  &:hover .menu__icon--person {
+    background-image: svg-load("ic_person_black_24px.svg", fill: #E27689);
+  }
+
+  &:hover .menu__icon--home {
+    background-image: svg-load("ic_home_black_24px.svg", fill: #E27689);
+  }
+
+  &:hover .menu__icon--apps {
+    background-image: svg-load("ic_apps_black_24px.svg", fill: #E27689);
+  }
+}
+
+.menu__icon {
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+}
+
+.menu__icon--mail {
+  background-image: svg-load("ic_mail_black_24px.svg", fill: #919ca1);
+}
+
+.menu__icon--apps {
+  background-image: svg-load("ic_apps_black_24px.svg", fill: #919ca1);
+}
+
+.menu__icon--person {
+  background-image: svg-load("ic_person_black_24px.svg", fill: #919ca1);
+}
+
+.menu__icon--home {
+  background-image: svg-load("ic_home_black_24px.svg", fill: #919ca1);
+}
