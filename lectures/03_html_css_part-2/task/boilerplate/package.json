@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Startup Summer",
   "scripts": {
-    "start": "webpack-dev-server",
-    "precommit": "lint-staged"
+    "start": "webpack-dev-server"
   },
   "lint-staged": {
     "gitDir": "../../../../",

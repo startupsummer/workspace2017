@@ -1,5 +1,174 @@
-@import "./base/variables.pcss";
-@import "./base/mixins.pcss";
-@import "./base/scaffolding.pcss";
-@import "./components/content.pcss";
-@import "./components/intro.pcss";
+body {
+	font-family: "Montserrat", sans-serif;	
+}
+
+* {
+  margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	transition: all 0.15s ease-in;
+}
+
+.wrapper {
+	display: flex;
+}
+
+.aside {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	height: 100vh;
+	background-color: #212528; 		
+}
+
+.aside__header {
+	display: flex;
+	justify-content: space-between;
+	padding: 1.2em;
+}	
+
+
+.portfolio__name {
+	font-size: 1.5em;
+	color: #ffffff;
+}
+
+.portfolio__occupation {
+	color: #909293;	
+}	
+
+.portfolio {
+	text-align: right;
+}
+
+.aside__main {
+	display: flex;
+	flex-grow: 1;
+}
+
+.aside__nav {
+	width: 100%;	
+}
+
+.list {
+	list-style-type: none;	
+}
+
+.list__item {
+	padding: 1.2em;
+}
+
+.list__item:hover {
+	background-color: #1C2022;
+}
+
+.list__item:hover .list__glyph {
+	color: #E27689;
+}
+
+.list__item:hover .list__span {
+	color: #ffffff;
+}
+
+.list__anchor {
+	display: flex;
+	justify-content: space-between;
+	color: #909293;
+	text-decoration: none;
+}
+
+.list__glyph {
+	display: inline-block;
+	width: 1.5em;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.aside__social-media {
+	display: flex;
+}
+
+.social-list {
+	display: flex;
+	justify-content: center;
+	list-style-type: none;
+	width: 100%;
+}
+
+.social-list__anchor {
+	text-decoration: none;
+	padding: 0.4em;
+	font-size: 1.5em;
+	color: #909293;
+}
+
+.social-list__anchor:hover {
+	color: #E27689;
+}
+
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin-left: 300px;
+}
+
+.container__item {
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.container__item--intro {
+	display: flex;
+	flex-direction: column;
+	height: 80vh;
+	background: linear-gradient(to top right, #65444F, #9E978F);
+}
+
+.container__title {
+	font-weight: 300;
+	font-size: 2em;
+	text-align: center;
+	line-height: 1.7em;
+	color:#CFCDCB;
+}
+
+.container__header-span {
+	color: #E1E1DD;
+}
+
+.container__text {
+	margin: 2em;
+	text-align: center;
+	line-height: 1.5em;
+	color: #E1E1DD;	
+}
+
+.button {
+	display: block;
+	padding: 1.2em 2em;
+	border:none;
+	border-radius: 0.5em;
+	font-size: 1.2em;
+	color: #ffffff;
+	background-color: #8ebebc;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #9ececc;
+}
+
+.container__item--portfolio {
+	background-color: #f0f5f5;
+}
+
+
+
+
+
+
+

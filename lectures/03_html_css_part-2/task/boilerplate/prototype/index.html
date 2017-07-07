@@ -5,17 +5,144 @@
   <meta charset="utf-8">
   <title>Prologue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" 
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<script src="/bundle.js"></script>
 </head>
 
 <body>
-  <main class="content content--bg">
-    <section class="intro">
-      <div class="intro__header">
-        <h1 class="intro__title">What will you build today?</h1>
-        <h2 class="intro__subtitle intro__subtitle--heart">Let's get started</h2>
-      </div>
-    </section>
-  </main>
+	<div class="wrapper">
+		<aside class="aside">
+			<div class="aside__header">
+				<img class="aside__image" src="http://via.placeholder.com/50x50" alt="avatar">
+				<div class="aside__image portfolio">
+					<p class="portfolio__name">Jane Doe</p>
+					<p class="portfolio__occupation">Hyperspace Engineer</p>
+				</div>
+			</div>
+			<div class="aside__main">
+				<nav class="aside__nav">
+          <ul class="list">
+            <li class="list__item">
+              <a class="list__anchor" href="#intro">
+                <i class="fa fa-home list__glyph" aria-hidden="true"></i>
+                <span class="list__span">Intro</span> 
+              </a>
+            </li>
+            <li class="list__item">
+              <a class="list__anchor" href="#portfolio">
+                <i class="fa fa-th list__glyph" aria-hidden="true"></i>
+                <span class="list__span">Portfolio</span>
+              </a>
+            </li>
+            <li class="list__item">
+              <a class="list__anchor" href="#about-me">
+                <i class="fa fa-user list__glyph" aria-hidden="true"></i>
+                <span class="list__span">About me</span>
+              </a>
+            </li>
+            <li class="list__item">
+              <a class="list__anchor" href="#contact">
+                <i class="fa fa-envelope list__glyph" aria-hidden="true"></i>
+                <span class="list__span">Contact</span>
+              </a>
+            </li>
+          </ul>	
+				</nav>
+			</div>
+			<div class="aside__social-media">
+				<ul class="social-list">
+					<li class="social-list__item">
+            <a class="social-list__anchor" href="#intro">
+              <i class="fa fa-twitter social-list__glyph" aria-hidden="true"></i>
+            </a>
+          </li>
+					<li class="social-list__item">
+            <a class="social-list__anchor" href="#intro">
+              <i class="fa fa-facebook social-list__glyph" aria-hidden="true"></i>
+            </a>
+          </li>
+					<li class="social-list__item">
+            <a class="social-list__anchor" href="#intro">
+              <i class="fa fa-github-square social-list__glyph" aria-hidden="true"></i>
+            </a>
+          </li>
+					<li class="social-list__item">
+            <a class="social-list__anchor" href="#intro">
+              <i class="fa fa-dribbble social-list__glyph" aria-hidden="true"></i>
+            </a>
+          </li>
+					<li class="social-list__item">
+            <a class="social-list__anchor" href="#intro">
+              <i class="fa fa-envelope social-list__glyph" aria-hidden="true"></i>
+            </a>
+          </li>
+				</ul>
+			</div>
+		</aside>
+		<div class="container">
+			<section class="container__item container__item--intro" id="intro">
+        <h1 class="container__title">
+          Hi! I'm <span class="container__header-span">Prologue</span>, a free responsive<br>
+          site template designed by <span class="container__header-span">HTML5 UP.</span>
+        </h1>
+        <p class="container__text">
+          Justo eget accumsan phasellus ac,<br>
+          vestibulum egestas ac pellentesque praesent convallis.
+        </p>
+        <button class="container__button button" type="button">Magna Aliquam</button>
+			</section>
+			<section class="container__item container__item--portfolio" id="portfolio">
+				<h2 class="container__title">Portfolio</h2>
+				<p class="container__text">
+          Bibendum quis tellus ut amet nonummy eget, 
+          aliquam et adipiscing donec, id risus. 
+          Ipsum est donec sem, amet justo leo. 
+          Lectus tellus nibh, dictum magna mauris, 
+          mollis pellentesque dignissim, pede conubia dictum 
+          tincidunt.
+        </p>
+				<div class="container__gallery grid-gallery">
+					<figure class="grid-gallery__figure figure-column"  >
+						<img class="figure-column__image" src="http://via.placeholder.com/450x350" alt="pick01">
+						<figcaption class="figure-column__figcaption">Dolor Penatibus</figcaption>
+					</figure>
+					<figure class="grid-gallery__figure figure-column">
+						<img class="figure-column__image" src="http://via.placeholder.com/450x350" alt="pick04">
+						<figcaption class="figure-column__figcaption">Ipsum Neipsum</figcaption>
+					</figure>
+					<figure class="grid-gallery__figure figure-column">
+						<img class="figure-column__image" src="http://via.placeholder.com/450x550" alt="pick03">
+						<figcaption class="figure-column__figcaption">Neipsum Ipsum</figcaption>
+					</figure>
+					<figure class="grid-gallery__figure figure-column">
+						<img class="figure-column__image" src="http://via.placeholder.com/450x350" alt="pick05">
+						<figcaption class="figure-column__figcaption">Dolor Penatibus</figcaption>
+					</figure>
+					<figure class="grid-gallery__figure figure-column">
+						<img class="figure-column__image" src="http://via.placeholder.com/450x350" alt="pick02">
+						<figcaption class="figure-column__figcaption">Ipsum Neipsum</figcaption>
+					</figure>					
+				</div>
+			</section>
+			<section class="container__item" id="contact">
+				<h2 class="container__title">Contact</h2>
+				<p class="container__text">Bibendum quis tellus ut amet nonummy eget, 
+				aliquam et adipiscing donec, id risus. 
+				Ipsum est donec sem, amet justo leo. 
+				Lectus tellus nibh, dictum magna mauris, 
+				mollis pellentesque dignissim, pede conubia dictum 
+				tincidunt.</p>
+				<form class="container__form form">
+					<input class="form__item input-field" type="text" placeholder="Name">
+					<input class="form__item input-field" type="email" placeholder="Email">
+					<textarea class="form__item input-field" placeholder="Message"></textarea>
+				</form>
+				<button class="container-button button" type="button">Send Message</button>
+			</section>
+		</div>	
+	</div>
 </body>
 
 </html>
