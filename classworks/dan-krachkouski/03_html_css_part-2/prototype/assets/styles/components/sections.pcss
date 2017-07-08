@@ -1,0 +1,27 @@
+.sidebar {
+    position: fixed;
+
+    width: 320px;
+    height: 100vh;
+
+    background: rgb(32, 36, 39);
+
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+
+    transition: var(--transition);
+    transition-property: transform;
+}
+
+.portfolio {
+    min-height: 100vh;
+    background: rgb(244, 249, 249);
+}

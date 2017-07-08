@@ -19,9 +19,15 @@ body {
   font-size: var(--fontSize);
   font-weight: 400;
   line-height: var(--lineHeight);
+  overflow-x: hidden;
 }
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+.centered {
+    display: flex;
+    @mixin flex-center-all;
 }

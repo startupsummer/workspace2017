@@ -1,0 +1,42 @@
+.toggle {
+    appearance: none;
+
+    position: fixed;
+    z-index: 10;
+
+
+    &:hover::after {
+        @mixin elevation 8;
+    }
+}
+
+.toggle:checked::after {
+    transform: translateX(320px) rotate(0deg);
+    background-image: svg-load("ic_arrow_back_black_24px.svg", fill: rgb(255, 255, 255));
+}
+
+.toggle:checked + .content {
+    transform: translateX(320px);
+}
+
+.toggle::after {
+    content: "";
+    display: block;
+
+    background: rgb(32, 36, 39);
+    background-image: svg-load("ic_menu_black_24px.svg", fill: rgb(255, 255, 255));
+
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 36px 36px;
+
+    border-radius: 50%;
+    margin: 16px;
+
+    width: 56px;
+    height: 56px;
+
+    @mixin elevation 1;
+
+    transition: var(--transition);
+}
