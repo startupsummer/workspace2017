@@ -8,6 +8,7 @@ module.exports = {
     require('postcss-nested'),
     require('postcss-mixins'),
     require('postcss-simple-vars'),
+    require('postcss-math'),
     require('postcss-custom-media'),
     require('postcss-inline-svg')({
       path: svgPath
