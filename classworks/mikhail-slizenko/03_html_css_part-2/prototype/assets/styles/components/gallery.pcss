@@ -1,6 +1,9 @@
 .gallery__item {
-        padding-bottom: 30px;
+
+    & + .gallery__item {
+        margin-top: 30px;
     }
+}
 
 @media (--desktop-viewport) {
     .gallery {
@@ -10,6 +13,5 @@
 
     .gallery__item {
         break-inside: avoid;
-        padding-bottom: 30px;
     }
 }

@@ -5,22 +5,20 @@
     border-radius: 10px;
     padding: 15px 40px;
     color: #fff;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
     border: none;
     font-family: inherit;
     text-decoration: none;
-    margin: 0 auto;
+    font-weight: 200;
 }
 
 @media (--desktop-viewport) {
     .btn {
         font-size: 22px;
         padding: 25px 60px;
-        transition: box-shadow .2s ease-in-out;
-        margin: 0;
+        transition: background-color .2s ease-in-out;
 
         &:hover {
-            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+            background-color: #89bab7;
         }
     }
 }

@@ -1,10 +1,16 @@
 .link {
     color: #fff;
     text-decoration: none;
-    border-bottom: 1px dotted currentColor;
-    transition: color .2s ease;
+    border-bottom: 2px dotted currentColor;
+    cursor: pointer;
+}
 
-    &:hover {
-        color: #DD7084;
-    }
+@media (--desktop-viewport) {
+    .link {
+        transition: border .2s ease;
+
+        &:hover {
+            border-bottom: 2px dotted rgba(255, 255, 255, 0);
+        }
+    }   
 }

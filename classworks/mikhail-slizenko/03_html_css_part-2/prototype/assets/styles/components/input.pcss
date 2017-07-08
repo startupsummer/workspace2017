@@ -1,0 +1,41 @@
+.input {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 16px;
+
+    &--textarea {
+        min-height: 150px;
+    }
+}
+
+@media (--before-desktop-viewport) {
+    .input +  .input {
+        margin-top: 20px;
+    }
+}
+
+@media (--desktop-viewport) {
+    .input {
+        transition: box-shadow .3s ease;
+
+        &:focus {
+            box-shadow: 0 0 3px 0 #89bab7
+        }
+
+        &--fullwidth {
+            width: 100%;
+        }
+
+        &--semiwidth {
+            width: 49%;
+        }
+
+        &--textarea {
+            min-height: 450px;
+        }
+    }
+}
