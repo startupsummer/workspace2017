@@ -6,7 +6,6 @@ Getting Started
 - Copy and setup project from folder `boilerplate`
 - Install dependencies: `npm i`
 - Run `npm start` to preview and watch for changes
-- Run `npm run build` to build for production (see "public" folder)
 
 Mandatory task:
 
