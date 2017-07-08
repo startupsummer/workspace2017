@@ -1,0 +1,30 @@
+.form{ 
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+
+    &__item{
+        padding: 20px;
+
+        &--username{
+            width:50%;
+        }
+        &--email{
+            width:50%
+        }
+        &--message{
+            width:100%;
+        }
+    }
+    &__input{
+        width: 100%;
+        padding: 15px;
+        border-radius: 5px;
+        border-width: 1px;
+
+        &--message{
+            height: 300px;   
+        }
+    } 
+}
