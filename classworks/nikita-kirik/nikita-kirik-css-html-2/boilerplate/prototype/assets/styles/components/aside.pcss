@@ -1,5 +1,8 @@
 .aside {
 	position: fixed;
+	display: flex;
+	flex-direction: column;
+
 	background-color: #141111;
 	width: 250px;
 	height: 100vh;
@@ -8,14 +11,17 @@
 	overflow: auto;
 	color: #C4C4C4;
 
-	&__header {
-		padding: 20px;
+	&__nav {
 	}
 
 	&__footer {
-		margin-top: -25px; 
+		display: flex;
+		justify-content: center;
+		padding: 12px 0;
+		margin-top: auto;
 		font-size: 1.6rem;
 		text-align: center;
+
 	}
 
 

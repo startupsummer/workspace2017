@@ -1,0 +1,45 @@
+.nav-list {
+
+	&__ref {
+
+		display: flex;
+		justify-content: space-between;
+		height: 100%;
+		padding: 20px 20px;
+		font-size: 2rem;
+
+		&::before {
+			float: left;
+			display: block;
+		}
+
+		&:hover {
+			&::before {
+				color: #C8738C;
+			}
+
+			background-color: #2C2E30;
+			color: white;
+
+		}
+
+		&--home:before {
+			content: "\f015";
+		}
+
+		&--portf:before {
+			content: "\f015";
+		}
+
+		&--about:before {
+			content: "\f015";
+		}
+
+		&--contact:before {
+			content: "\f015";
+		}
+
+
+	}
+
+}
