@@ -5,13 +5,20 @@
     }
 }
 
-@media (--desktop-viewport) {
+@media (--medium-viewport) {
     .gallery {
-        column-width: 24vw;
+        column-count: 2;
         column-gap: 30px;
     }
 
     .gallery__item {
         break-inside: avoid;
+    }
+}
+
+@media (--desktop-viewport) {
+    .gallery {
+        column-count: auto;
+        column-width: 420px;
     }
 }

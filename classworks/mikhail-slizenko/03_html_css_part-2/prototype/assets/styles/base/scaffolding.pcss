@@ -25,18 +25,20 @@ img {
   font-size: var(--fontSize);
   font-weight: 400;
   line-height: var(--lineHeight);
+
   display: flex;
+  position: relative;
+  transition: transform .3s ease-in;
 
   &--open {
+    transform: translateX(300px);
     overflow: hidden;
   } 
 }
 
 .content {
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
-
-  &--open {
-    transform: translateX(300px);
-  }
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .8);
+  z-index: 1;
 }

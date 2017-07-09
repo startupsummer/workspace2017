@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url(https://s-media-cache-ak0.pinimg.com/originals/be/33/5e/be335e4b65175e79dba2d77eebed8b8b.jpg) no-repeat;
+    background: url(../images/banner.jpg) no-repeat;
     background-size: cover;
 }
 
@@ -24,9 +24,25 @@
     font-weight: 200;
 }
 
+@media (--medium-viewport) {
+    .intro {
+        padding: 90px 0;
+    }
+
+    .intro__title {
+        font-size: 36px;
+        max-width: 80%;
+    }
+
+    .intro__subtitle {
+        font-size: 20px;
+        max-width: 70%;
+    }
+}
+
 @media (--desktop-viewport) {
     .intro {
-        padding: 150px 40px;
+        padding: 120px 40px;
     }
 
     .intro__title {
@@ -37,6 +53,5 @@
     .intro__subtitle {
         font-size: 22px;
         max-width: 600px;
-        line-height: 2;
     }
 }

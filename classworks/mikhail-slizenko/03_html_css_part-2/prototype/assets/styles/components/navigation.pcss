@@ -1,20 +1,11 @@
 .navigation__link {
     display: block;
-    padding: 25px 40px;
+    padding: 15px 30px;
     text-align: right;
     color: #aaa;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: none;
-    transition: color .3s ease;
     position: relative;
-
-    &:hover {
-        color: #fff;
-    }
-
-    &:hover:before {
-        opacity: .8;
-    }
 
     &--active {
         color: #fff;
@@ -30,7 +21,6 @@
         width: 24px;
         height: 24px;
         background-size: contain;
-        transition: opacity .3s ease;
         opacity: .3;
     }
 
@@ -48,5 +38,25 @@
 
     &--contact:before {
         background-image: svg-load('../svg/mail.svg', fill=#fff);
+    }
+}
+
+@media (--desktop-viewport) {
+    .navigation__link {
+        padding: 25px 40px;
+        transition: color .3s ease;
+        font-size: 18px;
+
+        &:hover {
+            color: #fff;
+        }
+
+        &:hover:before {
+            opacity: .8;
+        }
+
+        &:before {
+            transition: opacity .3s ease;
+        }
     }
 }

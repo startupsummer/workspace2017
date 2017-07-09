@@ -5,44 +5,36 @@
   <meta charset="utf-8">
   <title>Prologue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/bundle.js"></script>
 </head>
 
 <body class="body">
 
   <section class="sidebar">
     <button class="sidebar__btn"></button>
+
     <div class="sidebar__header sidebar-header">
-      <img src="https://pbs.twimg.com/profile_images/540223285221277696/Xlk9rNfl.jpeg" alt="" class="sidebar-header__photo" width="48px" height="48px">
-      <div class="sidebar-header__inner">
+      <img src="/images/avatar.jpg" alt="" class="sidebar-header__photo" width="48px" height="48px">
+      <div class="sidebar-header__text">
         <p class="sidebar-header__fullname">Jane Doe</p>
         <p class="sidebar-header__position">Hyperspace Engineer</p>
       </div>
     </div>
 
-    <nav class=" sidebar__main navigation">
-      <a href="#" class="navigation__link navigation__link--active navigation__link--intro">Intro</a>
-      <a href="#" class="navigation__link navigation__link--portfolio">Portfolio</a>
+    <nav class="sidebar__main navigation">
+      <a href="#intro" class="navigation__link navigation__link--active navigation__link--intro">Intro</a>
+      <a href="#portfolio" class="navigation__link navigation__link--portfolio">Portfolio</a>
       <a href="#" class="navigation__link navigation__link--about">About Me</a>
-      <a href="#" class="navigation__link navigation__link--contact">Contact</a>
+      <a href="#contact" class="navigation__link navigation__link--contact">Contact</a>
     </nav>
 
-    <ul class="sidebar__footer social">
-      <li class="social__item">
-        <a href="#" class="social__link social__link--tw"></a>
-      </li>
-      <li class="social__item">
-        <a href="#" class="social__link social__link--fb"></a>
-      </li>
-      <li class="social__item">
-        <a href="#" class="social__link social__link--git"></a>
-      </li>
-      <li class="social__item">
-        <a href="#" class="social__link social__link--drib"></a>
-      </li>
-      <li class="social__item">
-        <a href="#" class="social__link social__link--mail"></a>
-      </li>
-    </ul>
+    <div class="sidebar__footer social">
+      <a href="#" class="social__link social__link--tw"></a>
+      <a href="#" class="social__link social__link--fb"></a>
+      <a href="#" class="social__link social__link--git"></a>
+      <a href="#" class="social__link social__link--drib"></a>
+      <a href="#" class="social__link social__link--mail"></a>
+    </div>
   </section>
 
   <main class="content">
@@ -57,45 +49,46 @@
       <p class="page__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sit asperiores id ea itaque, optio nobis expedita rerum recusandae earum. Laudantium illum quia reprehenderit doloremque, magni eaque? Iure laborum deserunt in vitae, quibusdam. Ratione, eius. Perspiciatis aliquid vero quo libero ratione sint, aperiam, laboriosam.</p>
 
       <div class="page__inner">
+
         <section class="gallery">
           <div class="gallery__item">
             <figure class="gallery-card">
-              <img src="https://wallpaperscraft.com/image/blur_background_pink_orange_light_73376_602x339.jpg" alt="" class="gallery-card__img">
+              <img src="/images/pic02.jpg" alt="" class="gallery-card__img">
               <figcaption class="gallery-card__title">Lorem Ipsum</figcaption>
             </figure>
           </div>
 
           <div class="gallery__item">
             <figure class="gallery-card">
-              <img src="https://addons.opera.com/media/CACHE/images/themes/75/22575/1.0-rev1/images/15646cb7-3b78-4fa8-a23b-1183573d2880/940a5d9b48fc8cad192d94b91964015c.jpg" alt="" class="gallery-card__img">
+              <img src="/images/pic03.jpg" alt="" class="gallery-card__img">
               <figcaption class="gallery-card__title">Lorem Ipsum</figcaption>
             </figure>
           </div>
 
           <div class="gallery__item">
             <figure class="gallery-card">
-              <img src="https://image.freepik.com/free-vector/blurred-background-design_1107-224.jpg" alt="" class="gallery-card__img">
+              <img src="/images/pic04.jpg" alt="" class="gallery-card__img">
               <figcaption class="gallery-card__title">Lorem Ipsum</figcaption>
             </figure>
           </div>
 
           <div class="gallery__item">
             <figure class="gallery-card">
-              <img src="http://www.texturepalace.com/wp-content/uploads/blur-texture-for-badges-12.jpg" alt="" class="gallery-card__img">
+              <img src="/images/pic05.jpg" alt="" class="gallery-card__img">
               <figcaption class="gallery-card__title">Lorem Ipsum</figcaption>
             </figure>
           </div>
 
           <div class="gallery__item">
             <figure class="gallery-card">
-              <img src="http://acodez.in/blog/wp-content/uploads/2015/09/blurred-background-image-for-web-design.jpg" alt="" class="gallery-card__img">
+              <img src="/images/pic06.jpg" alt="" class="gallery-card__img">
               <figcaption class="gallery-card__title">Lorem Ipsum</figcaption>
             </figure>
           </div>
 
           <div class="gallery__item">
             <figure class="gallery-card">
-              <img src="http://images.wookmark.com/174206_gaussian-blur-gradient-2560x1600-wallpaper_wallpapermi.com_94.jpg" alt="" class="gallery-card__img">
+              <img src="/images/pic07.jpg" alt="" class="gallery-card__img">
               <figcaption class="gallery-card__title">Lorem Ipsum</figcaption>
             </figure>
           </div>
@@ -113,7 +106,7 @@
           <input type="email" class="input input--semiwidth" name="email" placeholder="Email">
         </div>
         <div class="form__inner">
-          <textarea name="message" class="input input--fullwidth input--textarea" placeholder="Message"></textarea>
+          <textarea name="message" class="input input--textarea" placeholder="Message"></textarea>
         </div>
         <div class="form__inner">
           <input type="submit" class="form__btn btn" value="Send Message">

@@ -1,8 +1,6 @@
 .page {
     padding: 40px 20px 0;
     background-color: #EDF2F2;
-    display: flex;
-    flex-direction: column;
 
     &:last-child {
         padding-bottom: 40px;
@@ -11,7 +9,7 @@
 
 .page__title {
     font-size: 28px;
-    margin: 0 0 1em;
+    margin-bottom: 1em;
     color: #777;
     text-align: center;
     font-weight: 300;
@@ -30,9 +28,15 @@
     width: 100%;
 }
 
+@media (--medium-viewport) {
+    .page {
+        padding: 60px 40px;
+    }
+}
+
 @media (--desktop-viewport) {
     .page {
-        padding: 70px 50px;
+        padding: 50px;
     }
 
     .page__title {

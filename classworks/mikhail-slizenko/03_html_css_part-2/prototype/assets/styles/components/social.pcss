@@ -1,6 +1,4 @@
 .social {
-    list-style: none;
-    margin: 0;
     display: flex;
     justify-content: space-between;
 }
@@ -9,15 +7,8 @@
     display: block;
     width: 28px;
     height: 28px;
-    background-size: 18px 18px;
-    background-position: 50%;
-    background-repeat: no-repeat;
+    background: 50% / 18px 18px no-repeat;
     opacity: .3;
-    transition: opacity .3s ease;
-
-    &:hover {
-        opacity: .8;
-    }
 
     &--tw {
         background-image: svg-load('../svg/twitter.svg', fill=#fff);
@@ -37,5 +28,15 @@
 
     &--mail {
         background-image: svg-load('../svg/mail.svg', fill=#fff);
+    }
+}
+
+@media (--desktop-viewport) {
+    .social__link {
+        transition: opacity .3s ease;
+
+        &:hover {
+            opacity: .8;
+        }
     }
 }
