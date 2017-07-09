@@ -2,6 +2,15 @@
     --spacing: 32px;
 
     padding: calc(var(--spacing) / 2);
+
+    margin: 0 auto;
+    max-width: 600px;
+
+    @media (--desktop-viewport) {
+        display: flex;
+        max-width: 1600px;
+        --spacing: 48px;
+    }
 }
 
 .grid__structure {

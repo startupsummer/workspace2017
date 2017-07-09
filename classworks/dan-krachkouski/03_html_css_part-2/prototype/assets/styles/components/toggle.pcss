@@ -8,15 +8,19 @@
     &:hover::after {
         @mixin elevation 8;
     }
+
+    @media (--desktop-viewport) {
+        display: none;
+    }
 }
 
 .toggle:checked::after {
-    transform: translateX(320px) rotate(0deg);
+    transform: translateX(288px) rotate(0deg);
     background-image: svg-load("ic_arrow_back_black_24px.svg", fill: rgb(255, 255, 255));
 }
 
 .toggle:checked + .content {
-    transform: translateX(320px);
+    transform: translateX(288px);
 }
 
 .toggle::after {
