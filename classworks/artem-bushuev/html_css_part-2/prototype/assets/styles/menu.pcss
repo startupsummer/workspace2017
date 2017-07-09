@@ -1,0 +1,31 @@
+.menu{
+    z-index: 1;
+}
+@media(min-width: 960px){
+    .menu__img{
+        display: none;
+    }
+}
+@media(max-width: 959px){    
+    .menu{
+        position: fixed;
+        opacity: 0.2;
+    }
+
+    .menu:hover >img {
+        margin-left: 20vw;
+    }
+    .menu:hover > div{
+        margin-top: -8vw;
+        position: fixed;
+        display: block;
+    }
+    .menu:hover{
+        opacity: 0.99;
+    }
+    .menu__img{
+        margin: 1vw;
+        height: 5vw;
+        width: 5vw;
+    }
+}
