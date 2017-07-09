@@ -1,25 +1,30 @@
 .main-part {
   position: relative;
-  height: 100vh;
-  margin-left: 350px;
   background-image: url(/images/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 80%;
+
+  @media (--desktop-viewport) {
+      margin-left: 300px;
+  }
 }
 
 .main-part__content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40%;
+  width: 65%;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .main-part__title-1 {
   text-align: center;
-  font-size: 32px;
+  font-size: 36px;
   color: #cfcfcf;
   font-weight: lighter;
 }

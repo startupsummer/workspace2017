@@ -1,13 +1,31 @@
 * {
   margin: 0;
   padding: 0;
+
+  @media (--before-desktop-viewport) {
+    .sidebar {
+      display: none;
+    }
+  }
+
+  @media (--desktop-viewport) {
+    .hidden-menu {
+      display: none;
+    }
+  }
+}
+
+.visible-sidebar {
+  .sidebar {
+    backface-visibility: visible;
+  }
 }
 
 .sidebar {
-  width: 350px;
-  height: 100%;
-  position: fixed;
-  background-color: #262626;
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    background-color: #262626;
 }
 
 .sidebar__header {

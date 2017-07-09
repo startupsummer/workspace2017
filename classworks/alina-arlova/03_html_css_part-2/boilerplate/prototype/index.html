@@ -7,6 +7,11 @@
 
 <body>
 
+  <a name="Sidebar"></a>
+  <div class="visible-sidebar">
+       
+  </div>
+
   <aside class="sidebar">
 
     <header class="sidebar__header">
@@ -33,7 +38,7 @@
         </li>
 
         <li class="menu__item">
-          <a class="menu__link" href="">
+          <a class="menu__link" href="#About-me">
             <div class="menu__icon menu__icon--person"></div>
             <p class="menu__text">About Me</p>
           </a>
@@ -77,6 +82,7 @@
       <h2 class="main-part__title-2">Ligula scelerrisque justo sem accumsan diam quis vitae natoque dictum sollicitudin elementum.</h2>
       <button class="main-part__button">Magna Aliquam</button>
     </div>
+
   </div>
 
   <a name="Portfolio"></a>
@@ -87,38 +93,53 @@
           quis risus amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etaim vivamus eget.
           Nunc nibh morbi quis fusce hendrerit lacus ridiculus.</h2>
     </hgroup>
+
     <div class="portfolio__images">
       <div class="images">
         <div class="images__item">
-          <img src="images/pic02.jpg" />
+          <img class="images__image" src="images/pic02.jpg"/>
           <p class="images__text">Ipsum Feugiat</p>
         </div>
 
         <div class="images__item">
-          <img src="images/pic03.jpg" />
+          <img class="images__image" src="images/pic03.jpg" />
           <p class="images__text">Vitae natoque</p>
         </div>
       </div>
 
       <div class="images">
         <div class="images__item">
-          <img src="images/pic04.jpg" />
+          <img class="images__image" src="images/pic04.jpg" />
           <p class="images__text">Magna Nullam</p>
         </div>
       </div>
 
       <div class="images">
         <div class="images__item">
-          <img src="images/pic06.jpg" />
+          <img class="images__image" src="images/pic06.jpg" />
           <p class="images__text">Dolor Penatibus</p>
         </div>
 
         <div class="images__item">
-          <img src="images/pic05.jpg" />
+          <img class="images__image" src="images/pic07.jpg" />
           <p class="images__text">Tellus erat</p>
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <a name="About-me"></a>
+  <div class="about">
+    <div class="about__content">
+      <h1 class="about__title">About me</h1>
+      <img class="about__image"src="images/pic08 .jpg"/>
+      <h2 class="about__text">Tincidunt eu elit diam magnis pretium accumsan etiam id urna.
+        Ridiculus ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec
+        vitae laoreet eget cubilia quam non etiam odio tincidunt montes.
+        Elementum sem parturient nulla quam placerat viverra mauris non cum elit tempus
+        ullamcorper dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec ornare iaculis.
+      </h2>
     </div>
   </div>
 
@@ -142,6 +163,12 @@
         <input class="form__submit" type="submit" value="Send Message" />
       </div>
     </form>
+  </div>
+
+  <div class="hidden-menu">
+    <a class="hidden-menu__link" href="#Sidebar">
+      <div class="hidden-menu__icon"></div>
+    </a>
   </div>
 
 </body>

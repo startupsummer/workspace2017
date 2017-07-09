@@ -1,15 +1,17 @@
 .contact {
   position: relative;
-  height: 100vh;
-  margin-left: 350px;
   background-color: #e4e9e8;
+
+  @media (--desktop-viewport) {
+      margin-left: 300px;
+  }
 }
 
 .contact__title-1 {
   padding-top: 50px;
   text-align: center;
   font-weight: lighter;
-  font-size: 24px;
+  font-size: 32px;
   color: #666666;
 }
 
@@ -31,14 +33,23 @@
 
 .form__input {
   margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
+
+  @media (--desktop-viewport) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .form__name,
 .form__email {
   line-height: 55px;
-  width: 47%;
+  width: 100%;
+  margin-bottom: 25px;
+
+  @media (--desktop-viewport) {
+    width: 47%;
+  }
+
   padding-left: 10px;
   font-size: 18px;
   border: 1px solid #d0c8cb;
@@ -48,7 +59,6 @@
 .form__message {
   height: 300px;
   width: 100%;
-  margin-top: 40px;
   padding-top: 10px;
   padding-left: 10px;
   font-size: 18px;

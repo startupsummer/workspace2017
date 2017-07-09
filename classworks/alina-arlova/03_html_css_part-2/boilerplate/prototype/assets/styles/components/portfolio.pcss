@@ -1,15 +1,17 @@
 .portfolio {
   position: relative;
-  height: 100vh;
-  margin-left: 350px;
   background-color: #f0f5f5;
+
+  @media (--desktop-viewport) {
+      margin-left: 300px;
+  }
 }
 
 .portfolio_title-1 {
   padding-top: 50px;
   text-align: center;
   font-weight: lighter;
-  font-size: 24px;
+  font-size: 32px;
   color: #666666;
 }
 
@@ -25,8 +27,27 @@
 }
 
 .portfolio__images {
-  display: flex;
-  justify-content: space-around;
+
+  @media (--desktop-viewport) {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  padding-bottom: 20px;
+}
+
+.images {
+
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @media (--desktop-viewport) {
+    width: 30%;
+  }
+}
+
+.images__image {
+  width: 100%;
 }
 
 .images__item {
