@@ -1,0 +1,19 @@
+.body {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+
+  &__main {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__footer {
+    border-top: 1px solid #000000;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+  }
+}
