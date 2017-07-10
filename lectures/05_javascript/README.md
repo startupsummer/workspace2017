@@ -26,6 +26,6 @@
 - [devdocs.io](http://devdocs.io/)
 
 #### Books
-- [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
-- [Eloquent JavaScript](http://eloquentjavascript.net/)
 - [JavaScript: The Good Parts](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
+- [Eloquent JavaScript](http://eloquentjavascript.net/)
+- [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
