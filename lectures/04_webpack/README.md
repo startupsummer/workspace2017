@@ -2,7 +2,7 @@
 
 Задачей лекции является изучение сборщика контента webpack.
 
-### Learning objectives
+**[Презентация](https://docs.google.com/presentation/d/1iDzyMejxiyJ6VbP7MdhqAo3Z71a1z8K6GMFJEpPjKDA/edit?usp=sharing)**
 
 1. Прямое подключение стилей и скриптов на HTML странице
 2. Grunt/Gulp
