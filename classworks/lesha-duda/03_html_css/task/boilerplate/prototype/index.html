@@ -5,88 +5,141 @@
     <title>Prologue</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://use.fontawesome.com/bce1ba1fc1.js"></script>
+    <link href="//cdn.muicss.com/mui-0.9.17/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
   </head>
 
   <body>
     <div class="page">
 
-      <div class="menu">
-        <div class="menu-info">
-          <img src="" alt="Smiley face" height="42" width="42">
-          <div class="menu-info-text">
-            <div class="menu-info-text__large">
-              Jone Doe
-            </div>
-            <div class="menu-info-text__medium">
-              Hyperspace Engineer
-            </div>
+      <div class="sidedrawer">
+
+        <div class="sidedrawer-brand">
+          <div class="sidedrawer-brand__name">
+            <span>Jane Doe</span>
+          </div>
+          <div class="sidedrawer-brand__position">
+            <span>Hyperspace engineer</span>
           </div>
         </div>
 
-        <nav class="menu">
-          <ul>
-            <li class="menu-item">
-              <a href="" class="menu-item__link">
-                <i class="fa fa-home" aria-hidden="true"></i>
+        <ul class="">
+          <li class="menu-item">
+            <a href="#" class="menu-item__link">
+              <div class="left">
+                <i class="fa fa-home menu-item-icon" aria-hidden="true"></i>
+              </div>
+              <div class="right">
                 Intro
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="" class="menu-item__link">
-                <i class="fa fa-th" aria-hidden="true"></i>
+              </div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-item__link">
+              <div class="left">
+                <i class="fa fa-th menu-item-icon" aria-hidden="true"></i>
+              </div>
+              <div>
                 Portfolio
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="" class="menu-item__link">
-                <i class="fa fa-user-o" aria-hidden="true"></i>
+              </div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-item__link">
+              <div class="left">
+                <i class="fa fa-user-o menu-item-icon" aria-hidden="true"></i>
+              </div>
+              <div>
                 About me
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="" class="menu-item__link">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-item__link">
+              <div class="left">
+                <i class="fa fa-envelope menu-item-icon" aria-hidden="true"></i>
+              </div>
+              <div>
                 Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
+              </div>
+            </a>
+          </li>
+        </ul>
 
-        <!-- <footer>
-          <div class="social">
+        <footer>
+          <div class="footer">
             <ul>
-              <li class="social-item">
-                <a href="" class="social-item__link">
-                  <i class="fa fa-twitter"  aria-hidden="true"></i>
+              <li class="menu-footer">
+                <a href="" class="footer-link">
+                  <i class="fa fa-twitter menu-item-icon"  aria-hidden="true"></i>
                 </a>
               </li>
-              <li class="social-item">
-                <a href="" class="social-item__link">
+              <li class="menu-footer">
+                <a href="" class="footer-link">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
               </li>
-              <li class="social-item">
-                <a href="" class="social-item__link">
+              <li class="menu-footer">
+                <a href="" class="footer-link">
                   <i class="fa fa-github" aria-hidden="true"></i>
                 </a>
               </li>
-              <li class="social-item">
-                <a href="" class="social-item__link">
+              <li class="menu-footer">
+                <a href="" class="footer-link">
                   <i class="fa fa-skype" aria-hidden="true"></i>
                 </a>
               </li>
-              <li class="social-item">
-                <a href="" class="social-item__link">
+              <li class="menu-footer">
+                <a href="" class="footer-link">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
                 </a>
               </li>
             </ul>
           </div>
-        </footer> -->
+        </footer>
 
       </div>
+    <header class="header">
+      <div>
+        <a class="sidedrawer-toggle js-hide-sidedrawer sidedrawer__size">☰</a>
+      </div>
+    </header>
+
+    <script>
+      jQuery(function($) {
+        var $bodyEl = $('body'),
+        $sidedrawerEl = $('.sidedrawer');
+
+        function showSidedrawer() {
+
+        var options = {
+          onclose: function() {
+            $sidedrawerEl
+              .removeClass('active')
+              .appendTo(document.body);
+          }
+        };
+
+        var $overlayEl = $(mui.overlay('on', options));
+
+        $sidedrawerEl.appendTo($overlayEl);
+        setTimeout(function() {
+          $sidedrawerEl.addClass('active');
+        }, 20);
+        }
+
+        function hideSidedrawer() {
+        $bodyEl.toggleClass('hide-sidedrawer');
+        }
+
+        $('.js-show-sidedrawer').on('click', showSidedrawer);
+        $('.js-hide-sidedrawer').on('click', hideSidedrawer);
+        });
+
+    </script>
 
       <div class="components">
+
         <div class="intro">
           <div class="intro-main">
             <div class="intro-main__text">
@@ -99,8 +152,8 @@
                 Lorem ipsum dolor sit amet, adipisicing elit.
               </p>
             </div>
-            <div>
-              <input type="button" class="intro-main__button" value="Magna Aliquam" onClick="">
+            <div class="intro-main__button">
+              <input type="button" class="button" value="Magna Aliquam" onClick="">
             </div>
           </div>
         </div>
@@ -182,16 +235,16 @@
 
           <div class="contact__form">
             <form>
-              <div class="form__text">
-                <input type="text" id="fname" placeholder="Email">
+              <div class="form--inputs">
+                  <input class="form--inputs__text" type="text" id="fname" placeholder="Email">
+                  <input class="form--inputs__text" type="text" id="fname" placeholder="Name">
               </div>
-              <div class="form__text">
-                <input type="text" id="fname" placeholder="Name">
+              <div>
+                <textarea  class="form__textarea"   name="field3" placeholder="Message"></textarea>
               </div>
-              <div class="form__textarea">
-                <textarea name="field3" placeholder="Message"></textarea>
+              <div class="form__button">
+                <input type="submit" class="button" value="Send message">
               </div>
-              <input type="submit" class="sumbit__button" value="Send message">
             </form>
           </div>
         </div>

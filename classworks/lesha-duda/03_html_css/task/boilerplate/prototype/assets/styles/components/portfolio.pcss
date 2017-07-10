@@ -1,5 +1,6 @@
 .portfolio {
   background-color: #f2f8f8;
+  min-height: 100vh;
   padding-bottom: 20px;
 }
 
@@ -8,11 +9,10 @@
 }
 
 .galery {
-
+  min-height: 100vh;
 }
 
 .galery-item {
-  /*display: flex;*/
   justify-content: center;
   align-items: center;
   padding-bottom: 12px;
@@ -40,4 +40,36 @@
 .portfolio__text--medium {
   font-size: 22px;
   padding-bottom: 36px;
+}
+
+@media screen and (min-width: 960px) {
+  .galery {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .galery-item__image {
+    display: block;
+  }
+
+  .galery-item {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .galery {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .galery-item__image {
+    display: block;
+  }
+
+  .galery-item {
+    width: calc(100% / 3);
+  }
 }
