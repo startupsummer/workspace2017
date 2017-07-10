@@ -32,7 +32,19 @@
     }
   }
 
-  @media (--before-medium-viewport){
+  @media (max-width:960px){
+    &:not(:checked){
+      ~.staticAside__toggle{
+        left: 30%;
+      }
+      ~ .staticAside {
+        width: 30%;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  @media (max-width: 510px){
     &:not(:checked){
       ~.staticAside__toggle{
         left: 50%;
