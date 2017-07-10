@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.header__text {
+    text-transform: uppercase;
+    color: rgb(1, 9, 249);
+    font-size: 18px;
+}
+
