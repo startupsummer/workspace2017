@@ -1,4 +1,5 @@
 .menu {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -14,5 +15,38 @@
 
   &__footer {
     padding: 20px;
+  }
+
+  &__button {
+    position: fixed;
+    left: -300px;
+    top: 20px;
+    background-image: svg-load('menu-button-of-three-horizontal-lines.svg', fill: rgb(135, 135, 136));
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    width: 25px;
+    height: 25px;
+    transition-property: background-image;
+    transition-duration: 0.5s;
+
+    &:hover {
+      background-image: svg-load('menu-button-of-three-horizontal-lines.svg', fill: #9AC0CD);
+	    cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @media (--before-desktop-viewport) {
+    position: fixed;
+    left: -300px;
+
+    &__button {
+      left: 20px;
+    }
   }
 }
