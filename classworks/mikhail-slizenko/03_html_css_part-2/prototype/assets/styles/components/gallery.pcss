@@ -1,7 +1,7 @@
 .gallery__item {
 
     & + .gallery__item {
-        margin-top: 30px;
+        margin-top: 15px;
     }
 }
 
@@ -13,12 +13,12 @@
 
     .gallery__item {
         break-inside: avoid;
+        padding-bottom: 15px;
     }
 }
 
 @media (--desktop-viewport) {
     .gallery {
-        column-count: auto;
-        column-width: 420px;
+        column-count: 3;
     }
 }
