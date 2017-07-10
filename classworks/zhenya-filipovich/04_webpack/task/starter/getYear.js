@@ -1,3 +1,3 @@
 import moment from 'moment';
 
-export default () =>  String(moment().format('YYYY'));
+export default () =>  String(moment().year());
