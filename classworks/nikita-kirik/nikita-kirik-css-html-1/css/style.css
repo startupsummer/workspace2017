@@ -1,0 +1,360 @@
+
+html, body {
+	font-family: Verdana;
+	font-size: 10px;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.wrapper {
+	/*width: 250px;*/
+	background-color: #555555;
+	height: 100vh;
+
+
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+
+.aside {
+	position: fixed;
+	background-color: #141e2d;
+	width: 250px;
+	height: 100vh;
+	min-width: 100px;
+	max-width: 300px;
+	overflow: auto;
+
+	color: #C4C4C4;
+
+}
+
+.aside-head {
+	padding: 20px;
+
+	/*margin-bottom: 30px;*/
+}
+
+.aside-head__avatar {
+	float: left;
+}
+
+.l-items {
+	font-size: 2rem;
+}
+
+.l-items__item {
+	display: inline-block;
+	width: 100%;
+	padding: 0px 20px;
+	/*background-color: #223333;*/
+	text-align: right;
+
+}
+
+
+.l-items__item:hover {
+	background-color: #2C2E30;
+	color: white;
+
+}
+
+.nav-ref--home:before {
+	content: "\f015";
+	float: left;
+	/*content: "fdfdfd";*/
+	display: block;
+
+}
+
+
+.nav-ref--home:hover:before {
+	color: #C8738C;
+}
+
+
+.nav-ref--portf:before {
+	content: "\f015";
+	float: left;
+	display: block;
+
+}
+
+
+.nav-ref--portf:hover:before {
+	color: #C8738C;
+}
+
+
+.nav-ref--about:before {
+	content: "\f015";
+	float: left;
+	display: block;
+
+}
+
+
+.nav-ref--about:hover:before {
+	color: #C8738C;
+}
+
+
+
+.nav-ref--contact:before {
+	content: "\f015";
+	float: left;
+	display: block;
+
+}
+
+
+.nav-ref--contact:hover:before {
+	color: #C8738C;
+}
+
+
+
+.nav-ref--home:before:hover {
+	color: #C8738C;
+}
+
+.nav-ref  {
+	display: block;
+	height: 100%;
+	padding: 20px 0px;
+}
+
+.aside-head__author {
+	display: block;
+	float: right;
+}
+
+.aside-head__name {
+	margin-bottom: 10px;
+	font-size: 1.8rem;
+	font-weight: bold;
+
+	color: white;
+}
+
+.aside-head__occup {
+	font-size: 1.2rem;
+
+}
+
+
+.main {
+	padding-left: 250px;
+	width: 100%;
+	display: block;
+	background-color: #b3e557;
+}
+
+.main__header {
+
+	background: url(../images/banner.jpg) no-repeat;
+	background-size: cover;
+
+	background-color: #344444;
+	text-align: center;
+
+	height: 100vH;
+
+	/*height: 400px;*/
+}
+
+.h-wrapper {
+	position: relative;
+	top:50%;
+	transform: translateY(-50%); 
+}
+
+
+.header-title {
+	display: block;
+	width: 50%;
+	margin: 0 auto;
+	font-size: 4rem;
+	color: white;
+	margin-bottom: 40px;
+	text-align: center;
+
+}
+
+
+.header_subtitle {
+	width: 35%;
+	margin: 0 auto;
+	font-size: 2rem;
+	color: #DBE2DD;
+	text-align: center;
+	margin-bottom: 40px;
+
+}
+
+.header__button {
+	width: 15%;
+	max-width: 200px;
+	border-radius: 5px;
+	padding: 20px 20px;
+	background-color: #5BAC83;
+	color: #D6D8D7;
+	border: none;
+
+}
+
+.header__button:hover {
+	background-color: #3E7358;
+	color: white;
+	box-shadow: 1px 1px 10px 2px #888888;
+
+}
+
+/*.centring-wropper {}*/
+
+.main__portfolio {
+	padding: 80px 40px;
+	text-align: center;
+	height: 100vH;
+	overflow: hidden;
+
+	background-color: #DBDBDB;
+
+}
+
+.block-title {
+	font-size: 2.5rem;
+	color: #5E5E5E;
+	margin-bottom: 40px;
+
+}
+
+.block-text {
+	margin-bottom: 40px;
+	font-size: 1.6rem;
+	color: #5E5E5E;
+
+}
+
+.portfolio-images {
+	display: inline-block;
+/*	position: relative;
+	left: 50%;
+	transform: translateX(-50%); dont need this beacause inline+text-allign:center*/
+
+}
+
+.portfolio-images__item {
+	/*margin-right: 15px;   WHY NOT WORK HERE*/
+	padding-right: 45px;
+	/*display: inline;*/
+	float: left;
+
+}
+
+.portfolio-images__item:last-child {
+	padding: 0px;
+}
+
+
+
+.img-item {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.footer {
+	padding: 80px 40px;
+	height: 100vH;
+	text-align: center;
+	background-color: #CDCDCD;
+}
+
+.footer-form__txt-inp {
+	width: 47%;
+	padding: 5px;
+	border-radius: 5px;
+	margin-bottom: 40px;
+	font-size: 2rem;
+	border: none;
+}
+
+.footer-form__txt-inp--left {
+	float: left;
+}
+
+
+.footer-form__txt-inp--right {
+	float: right;
+}
+
+.footer-form--message {
+	height: 300px;
+	width: 100%;
+	/*text-align: top;*/
+	vertical-align: top;
+
+}
+
+
+.form__button {
+	width: 150px;
+	border-radius: 5px;
+	padding: 20px 20px;
+	background-color: #5BAC83;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #D6D8D7;
+	border: none;
+}
+
+.form__button:hover {
+	background-color: #3E7358;
+	color: white;
+	box-shadow: 1px 1px 10px 2px #888888;
+}
+
+.aside__footer {
+	margin-top: -25px; 
+	font-size: 1.6rem;
+	text-align: center;
+}
+
+.l-icons {
+	display: inline-block;
+	height: 25px;
+	margin: 0 auto;
+}
+
+.icon-twitter:before {
+	content: "\f099";
+}
+
+.icon-facebook:before {
+	content: "\f09a";
+}
+
+.icon-letter:before {
+	content: "\f0e0";
+}
+
+.icon-github:before {
+	content: "\f09b";
+}
+
+
+.l-icons__item {
+	padding-right: 16px;
+	float: left;
+}

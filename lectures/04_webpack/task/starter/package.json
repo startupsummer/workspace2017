@@ -1,0 +1,14 @@
+{
+  "name": "webpack-task",
+  "version": "1.0.0",
+  "description": "Webpack task",
+  "main": "src/server.js",
+  "scripts": {
+    "build": "echo 'implement me'",
+    "start": "echo 'implement me'"
+  },
+  "dependencies": {
+    "webpack": "^3.1.0"
+  },
+  "devDependencies": {}
+}
