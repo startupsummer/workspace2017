@@ -8,12 +8,19 @@
     "start": "webpack-dev-server"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
+    "moment": "^2.18.1"
+  },
+  "devDependencies": {
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
     "hot-module-replacement": "^3.0.0",
     "html-webpack-plugin": "^2.29.0",
-    "jquery": "^3.2.1",
-    "moment": "^2.18.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "webpack": "^3.1.0",
     "node-sass-loader": "^0.1.7",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
@@ -21,12 +28,5 @@
     "uglifyjs-webpack-plugin": "^0.4.6",
     "url-loader": "^0.5.9",
     "webpack-dev-server": "^2.5.1"
-  },
-  "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.6.0",
-    "extract-text-webpack-plugin": "^2.1.2",
-    "webpack": "^3.1.0"
   }
 }
