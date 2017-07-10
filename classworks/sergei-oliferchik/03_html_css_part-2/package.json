@@ -4,7 +4,6 @@
   "description": "Startup Summer",
   "scripts": {
     "start": "webpack-dev-server",
-    "precommit": "lint-staged"
   },
   "dependencies": {
     "webpack": "3.0.0"
