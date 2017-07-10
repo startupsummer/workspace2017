@@ -28,6 +28,16 @@ module.exports = {
         ],
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      },
+      plugins: [
+        new ExtractTextPlugin("styles.css"),
+      ],
     ],
   },
 
