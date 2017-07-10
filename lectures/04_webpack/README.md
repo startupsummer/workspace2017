@@ -4,8 +4,6 @@
 
 **[Презентация](https://docs.google.com/presentation/d/1iDzyMejxiyJ6VbP7MdhqAo3Z71a1z8K6GMFJEpPjKDA/edit?usp=sharing)**
 
-### Learning objectives
-
 1. Прямое подключение стилей и скриптов на HTML странице
 2. Grunt/Gulp
 3. Семь бед - один ответ webpack
