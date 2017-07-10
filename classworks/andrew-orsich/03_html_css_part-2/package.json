@@ -1,0 +1,20 @@
+{
+  "name": "startup-summer-html-css-2",
+  "version": "1.0.0",
+  "description": "Startup Summer",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "lint-staged": {
+    "gitDir": "../../../../",
+    "*.pcss": [
+      "prettier --write --parser postcss",
+      "stylelint",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "moment": "^2.18.1"
+  },
+  "devDependencies": {}
+}

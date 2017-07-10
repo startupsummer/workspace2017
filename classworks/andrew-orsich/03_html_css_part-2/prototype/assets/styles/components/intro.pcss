@@ -1,0 +1,54 @@
+.intro {
+    background-image: url(https://html5up.net/uploads/demos/prologue/images/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 100px;
+
+  &__center {
+    text-align: center;
+    padding-top: 150px;
+  }
+
+  &__title1 {
+    font-size: 43px;
+    color: #D4D4D2;
+    font-weight: normal;
+    line-height: 1.6;
+
+    &--color {
+      color: #FFFFFF;
+    }
+  }
+
+  &__title2 {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #D5D4D1;
+  }
+
+  &__button {
+    color: #FFFFFF;
+    background-color: #83B0AE;
+    border: none;
+    font-size: 25px;
+    padding: 30px 60px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.5);
+    transition-property: background-color;
+    transition-duration: 0.7s;
+    &:hover {
+      background-color: #6F5BD5;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform:translate(3px,2px);
+      box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
