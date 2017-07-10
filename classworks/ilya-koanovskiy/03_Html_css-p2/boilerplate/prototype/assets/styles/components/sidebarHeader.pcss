@@ -6,11 +6,25 @@
   padding-left: var(--padleft);
   align-items: center;
 
+
+  @media  (max-width: 1300px){
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+
+  &__list{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
   &__item1 {
     color: white;
   }
 
   &__item2 {
-    color: white;
+    color: #909293;
+    font-size: small;
   }
 }

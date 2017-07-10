@@ -1,64 +1,109 @@
 .mainNavbar {
+  display: flex;
   flex-grow: 1;
 
   margin-top: var(--margtop);
 
-  &__list {
+
+
+
+  &__item{
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-grow:1;
+    flex-direction: column;
+  }
+  &__text{
+    padding-right: 15px;
   }
 
   &__link {
+    transition: 0.5s;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
-    align-item: center;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
     text-decoration: none;
     color: #909293;
-    padding-right: var(--padright);
-    padding-left: var(--padleft);
-    padding-top: 15px;
-    padding-bottom: 15px;
+
+
 
     &--home {
-      background-image: svg-load("icon.svg", fill:  #909293);
+      background-image: svg-load("icon.svg",
+      fill: #909293);
       background-repeat: no-repeat;
       background-size: contain;
-      padding-left: 280px;
-      padding-right: 30px;
+      background-position-x: 15px;
     }
 
     &--menu {
-      background-image: svg-load("menu.svg", fill:  #909293);
+      background-image: svg-load("menu.svg",
+      fill: #909293);
       background-repeat: no-repeat;
       background-size: contain;
-      padding-left: 280px;
-      margin-right:100px;
+      background-position-x: 15px;
     }
 
     &--user {
-      background-image: svg-load("man-user.svg", fill: #909293);
+      background-image: svg-load("man-user.svg",
+      fill: #909293);
       background-repeat: no-repeat;
       background-size: contain;
-      padding-left: 280px;
+      background-position-x: 15px;
     }
 
     &--message {
-      background-image: svg-load("mail.svg", fill:  #909293);
+      background-image: svg-load("mail.svg",
+      fill: #909293);
       background-repeat: no-repeat;
+      background-position-x: 15px;
       background-size: contain;
-      padding-left: 280px;
     }
   }
 
-  &__link:hover {
+  &__item:hover{
     background-color: #1c1e20;
+  }
+
+  &__item:hover &__link {
     color: white;
   }
 
-  &__link:hover .mainNavbar__link--home {
-    background-image: svg-load("icon.svg", fill:  #fff);
+  &__item:hover &__link--user{
+    background-image: svg-load("man-user.svg",
+    fill: "red");
     background-repeat: no-repeat;
     background-size: contain;
-    padding-left: 30px;
+    background-position-x: 15px;
+  }
+  &__item:hover &__link--message{
+    background-image: svg-load("mail.svg",
+    fill: "red");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 15px;
+  }
+  &__item:hover &__link--menu{
+    background-image: svg-load("menu.svg",
+    fill: "red");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 15px;
+  }
+  &__item:hover &__link--home{
+    background-image: svg-load("icon.svg",
+    fill: "red");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 15px;
   }
 }
