@@ -14,7 +14,7 @@ aside {
   position: fixed;
   width: 300px;
   height: 100%;
-	background-color: #212528; 
+	background-color: #212528;
 }
 
 aside .header {
@@ -140,7 +140,7 @@ main {
 	min-height: 100vh;
 	padding: 2em;
 	background-color: #f0f5f5;
-	overflow: auto;				
+	overflow: auto;
 }
 
 main > h2 {
