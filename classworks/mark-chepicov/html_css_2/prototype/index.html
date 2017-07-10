@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lorem ipsum</title>
+    </head>
+    <body>
+        <input type="checkbox" id="menu-button" class="main__menu-button">
+        <div class="sidebar" for="menu-button">
+            <header class="sidebar__header header">
+                <div class="header__user">
+                    <div class="user">
+                        <img class="user__avatar" src="https://image.freepik.com/vector-gratis/fondo-desenfocado-de-colores_1051-945.jpg">
+                        <div class="user__info">
+                            <div class="user__username">Jane Doe</div>
+                            <div class="user__position">Hyperspace Engineer</div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="header__menu">
+                    <ul class="menu">
+                        <li class="menu__item"><a class="menu__link menu__link--home" href="#"><span class="menu__name">Intro</span></a></li>
+                        <li class="menu__item"><a class="menu__link menu__link--th" href="#portfolio"><span class="menu__name">Portfolio</span></a></li>
+                        <li class="menu__item"><a class="menu__link menu__link--user" href="#"><span class="menu__name">About me</span></a></li>
+                        <li class="menu__item"><a class="menu__link menu__link--envelope" href="#contact"><span class="menu__name">Contact</span></a></li>
+                    </ul>
+                </nav>
+            </header>
+            <footer class="sidebar__social">
+            	<ul class="social">
+                	<li class="social__item"><a class="social__link" href="http:\\twitter.com"><div class="social__icon social__icon--twitter"></div></a></li>
+                	<li class="social__item"><a class="social__link" href="http:\\facebook.com"><div class="social__icon social__icon--facebook"></div></a></li>
+                    <li class="social__item"><a class="social__link" href="http:\\github.com"><div class="social__icon social__icon--github"></div></a></li>
+                    <li class="social__item"><a class="social__link" href="http:\\dribbble.com"><div class="social__icon social__icon--dribbble"></div></a></li>
+                    <li class="social__item"><a class="social__link" href="http:\\gmail.com"><div class="social__icon social__icon--envelope"></div></a></li>
+                </ul>
+            </footer>
+        </div>
+        <div class="main" for="menu-button">
+            <div class="main__page main__page--intro" id="intro">
+                <div class="page page--intro">
+                    <div class="page__title">Hi! I'm Prologue, a free responsive site template designed by HTML5 UP.</div>
+                    <div class="page__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                    <a href="#" class="page__link"><div class="page__button">Magna Aliquam</div></a>
+                </div>
+            </div>
+            <div class="main__page main__page--portfolio" id="portfolio"><a name="portfolio"></a>
+              <div class="page">
+                <div class="page__title">
+                    Portfolio
+                </div>
+                <div class="page__text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor lacus libero, non varius ipsum pharetra quis.
+                </div>
+                <div class="page__container">
+                  <ul class="container">
+                      <li class="container__item">
+                        <figure class="container__figure">
+                            <img class="container__img" src="http://cs8.pikabu.ru/post_img/big/2016/05/03/0/1462224311122833219.jpg">
+                            <figcaption class="container__figcaption">Lorem ipsum</figcaption>
+                        </figure>
+                      </li>
+                      <li class="container__item">
+                        <figure class="container__figure">
+                            <img class="container__img" src="http://cs8.pikabu.ru/post_img/big/2016/05/03/0/1462224343115210580.jpg">
+                            <figcaption class="container__figcaption">Lorem ipsum</figcaption>
+                        </figure>
+                      </li>
+                      <li class="container__item">
+                        <figure class="container__figure">
+                            <img class="container__img" src="http://cs8.pikabu.ru/post_img/big/2016/05/03/0/1462224363165085137.jpg">
+                            <figcaption class="container__figcaption">Lorem ipsum</figcaption>
+                        </figure>
+                      </li>
+                      <li class="container__item">
+                        <figure class="container__figure">
+                            <img class="container__img" src="http://cs8.pikabu.ru/post_img/big/2016/05/03/0/1462224607115541108.jpg">
+                            <figcaption class="container__figcaption">Lorem ipsum</figcaption>
+                        </figure>
+                      </li>
+                      <li class="container__item">
+                        <figure class="container__figure">
+                            <img class="container__img" src="http://cs8.pikabu.ru/post_img/big/2016/05/03/0/1462224592187280997.png">
+                            <figcaption class="container__figcaption">Lorem ipsum</figcaption>
+                        </figure>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+            <div class="main__page main__page--contact" id="contact"><a name="contact"></a>
+              <div class="page">
+                <div class="page__title">Contact</div>
+                <div class="page__text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor lacus libero, non varius ipsum pharetra quis.
+                </div>
+                <div class="page__form">
+                  <form class="form">
+                      <div class="form__item form__item--username" for="menu-button">
+                        <input class="form__input" type="text" required placeholder="Name">
+                      </div>
+                      <div class="form__item form__item--email" for="menu-button">
+                          <input class="form__input" required type="email" placeholder="E-mail">
+                      </div>
+                      <div class="form__item form__item--message">
+                        <textarea class="form__input form__input--message" name="form__text" required placeholder="Message"></textarea>
+                      </div>
+                      <div class="form__item">
+                        <input class="page__button" type="button" value="Send Message">
+                      </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

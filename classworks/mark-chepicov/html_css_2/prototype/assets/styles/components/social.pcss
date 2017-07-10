@@ -1,0 +1,50 @@
+.social{
+    display: flex;
+    justify-content: space-between;
+    width:250px;
+    height: 50px;
+
+    &__item{
+        color:#8b8888;
+        width:20%;
+    }
+    &__icon{
+        height: 100%;
+        background-size: 24px 24px;
+        background-position: 13px 13px;
+        background-repeat: no-repeat;
+
+        &--twitter{
+            background-image: svg-load('../svg/twitter.svg', fill: #41484c, stroke: #000);
+            &:hover{
+                background-image: svg-load('../svg/twitter.svg', fill: #e27689, stroke: #000);
+            }
+        }
+        &--facebook{
+            background-image: svg-load('../svg/facebook.svg', fill: #41484c, stroke: #000);
+            &:hover{
+                background-image: svg-load('../svg/facebook.svg', fill: #e27689, stroke: #000);
+            }
+        }
+        &--github{
+            background-image: svg-load('../svg/github.svg', fill: #41484c, stroke: #000);
+            &:hover{
+                background-image: svg-load('../svg/github.svg', fill: #e27689, stroke: #000);
+            }
+        }
+            
+        &--dribbble{
+            background-image: svg-load('../svg/dribbble.svg', fill: #41484c, stroke: #000);
+            &:hover{
+                background-image: svg-load('../svg/dribbble.svg', fill: #e27689, stroke: #000);
+            }
+        }
+            
+        &--envelope{
+            background-image: svg-load('../svg/envelope.svg', fill: #41484c, stroke: #000);
+            &:hover{
+                background-image: svg-load('../svg/envelope.svg', fill: #e27689, stroke: #000);
+            }
+        }
+    }
+}

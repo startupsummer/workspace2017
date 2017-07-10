@@ -1,0 +1,29 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:380px;
+    height:100%;
+    background-color: #202427;
+    position: fixed;
+    z-index: 1;
+
+    &__header{
+        color: grey;
+    }
+    
+    &__social{
+        display: flex;
+        height: 76px;
+        justify-content: center;
+    }
+    @media (--before-desktop-viewport) {
+        width: 35%;
+    }
+    @media (--before-medium-viewport) {
+        display: none;
+    }
+    @media (--narrow-viewport) {
+        width: 80%;
+    }
+}

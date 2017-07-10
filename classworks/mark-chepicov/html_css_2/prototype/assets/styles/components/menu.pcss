@@ -1,0 +1,55 @@
+.menu{
+    list-style-type: none;
+    padding-left: 0;
+
+    &__item{
+
+    }
+    &__link{
+        font-size:18px;
+        padding: 30px;
+        color:grey;
+        display: flex;
+        justify-content: flex-end;
+        text-decoration:none;
+        background-size: 24px 24px;
+        background-position: 30px 30px;
+        background-repeat: no-repeat;
+
+        &--home{
+            background-image: svg-load('../svg/home.svg', fill: #41484c, stroke: #000);
+            &:hover{
+                background-image: svg-load('../svg/home.svg', fill: #e27689, stroke: #000);
+            }
+        }
+        &--th{
+            background-image: svg-load('../svg/menu.svg', fill: #41484c, stroke: #000);
+            &:hover{
+                background-image: svg-load('../svg/menu.svg', fill: #e27689, stroke: #000);
+            }
+        }
+        &--user{
+            background-image: svg-load('../svg/user.svg', fill: #41484c, stroke: #000);
+            &:hover{
+                background-image: svg-load('../svg/user.svg', fill: #e27689, stroke: #000);
+            }
+        }
+        &--envelope{
+            background-image: svg-load('../svg/envelope.svg', fill: #41484c, stroke: #000);
+            &:hover{
+                background-image: svg-load('../svg/envelope.svg', fill: #e27689, stroke: #000);
+            }
+        }
+        
+        &:hover{
+            background-color: black;
+            color:white;
+        }
+    }
+    &__active{
+            background-color: black;
+            color:white;
+    }
+    &__name{
+    }
+}
