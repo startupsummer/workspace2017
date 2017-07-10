@@ -4,12 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: `${__dirname}/index.js`,
 
-  output: {
-    path: `${__dirname}/build/`,
-    publicPath: '/',
-    filename: 'bundle.js',
-  },
-
   module: {
     rules: [
       {
@@ -43,6 +37,6 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({ template: './index.html', filename: 'index.html' }),
+    new HtmlWebpackPlugin({ template: './index.html'}),
   ],
 };
