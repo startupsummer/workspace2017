@@ -1,32 +1,44 @@
 .menu-item{
   padding-top: 20px;
   padding-bottom: 20px;
-}
 
-.menu-item:hover {
-  background-color:#202020;
-}
+  &:hover {
+    background-color:#202020;
 
-.menu-item:hover .menu-item__icon{
-  color: #660033;
-}
+    .menu-item__icon {
+      color: #660033;
+    }
 
-.menu-item:hover .menu-item__link {
-  color: white;
-}
+    .menu-item__link {
+      color: white;
+    }
+  }
 
-.menu-item__link {
-  position: relative;
-  display: block;
-  padding-right: 20px;
-  text-align: right;
-  text-decoration: none;
-  font-size: 12px;
-  color: #404040;
-}
+  &__link {
+    position: relative;
+    display: block;
+    padding-right: 20px;
+    text-align: right;
+    text-decoration: none;
+    font-size: 12px;
+    color: #404040;
+  }
 
-a.menu-item__link {
-  text-decoration: none;
+  @media screen and (min-width: 410px) {
+    &__link {
+      padding-right: 30px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    &__link {
+      padding-right: 40px;
+      font-size: 22px;
+      color: #404040;
+    }
+  }
 }
 
 .left {
@@ -35,25 +47,12 @@ a.menu-item__link {
 }
 
 @media screen and (min-width: 410px) {
-
-  .menu-item__link {
-    padding-right: 30px;
-    text-decoration: none;
-    font-size: 16px;
-  }
-
   .left {
     padding-left: 18px;
   }
 }
 
 @media screen and (min-width: 960px) {
-
-  .menu-item__link {
-    padding-right: 40px;
-    font-size: 22px;
-    color: #404040;
-  }
 
   .left {
     padding-left: 25px;
@@ -66,9 +65,9 @@ a.menu-item__link {
   font-size: 20px;
   line-height: 20px;
   margin-right: 10px;
-}
 
-.sidedrawer-toggle:hover {
-  color: #fff;
-  text-decoration: none;
+  &:hover{
+    color: #fff;
+    text-decoration: none;
+  }
 }
