@@ -1,0 +1,42 @@
+.social {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social__link {
+    display: block;
+    width: 28px;
+    height: 28px;
+    background: 50% / 18px 18px no-repeat;
+    opacity: .3;
+
+    &--tw {
+        background-image: svg-load('../svg/twitter.svg', fill=#fff);
+    }
+
+    &--fb {
+        background-image: svg-load('../svg/facebook.svg', fill=#fff);
+    }
+
+    &--git {
+        background-image: svg-load('../svg/github.svg', fill=#fff);
+    }
+
+    &--drib {
+        background-image: svg-load('../svg/dribbble.svg', fill=#fff);
+    }
+
+    &--mail {
+        background-image: svg-load('../svg/mail.svg', fill=#fff);
+    }
+}
+
+@media (--desktop-viewport) {
+    .social__link {
+        transition: opacity .3s ease;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+}

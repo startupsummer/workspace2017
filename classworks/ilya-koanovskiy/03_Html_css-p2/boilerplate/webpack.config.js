@@ -36,7 +36,7 @@ module.exports = {
 
   devServer: {
     hot: true,
-    contentBase: `${__dirname}/`,
+     contentBase: path.join(__dirname, "prototype/assets"),
     publicPath: '/',
   },
 

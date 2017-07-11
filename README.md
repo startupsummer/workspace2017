@@ -24,6 +24,7 @@ If lecturer decline pull request, he will assign label `Work In Progress` and pr
 
 ### Lectures schedule
 
+
 1. July 5th - Reading materials: [Git](./lectures/01_git/README.md). [Lecture video](https://vimeo.com/224310990/1d203eae3c).
 2. July 6th - Reading materials: [HTML & CSS, The basics](./lectures/02_html_css_part-1/README.md). [Lecture video](https://vimeo.com/224450900/326ef373eb)
 3. July 7th - Reading materials: [HTML & CSS, Advanced](./lectures/03_html_css_part-2/README.md). [Lecture video](https://vimeo.com/224655234/af21b69405)

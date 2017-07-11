@@ -1,0 +1,24 @@
+.gallery__item {
+
+    & + .gallery__item {
+        margin-top: 15px;
+    }
+}
+
+@media (--medium-viewport) {
+    .gallery {
+        column-count: 2;
+        column-gap: 30px;
+    }
+
+    .gallery__item {
+        break-inside: avoid;
+        padding-bottom: 15px;
+    }
+}
+
+@media (--desktop-viewport) {
+    .gallery {
+        column-count: 3;
+    }
+}
