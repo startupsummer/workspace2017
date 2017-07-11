@@ -1,0 +1,52 @@
+.menu {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100%;
+  background-color: rgb(33, 37, 40);
+
+  &__header {
+    padding: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    flex-grow: 1;
+  }
+
+  &__footer {
+    padding: 20px;
+  }
+
+  &__button {
+     position: fixed;
+     left: -300px;
+     top: 20px;
+     background-image: svg-load('menu.svg', fill: black);
+     background-repeat: no-repeat;
+     background-size: contain;
+     background-color: rgba(0,0,0,0);
+     border: 0;
+     width: 25px;
+     height: 25px;
+     transition-property: background-image;
+     transition-duration: 1s;
+ 
+     &:hover {
+      background-image: svg-load('menu.svg', fill: #9AC0CD);
+ 	  cursor: pointer;
+     }
+ 
+     &:focus {
+       outline: none;
+     }
+   }
+ 
+  @media (--before-desktop-viewport) {
+     position: fixed;
+     left: -300px;
+ 
+     &__button {
+       left: 20px;
+     }
+   }
+}

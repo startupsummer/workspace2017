@@ -1,0 +1,38 @@
+{
+  "name": "startup-summer-html-css-2",
+  "version": "1.0.0",
+  "description": "Startup Summer",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "stylelint-config-standard": "^16.0.0",
+    "webpack": "3.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "css-loader": "0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "2.29.0",
+    "husky": "^0.14.3",
+    "image-webpack-loader": "^3.3.1",
+    "lint-staged": "^4.0.1",
+    "node-sass": "4.5.3",
+    "postcss-css-reset": "^1.0.2",
+    "postcss-csso": "^2.0.0",
+    "postcss-custom-media": "^6.0.0",
+    "postcss-custom-properties": "^6.1.0",
+    "postcss-import": "^10.0.0",
+    "postcss-inline-svg": "^3.0.0",
+    "postcss-loader": "^2.0.6",
+    "postcss-mixins": "^6.0.1",
+    "postcss-nested": "^2.0.2",
+    "postcss-svgo": "^2.1.6",
+    "prettier": "^1.5.2",
+    "style-loader": "0.18.2",
+    "stylelint": "^7.12.0",
+    "stylelint-csstree-validator": "^1.1.1",
+    "webpack-dev-server": "2.5.0"
+  }
+}
