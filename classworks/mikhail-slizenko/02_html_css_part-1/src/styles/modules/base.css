@@ -1,0 +1,49 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.main {
+    margin-left: 300px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #81adab;
+    font-size: 22px;
+    border-radius: 10px;
+    padding: 25px 60px;
+    color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
+    transition: box-shadow .2s ease-in-out;
+    border: none;
+    font-family: inherit;
+    text-decoration: none;
+
+    &:hover {
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+    }
+}
+
+.link {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+    transition: color .2s ease;
+
+    &:hover {
+        color: #DD7084;
+    }
+}
