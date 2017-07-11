@@ -20,6 +20,7 @@ const timeSetInterval = 10;
 const delay = 1000 / timeSetInterval;
 const timerForward = 1;
 const timerBack = -1;
+let lap = 0;
 
 let timeIntervalId;
 
@@ -96,9 +97,12 @@ buttons.minus.addEventListener('click', function () {
 
 buttons.circle.addEventListener('click', function () {
   let row = table.insertRow(0);
-  let cell = row.insertCell(0);
+  let cell1 = row.insertCell(0);
+  let cell2 = row.insertCell(1);
+  lap += 1;
 
-  cell.innerHTML = prettyOut(ticks);
+  cell1.innerHTML = "Lap: " + lap;
+  cell2.innerHTML = prettyOut(ticks);
 });
 
 function prettyOut(ticks) {
