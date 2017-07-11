@@ -1,0 +1,38 @@
+.sidebar-button {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  transition: left 0.2s;
+}
+
+.sidebar-button {
+  left: 110px;
+  padding-top: 10px;
+}
+
+.hide-sidedrawer .sidebar-button {
+  left: 10px;
+}
+
+@media screen and (min-width: 410px) {
+  .sidebar-button {
+    left: 160px;
+    padding-top: 10px;
+  }
+
+  .hide-sidedrawer .sidebar-button {
+    left: 10px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .sidebar-button {
+    left: -50px;
+  }
+
+  .hide-sidedrawer .sidebar-button {
+    left: 10px;
+  }
+}
