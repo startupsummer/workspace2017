@@ -1,58 +1,20 @@
-#toggle{
-
-
-
+.toggle {
   position: absolute;
-  left: -100%;
-  top:-100%;
+  background-color: inherit;
+  border: none;
 
 
-  .staticAside__toggle > div{
-      background-image: svg-load("menu.svg", fill: #ffffff);
-      width:20px;
-      height: 20px;
-      background-repeat: no-repeat;
-      background-size: contain;
-  }
+   @media (--before-desktop-viewport) {
+    background-image: svg-load("menu.svg", fill: #ffffff);
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: contain;
+   }
 
-  @media (--before-desktop-viewport) {
-    &:checked{
-      ~ .staticAside {
-        transform: translateX(-100%);
-      }
-
-  }
-    &:not(:checked){
-      ~.staticAside__toggle{
-        left: 20%;
-      }
-      ~ .staticAside {
-        transform: translateX(0);
-      }
-    }
-  }
-
-  @media (max-width:960px){
-    &:not(:checked){
-      ~.staticAside__toggle{
-        left: 30%;
-      }
-      ~ .staticAside {
-        width: 30%;
-        transform: translateX(0);
-      }
-    }
-  }
-
-  @media (max-width: 510px){
-    &:not(:checked){
-      ~.staticAside__toggle{
-        left: 50%;
-      }
-      ~ .staticAside {
-        width: 50%;
-        transform: translateX(0);
-      }
-    }
+   @media (--desktop-viewport) {
+    visibility: hidden;
   }
 }

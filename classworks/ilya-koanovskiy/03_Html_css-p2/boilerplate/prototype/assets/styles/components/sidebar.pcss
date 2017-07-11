@@ -1,35 +1,18 @@
 .staticAside {
   display: flex;
-  transition: 0.5s;
   position: fixed;
   flex-direction: column;
   width: 20%;
   height: 100%;
   background-color: #202427;
 
-}
-.staticAside__toggle{
-  @media (--desktop-viewport) {
-    visibility: hidden;
+  @media (--before-desktop-viewport) {
+    transition: 0.5s;
+    transform: translateX(-100%);
   }
 
-  position: fixed;
-  display: flex;
-  background: gray;
-  height: 60px;
-  width: 60px;
-  top:10px;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-  transition: 0.5s;
-}
-
-.staticAside__toggle--menu{
-  background-image: svg-load("menu.svg", fill: #ffffff);
-  width:20px;
-  height: 20px;
-  background-repeat: no-repeat;
-  background-size: contain;
+  .main__staticAsside--open{
+    transition: 0.5s;
+    transform: translateX(0%);
+  }
 }
