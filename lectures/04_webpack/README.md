@@ -2,6 +2,8 @@
 
 Задачей лекции является изучение сборщика контента webpack.
 
+**[Презентация](https://docs.google.com/presentation/d/1iDzyMejxiyJ6VbP7MdhqAo3Z71a1z8K6GMFJEpPjKDA/edit?usp=sharing)**
+
 ### Learning objectives
 
 1. Прямое подключение стилей и скриптов на HTML странице
