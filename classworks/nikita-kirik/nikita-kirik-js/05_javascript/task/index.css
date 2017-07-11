@@ -109,10 +109,20 @@ main > * + * {
 
 .table {
   background-color: #D7CDE0;
-  display: flex;
 }
 
 .table__head {
+  padding: 10px;
   background-color: #564C63;
-  order: 1;
+  color: white;
+}
+
+.table__body {
+  padding: 10px;
+  background-color: #E9E8EB;
+}
+
+.table__cell {
+  padding: 10px;
+  text-align: center;
 }

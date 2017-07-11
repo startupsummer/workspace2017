@@ -14,8 +14,8 @@ const buttons = {
 timer.textContent = '00:00';
 
 let time = {
-  minute: undefined,
-  second: undefined
+  minute: 0,
+  second: 0
 };
 
 let getPartTimeStr = (t) => {
@@ -50,10 +50,9 @@ function goTimer() {
 function start() {
   if(isTiming) return;
 
-  time.second = 0;
-  time.minute = 0;
   isTiming = true;
   setTimeout(goTimer(), 1000);
+
 
 }
 
@@ -106,9 +105,11 @@ timer.textContent = timeStr[0] + ':' + timeStr[1];
 
 
 function save() {
-  let table = document.querySelector(".table");
-  var row = table.insertRow(0);
-var cell = row.insertCell(0);
+let table = document.querySelector(".table__body");
+let row = table.insertRow(0);
+let cell = row.insertCell(0);
+
+cell.classList.add("table__cell");
 cell.innerHTML = timer.textContent;
 }
 
