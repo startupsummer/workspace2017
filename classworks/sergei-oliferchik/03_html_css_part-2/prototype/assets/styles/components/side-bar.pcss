@@ -1,40 +1,10 @@
-#toggle {
-  position: absolute;
-  left: -100%;
-  top: -100%;
-
-  &:checked {
-    ~ .wrapper-side-bar {
-      transform: translateX(70%);
-
-      .side-bar__toggle {
-        transform: scalex(-1);
-        &> div{
-        background-image: svg-load("close.svg", fill: #ffffff);
-        width:20px;
-        height: 20px;
-        background-repeat: no-repeat;
-        background-size: contain;
-        }
-      }
-    }
-  }
-}
-.wrapper-side-bar {
-  position: fixed;
-  z-index: 1;
-  left: -280px;
-  width: 400px;
-  height: 100%;
-  display: flex;
-  transition: 0.5s;
-}
 .side-bar {
   height: 100%;
   width: 280px;
   background-color: #212528;
   display: flex;
   flex-direction: column;
+
   &__content {
     flex: 1 0 auto;
   }
@@ -61,8 +31,11 @@
     background-repeat: no-repeat;
     background-size: contain;
     }
+
   }
+
   &__footer {
       flex: 0 0 auto;
   }
+  
 }
