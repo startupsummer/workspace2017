@@ -83,12 +83,14 @@ main > * + * {
   background: #c0392b;
 }
 
+.button.lap,
 .button.reset {
   color: #fff;
   border-color: #34495e;
   background: #34495e;
 }
 
+.button.lap:hover,
 .button.reset:hover {
   border-color: #2c3e50;
   background: #2c3e50;
@@ -105,4 +107,21 @@ main > * + * {
 .button.minus:hover {
   border-color: #2980b9;
   background: #2980b9;
+}
+
+.table {
+  height: 350px;
+  overflow: hidden, scroll;
+}
+
+.table > .row {
+  background: transparent;
+  border: 1px solid #e6e9ed;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  padding: .75em 1.25em;
+  text-transform: uppercase;
+  transition: background .2s, border-color .2s, color .2s;
+  white-space: nowrap;
 }
