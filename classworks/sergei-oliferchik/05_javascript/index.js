@@ -1,4 +1,5 @@
 const timer = document.querySelector('.timer');
+const table = document.querySelector('.table-result');
 
 const buttons = {
   start: document.querySelector('.start.button'),
@@ -7,15 +8,30 @@ const buttons = {
   plus: document.querySelector('.plus.button'),
   minus: document.querySelector('.minus.button'),
   revers: document.querySelector('.revers.button'),
+  addResult: document.querySelector('.addResult.button'),
 };
-timer.textContent = '00:00';
 
 let seconds = 0;
 let minuts = 0;
 let togle = true;
-let value = 1;
+let valueTimer = 1;
 let intervalID;
+let numberResult = 0;
 
+const addResult = () => {
+  let curField = document.createElement('tr');
+  let curResult_number = document.createElement('td');
+  let curResult_time = document.createElement('td');
+
+  curResult_number.textContent = timer.textContent;
+  curResult_time.textContent = 1;
+
+  curField.appendChild(curResult_time);
+  curField.appendChild(curResult_number);
+  table.appendChild(curField)
+
+  table.style.display = 'table-row';
+}
 const chengeMinut = (val) => {
   let result;
   minuts + val < 10
@@ -42,7 +58,7 @@ const chengeSeconds = (val) => {
 const start = () => {
   if(togle) {
     intervalID = setInterval(() => {
-      chengeSeconds(value);
+      chengeSeconds(valueTimer);
     }, 1000);
     togle = false;
   }
@@ -52,9 +68,19 @@ const stop = () => {
   togle = true;
 };
 const reset = () => {
+  table.innerHTML =
+  `
+    <tr class="table-result__title">
+      <th>№</th>
+      <th>Время</th>
+    </tr>
+  `;
+  
+  table.style.display = 'none';
   timer.textContent = '00:00';
   seconds = 0;
   minuts = 0;
+  valueTimer = 1;
 };
 const plus = () => {
   chengeSeconds(10);
@@ -63,8 +89,10 @@ const minus = () => {
   chengeSeconds(-10);
 };
 const revers = () => {
-  value *= -1;
+  valueTimer *= -1;
 }
+
+timer.textContent = '00:00';
 
 buttons.start.addEventListener("click", start, false);
 buttons.stop.addEventListener("click", stop, false);
@@ -72,3 +100,4 @@ buttons.reset.addEventListener("click", reset, false);
 buttons.plus.addEventListener("click", plus, false);
 buttons.minus.addEventListener("click", minus, false);
 buttons.revers.addEventListener("click", revers, false);
+buttons.addResult.addEventListener("click", addResult, false);
