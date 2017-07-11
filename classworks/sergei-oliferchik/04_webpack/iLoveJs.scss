@@ -1,0 +1,11 @@
+.iLoveJs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  .img {
+    width: 150px;
+    height: 150px;
+    background-image: url('./i-love-js.jpg');  
+  }
+}
