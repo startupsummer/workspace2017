@@ -1,0 +1,30 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @media only screen and (max-width: 800px) {
+    justify-content: center;
+  }
+  &__item {
+    max-width: calc(100% / 3);
+    height: 100%;
+    margin: 15px;
+    border: 1px solid #dcdada;
+    background: white;
+    @media only screen and (max-width: 800px) {
+      max-width: 100%;
+    }
+  }
+  &__img {
+    max-width: 100%;
+    vertical-align: top;
+  }
+  &__text {
+    display: block;
+    padding: 18px;
+    text-align: center;
+    @media only screen and (max-width: 800px) {
+      padding: 8px;
+    }
+  }
+}
