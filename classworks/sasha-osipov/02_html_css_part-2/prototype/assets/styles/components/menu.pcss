@@ -5,6 +5,7 @@
   width: 300px;
   height: 100%;
   background-color: rgb(33, 37, 40);
+  position: relative;
 
   &__header {
     padding: 20px;
@@ -19,8 +20,7 @@
 
   &__button {
      position: fixed;
-     left: -300px;
-     top: 20px;
+     transform: translateX(-300px);
      background-image: svg-load('menu.svg', fill: black);
      background-repeat: no-repeat;
      background-size: contain;
@@ -33,20 +33,49 @@
  
      &:hover {
       background-image: svg-load('menu.svg', fill: #9AC0CD);
- 	  cursor: pointer;
+ 	    cursor: pointer;
      }
  
      &:focus {
        outline: none;
      }
    }
+
+   &--mobile {
+     width: 200px;
+     transform: translateX(0);
+
+    .menu-h-section-list__item {
+      text-align: center
+    }
+
+    .menu-h-nav-list__link {
+      justify-content: center;
+    }
+
+    .menu-h-nav-list__icon {
+      display: none;
+    }
+
+    .header-main__image {
+      display: none;
+    }
+
+    .header-main__section{
+      justify-content: center;
+    }
+
+    .menu__button {
+      transform: translate(220px, 20px);
+    }
+  }
  
   @media (--before-desktop-viewport) {
-     position: fixed;
-     left: -300px;
+    position: fixed;
+    transform: translateX(-300px);
  
-     &__button {
-       left: 20px;
-     }
-   }
+    &__button {
+      transform: translate(320px, 20px);
+    }
+  }
 }
