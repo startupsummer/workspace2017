@@ -7,7 +7,7 @@ class IterableQueue extends AddQueue {
   get getIterator() {
     const that = this;
     return function* getIterator() {
-      while (that.queue.length !== 0) {
+      while (!that.isEmpty()) {
         yield that.dequeue();
       }
     };
