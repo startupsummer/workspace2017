@@ -24,11 +24,24 @@ If lecturer decline pull request, he will assign label `Work In Progress` and pr
 
 ### Lectures schedule
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+1. July 5th - [Git](./lectures/01_git/README.md)
+2. July 6th - [HTML & CSS, The basics](./lectures/02_html_css_part-1/README.md)
+3. July 7th - [HTML & CSS, Advanced](./lectures/03_html_css_part-2/README.md)
+4. July 10th - Webpack 3
+=======
+=======
+>>>>>>> master
 
 1. July 5th - Reading materials: [Git](./lectures/01_git/README.md). [Lecture video](https://vimeo.com/224310990/1d203eae3c).
 2. July 6th - Reading materials: [HTML & CSS, The basics](./lectures/02_html_css_part-1/README.md). [Lecture video](https://vimeo.com/224450900/326ef373eb)
 3. July 7th - Reading materials: [HTML & CSS, Advanced](./lectures/03_html_css_part-2/README.md). [Lecture video](https://vimeo.com/224655234/af21b69405)
 4. July 10th - Reading materials: [Webpack 3](./lectures/04_webpack/README.md). [Lecture video](https://vimeo.com/224923552/b9e5687914)
+<<<<<<< HEAD
+>>>>>>> master
+=======
+>>>>>>> master
 5. July 11th - Javascript
 6. July 12th - ES6 Introduction
 7. July 13th - React.JS Introduction

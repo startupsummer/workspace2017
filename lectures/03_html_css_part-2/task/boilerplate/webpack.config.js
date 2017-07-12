@@ -16,6 +16,16 @@ module.exports = {
     rules: [
       {
         test: /\.pcss$/,
+<<<<<<< HEAD
+<<<<<<< HEAD
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+        ],
+=======
+=======
+>>>>>>> master
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -23,6 +33,10 @@ module.exports = {
             'postcss-loader',
           ],
         }),
+<<<<<<< HEAD
+>>>>>>> master
+=======
+>>>>>>> master
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
@@ -36,8 +50,18 @@ module.exports = {
 
   devServer: {
     hot: true,
+<<<<<<< HEAD
+<<<<<<< HEAD
+    publicPath: '/',
+    contentBase: path.join(__dirname, "prototype/assets"),
+=======
     contentBase: `${__dirname}/`,
     publicPath: '/',
+>>>>>>> master
+=======
+    contentBase: `${__dirname}/`,
+    publicPath: '/',
+>>>>>>> master
   },
 
   devtool: 'source-map',
@@ -45,6 +69,13 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({ template: './prototype/index.html', filename: 'index.html' }),
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
     new ExtractTextPlugin('style.css'),
+>>>>>>> master
+=======
+    new ExtractTextPlugin('style.css'),
+>>>>>>> master
   ],
 };
