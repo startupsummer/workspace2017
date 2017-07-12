@@ -1,0 +1,42 @@
+:root {
+  --bgcolor: #212528;
+}
+.aside {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	height: 100vh;
+	background-color: var(--bgcolor);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2em;
+  }
+
+  &__main {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  &__nav {
+    width: 100%;
+  }
+
+  @media (max-width: 800px) {
+    transform: translateX(-300px);
+    transition: all 1s ease-in-out;
+  }
+}
+
+.aside__social-media {
+	display: flex;
+}
+
+@media (max-width: 800px) {
+
+  .aside-shift-right {
+    transform: translateX(0);
+  }
+}

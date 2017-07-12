@@ -5,6 +5,24 @@
   <meta charset="utf-8">
   <title>Prologue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<script src="/bundle.js"></script>
+  <script>
+    window.onload = function() {
+      let toggleButton = document.querySelector('.toggleButton');
+      toggleButton.addEventListener('click', toggleState);
+
+      function toggleState() {
+        let aside = document.querySelector('.aside');
+        let container = document.querySelector('.container');
+
+        aside.classList.toggle('aside-shift-right');
+        container.classList.toggle('container-shift-right');        
+      }
+    }
+  </script>
 <body>
 	<div class="wrapper">
 		<aside class="aside">
@@ -148,3 +166,4 @@
 	</div>
 </body>
 
+</html>

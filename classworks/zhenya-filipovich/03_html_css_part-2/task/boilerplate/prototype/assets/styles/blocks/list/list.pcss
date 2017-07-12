@@ -1,0 +1,33 @@
+.list {
+	list-style-type: none;
+
+  &__item {
+    padding: 1.2em;
+  }
+
+  &__item:hover {
+    background-color: #1C2022;
+  }
+
+  &__item:hover &__glyph {
+    color: #E27689;
+  }
+
+  &__item:hover &__span {
+    color: #ffffff;
+  }
+
+  &__anchor {
+    display: flex;
+    justify-content: space-between;
+    color: #909293;
+    text-decoration: none;
+  }
+
+  &__glyph {
+    display: inline-block;
+    width: 1.5em;
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
