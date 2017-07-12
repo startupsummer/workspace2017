@@ -1,0 +1,35 @@
+@reset-global pc;
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  text-rendering: optimizeSpeed;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: var(--minWidth);
+  color: var(--colorText);
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  font-weight: 400;
+  line-height: var(--lineHeight);
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.centered {
+    display: flex;
+    @mixin flex-center-all;
+}

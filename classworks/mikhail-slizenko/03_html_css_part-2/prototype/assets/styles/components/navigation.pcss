@@ -1,0 +1,62 @@
+.navigation__link {
+    display: block;
+    padding: 15px 30px;
+    text-align: right;
+    color: #aaa;
+    font-size: 16px;
+    text-decoration: none;
+    position: relative;
+
+    &--active {
+        color: #fff;
+        background-color: #1C2022;
+        box-shadow: inset 0 0 5px 0 rgba(0, 0, 0, .3);
+        pointer-events: none;
+    }
+
+    &:before {
+        display: block;
+        position: absolute;
+        content: "";
+        width: 24px;
+        height: 24px;
+        background-size: contain;
+        opacity: .3;
+    }
+
+    &--intro:before {
+        background-image: svg-load('../svg/home.svg', fill=#fff);
+    }
+
+    &--portfolio:before {
+        background-image: svg-load('../svg/menu.svg', fill=#fff);
+    }
+
+    &--about:before {
+        background-image: svg-load('../svg/user.svg', fill=#fff);
+    }
+
+    &--contact:before {
+        background-image: svg-load('../svg/mail.svg', fill=#fff);
+    }
+}
+
+@media (--desktop-viewport) {
+    .navigation__link {
+        padding: 25px 40px;
+        transition: color .3s ease;
+        font-size: 18px;
+
+        &:hover {
+            color: #fff;
+        }
+
+        &:hover:before {
+            opacity: .8;
+        }
+
+        &:before {
+            transition: opacity .3s ease;
+        }
+    }
+}

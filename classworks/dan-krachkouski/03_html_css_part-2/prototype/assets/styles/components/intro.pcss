@@ -1,0 +1,52 @@
+.intro {
+    min-height: 100vh;
+    padding: 32px;
+
+    background: url("http://wallpaperxyz.com/wp-content/uploads/Flat-Wallpapers-Full-HD-Free-Download-Wallpaperxyz.com-10.png");
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    @mixin flex-center-all;
+}
+
+.intro__caption {
+    display: block;
+
+    font-size: 45px;
+    color: rgb(255, 255, 255);
+
+    text-align: center;
+    line-height: 1;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.intro__text {
+    display: block;
+
+    font-size: 20px;
+    padding: 16px;
+    color: rgb(255, 255, 255);
+
+    text-align: center;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.intro__underline {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transition: var(--transition);
+    line-height: 1.5;
+}
+
+.intro__underline:hover {
+    border-bottom: 1px solid rgb(255, 255, 255);
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.9);
+}

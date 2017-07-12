@@ -1,0 +1,23 @@
+.form__inner + .form__inner {
+        margin-top: 20px;
+}
+
+.form__btn {
+    margin: 0 auto;
+}
+
+
+@media (--desktop-viewport) {
+    .form__inner {
+        display: flex;
+        justify-content: center;
+
+        &--double {
+            justify-content: space-between;
+        }
+
+        & + .form__inner {
+            margin-top: 30px;
+        }
+    }
+}

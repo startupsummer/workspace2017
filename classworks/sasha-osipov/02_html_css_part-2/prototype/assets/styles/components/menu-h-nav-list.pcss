@@ -1,0 +1,79 @@
+.menu-h-nav-list {
+  &__item {
+    font-family: var(--fontFamily);
+    text-align: right;
+    list-style-type: none;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 40px;
+
+    &:hover {
+      background-color: rgb(28, 32, 34);
+    }
+
+    &:hover .menu-h-nav-list__text {
+      color: rgb(226, 118, 137);
+    }
+
+    &:hover .menu-h-nav-list__icon--home {
+      background-image: svg-load("home.svg", fill: rgb(226, 118, 137));
+    }
+
+    &:hover .menu-h-nav-list__icon--th {
+      background-image: svg-load("menu.svg", fill: rgb(226, 118, 137));
+    }
+
+    &:hover .menu-h-nav-list__icon--user {
+      background-image: svg-load("businessman.svg", fill: rgb(226, 118, 137));
+    }
+
+    &:hover .menu-h-nav-list__icon--letter {
+      background-image: svg-load(
+        "email-filled-closed-envelope.svg",
+        fill: rgb(226, 118, 137)
+      );
+    }
+  }
+
+  &__text {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: var(--fontFamily);
+    float: right;
+    color: gray;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    align-items: center;
+  }
+
+  &__icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+
+    &--home {
+      background-image: svg-load("home.svg", fill: gray);
+    }
+
+    &--th {
+      background-image: svg-load("menu.svg", fill: gray);
+    }
+
+    &--user {
+      background-image: svg-load("businessman.svg", fill: gray);
+    }
+
+    &--letter {
+      background-image: svg-load(
+        "email-filled-closed-envelope.svg",
+        fill: gray
+      );
+    }
+  }
+}

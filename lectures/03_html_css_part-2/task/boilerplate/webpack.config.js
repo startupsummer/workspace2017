@@ -15,6 +15,11 @@ module.exports = {
     rules: [
       {
         test: /\.pcss$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+        ],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -37,6 +42,7 @@ module.exports = {
     hot: true,
     contentBase: `${__dirname}/`,
     publicPath: '/',
+    contentBase: path.join(__dirname, "prototype/assets"),
   },
 
   devtool: 'source-map',
@@ -44,6 +50,5 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({ template: './prototype/index.html', filename: 'index.html' }),
-    new ExtractTextPlugin('style.css'),
   ],
 };

@@ -1,0 +1,18 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Ubuntu, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content {
+    padding-top: 100px;
+}
+
+@import 'iLoveJs';
+@import 'footer';

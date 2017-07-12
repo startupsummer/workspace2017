@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Startup Summer",
   "scripts": {
-    "start": "webpack-dev-server",
-    "precommit": "lint-staged"
+    "start": "webpack-dev-server"
   },
   "lint-staged": {
     "gitDir": "../../../../",
@@ -43,4 +42,4 @@
     "stylelint-csstree-validator": "^1.1.1",
     "webpack-dev-server": "2.5.0"
   }
-}
+  
