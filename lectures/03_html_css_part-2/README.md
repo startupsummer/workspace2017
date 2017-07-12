@@ -2,7 +2,7 @@
 
 A deeper look into HTML and CSS.
 
-[Lecture presentation](https://docs.google.com/a/paralect.com/presentation/d/1BcUZR2aBdb0NdDbDzRezOF3Gth4Xf0PhN71c4y7ZNJY/edit?usp=sharing)
+[Lecture presentation](https://docs.google.com/presentation/d/1BcUZR2aBdb0NdDbDzRezOF3Gth4Xf0PhN71c4y7ZNJY/edit?usp=sharing)
 
 ### Learning objectives
 
