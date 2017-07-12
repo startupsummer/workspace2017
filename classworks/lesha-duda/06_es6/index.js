@@ -16,7 +16,9 @@ console.log(`size: ${testQueue.size()}`);
 
 testQueue.sort(comp);
 
-for (const value of testQueue.data) {
+const generator = testQueue.getIterator()();
+
+for (const value of generator) {
   console.log(value);
 }
 
