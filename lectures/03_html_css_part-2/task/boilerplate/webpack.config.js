@@ -1,6 +1,10 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+<<<<<<< HEAD
+=======
+const path = require('path');
+>>>>>>> aa55f202d9d9198fc14ea5160b5470b29b4fa1a4
 
 module.exports = {
   entry: `${__dirname}/prototype/assets/styles/index.pcss`,

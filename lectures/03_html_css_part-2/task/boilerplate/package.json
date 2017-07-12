@@ -43,4 +43,8 @@
     "stylelint-csstree-validator": "^1.1.1",
     "webpack-dev-server": "2.5.0"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> aa55f202d9d9198fc14ea5160b5470b29b4fa1a4

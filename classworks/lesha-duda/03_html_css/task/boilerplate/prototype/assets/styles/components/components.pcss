@@ -1,0 +1,33 @@
+.components {
+  min-height: 100%;
+  overflow-x: hidden;
+  margin-left: 0px;
+  transition: margin-left 0.2s;
+  box-sizing: border-box;
+  margin-bottom: -160px;
+  margin-left: 100px;
+
+  @media screen and (min-width: 410px) {
+    margin-left: 150px;
+  }
+
+  @media screen and (min-width: 960px) {
+    margin-left: 250px;
+  }
+}
+
+.hide-sidedrawer .components{
+  margin-left: 0;
+}
+
+@media screen and (min-width: 410px) {
+  .hide-sidedrawer .components{
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .hide-sidedrawer .components{
+    margin-left: 0;
+  }
+}
