@@ -1,0 +1,13 @@
+.page-footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color:rgb(245, 244, 240);
+    text-align: center;
+
+    &__link {
+        text-decoration: none;
+        font-size: 1em;
+        color: black;
+    }
+}

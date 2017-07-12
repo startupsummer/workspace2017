@@ -1,0 +1,86 @@
+.contact {
+  background-color: #e5e9e8;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__info {
+    text-align: center;
+
+    &--large {
+      font-size: 32px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    &--medium {
+      font-size: 16px;
+      padding-bottom: 36px;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  }
+
+  &__form {
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+.form-inputs__text {
+  width: 95%;
+  padding: 15px 20px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+}
+
+.form__textarea {
+  padding-top: 15px;
+  width: 95%;
+  height: 200px;
+  margin: 4px 0;
+  display: inline-block;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+}
+
+.form__button {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.sumbit__button {
+  display: inline-block;
+  background-color: #7ba3a2;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 26px;
+  border-radius: 8px;
+  padding: 12px  ;
+  width: 276px;
+}
+
+@media screen and (min-width: 960px) {
+  .form-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .form-inputs__text {
+     width: calc(95% / 2);
+  }
+}
