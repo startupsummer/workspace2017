@@ -3,6 +3,8 @@
 Learn new ES6/ES7 features and how to use them.
 See the difference between old ES5 and newer versions of ECMAScript
 
+[Lecture keynote](https://docs.google.com/presentation/d/18FS3eQQyXZwADxmXc9U7KSCl1rEOSWCCoEGAxNwQc1U/edit?usp=sharing)
+
 ### Learning objectives
 
 1. Whats new in ES6/ES7
