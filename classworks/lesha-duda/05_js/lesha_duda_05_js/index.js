@@ -61,7 +61,6 @@ function changeTimerMovement(timerType) {
 }
 
 function timerStart(plusTics) {
-    startOff = false;
     timeIntervalId = setInterval(function(){
       ticks += plusTics;
       ticks = checkNegative(ticks);
@@ -70,7 +69,8 @@ function timerStart(plusTics) {
 }
 
 buttons.stop.addEventListener('click', function () {
-    startOff = true;
+    timerMovementStart = false;
+    timerMovementBack = false;
     clearInterval(timeIntervalId);
 });
 
