@@ -5,6 +5,7 @@
   },
   "rules": { 
     "no-trailing-spaces": 0,
-    "no-plusplus": 0
+    "no-plusplus": 0,
+    "no-console": 0
   }
 }

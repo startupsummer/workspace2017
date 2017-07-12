@@ -23,6 +23,8 @@ queueItem.enqueue(410);
 console.log(queueItem.size);
 queueItem.sort(sortFunc); 
 
+// eslint-disable-next-line
 for (const elem of (queueItem.getIterator())()) {
   console.log(elem);
 }
+
