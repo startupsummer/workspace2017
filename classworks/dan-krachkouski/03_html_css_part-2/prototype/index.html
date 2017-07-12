@@ -183,21 +183,12 @@
     </main>
 
     <script type="text/javascript">
-        let toggled = false;
-
         const content = document.querySelector('.content');
         const toggle = document.querySelector('.toggle');
 
         toggle.addEventListener('click', () => {
-            toggled = !toggled;
-            if (toggled) {
-                content.classList.remove('content_open');
-                toggle.classList.remove('toggle_open');
-            } else {
-                content.classList.add('content_open');
-                toggle.classList.add('toggle_open');
-            }
-            console.log(toggled);
+            content.classList.toggle('content_open');
+            toggle.classList.toggle('toggle_open');
         });
     </script>
 
