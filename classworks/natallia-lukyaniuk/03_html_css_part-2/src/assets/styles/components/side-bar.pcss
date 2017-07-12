@@ -5,7 +5,10 @@
   height: 100%;
   color: #8c8888;
   @media only screen and (max-width: 800px) {
-    display: none;
+    &--hide {
+      transition: transform 0.5s ease;
+      transform: translateX(-100%);
+    }
   }
   &__button {
     display: none;
