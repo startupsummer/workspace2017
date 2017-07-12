@@ -21,3 +21,4 @@ for (let value of generator){
 }
 
 console.log('size: ' + queue.currentSize);
+
