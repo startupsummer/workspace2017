@@ -2,9 +2,7 @@ import Node from './Node';
 
 class Queue {
   constructor(size) {
-    this.head = null;
-    this.tail = null;
-    // this.queueArray = [];
+    this.queueArray = [];
     this.maxSize = size;
     this.size = 0;
   }
@@ -12,50 +10,37 @@ class Queue {
     if (this.isFull()) {
       throw new Error('Queue is full');
     } else {
-      if (this.head === null) {
-        this.tail = new Node(data, null);
-        this.head = this.tail;
-      } else {
-        this.tail.next = new Node(data, null);
-        this.tail = this.tail.next;
-      }
+      this.queueArray.push(new Node(data));
       this.size += 1;
-      // if (!this.queueArray[0]) {
-      //   this.queueArray.push(data);
-      // }
     }
   }
   dequeue() {
-    let result = null;
-    if (this.head === null) {
-      return result;
+    if (this.isEmpty()) {
+      return null;
     }
-    result = this.head.data;
-    this.head = this.head.next;
+    const result = this.queueArray.shift();
     this.size -= 1;
     return result;
   }
   isEmpty() {
-    return Boolean(!this.size);
+    return this.size === 0;
   }
   isFull() {
     return this.size === this.maxSize;
   }
   peek() {
-    let result;
-    if (this.head === null) {
-      result = null;
-    } else {
-      result = this.head.data;
+    if (this.isEmpty()) {
+      return null;
     }
+    const result = this.queueArray[0].data;
     return result;
   }
   get currentSize() {
     return this.size;
   }
-  // sort(comparator) {
-
-  // }
+  sort(comparator) {
+    return this.queueArray.sort(comparator);
+  }
 }
 
 export default Queue;

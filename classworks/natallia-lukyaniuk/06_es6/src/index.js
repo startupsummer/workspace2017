@@ -3,21 +3,6 @@ import IterableQueue from './IterableQueue';
 
 require('babel-polyfill');
 
-const queue = new Queue(7);
-queue.enqueue(1);
-// queue.enqueue(2);
-// queue.enqueue(3);
-// queue.enqueue(4);
-// queue.enqueue(5);
-// queue.enqueue(6);
-// queue.enqueue(7);
-// queue.enqueue(8);
-// console.log(queue.isFull());
-// console.log(queue);
-// queue.dequeue();
-// queue.dequeue();
-// queue.dequeue();
-// console.log(queue.isEmpty());
 const iterableQueue = new IterableQueue(7);
 iterableQueue.enqueue(1);
 iterableQueue.enqueue(2);
@@ -25,8 +10,10 @@ iterableQueue.enqueue(3);
 iterableQueue.enqueue(4);
 iterableQueue.enqueue(5);
 iterableQueue.enqueue(6);
+console.log(iterableQueue.currentSize);
 const it = iterableQueue.getIterator();
-console.log(iterableQueue);
-console.log(it().next());
-console.log(it().next());
-console.log(it().next());
+console.log(iterableQueue.sort((a, b) => b.data - a.data));
+for (let value of it()) {
+  console.log(value);
+}
+console.log(iterableQueue.currentSize);
