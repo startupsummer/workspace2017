@@ -34,8 +34,7 @@ export default class Queue {
   }
 
   sort(comparator) {
-    if (comparator) this.queue.sort(comparator);
-    else this.queue.sort();
+    this.queue.sort(comparator);
   }
 }
 /*

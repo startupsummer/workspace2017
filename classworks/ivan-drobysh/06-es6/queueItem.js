@@ -1,5 +1,5 @@
-import GetIterator from './iterableQueue';
-
-const q = new GetIterator();
-
-export default q;
+export default class QueueItem {
+  constructor(data) {
+    this.data = data;
+  }
+}

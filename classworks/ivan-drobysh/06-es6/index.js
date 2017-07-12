@@ -1,13 +1,16 @@
-import q from './queueItem';
+import QueueItem from './queueItem';
+import IterableQueue from './iterableQueue';
 
-q.enqueue(10);
-q.enqueue(11);
-q.enqueue(12);
-q.enqueue(13);
-q.enqueue(17);
+const q = new IterableQueue(10);
+
+q.enqueue(new QueueItem(10));
+q.enqueue(new QueueItem(11));
+q.enqueue(new QueueItem(25));
+q.enqueue(new QueueItem(13));
+q.enqueue(new QueueItem(14));
 console.log(q.size());
 
-q.sort();
+q.sort((a, b) => a.data - b.data);
 
 const iter = q.getIterator()();
 for (const value of iter) {
