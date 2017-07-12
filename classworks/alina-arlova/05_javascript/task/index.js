@@ -16,13 +16,18 @@ let seconds = 0;
 let minutes = 0;
 let intervalId = 0;
 let table = document.querySelector(".table");
+let isStart = false;
 
 function start(){
-  intervalId = setInterval(increaseTime, 1000);
+  if (!isStart) {
+    isStart = true;
+    intervalId = setInterval(increaseTime, 1000);
+  }
 }
 
 function stop(){
   clearTimeout(intervalId);
+  isStart = false;
 }
 
 function reset(){
