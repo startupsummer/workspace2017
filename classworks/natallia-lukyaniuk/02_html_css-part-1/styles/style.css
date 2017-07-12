@@ -247,6 +247,10 @@ textarea {
 }
 
 figure {
+<<<<<<< HEAD
+  margin: 15px;
+=======
+>>>>>>> aa55f202d9d9198fc14ea5160b5470b29b4fa1a4
   border: 1px solid #dcdada;
   background: white;
 }
