@@ -9,8 +9,8 @@ export default class iterableQueue extends Queue {
     getIterator() {
         const self = this;
         return function* getGenerator() {
-            for(let value of self.listItem) {
-                yield value;
+            while (self.currentSize > 0) {
+                yield self.dequeue();
             }  
         }
     } 

@@ -1,33 +1,32 @@
 export default class Queue {
     constructor(maxSize = 10) {
         this.maxSize = maxSize;
-        this.size = 0;
         this.listItem = [];
     }
 
     isEmpty() {
-        return this.size === 0;
+        return this.listItem.length === 0;
     }
 
     isFull() {
-        return this.size === this.maxSize;
+        return this.listItem.length === this.maxSize;
     }
 
     enqueue(element) {
-        this.listItem.push(element);
-        this.size++;  
+        if(!this.isFull()) {
+            this.listItem.push(element);  
+        } 
     }
 
     dequeue() {
-        if(!isEmpty()) {
-            this.size--; 
+        if(!this.isEmpty()) {
             return this.listItem.shift();
         }  
     }
 
     peek() {
-        if(!isEmpty()) {
-            return this.listItem.splice(0, 1); 
+        if(!this.isEmpty()) {
+            return this.listItem[0]; 
         }
     }
 
@@ -36,7 +35,7 @@ export default class Queue {
     }
 
     get currentSize() {
-        return this.size;
+        return this.listItem.length;
     }
 }
 
