@@ -1,0 +1,127 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  color: #fff;
+}
+button {
+  background-color: #19d0a9;
+  border: 0;
+  padding: 10px;
+  border-radius: 5%;
+  color: #41403c;
+  margin-top: 20px;
+}
+aside footer li {
+  float: left;
+  width: calc(100% / 5);
+}
+.menu {
+  background-color: #212528;
+  position: fixed;
+  float: left;
+  height: 100%;
+  width: 20%;
+  color: #fff;
+}
+.menu header {
+  margin: 40px 15px;
+}
+.menu header img {
+  float: left;
+}
+.menu hgroup {
+  float: right;
+  text-align: end;
+}
+.menu header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+li {
+  padding: 10px;
+  list-style-type: none;
+}
+span {
+  float: right;
+}
+.wrapper {
+  position: relative;
+  text-align: center;
+  float: right;
+  width: 80%;
+}
+.wrapper header {
+  background-image: url(images/banner.jpg);
+}
+.wrapper-context {
+  padding: 10%;
+}
+.wrapper-context>h1,h2,p {
+  margin-bottom: 40px;
+}
+.wrapper footer {
+  background-color: #e6ebea;
+}
+main li img {
+  width: 100%;
+}
+figure img {
+  background-color: grey;
+  width: 100%;
+  vertical-align: top;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+input {
+  width: 40%;
+  padding: 1%;
+  margin: 0 3% 3% 3%;
+}
+textarea {
+  padding: 1%;
+  width: 95%;
+}
+.fa {
+  font-size: 25px;
+}
+main section figure {
+  display: inline;
+  float: left;
+  width: calc(100% / 3);
+  padding: 10px;
+}
+.list {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.list__item {
+  display: inline;
+  float: left;
+  width: calc(100% / 3);
+  padding: 10px;
+}
+
+figcaption {
+  padding: 15px;
+  background: #fff;
+}
+aside footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+aside footer ul {
+  width: 100%;
+text-align: center;
+padding: 0 40px;
+}

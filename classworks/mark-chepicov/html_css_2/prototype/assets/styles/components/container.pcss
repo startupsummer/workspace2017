@@ -1,0 +1,35 @@
+.container{
+    display:flex;
+    flex-wrap: wrap;
+
+    &__item{
+        width:33.3%;
+        padding:20px;
+        transition: all 0.5s ease-out;
+        &:hover{
+            transform: scale(1.05);
+        }
+        @media (--before-desktop-viewport) {
+            width: 100%;
+        }
+        @media (--desktop-viewport) {
+            width:100%;
+        }
+        @media (--before-medium-viewport) {
+            padding: 0;
+        }
+    }
+    &__figure{
+    }
+    &__img{
+	    width:100%;
+
+    }
+    &__figcaption{
+        background-color: white;
+        width: 100%;
+        padding: 15px;
+        margin-top: -5px;
+        color:grey;       
+    }
+}
