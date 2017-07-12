@@ -1,0 +1,26 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:90vh;
+    width: 100%;
+    background:cadetblue;
+
+
+    &__content{
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.85;
+        transition: 1s ease-out all;
+        &:hover{
+            transform: scale(1.1);
+            opacity: 1;
+        }
+    }
+    &__text{
+        color: #000000;
+        font-size: 47px;
+    }
+}

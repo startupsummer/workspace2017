@@ -29,3 +29,10 @@
 - [JavaScript: The Good Parts](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
 - [Eloquent JavaScript](http://eloquentjavascript.net/)
 - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
+
+#### To Read
+- [How coercion works](http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3)
+- [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [A cartoon intro to WebAssembly](https://hacks.mozilla.org/2017/02/a-cartoon-intro-to-webassembly/)
+- [Shared memory and Atomics](http://2ality.com/2017/01/shared-array-buffer.html)
+- [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)

@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  padding-top: 50px;
+  justify-content: center;
+
+  &__link {
+    position: relative;
+    display: block;
+    padding-right: 4px;
+    text-align: right;
+    text-decoration: none;
+    font-size: 14px;
+    color: #404040;
+
+    @media screen and (min-width: 410px) {
+      padding-right: 8px;
+      font-size: 18px;
+    }
+
+    @media screen and (min-width: 960px) {
+      padding-right: 10px;
+      font-size: 22px;
+    }
+  }
+}
