@@ -14,10 +14,10 @@ class Quere {
     return element;
   }
   isEmpty() {
-    return Boolean(this.array.lenght);
+    return Boolean(this.array.length);
   }
   isFull() {
-    return this.array === this.size;
+    return this.array.length === this.size;
   }
   peek() {
     return this.array[0];
