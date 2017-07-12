@@ -4,6 +4,7 @@ class Queue {
   constructor(size) {
     this.head = null;
     this.tail = null;
+    // this.queueArray = [];
     this.maxSize = size;
     this.size = 0;
   }
@@ -19,6 +20,9 @@ class Queue {
         this.tail = this.tail.next;
       }
       this.size += 1;
+      // if (!this.queueArray[0]) {
+      //   this.queueArray.push(data);
+      // }
     }
   }
   dequeue() {

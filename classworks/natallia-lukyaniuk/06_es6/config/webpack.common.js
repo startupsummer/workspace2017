@@ -55,15 +55,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: path.join(__dirname, '..', 'node_modules'),
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015'],
-            },
-          },
-          'eslint-loader',
-        ],
+        loaders: ['babel-loader', 'eslint-loader'],
       },
       {
         test: /\.(svg|png|jpg)$/,
