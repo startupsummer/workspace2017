@@ -1,0 +1,73 @@
+.footer-main {
+  &__navigation {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    display: block;
+    width: 30px;
+    height: 30px;
+
+    &:hover .footer-main__icon--tw {
+      background-image: svg-load(
+        "002-twitter-logo-button.svg",
+        fill: rgb(226, 118, 137)
+      );
+    }
+
+    &:hover .footer-main__icon--in {
+      background-image: svg-load(
+        "001-linkedin-logo-button.svg",
+        fill: rgb(226, 118, 137)
+      );
+    }
+
+    &:hover .footer-main__icon--inst {
+      background-image: svg-load(
+        "003-instagram-logo.svg",
+        fill: rgb(226, 118, 137)
+      );
+    }
+
+    &:hover .footer-main__icon--gh {
+      background-image: svg-load("github-logo.svg", fill: rgb(226, 118, 137));
+    }
+
+    &:hover .footer-main__icon--fb {
+      background-image: svg-load(
+        "004-facebook-logo-button.svg",
+        fill: rgb(226, 118, 137)
+      );
+    }
+  }
+
+  &__icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    display: block;
+
+    &--tw {
+      background-image: svg-load("002-twitter-logo-button.svg", fill: gray);
+    }
+
+    &--in {
+      background-image: svg-load("001-linkedin-logo-button.svg", fill: gray);
+    }
+
+    &--inst {
+      background-image: svg-load("003-instagram-logo.svg", fill: gray);
+    }
+
+    &--gh {
+      background-image: svg-load("github-logo.svg", fill: gray);
+    }
+
+    &--fb {
+      background-image: svg-load("004-facebook-logo-button.svg", fill: gray);
+    }
+  }
+}
