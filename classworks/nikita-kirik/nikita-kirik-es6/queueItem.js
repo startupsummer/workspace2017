@@ -1,6 +1,7 @@
 class QueueItem {
-  constructor(data = null) {
-    this.data = data;
+  constructor(flag = false, number = 0) {
+    this.flag = flag;
+    this.number = number;
   }
 }
 

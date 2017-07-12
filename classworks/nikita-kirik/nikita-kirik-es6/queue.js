@@ -1,4 +1,3 @@
-require('./queueItem');
 
 class Queue {
   constructor() {
@@ -30,7 +29,7 @@ class Queue {
     return this.storage[0];
   }
 
-  size() {
+  get size() {
     return this.storage.length;
   }
 
