@@ -1,8 +1,16 @@
+:root {
+  --almost-white: #E1E1DD;
+}
 .container {
 	display: flex;
 	flex-direction: column;
   position: relative;
 	margin-left: 300px;
+
+  @media (max-width: 800px) {
+    margin-left: 0;
+    transition: all 1s ease-in-out;
+  }
 }
 
 .container__item {
@@ -26,14 +34,14 @@
 }
 
 .container__header-span {
-	color: #E1E1DD;
+	color: var(--almost-white);
 }
 
 .container__text {
 	margin: 2em;
 	text-align: center;
 	line-height: 1.5em;
-	color: #E1E1DD;
+	color: var(--almost-white);
 }
 
 .container__item--portfolio {
@@ -51,6 +59,10 @@
 .container__gallery {
   display: flex;
   flex-flow: row nowrap;
+
+  @media (max-width: 800px) {
+    flex-flow: column nowrap;
+  }
 }
 
 .container__item--contact {
@@ -70,16 +82,7 @@
 }
 
 @media (max-width: 800px) {
-  .container {
-    margin-left: 0;
-    transition: all 1s ease-in-out;
-  }
-
   .container-shift-right {
     transform: translateX(300px);
-  }
-
-  .container__gallery {
-    flex-flow: column nowrap;
   }
 }

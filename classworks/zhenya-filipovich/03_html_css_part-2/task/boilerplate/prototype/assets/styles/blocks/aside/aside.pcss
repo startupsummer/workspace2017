@@ -8,21 +8,26 @@
 	width: 300px;
 	height: 100vh;
 	background-color: var(--bgcolor);
-}
 
-.aside__header {
-	display: flex;
-	justify-content: space-between;
-	padding: 1.2em;
-}
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2em;
+  }
 
-.aside__main {
-	display: flex;
-	flex-grow: 1;
-}
+  &__main {
+    display: flex;
+    flex-grow: 1;
+  }
 
-.aside__nav {
-	width: 100%;
+  &__nav {
+    width: 100%;
+  }
+
+  @media (max-width: 800px) {
+    transform: translateX(-300px);
+    transition: all 1s ease-in-out;
+  }
 }
 
 .aside__social-media {
@@ -30,10 +35,6 @@
 }
 
 @media (max-width: 800px) {
-  .aside {
-    transform: translateX(-300px);
-    transition: all 1s ease-in-out;
-  }
 
   .aside-shift-right {
     transform: translateX(0);

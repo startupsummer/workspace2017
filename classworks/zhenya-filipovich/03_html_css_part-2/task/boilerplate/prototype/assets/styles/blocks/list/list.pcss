@@ -1,33 +1,33 @@
 .list {
 	list-style-type: none;
-}
 
-.list__item {
-	padding: 1.2em;
-}
+  &__item {
+    padding: 1.2em;
+  }
 
-.list__item:hover {
-	background-color: #1C2022;
-}
+  &__item:hover {
+    background-color: #1C2022;
+  }
 
-.list__item:hover .list__glyph {
-	color: #E27689;
-}
+  &__item:hover &__glyph {
+    color: #E27689;
+  }
 
-.list__item:hover .list__span {
-	color: #ffffff;
-}
+  &__item:hover &__span {
+    color: #ffffff;
+  }
 
-.list__anchor {
-	display: flex;
-	justify-content: space-between;
-	color: #909293;
-	text-decoration: none;
-}
+  &__anchor {
+    display: flex;
+    justify-content: space-between;
+    color: #909293;
+    text-decoration: none;
+  }
 
-.list__glyph {
-	display: inline-block;
-	width: 1.5em;
-	font-size: 1.5em;
-	text-align: center;
+  &__glyph {
+    display: inline-block;
+    width: 1.5em;
+    font-size: 1.5em;
+    text-align: center;
+  }
 }

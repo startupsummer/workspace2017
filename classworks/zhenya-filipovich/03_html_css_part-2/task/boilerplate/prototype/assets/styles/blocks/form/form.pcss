@@ -5,26 +5,24 @@
   color: #888888;
 	border: 1px solid #d0c8cb;
 	border-radius: 0.4em;
-}
 
-.form__item:focus {
-  box-shadow: 0 0 2px 1px #8ebebc;
-}
-
-.form__item--name,
-.form__item--email {
-  width: 48%;
-	height: 50px;
-}
-
-.form__item--message {
-  width: 100%;
-	height: 300px;
-}
-
-@media (max-width: 800px) {
-  .form__item--name,
-  .form__item--email {
-    width: 100%;
+  &:focus {
+    box-shadow: 0 0 2px 1px #8ebebc;
   }
+
+  &--name,
+  &--email {
+    width: 48%;
+    height: 50px;
+
+    @media (max-width: 800px) {
+      width: 100%;
+    }
+  }
+
+  &--message {
+    width: 100%;
+    height: 300px;
+  }
+
 }
