@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Секундомер</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600&amp;subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <main>
+    <div class="timer"></div>
+
+    <div class="buttons">
+      <button class="reverse button" onclick="obratno();">Обратный отсчёт</button>
+      <button class="start button" onclick="start();">Старт</button>
+      <button class="stop button" onclick="stop();">Стоп</button>
+      <button class="intable button" onclick="intable();">В таблицу</button>
+      <button class="plus button" onclick="plus();">+10 cекунд</button>
+      <button class="minus button" onclick="minus();">-10 cекунд</button>
+      <button class="reset button" onclick="reset();">Сброс</button>
+    </div>
+    <div class="table">
+    </div>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
