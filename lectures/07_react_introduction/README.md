@@ -2,7 +2,7 @@
 
 We're starting from the very basics and walk through everything you need to know to get started with React.
 
-[Lecture presentation](https://docs.google.com/a/paralect.com/presentation/d/1jnjTa3o3uRwNuejYhnyD-2DnEJp6-lGYHg6m5XP7LhA/edit?usp=sharing)
+[Lecture presentation](https://docs.google.com/presentation/d/1jnjTa3o3uRwNuejYhnyD-2DnEJp6-lGYHg6m5XP7LhA/edit?usp=sharing)
 
 ### Learning objectives
 
