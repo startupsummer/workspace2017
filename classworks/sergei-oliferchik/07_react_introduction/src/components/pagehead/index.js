@@ -5,7 +5,7 @@ import Peponav from '../reponav-item';
 import './index.css';
 
 
-const  Pagehead  = () => (
+const  Pagehead  = (props) => (
   <div className="pagehead">
       <div className="container repohead-container">
         <h1 className="pagehead-title">
@@ -19,7 +19,11 @@ const  Pagehead  = () => (
       </div>
       <div className="container">
         <nav className="reponav">
-          <Peponav  />
+          <Peponav  issuesLength={
+              props.issues
+                .filter(el => el.state === "open" )
+                .length
+              }/>
         </nav>
       </div>
   </div>

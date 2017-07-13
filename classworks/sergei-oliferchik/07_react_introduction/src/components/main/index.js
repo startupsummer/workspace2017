@@ -7,10 +7,10 @@ import './index.css';
 
 
 
-const  Main  = () => (
+const  Main  = (props) => (
   <main className='content'>
-    <Pagehead />
-    <IssuesListing />
+    <Pagehead issues={props.issues}/>
+    <IssuesListing issues={props.issues}/>
   </main>
 )
 

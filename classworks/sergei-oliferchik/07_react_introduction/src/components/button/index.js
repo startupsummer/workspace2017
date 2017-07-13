@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import './index.css';
 
-const  Button  = () => (
-  <button className="btn btn-primary" type="button">
-    New issue
+const  Button  = (props) => (
+  <button className={`btn ${props.color}`} type="button">
+    {props.text}
   </button>
 )
 

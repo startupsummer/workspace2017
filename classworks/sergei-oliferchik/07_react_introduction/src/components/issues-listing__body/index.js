@@ -4,13 +4,15 @@ import IssuesItem from '../issues__item';
 import './index.css';
 
 
-const  IssuesListingBody  = () => (
+const  IssuesListingBody = (props) => (
+
   <div className="issues-listing__body">
   <ul className="issues">
-    <li >
-      <IssuesItem />
-      <IssuesItem />
-    </li>
+      {
+        props.issues
+          .filter(el => el.state === "open" )
+          .map(el => <li ><IssuesItem issues={el.title}/></li>)
+      }
   </ul>
 </div>
 );

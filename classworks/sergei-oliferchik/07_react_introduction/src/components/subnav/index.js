@@ -6,11 +6,11 @@ import Button from '../button';
 import './index.css';
 
 
-const  Subnav  = () => (
+const  Subnav  = (props) => (
   <div className="issues-listing__subnav">
     <div className="subnav">
         <Search />
-        <Button />
+        <Button text={props.text} color={props.color}/>
     </div>
   </div>
 )

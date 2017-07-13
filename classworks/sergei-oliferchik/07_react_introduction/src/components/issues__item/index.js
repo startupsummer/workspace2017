@@ -14,7 +14,7 @@ const  IssuesItem = () => (
         Blank lines removed from function calls
       </a>
     </div>
-    <Button />
+    <Button text={'Close issues'}/>
   </div>
 );
 
