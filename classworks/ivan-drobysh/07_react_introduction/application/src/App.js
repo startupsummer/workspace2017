@@ -29,23 +29,25 @@ class App extends Component {
   }
 
   closeOnClick = (item) => () => {
-    let state = item.state;
-    let issues = this.state.issuesAll;
-    for(let i = 0; i < issues.length; i++) {
-      if(issues[i].id === item.id) {
-        if(state === 'open')  issues[i].state = 'closed';
-        else issues[i].state = 'open';
-        break;
+    let stateItem = item.state;
+    let issues = this.state.issuesAll.map((itemIssues)=> {
+      if(itemIssues.id === item.id) {
+        if(stateItem === 'open')
+          itemIssues.state = 'closed';
+        else
+          itemIssues.state = 'open';
       }
-    }
+      return itemIssues;
+    });
     this.setState({ issuesAll:issues });
     this.show(this.state.stateShow)();
   }
   count() {
     let close = 0, open = 0;
-    open = this.state.issuesAll.reduce(
+    open = this.state.issues.reduce(
       (previousValue, currentValue, index, array)=> {
-      if(currentValue.state === 'open') return previousValue + 1;
+      if(currentValue.state === 'open')
+        return previousValue + 1;
       return previousValue;
     }, 0);
     close = this.state.issuesAll.length - open;
@@ -54,12 +56,10 @@ class App extends Component {
       close,
     }
   }
-  enterKey = (blur) => (event) => {
-    if(event.charCode || blur) {
+  inputChange = (event) => {
       const value = event.currentTarget.value.toLowerCase();
       let newIssue = this.state.issuesAll.filter((item) => item.title.toLowerCase().indexOf(value) !== -1);
       this.setState({issues:newIssue});
-    }
   }
 
   show = (state)=> () => {
@@ -84,7 +84,7 @@ class App extends Component {
           <PageHead count={this.state.issuesAll.length}/>
           <div className="container">
             <div className="issues-listing">
-              <ListSubnav onClick={this.newOnClick} onKeyPress={this.enterKey}/>
+              <ListSubnav onClick={this.newOnClick} onChange={this.inputChange}/>
               <ListHeader count={this.count()} show={this.show} state={this.state.stateShow}/>
               <ListBody data={this.state.issues} onClick={this.closeOnClick}/>
             </div>
