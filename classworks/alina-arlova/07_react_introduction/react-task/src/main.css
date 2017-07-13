@@ -244,6 +244,10 @@ strong {
   border-top: 1px solid rgb(225, 228, 232);
 }
 
+.issues__wrapper {
+  border-top: 1px solid rgb(225, 228, 232);
+}
+
 .issues__item:first-of-type {
   border-top-color: transparent;
 }
