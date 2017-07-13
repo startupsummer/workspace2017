@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-part {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 80px;
+}
+
+.main-part__image {
+  align-self: center;
+  margin-top: 100px;
+}
+
+.main-part__text {
+  align-self: center;
+  margin-top: 20px;
+  font-size: 20px;
+}

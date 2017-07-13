@@ -1,0 +1,22 @@
+.grid {
+    --spacing: 32px;
+
+    padding: calc(var(--spacing) / 2);
+
+    margin: 0 auto;
+    max-width: 600px;
+
+    @media (--desktop-viewport) {
+        display: flex;
+        max-width: 1200px;
+        --spacing: 48px;
+    }
+}
+
+.grid__structure {
+    margin: calc( - var(--spacing) / 2);
+}
+
+.grid__element {
+    padding: calc(var(--spacing) / 2);
+}

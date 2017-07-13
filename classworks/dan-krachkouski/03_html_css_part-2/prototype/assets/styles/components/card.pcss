@@ -1,0 +1,36 @@
+.card {
+    border-radius: 4px;
+    overflow: hidden;
+
+    display: block;
+
+    @mixin elevation 1;
+
+    transition: var(--transition);
+
+    &:hover {
+        @mixin elevation 4;
+    }
+}
+
+.card__image {
+    object-fit: contain;
+    display: block;
+    width: 100%;
+}
+
+.card__descr {
+    background: rgb(255, 255, 255);
+    min-height: 56px;
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 19px;
+    color: rgb(102, 102, 102);
+}

@@ -1,0 +1,31 @@
+.list {
+  list-style: none;
+  padding-bottom: 50px;
+  &__item {
+    position: relative;
+    transition: background 0.19s linear;
+    overflow: hidden;
+    &:hover {
+      background: black;
+      color: pink;
+    }
+  }
+  &__link {
+    display: block;
+    text-align: end;
+    padding: 20px 20px;
+    transition: transform 0.19s ease;
+    font-size: 15px;
+    &:hover {
+      transform: translateX(-15px);
+    }
+  }
+  &__icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background 0.19s linear;
+    font-size: 23px;
+  }
+}
