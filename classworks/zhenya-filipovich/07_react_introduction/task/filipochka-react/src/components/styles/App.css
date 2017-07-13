@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  outline: none;
 }
 
 body {
@@ -274,4 +275,4 @@ strong {
 
 .issues__link:hover, .issues__link:focus {
   color: rgb(3, 102, 214);
-}
+} 
