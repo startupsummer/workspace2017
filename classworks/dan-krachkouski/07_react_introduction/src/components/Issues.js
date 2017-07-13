@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import IssuesNav from './IssuesNav';
 import IssuesHeader from './IssuesHeader';
@@ -39,7 +40,7 @@ class Issues extends Component {
       filter
     } = this.state;
 
-    data = data.filter(item => item.title.toLowerCase().startsWith(filter))
+    data = data.filter(item => item.title.toLowerCase().startsWith(filter));
 
     const countOpen = data.filter(issue => issue.state === 'open').length;
     const countClosed = data.filter(issue => issue.state === 'closed').length;
@@ -64,6 +65,11 @@ class Issues extends Component {
         </div>
       </div>);
   }
+}
+
+Issues.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
+  handlers: PropTypes.arrayOf(PropTypes.func)
 }
 
 export default Issues;

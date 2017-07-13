@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const repoSvg = (
 <svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 12 16" width="12">
@@ -43,6 +44,12 @@ class PageHead extends Component {
         </div>
       </div>);
   }
+}
+
+PageHead.propTypes = {
+  count: PropTypes.number,
+  repo: PropTypes.string,
+  user: PropTypes.string
 }
 
 export default PageHead;

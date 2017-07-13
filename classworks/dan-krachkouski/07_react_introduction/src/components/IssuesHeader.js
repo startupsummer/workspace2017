@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import Button from './Button';
 
@@ -42,6 +43,13 @@ class IssuesHeader extends Component {
         </div>
       </div>);
   }
+}
+
+IssuesHeader.propTypes = {
+  tab: PropTypes.string,
+  openTab: PropTypes.func,
+  countOpen: PropTypes.number,
+  countClosed: PropTypes.number
 }
 
 export default IssuesHeader;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 class Button extends Component {
   constructor(props) {
@@ -20,6 +21,12 @@ class Button extends Component {
           { children }
       </button>);
   }
+}
+
+Button.propTypes = {
+  type: PropTypes.string,
+  children: PropTypes.node,
+  click: PropTypes.func
 }
 
 export default Button;
