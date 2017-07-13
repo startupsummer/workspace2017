@@ -235,9 +235,15 @@ strong {
   border-color: rgb(225, 228, 232);
 }
 
+.issues__statusAndTitle{
+  display: flex;
+  flex-direction: row;
+}
+
 .issues__item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   min-height: 55px;
   padding: 8px 16px;
   margin-top: -1px;
