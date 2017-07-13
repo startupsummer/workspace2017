@@ -245,6 +245,10 @@ strong {
     color: rgb(40, 167, 69);
 }
 
+.issues__status--closed {
+    color: #cb2431;
+}
+
 .issues__icon {
     fill: currentColor;
     vertical-align: text-top;
