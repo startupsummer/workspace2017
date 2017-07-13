@@ -20,10 +20,11 @@ class App extends Component {
       id: +Date.now(),
       state: 'open'
     };
-    issues.push(issue);
+    const newIssues = issues.splice(0);
+    newIssues.push(issue);
     this.setState({
-      count: issues.lenght,
-      issues
+      count: newIssues.lenght,
+      issues: newIssues
     });
   }
 
@@ -31,14 +32,20 @@ class App extends Component {
     const { issues } = this.state;
     let found = issues.find(issue => issue.id === id);
     if (found)  found.state = 'open';
-    this.forceUpdate();
+    this.setState({
+      count: issues.lenght,
+      issues
+    });
   }
 
   closeIssue = (id) => () => {
     const { issues } = this.state;
     let found = issues.find(issue => issue.id === id);
     if (found)  found.state = 'closed';
-    this.forceUpdate();
+    this.setState({
+      count: issues.lenght,
+      issues
+    });
   }
 
   render() {
