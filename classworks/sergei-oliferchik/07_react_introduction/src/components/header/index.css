@@ -1,0 +1,23 @@
+.header {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: rgba(255,255,255,0.75);
+    background-color: #24292e;
+}
+
+.container {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.header-logo {
+    display: block;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.header-logo svg {
+    fill: #fff;
+    vertical-align: middle;
+}
