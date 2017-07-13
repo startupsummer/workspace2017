@@ -22,10 +22,10 @@ let direction = true;
 
 // DISPLAYED FORMAT
 function displayTime() {
-  let displaySeconds = seconds % 60 + '';
-  let displayMinutes = (seconds - displaySeconds) / 60 + '';
-  if (displaySeconds.length === 1) displaySeconds = '0' + displaySeconds;
-  if (displayMinutes.length === 1) displayMinutes = '0' + displayMinutes;
+  let displaySeconds = toString(seconds % 60);
+  let displayMinutes = toString((seconds - displaySeconds) / 60);
+  if (displaySeconds.length === 1) displaySeconds = `0${displaySeconds}`;
+  if (displayMinutes.length === 1) displayMinutes = `0${displayMinutes}`;
   timer.textContent = `${displayMinutes}:${displaySeconds}`;
 }
 
