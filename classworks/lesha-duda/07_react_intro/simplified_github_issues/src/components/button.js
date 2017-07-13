@@ -7,7 +7,7 @@ class MyButton extends Component {
 
   render() {
     return(
-      <button onClick = {this.props.handler}>
+      <button className={this.props.className} onClick = {this.props.handler}>
         {this.props.number} {this.props.value}
       </button>
     )
