@@ -17,6 +17,7 @@ const  Main  = (props) => (
       stateOpen={props.stateOpen}
       stateClosed={props.stateClosed}
       search={props.search}
+      searchField={props.searchField}
       />
   </main>
 );
@@ -29,6 +30,7 @@ Main.PropTypes = {
   stateOpen: PropTypes.func,
   stateClosed: PropTypes.func,
   search:  PropTypes.func,
+  searchField: PropTypes.string,
 }
 
 export default Main;

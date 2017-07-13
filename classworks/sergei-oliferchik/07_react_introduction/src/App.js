@@ -14,8 +14,8 @@ class App extends Component {
     this.state = {
       issues: data,
       issuesState: 'open',
+      searchField: '',
     };
-    this.bufIssuesData = [...this.state.issues];
   }
 
 removeIssue = (id) => () => {
@@ -34,7 +34,6 @@ addIssues = () => () => {
     const newData = addData.pop();
     const newState  = [...issues,newData];
 
-    this.bufIssuesData.push(newData);
     this.setState({ issues: newState });
   }
 }
@@ -49,8 +48,7 @@ stateClosed = () => {
 
 search = (e) => {
   const value = e.target.value;
-  const searchData = this.bufIssuesData.filter(el => el.title.toLowerCase().indexOf(value.toLowerCase()) !== -1);
-  this.setState({issues: searchData})
+  this.setState({searchField: value})
 }
 
   render() {
@@ -65,6 +63,7 @@ search = (e) => {
           stateOpen={this.stateOpen}
           stateClosed={this.stateClosed}
           search={this.search}
+          searchField={this.state.searchField}
           />
       </div>
     );

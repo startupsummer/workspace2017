@@ -34,6 +34,7 @@ const  IssuesListing  = (props) => (
       issues={props.issues}
       onDelete={props.onDelete}
       issuesState={props.issuesState}
+      searchField={props.searchField}
     />
     </div>
   </div>
@@ -47,6 +48,7 @@ IssuesListing.PropTypes = {
   stateClosed: PropTypes.func,
   onDelete: PropTypes.func,
   issuesState: PropTypes.string,
+  searchField: PropTypes.string,
 };
 
 export default IssuesListing;

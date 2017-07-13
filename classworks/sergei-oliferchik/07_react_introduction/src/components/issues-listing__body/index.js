@@ -9,7 +9,10 @@ const IssuesListingBody = (props) => (
   <ul className="issues">
       {
         props.issues
-          .filter(el => el.state === props.issuesState )
+          .filter(el => (
+            el.state === props.issuesState &&
+            el.title.toLowerCase().indexOf(props.searchField.toLowerCase()) !== -1)
+          )
           .map(el => <li key={`${el.id}  li`}><IssuesItem issues={el} onDelete={props.onDelete} key={el.id}/></li>)
       }
   </ul>
@@ -20,6 +23,7 @@ IssuesListingBody.PropTypes = {
   issues: PropTypes.array,
   onDelete: PropTypes.func,
   issuesState: PropTypes.string,
+  searchField: PropTypes.string,
 };
 
 export default IssuesListingBody;
