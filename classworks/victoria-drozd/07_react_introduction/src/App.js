@@ -45,6 +45,8 @@ class Btn extends Component {
       this.props.onShowOpenTab();
     } else if (this.props.type === 'closed') {
       this.props.onShowClosedTab();
+    } else if (this.props.type === 'new-issue') {
+      this.props.onAddNewIssue();
     }
   }
 
@@ -53,12 +55,12 @@ class Btn extends Component {
     if (this.props.type === 'open') {
       svg =
         <svg className="octicon octicon-issue-opened" aria-hidden="true" height={16} version="1.1" viewBox="0 0 14 16" width={14}>
-          <path fillRule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+          <path fillRule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/>
         </svg>;
     } else if (this.props.type === 'closed') {
       svg =
         <svg className="octicon octicon-check" aria-hidden="true" height={16} version="1.1" viewBox="0 0 12 16" width={12}>
-          <path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path>
+          <path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/>
         </svg>;
     }
 
@@ -72,12 +74,21 @@ class Btn extends Component {
 }
 
 class Subnav extends Component {
+  constructor(props) {
+    super(props);
+    this.addNewIssue = this.addNewIssue.bind(this);
+  }
+
+  addNewIssue() {
+    this.props.onAddNewIssue();
+  }
+
   render() {
     return (
       <div className="issues-listing__subnav">
         <div className="subnav">
           <Search />
-          <Btn classes="btn btn-primary" text="New issue" />
+          <Btn classes="btn btn-primary" text="New issue" type="new-issue" onAddNewIssue={this.addNewIssue}/>
         </div>
       </div>
     );
@@ -124,13 +135,13 @@ class Item extends Component {
     if (this.props.currentTab === 'open') {
       svg =
         <svg className="issues__icon" height={16} version="1.1" viewBox="0 0 14 16" width={16}>
-          <path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+          <path fillRule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/>
         </svg>;
       classStr += " issues__status--open";
     } else if (this.props.currentTab === 'closed') {
       svg =
         <svg className="issues__icon" aria-hidden="true" height={16} version="1.1" viewBox="0 0 16 16" width={16}>
-          <path fill-rule="evenodd" d="M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z"></path>
+          <path fillRule="evenodd" d="M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z"/>
         </svg>;
       classStr += " issues__status--closed";
     }
@@ -175,9 +186,10 @@ class Body extends Component {
 class Container extends Component {
   constructor(props) {
     super(props);
-    this.state = {currentTab: 'open'};
+    this.state = {currentTab: 'open', data: this.props.data};
     this.handleShowOpenTab = this.handleShowOpenTab.bind(this);
     this.handleShowClosedTab = this.handleShowClosedTab.bind(this);
+    this.handleAddNewIssue = this.handleAddNewIssue.bind(this);
   }
 
   handleShowOpenTab() {
@@ -188,11 +200,24 @@ class Container extends Component {
     this.setState({currentTab: 'closed'});
   }
 
+  handleAddNewIssue() {
+    this.setState((prevState) => {
+      let newData = prevState.data,
+      newId = newData[newData.length - 1].id + 1;
+      newData.push({
+        "id": newId,
+        "title": "New issue",
+        "state": "open",
+      });
+      return {currentTab: 'open', data: newData};
+    });
+  }
+
   render() {
     return (
       <div className="container">
         <div className="issues-listing">
-          <Subnav />
+          <Subnav onAddNewIssue={this.handleAddNewIssue}/>
           <Header
             currentTab={this.state.currentTab}
             onShowOpenTab={this.handleShowOpenTab}
