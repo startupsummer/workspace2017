@@ -15,7 +15,9 @@
 
 #### I need to be a H4 element, am I?
 
-(This should be an inline link)<dt>[https://www.paralect.com]</dt>
+(This should be an inline link) 
+
+<a href="https://www.paralect.com">https://www.paralect.com</a>
 
 **I need to be a bold text, am I?**
 
