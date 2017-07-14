@@ -16,7 +16,7 @@
 
 #### I need to be a H4 element, am I?
 
-[This should be an inline link](https://www.paralect.com)
+[Markdown](https://www.paralect.com)
 
 **I need to be a bold text, am I?**
 
