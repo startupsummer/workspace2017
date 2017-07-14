@@ -25,5 +25,6 @@
 ```javascript
 var s = "Is formatting language correct?";
 alert(s);
+```
 
 > This need to be a Blockquote.
