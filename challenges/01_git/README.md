@@ -9,9 +9,9 @@
 **Задание**:
 ----------
 
-1. Sub list need to be unordered and first list item should be **your last name**
-  ..* Kirik
-  ..* Apple
+1. Sub list need to be unordered and first list item should be **Kirik**
+  * Kirik
+  * Apple
 
 #### I need to be a H4 element, am I?
 
@@ -20,7 +20,7 @@
 **I need to be a bold text, am I?**
 
 [This need to be an inline image with your github avatar]
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1"))
 
 ```python
 s = "Is formatting language correct?"
