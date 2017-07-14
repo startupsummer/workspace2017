@@ -6,25 +6,26 @@
   5. Как только вы исправили все ошибки форматирования - сформируйте и отправьте pull request репозиторий с измененным README.MD.
   6. [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-**Задание**:
+  **Задание**:
+  ----------
 
-Sub list need to be unordered and first list item should be **your last name**
-  * Duda
-  * Apple
+  1. Sub list need to be unordered and first list item should be **your last name**
+    * **Arlova**
+    * Banana
+    * Apple
+
+  #### I need to be a H4 element, am I?
+
+  [www.Paralect.com](https://www.paralect.com)
+
+  **I need to be a bold text, am I?**
+
+  ![This need to be an inline image with your github avatar](https://avatars6.githubusercontent.com/u/29101647?v=4&s=400)
 
 
-#### I need to be a H4 element, am I? ####
+  ```javascript
+  var s = "Is formatting language correct?";
+  alert(s);
+  ```
 
-[This should be an inline link](https://www.paralect.com)
-
-**I need to be a bold text, am I?**
-
-![This need to be an inline image with your github avatar](https://avatars.githubusercontent.com/Hellycat)
-
-
-```javascript
-s = "Is formatting language correct?";
-alert(s);
-```
-
-> This need to be a Blockquote.
+  >This need to be a Blockquote.
