@@ -13,7 +13,7 @@
   - Lukyaniuk
   - Banana
   - Apple
-
+  
 #### I need to be a H4 element, am I?
 
 [This should be an inline link](https://www.paralect.com)
@@ -22,11 +22,8 @@
 
 ![](https://avatars7.githubusercontent.com/u/23434698?v=4&s=460)
 
-
 ```javascript
-let s = "Is formatting language correct?";
-alert (s);
+var s = "Is formatting language correct?";
+alert(s);
 ```
-#### I need to be a H4 element, am I? ####
-
 > This need to be a Blockquote.
