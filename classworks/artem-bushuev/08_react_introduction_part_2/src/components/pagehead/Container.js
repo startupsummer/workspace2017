@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class Container extends Component {
   render() {
-   // this.setState({countOpen : this.props.countOpen});
     let countOpen = this.props.countOpen;
     return (
      <div className="container">

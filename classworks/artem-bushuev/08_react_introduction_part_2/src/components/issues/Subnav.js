@@ -20,14 +20,20 @@ class Subnav extends Component {
             onClick = {
               () => {
                 let title = prompt("enter issue");
-                this.props.status.records.push(
-                  {
-                    "id": Math.floor((Math.random()+1)*100000000),
-                    "title": title,
-                    "state": "open",
-                  });
-                  this.props.status.updatePage();
-                console.log(title);
+                  if(title){
+                    let context = prompt('enter context');
+                    if(context){
+                      this.props.status.records.push(
+                        {
+                          "id": Math.floor((Math.random()+1)*100000000),
+                          "title": title,
+                          "context": context,
+                          "state": "open",
+                        });
+                        this.props.status.updatePage();
+                      console.log(title);
+                    }
+                }
               }
             }>
                 New issue
@@ -36,6 +42,5 @@ class Subnav extends Component {
       </div>
     );
   }
-
 }
 export default Subnav;
