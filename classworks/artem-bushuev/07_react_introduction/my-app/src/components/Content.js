@@ -25,7 +25,12 @@ class Content extends Component {
             <Container countOpen ={data.getCountOpen()} />
         </div>
         <div className = "container">
-            <Subnav />
+            <Subnav  status = {
+              {
+                records: this.props.data.records,
+                updatePage : this.updatePage
+              }
+            } />
             <ListingStates  status = {
               {
                 data: this.props.data,
