@@ -19,7 +19,6 @@ Sub list need to be unordered and first list item should be **your last name**
 
 **I need to be a bold text, am I?**
 
-<<<<<<< HEAD
 ![This need to be an inline image with your github avatar](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 
