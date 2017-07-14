@@ -20,7 +20,7 @@
 
 **I need to be a bold text, am I?**
 
-![This need to be an inline image with your github avatar](https://avatars7.githubusercontent.com/u/14136436?v=3&s=460)
+![This need to be an inline image with your github avatar](https://avatars3.githubusercontent.com/u/25349780?v=4&u=92dca09e69ee92077c30de108b7fc57ca84ec8a2&s=400)
 
 
 ```javascript
