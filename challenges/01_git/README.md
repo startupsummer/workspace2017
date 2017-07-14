@@ -24,8 +24,9 @@
 
 
 ```javascript
-var s = "Is formatting language correct?";
-alert(s);
+let s = "Is formatting language correct?";
+alert (s);
 ```
+#### I need to be a H4 element, am I? ####
 
 > This need to be a Blockquote.
