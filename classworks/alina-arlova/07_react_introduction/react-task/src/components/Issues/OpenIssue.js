@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import './main.css';
+import '../../main.css';
 
 class OpenIssue extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <li className="issues__item">
@@ -15,7 +19,11 @@ class OpenIssue extends Component {
           </a>
         </div>
 
-        <button className="btn issue__close" type="button">
+        <button
+          className="btn issue__close"
+          type="button"
+          onClick={this.handleClick = () => {this.props.onClick(this.props.issue);}}
+        >
           Close issue
         </button>
       </li>

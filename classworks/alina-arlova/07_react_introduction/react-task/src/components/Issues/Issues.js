@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import OpenIssue from './OpenIssue.js'
 import ClosedIssue from './ClosedIssue.js'
-import './main.css';
+import '../../main.css';
 
 class Issues extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <ul className="issues">
@@ -12,7 +16,7 @@ class Issues extends Component {
             <li className="issues__wrapper">
               {
                 item.state === 'open'
-                ? <OpenIssue issue={item} />
+                ? <OpenIssue issue={item} onClick={this.props.onClick} />
                 : <ClosedIssue issue={item}/>
               }
             </li>)
