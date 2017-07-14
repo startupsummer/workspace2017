@@ -7,10 +7,11 @@ Mandatory task:
 1. Finish your previous lecture task.
 2. By click on issue show its description. Use `react-router-dom` for that.
 3. Use stateless components.
+4. Try to optimize your components.
 
 Advanced:
 
-4. Integrate your app with github.
+5. Integrate your app with github.
 
 - Create new public repo
 - [Generate token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
