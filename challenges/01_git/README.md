@@ -6,12 +6,12 @@
   5. Как только вы исправили все ошибки форматирования - сформируйте и отправьте pull request репозиторий с измененным README.MD.
   6. [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-Задание:
+**Задание**:
 ----------
-* Sub list need to be unordered and first list item should be **your last name**
-  * Osipov
-  * Banana
-  * Apple
+1. Sub list need to be unordered and first list item should be **your last name**
+  1. Osipov
+  2. Banana
+  3. Apple
 
 #### I need to be a H4 element, am I?
 
