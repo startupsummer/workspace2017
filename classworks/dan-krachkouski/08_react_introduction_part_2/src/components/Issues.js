@@ -4,64 +4,56 @@ import PropTypes from 'prop-types';
 
 import IssuesNav from './IssuesNav';
 import IssuesHeader from './IssuesHeader';
-import Issue from './Issue';
+import IssuesList from './IssuesList';
 
 class Issues extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      tab: 'open',
-      filter: ''
-    }
+    this.state = { tab: 'open', filter: '' };
   }
 
-  openTab = (tab) =>
-    () => this.setState({ tab });
+  // arguments wrapper
+  openTab = (tab) => () => this.setState({ tab });
 
+  // callback
   updateFilter = (event) => {
     this.setState({
       filter: event.target.value.toLowerCase()
     });
-  }
+  };
 
   render() {
-    let {
-      data,
-      handlers: {
-        openIssue,
-        closeIssue,
-        reopenIssue
-      }
-    } = this.props;
-
-    const {
-      tab,
-      filter
-    } = this.state;
+    const { callbacks, wraps } = this.props;
+    let { data } = this.props;
+    const { tab, filter } = this.state;
 
     data = data.filter(item => item.title.toLowerCase().startsWith(filter));
 
-    const countOpen = data.filter(issue => issue.state === 'open').length;
-    const countClosed = data.filter(issue => issue.state === 'closed').length;
+    const open = data.filter(issue => issue.state === 'open');
+    const closed = data.filter(issue => issue.state === 'closed');
 
     return (
       <div className="container">
         <div className="issues-listing">
+
           <IssuesNav
-            updateFilter={ this.updateFilter }
-            openIssue={ openIssue }/>
+            callbacks={{
+              openIssue: callbacks.openIssue,
+              updateFilter: this.updateFilter
+            }} />
+
           <IssuesHeader
             tab={ tab }
-            openTab={ this.openTab }
-            countOpen={ countOpen }
-            countClosed={ countClosed }  />
-          <div className="issues-listing__body">
-            <ul className="issues">
-              { data.filter(issue => issue.state === tab)
-                  .map(issue => <Issue key={ issue.id } data={ issue } action={ tab === 'open' ? closeIssue : reopenIssue } />) }
-            </ul>
-          </div>
+            wraps={{ openTab: this.openTab }}
+            count={{
+              open: open.length,
+              closed: closed.length
+            }} />
+
+          <IssuesList
+            data={ tab === 'open' ? open : closed }
+            wraps={{ setIssueState: wraps.setIssueState }} />
+
         </div>
       </div>);
   }

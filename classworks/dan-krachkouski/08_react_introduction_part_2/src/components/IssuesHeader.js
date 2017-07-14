@@ -14,42 +14,27 @@ const svgClosed = (
   <path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path>
 </svg>);
 
-class IssuesHeader extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const {
-      tab,
-      openTab,
-      countOpen,
-      countClosed
-    } = this.props;
-
-    return (
-      <div className="issues-listing__header">
-        <div className="issues-listing__states">
-          <Button
-            type={ classNames('btn-link', { 'btn-link--selected': tab === 'open' }) }
-            click={ openTab('open') }>
-              { svgOpen } { countOpen } Open
-          </Button>
-          <Button
-            type={ classNames('btn-link', { 'btn-link--selected': tab === 'closed' }) }
-            click={ openTab('closed') }>
-              { svgClosed } { countClosed } Closed
-          </Button>
-        </div>
-      </div>);
-  }
-}
+const IssuesHeader = ({ tab, wraps, count }) => (
+  <div className="issues-listing__header">
+    <div className="issues-listing__states">
+      <Button
+        type={ classNames('btn-link', { 'btn-link--selected': tab === 'open' }) }
+        click={ wraps.openTab('open') }>
+          { svgOpen } { count.open } Open
+      </Button>
+      <Button
+        type={ classNames('btn-link', { 'btn-link--selected': tab === 'closed' }) }
+        click={ wraps.openTab('closed') }>
+          { svgClosed } { count.closed } Closed
+      </Button>
+    </div>
+  </div>
+);
 
 IssuesHeader.propTypes = {
-  tab: PropTypes.string,
-  openTab: PropTypes.func,
-  countOpen: PropTypes.number,
-  countClosed: PropTypes.number
+  tab: PropTypes.string.isRequired,
+  wraps: PropTypes.object.isRequired,
+  count: PropTypes.object.isRequired,
 }
 
 export default IssuesHeader;
