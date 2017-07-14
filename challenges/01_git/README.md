@@ -21,9 +21,9 @@
 ![This need to be an inline image with your github avatar](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 
-```python
-var s = "Is formatting language correct?"
-alert(s)
+```javascript
+var s = "Is formatting language correct?";
+alert(s);
 ```
 
 > This need to be a Blockquote. 
