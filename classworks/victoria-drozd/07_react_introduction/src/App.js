@@ -40,13 +40,15 @@ class Btn extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick(e) {
     if (this.props.type === 'open') {
       this.props.onShowOpenTab();
     } else if (this.props.type === 'closed') {
       this.props.onShowClosedTab();
     } else if (this.props.type === 'new-issue') {
       this.props.onAddNewIssue();
+    } else if (this.props.type === 'close-issue') {
+      this.props.onCloseIssue();
     }
   }
 
@@ -130,6 +132,15 @@ class Header extends Component {
 }
 
 class Item extends Component {
+  constructor(props) {
+    super(props);
+    this.closeIssue = this.closeIssue.bind(this);
+  }
+
+  closeIssue() {
+    this.props.onCloseIssue(this.props.index);
+  }
+
   render() {
     let svg, classStr = "issues__status", closeIssueButton;
     if (this.props.currentTab === 'open') {
@@ -138,7 +149,11 @@ class Item extends Component {
           <path fillRule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/>
         </svg>;
       classStr += " issues__status--open";
-      closeIssueButton = <Btn classes="btn issue__close" text="Close issue" />
+      closeIssueButton =
+        <Btn
+        classes="btn issue__close"
+        text="Close issue" type="close-issue"
+        onCloseIssue={this.closeIssue} />
     } else if (this.props.currentTab === 'closed') {
       svg =
         <svg className="issues__icon" aria-hidden="true" height={16} version="1.1" viewBox="0 0 16 16" width={16}>
@@ -164,13 +179,36 @@ class Item extends Component {
 }
 
 class Body extends Component {
+  constructor(props) {
+    super(props);
+    this.closeIssue = this.closeIssue.bind(this);
+  }
+
+  closeIssue(index) {
+    this.props.onCloseIssue(index);
+  }
+
   render() {
     let items = [];
-    this.props.data.forEach((item) => {
+    this.props.data.forEach((item, i) => {
       if (this.props.currentTab === 'open' && item.state === 'open') {
-        items.push(<Item title={item.title} key={item.id} currentTab={this.props.currentTab} />);
+        items.push(
+          <Item
+            title={item.title}
+            key={item.id}
+            index={i}
+            currentTab={this.props.currentTab}
+            onCloseIssue={this.closeIssue} />
+        );
       } else if (this.props.currentTab === 'closed' && item.state === 'closed') {
-        items.push(<Item title={item.title} key={item.id} currentTab={this.props.currentTab} />);
+        items.push(
+          <Item
+            title={item.title}
+            key={item.id}
+            index={i}
+            currentTab={this.props.currentTab}
+            onCloseIssue={this.closeIssue} />
+        );
       }
     });
 
@@ -191,6 +229,7 @@ class Container extends Component {
     this.handleShowOpenTab = this.handleShowOpenTab.bind(this);
     this.handleShowClosedTab = this.handleShowClosedTab.bind(this);
     this.handleAddNewIssue = this.handleAddNewIssue.bind(this);
+    this.handleCloseIssue = this.handleCloseIssue.bind(this);
   }
 
   handleShowOpenTab() {
@@ -214,6 +253,21 @@ class Container extends Component {
     });
   }
 
+  handleCloseIssue(index) {
+    this.setState((prevState) => {
+      /*let newData = prevState.data;
+      newData[index].state = 'closed';
+      return {data: newData};*/
+      let newData = prevState.data;
+      let deletedElement = newData.splice(index, 1)[0];
+      let newId = newData[newData.length - 1].id + 1;
+      deletedElement.id = newId;
+      deletedElement.state = 'closed';
+      newData.push(deletedElement);
+      return {data: newData};
+    });
+  }
+
   render() {
     return (
       <div className="container">
@@ -223,7 +277,7 @@ class Container extends Component {
             currentTab={this.state.currentTab}
             onShowOpenTab={this.handleShowOpenTab}
             onShowClosedTab={this.handleShowClosedTab} />
-          <Body currentTab={this.state.currentTab} data={this.props.data}/>
+          <Body currentTab={this.state.currentTab} data={this.props.data} onCloseIssue={this.handleCloseIssue}/>
         </div>
       </div>
     );
