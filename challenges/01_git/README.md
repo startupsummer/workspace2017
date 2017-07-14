@@ -9,11 +9,11 @@
 **Задание**:
 ----------
 
-1. Sub list need to be unordered and first list item should be **your last name**
-  ..* Duda
-  ..* Apple
+Sub list need to be unordered and first list item should be **your last name**
+  * Duda
+  * Apple
 
-#### I need to be a H4 element, am I?
+#### I need to be a H4 element, am I? ####
 
 [This should be an inline link](https://www.paralect.com)
 
