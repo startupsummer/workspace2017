@@ -21,7 +21,6 @@ class App extends Component {
 chengedIssues = (id) => () => {
   let newState = this.state.issues.map(el => {
     const issuesState = this.state.issuesState;
-    console.log(issuesState)
     if(el.id === id) {
       return Object.assign({}, el, {
         state: issuesState === 'open'
@@ -61,7 +60,22 @@ search = (e) => {
   const value = e.target.value;
   this.setState({searchField: value})
 }
-
+  componentDidMount() {
+    fetch('https://api.github.com/repos/Oliferchik/newPublickRepo/issues?state=all&access_token=15565f636cf3a818858158b85e87d9d1cbb5a639')
+      .then(response => response.json())
+      .then(data => {
+        const newState = data.reduce( (prev, cur) => {
+          return prev.concat({
+            id: cur.id,
+            about: cur.body,
+            state: cur.state,
+            title: cur.title
+          })
+          }, []);
+          this.setState({ issues: newState });
+        }
+      )
+  }
   render() {
     return (
       <div>
