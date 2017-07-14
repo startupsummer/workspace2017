@@ -9,22 +9,23 @@
 **Задание**:
 ----------
 
-1. Sub list need to be unordered and first list item should be **your last name**
-  * Drozd
+* Sub list need to be unordered and first list item should be **your last name**
+  * **Filippovich**
   * Banana
-  * Apple
+  * Apple 
 
 #### I need to be a H4 element, am I?
 
-[This should be an inline link](https://www.paralect.com)
+(This should be an inline link)[https://www.paralect.com]
 
 **I need to be a bold text, am I?**
 
-![This need to be an inline image with your github avatar](https://avatars6.githubusercontent.com/u/17383329?v=4&s=400)
+![alt text](https://avatars5.githubusercontent.com/u/21078183?v=4&u=55c474e5aca9eb331ace0e05cc2ce0c18641b3ec&s=400 "Logo Title Text 1")
 
-```javascript
-var s = "Is formatting language correct?";
-alert(s);
+
+```python
+s = "Is formatting language correct?"
+print(s)
 ```
 
 > This need to be a Blockquote.
