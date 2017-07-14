@@ -7,6 +7,11 @@
   6. [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 **Задание**:
+----------
+* Sub list need to be unordered and first list item should be **your last name**
+  * Osipov
+  * Banana
+  * Apple
 
 1. Sub list need to be unordered and first list item should be **your last name**
   * **Ilya**
@@ -26,6 +31,18 @@
 ```javascript
 var s = "Is formatting language correct?";
 alert(s);
+=======
+[This should be an inline link](https://www.paralect.com)
+
+**I need to be a bold text, am I?**
+
+![This need to be an inline image with your github avatar](https://avatars7.githubusercontent.com/u/17255519?v=3&u=bc759acf1729726499748ac7bdaa966273fab022&s=400 "Logo Title Text 1")
+
+
+```javascript
+let s = "Is formatting language correct?";
+alert (s);
 ```
+#### I need to be a H4 element, am I? ####
 
 > This need to be a Blockquote.
