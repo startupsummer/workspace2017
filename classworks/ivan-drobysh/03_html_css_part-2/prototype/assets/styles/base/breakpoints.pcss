@@ -12,16 +12,20 @@
   }
 }
 @media screen and (max-width: 750px) {
+  .toggle {
+    visibility: visible;
+  }
   .intro__button {
     padding: 15px 30px;
   }
 
   .aside {
-    width: 119px;
+    position: absolute;
+    margin-left: -300px;
   }
 
   .main {
-    margin-left: 119px;
+    margin-left: 0px;
   }
 
   .header {
@@ -30,19 +34,6 @@
     &__icon {
       width:48px;
       align-self: flex-end;
-    }
-  }
-
-  .nav {
-
-    &__text {
-      font-size: 13px;
-    }
-
-    &__li {
-      flex-direction: column;
-      align-items: center;
-      padding: 15px;
     }
   }
 }
