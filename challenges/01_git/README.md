@@ -9,11 +9,10 @@
 
 **Задание**:
 ----------
-git c
 
-1. Sub list need to be unordered and first list item should be **your last name**
-  1. Banana
-  2. Apple
+  1. Sub list need to be unordered and first list item should be **Bushuev**
+  2. Banana
+  3. Apple
 
 #### I need to be a H4 element, am I?
 
