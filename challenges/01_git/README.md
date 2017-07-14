@@ -13,8 +13,6 @@
   * Banana
   * Apple
 
-#### I need to be a H4 element, am I?
-
 [This should be an inline link](https://www.paralect.com)
 
 **I need to be a bold text, am I?**
@@ -26,5 +24,6 @@
 let s = "Is formatting language correct?";
 alert (s);
 ```
+#### I need to be a H4 element, am I? ####
 
 > This need to be a Blockquote.
