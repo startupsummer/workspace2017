@@ -1,9 +1,0 @@
-node_modules
-*.log
-build
-
-.DS_Store
-Thumbs.db
-
-.idea
-*.sublime*
