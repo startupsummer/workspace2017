@@ -9,9 +9,9 @@
 **Задание**:
 ----------
 
--OLiferchik Sergey
--Banana
--Apple
+*OLiferchik Sergey
+*Banana
+*Apple
 
 #### I need to be a H4 element, am I?
 
