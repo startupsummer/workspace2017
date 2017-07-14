@@ -16,6 +16,9 @@ class App extends Component {
       issues: data,
       menuState : "open"
     };
+
+    this.handleOpenButtonLinkClick = handleOpenButtonLinkClick.bind(this);
+    this.handleClosedButtonLinkClick = handleClosedButtonLinkClick.bind(this);
   }
 
   handleOpenButtonLinkClick() {

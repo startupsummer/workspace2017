@@ -10,13 +10,12 @@ class ButtonLink extends Component {
       issues: data,
       menuState : "open"
     };
-    this.press = this.press.bind(this);
+
+    this.hangleClick = this.hangleClick.bind(this);
   }
 
-  press() {
-    this.setState({
-      menuState : "closed"
-    });
+  handleClick() {
+    this.props.onClick();
   }
 
   render() {
