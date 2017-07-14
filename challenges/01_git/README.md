@@ -22,8 +22,7 @@
 
 ![This need to be an inline image with your github avatar](https://avatars6.githubusercontent.com/u/17383329?v=4&s=400)
 
-```
-python
+```javascript
 var s = "Is formatting language correct?";
 alert(s);
 ```
