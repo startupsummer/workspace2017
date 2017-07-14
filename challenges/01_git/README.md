@@ -2,17 +2,17 @@
 # Требования:
   1. Создать в репозитории новую ветку (именование по такому-же принципу как и для классных заданий)
   2. Каждая строчка содержит описание как ее необходимо отформатировать используя разметку [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Например: a link, a javascript code, a h1 element, etc.
-  4. Сейчас там содержатся ошибки форматирования, всего 5 штук. Ошибка форматирования - это ошибка, которая не совпадает с описанием формата строки. Обязательно нужно найти и исправить все пять ошибок.
-  5. Как только вы исправили все ошибки форматирования - сформируйте и отправьте pull request репозиторий с измененным README.MD.
-  6. [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+  3. Сейчас там содержатся ошибки форматирования, всего 5 штук. Ошибка форматирования - это ошибка, которая не совпадает с описанием формата строки. Обязательно нужно найти и исправить все пять ошибок.
+  4. Как только вы исправили все ошибки форматирования - сформируйте и отправьте pull request репозиторий с измененным README.MD.
+  5. [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 **Задание**:
 ----------
 
-1. Sub list need to be unordered and first list item should be **your last name**
-  1. Drobysh
-    ..* Banana
-    ..* Apple
+ Sub list need to be unordered and first list item should be **your last name**
+  * Drobysh
+  * Banana
+  * Apple
 
 #### I need to be a H4 element, am I?
 
@@ -20,7 +20,7 @@
 
 **I need to be a bold text, am I?**
 
-![This need to be an inline image with your github avatar](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![This need to be an inline image with your github avatar](https://avatars4.githubusercontent.com/u/25278005?v=3&u=bce4c9f84543d3aa59f1f28b64a71dab4e96a2ed&s=400)
 
 
 ```javascript
