@@ -9,10 +9,10 @@
 **Задание**:
 ----------
 
-* Sub list need to be unordered and first list item should be **your last name**
-  * Slizenko
-  * Banana
-  * Apple
+1. Sub list need to be unordered and first list item should be **your last name**
+  - Lukyaniuk
+  - Banana
+  - Apple
   
 #### I need to be a H4 element, am I?
 
@@ -20,7 +20,7 @@
 
 **I need to be a bold text, am I?**
 
-![This need to be an inline image with your github avatar](https://avatars7.githubusercontent.com/u/23063254?v=4&s=460 "GitHub avatar")
+![](https://avatars7.githubusercontent.com/u/23434698?v=4&s=460)
 
 ```javascript
 var s = "Is formatting language correct?";
