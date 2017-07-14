@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import Button from './Button';
-import data from '../data';
+// import data from '../data';
 import './Main.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tab: 'open',
-      issues: data,
-      value: '',
-    }
-  }
   
   openList = () => {
     this.setState({
@@ -26,14 +19,16 @@ class Main extends Component {
   }
 
   closeItem = (id) => () => {
+    const issues = this.props.issues;
     this.setState({
-      issues: this.state.issues.map(item => item.id === id ? { ...item, state: 'closed'} : item),
+      issues: issues.issues.map(item => item.id === id ? { ...item, state: 'closed'} : item),
     })
   }
 
   openItem = (id) => () => {
+    const issues = this.props.issues;
     this.setState({
-      issues: this.state.issues.map(item => item.id === id ? { ...item, state: 'open'} : item),
+      issues: issues.issues.map(item => item.id === id ? { ...item, state: 'open'} : item),
     })
   }
 
@@ -43,7 +38,7 @@ class Main extends Component {
       "state" : "open",
       "title" : "Hello, it's me",
     };
-    const newIssues = [...this.state.issues, newItem];
+    const newIssues = [...this.props.issues, newItem];
     this.setState({
       issues: newIssues,
     })
@@ -53,14 +48,21 @@ class Main extends Component {
     this.setState({
       value: event.target.value,
     })
+    console.log(event.target.value);
+  }
+
+  getTitle = (title) => () => {
+    return title;
   }
 
   render() {
 
-  const renderIssues = this.state.issues.filter(item => item.state === this.state.tab && item.title.toLowerCase().includes(this.state.value.toLowerCase()));
+  const issues = this.props.issues;
 
-  const openIssues = this.state.issues.filter(item => item.state === 'open');
-  const closeIssues = this.state.issues.filter(item => item.state === 'closed');
+  const renderIssues = issues.issues.filter(item => item.state === issues.tab && item.title.toLowerCase().includes(issues.value.toLowerCase()));
+
+  const openIssues = issues.issues.filter(item => item.state === 'open');
+  const closeIssues = issues.issues.filter(item => item.state === 'closed');
   
   const countOpen = openIssues.length;
   const countClose = closeIssues.length;
@@ -86,7 +88,7 @@ class Main extends Component {
                             <path fillRule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
                         </svg>
                         <span>Issues</span>
-                        <span className="counter">{ this.state.issues.length }</span>
+                        <span className="counter">{ issues.issues.length }</span>
                     </a>
                 </nav>
             </div>
@@ -106,10 +108,10 @@ class Main extends Component {
 
         <div className="issues-listing__header">
           <div className="issues-listing__states">
-            <Button link selected={this.state.tab === 'open'} text={`Open ${ countOpen }`} click={this.openList}>
+            <Button link selected={issues.tab === 'open'} text={`Open ${ countOpen }`} click={this.openList}>
             </Button>
 
-            <Button link selected={this.state.tab === 'closed'} text={`Closed ${ countClose }`} click={this.closedList}>
+            <Button link selected={issues.tab === 'closed'} text={`Closed ${ countClose }`} click={this.closedList}>
             </Button>
           </div>
         </div>
@@ -127,9 +129,7 @@ class Main extends Component {
                   </div> 
                   }  
                   <div className="issues__title">
-                    <a href="" className="issues__link">
-                      {item.title}
-                    </a>
+                    <Link className="issues__link" to="/description" onClick={ this.getTitle(issues.title) }>{item.title}</Link>
                   </div>
                   { item.state === 'open' ? <Button btn text="Close issue" click={this.closeItem(item.id )}/> :
                   <Button btn text="Open issues" click={this.openItem(item.id)}/>}
