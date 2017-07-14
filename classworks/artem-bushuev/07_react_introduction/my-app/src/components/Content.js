@@ -14,7 +14,7 @@ class Content extends Component {
       if(this.state.state === 'closed') { this.setState({state: 'open'});}
     }
     this.getState = () => {return this.state;}
-    this.updatePage = () => {this.setState(this.getState())}
+    this.updateStateContent = (newState) => {this.setState(newState)}
   }
   render() {
     let data = this.props.data;
@@ -28,7 +28,7 @@ class Content extends Component {
             <Subnav  status = {
               {
                 records: this.props.data.records,
-                updatePage : this.updatePage
+                updatePage : this.updateStateContent
               }
             } />
             <ListingStates  status = {
@@ -41,9 +41,10 @@ class Content extends Component {
             
             <ListingBody status ={ 
               { 
+                search: this.state.search,
                 data: this.props.data,
                 state : this.state.state,
-                updatePage : this.updatePage
+                updatePage : this.updateStateContent
               }
             }/>
         </div>
