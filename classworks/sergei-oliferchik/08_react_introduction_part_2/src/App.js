@@ -19,17 +19,27 @@ class App extends Component {
   }
 
 chengedIssues = (id) => () => {
+  const chengeState = issuesState === 'open' ? 'closed' : 'open';
+  const issuesState = this.state.issuesState;
   let newState = this.state.issues.map(el => {
-    const issuesState = this.state.issuesState;
     if(el.id === id) {
+
+      fetch('https://api.github.com/repos/Oliferchik/newPublickRepo/issues?access_token=15565f636cf3a818858158b85e87d9d1cbb5a639', {
+        method: 'post',
+        body:JSON.stringify({chengeState}),
+      })
+
+      .then(response => response.json())
+      .then(data => console.log(data));
       return Object.assign({}, el, {
-        state: issuesState === 'open'
-          ? 'closed'
-          : 'open'
+        state: chengeState
       });
     }
     return el;
   });
+
+
+
   this.setState({ issues: newState });
 }
 
@@ -38,6 +48,17 @@ addIssues = () => () => {
     const issues = this.state.issues;
     const newData = addData.pop();
     const newState  = [...issues,newData];
+
+    fetch('https://api.github.com/repos/Oliferchik/newPublickRepo/issues?access_token=15565f636cf3a818858158b85e87d9d1cbb5a639', {
+      method: 'post',
+      body:JSON.stringify({
+        "title": newData.title,
+        "body": newData.about,
+        "state": this.state.issuesState,
+      }),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data));
 
     this.setState({ issues: newState });
   }
@@ -55,6 +76,8 @@ event = () => (
 stateClosed = () => {
   this.setState({ issuesState: 'closed' });
 }
+
+
 
 search = (e) => {
   const value = e.target.value;
