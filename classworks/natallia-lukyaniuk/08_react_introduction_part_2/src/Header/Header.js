@@ -4,7 +4,6 @@ class Header extends Component {
   shouldComponentUpdate(nextProps) {
     const {count: currentCount} = this.props;
     const {count: nextCount} = nextProps;
-    console.log(currentCount, nextCount);
     return currentCount !== nextCount;
   }
   render() {

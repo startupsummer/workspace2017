@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const IssuesListHeader = ({issues}) => (
+const IssuesListHeader = ({issues, handleIssueState}) => (
   <div className="issues-listing__header">
     <div className="issues-listing__states">
       <Link to="/">
         <button
-          onClick={this.props.handleIssueState}
+          onClick={handleIssueState}
           className="btn-link btn-link--selected"
           type="button"
           value="open"
@@ -19,7 +19,7 @@ const IssuesListHeader = ({issues}) => (
       </Link>
       <Link to="/">
         <button
-          onClick={this.props.handleIssueState}
+          onClick={handleIssueState}
           className="btn-link"
           type="button"
           value="closed">

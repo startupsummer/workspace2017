@@ -17,8 +17,8 @@ const Issue = ({issue, handleChangeState, status}) => (
     </div>
       {
         status === "open"
-        ? <button className="btn issue__close" value="closed" type="button" onClick={handleChangeState.bind(null, issue.id)}> Close issue </button>
-        : <button className="btn issue__close" value="open" type="button" onClick={handleChangeState.bind(null, issue.id)}> Open issue </button>
+        ? <button className="btn issue__close" value="closed" type="button" onClick={handleChangeState.bind(null, issue.number)}> Close issue </button>
+        : <button className="btn issue__close" value="open" type="button" onClick={handleChangeState.bind(null, issue.number)}> Open issue </button>
       }
   </div>
 )

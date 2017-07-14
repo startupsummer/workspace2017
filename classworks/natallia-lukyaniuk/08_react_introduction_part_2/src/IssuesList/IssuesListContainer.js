@@ -7,7 +7,7 @@ const IssuesListContainer = ({issues, issuesState, handleChangeState, selectIssu
       {
         issues.filter((issue) => issue.state === issuesState).map((issue) => 
           (
-            <li>
+            <li key={issue.id}>
               <Issue issue={issue} status={issuesState} handleChangeState={handleChangeState} />
             </li>
           )

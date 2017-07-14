@@ -12,34 +12,57 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      issues: data,
+      issues: [],
       issuesState: "open",
       filterIssues: '',
     }    
   }
+  componentDidMount() {
+    fetch('https://api.github.com/repos/natallia-lukyaniuk/githubApp/issues?access_token=a703c8d41fd00ac64c44bdbc1b987952ef5110de&state=all')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({issues: data});
+      });
+  }
   handleState(e) {
     this.setState({issuesState: e.target.value})
   }
-  handleChangeState(id, e) {
+  handleChangeState(number, e) {
     const {issues} = this.state;
-    const newIssuesList = issues.map((item) => {
-      if (item.id === id) 
-      return Object.assign(item, {state: e.target.value});
-      return item;
+    
+    const issue = issues.filter((item) => item.number === number);
+    const newIssue = Object.assign({}, {state: e.target.value});
+
+    fetch(`https://api.github.com/repos/natallia-lukyaniuk/githubApp/issues/${number}?access_token=a703c8d41fd00ac64c44bdbc1b987952ef5110de`, {
+      method: 'PATCH',
+      body: JSON.stringify(newIssue)
     })
-    this.setState({issues: newIssuesList});
+      .then(response => response.json())
+      .then(data => {
+        const newIssuesList = issues.map((item) => {
+          if (item.number === number) 
+          return Object.assign(item, {state: data.state});
+          return item;
+        })
+        this.setState({issues: newIssuesList});
+      });
   }
   handleNewIssue() {
     const {issues} = this.state;
-    const id = Math.random();
+    const id = Math.random().toString();
     const newIssue = {
-      "id": id,
       "title": id,
-      "state": "open",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     };
-    const newIssuesList = [...issues, newIssue];
-    this.setState({issues: newIssuesList});
+    fetch('https://api.github.com/repos/natallia-lukyaniuk/githubApp/issues?access_token=a703c8d41fd00ac64c44bdbc1b987952ef5110de', {
+      method: 'POST',
+      body: JSON.stringify(newIssue)
+    })
+      .then(response => response.json())
+      .then(data => {
+        const newIssuesList = [...issues, data];
+        this.setState({issues: newIssuesList});
+      });
   }
   handleSearch(e) {
     this.setState({filterIssues: e.target.value});

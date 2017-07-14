@@ -19,9 +19,8 @@ class IssueDescription extends Component {
     }
   }
   render() {
-    console.log(this.props);
     return (
-      <div>{this.state.issue[0].description}</div>
+      <div>{this.state.issue[0].body}</div>
     )
   }
 }
