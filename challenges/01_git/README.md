@@ -6,9 +6,6 @@
   5. Как только вы исправили все ошибки форматирования - сформируйте и отправьте pull request репозиторий с измененным README.MD.
   6. [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-**Задание**:
-----------
-
 * Sub list need to be unordered and first list item should be **your last name**
   * **Filippovich**
   * Banana
@@ -22,10 +19,10 @@
 
 ![alt text](https://avatars5.githubusercontent.com/u/21078183?v=4&u=55c474e5aca9eb331ace0e05cc2ce0c18641b3ec&s=400 "Logo Title Text 1")
 
-
 ```python
 s = "Is formatting language correct?"
 print(s)
 ```
+#### I need to be a H4 element, am I? ####
 
 > This need to be a Blockquote.
