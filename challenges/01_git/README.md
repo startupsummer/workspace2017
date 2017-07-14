@@ -10,7 +10,7 @@
 ----------
 
 1. Sub list need to be unordered and first list item should be **your last name**
-  - Krachkouski
+  - Lukyaniuk
   - Banana
   - Apple
 
@@ -20,7 +20,7 @@
 
 **I need to be a bold text, am I?**
 
-![This need to be an inline image with your github avatar](https://avatars7.githubusercontent.com/u/14136436?v=3&s=460)
+![](https://avatars7.githubusercontent.com/u/23434698?v=4&s=460)
 
 
 ```javascript
