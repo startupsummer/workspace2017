@@ -13,7 +13,6 @@
   * **Ilya**
   * Apple
 
-=======
 #### I need to be a H4 element, am I?
 
 [This should be an inline link](https://www.paralect.com)
@@ -26,5 +25,5 @@
 ```javascript
 var s = "Is formatting language correct?";
 alert(s);
-```
+
 > This need to be a Blockquote.
