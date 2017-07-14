@@ -10,8 +10,8 @@ class IssuesList extends Component{
     }
 
     createIssues = (issues) => {
-        if(this.props.button == "all") return issues;
-        return issues.filter((item)=>item.state == this.props.button);
+        if(this.props.button == "all") return issues /*.sort((a,b)=>a.state > b.state)*/;
+        return issues.filter((item)=>item.state == this.props.button) /*.sort((a,b)=>a.state > b.state)*/;
     }
 
     handleClick = (id) => () => {

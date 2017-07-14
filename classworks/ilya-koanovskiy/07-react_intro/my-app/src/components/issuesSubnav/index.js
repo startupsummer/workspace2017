@@ -3,7 +3,7 @@ import Button from '../button/index.js'
 
 class Subnav extends Component{
 
-    handleClick = () => () => {
+    handleClick = () =>{
         console.log(this.props.info);
         let newArray = [...this.props.info,{id : this.props.info[this.props.info.length-1].id + 1,title : "Hello",state : "open"}];
         this.props.changeIssues(newArray);
@@ -30,7 +30,7 @@ class Subnav extends Component{
                             </path>
                         </svg>
                     </form>
-                    <Button class="btn btn-primary" text="New issue" onClick={this.handleClick()}/>
+                    <Button class="btn btn-primary" text="New issue" onClick={this.handleClick}/>
                 </div>
             </div>
         )
