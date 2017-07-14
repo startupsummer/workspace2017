@@ -18,10 +18,16 @@ class App extends Component {
     };
   }
 
-removeIssue = (id) => () => {
+chengedIssues = (id) => () => {
   let newState = this.state.issues.map(el => {
+    const issuesState = this.state.issuesState;
+    console.log(issuesState)
     if(el.id === id) {
-      return Object.assign({}, el, {state: 'closed'});
+      return Object.assign({}, el, {
+        state: issuesState === 'open'
+          ? 'closed'
+          : 'open'
+      });
     }
     return el;
   });
@@ -42,6 +48,11 @@ stateOpen = () => {
   this.setState({ issuesState: 'open' });
 }
 
+event = () => (
+  this.state.issuesState === 'open'
+    ? this.stateOpen
+    : this.stateClosed
+)
 stateClosed = () => {
   this.setState({ issuesState: 'closed' });
 }
@@ -57,7 +68,7 @@ search = (e) => {
         <Header />
         <Main
           issues={this.state.issues}
-          onDelete={this.removeIssue}
+          chengedIssues={this.chengedIssues}
           addIssues={this.addIssues}
           issuesState={this.state.issuesState}
           stateOpen={this.stateOpen}

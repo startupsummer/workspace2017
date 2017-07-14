@@ -14,12 +14,12 @@ const IssuesItem = (props) => (
     <div className="issues__title">
       <Link to={`/id:${props.issues.id}`} className="issues__link">{props.issues.title}</Link>
     </div>
-    <Button text={'Close issues'} eventClick={props.onDelete} id={props.issues.id}/>
+    <Button text={`${props.issues.state === 'opened' ? 'Opened' : 'Close'} issues`} eventClick={props.chengedIssues} id={props.issues.id}/>
   </div>
 );
 
 IssuesItem.PropTypes = {
-  onDelete: PropTypes.func,
+  chengedIssues: PropTypes.func,
   issues: PropTypes.array,
 };
 

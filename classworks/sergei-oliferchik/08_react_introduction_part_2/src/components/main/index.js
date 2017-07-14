@@ -11,7 +11,7 @@ const  Main  = (props) => (
     <Pagehead issues={props.issues}/>
     <IssuesListing
       issues={props.issues}
-      onDelete={props.onDelete}
+      chengedIssues={props.chengedIssues}
       addIssues={props.addIssues}
       issuesState={props.issuesState}
       stateOpen={props.stateOpen}
@@ -24,7 +24,7 @@ const  Main  = (props) => (
 
 Main.PropTypes = {
   issues: PropTypes.array,
-  onDelete: PropTypes.func,
+  chengedIssues: PropTypes.func,
   addIssues: PropTypes.func,
   issuesState: PropTypes.string,
   stateOpen: PropTypes.func,

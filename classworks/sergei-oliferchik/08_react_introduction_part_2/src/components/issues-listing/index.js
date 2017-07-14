@@ -32,7 +32,7 @@ const  IssuesListing  = (props) => (
       />
     <IssuesListingBody
       issues={props.issues}
-      onDelete={props.onDelete}
+      chengedIssues={props.chengedIssues}
       issuesState={props.issuesState}
       searchField={props.searchField}
     />
@@ -46,7 +46,7 @@ IssuesListing.PropTypes = {
   issues: PropTypes.array,
   stateOpen: PropTypes.func,
   stateClosed: PropTypes.func,
-  onDelete: PropTypes.func,
+  chengedIssues: PropTypes.func,
   issuesState: PropTypes.string,
   searchField: PropTypes.string,
 };

@@ -17,18 +17,18 @@ const IssuesListingBody = (props) => (
                 el.state === props.issuesState &&
                 el.title.toLowerCase().indexOf(props.searchField.toLowerCase()) !== -1)
               )
-              .map(el => <li key={`${el.id}  li`}><IssuesItem issues={el} onDelete={props.onDelete} key={el.id}/></li>)
+              .map(el => <li key={`${el.id}  li`}><IssuesItem issues={el} chengedIssues={props.chengedIssues} key={el.id}/></li>)
           }
       </ul>
     )}/>
-  <Route path="/:id" component={({match}) => <AboutIssue match={match} issues={props.issues}/>}/>
+    <Route path="/:id" component={({match}) => <AboutIssue match={match} issues={props.issues}/>}/>
   </div>
 );
 
 
 IssuesListingBody.PropTypes = {
   issues: PropTypes.array,
-  onDelete: PropTypes.func,
+  chengedIssues: PropTypes.func,
   issuesState: PropTypes.string,
   searchField: PropTypes.string,
 };
