@@ -10,8 +10,9 @@
 ----------
 
 1. Sub list need to be unordered and first list item should be **your last name**
-  1. Banana
-  2. Apple
+  * **Filippovich**
+  * Banana
+  * Apple 
 
 #### I need to be a H4 element, am I?
 
@@ -19,12 +20,12 @@
 
 **I need to be a bold text, am I?**
 
-[This need to be an inline image with your github avatar](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://avatars5.githubusercontent.com/u/21078183?v=4&u=55c474e5aca9eb331ace0e05cc2ce0c18641b3ec&s=400 "Logo Title Text 1")
 
 
 ```python
-var s = "Is formatting language correct?";
-alert(s);
+s = "Is formatting language correct?"
+print(s)
 ```
 
-< This need to be a Blockquote.
+> This need to be a Blockquote.
