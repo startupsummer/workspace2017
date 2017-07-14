@@ -8,6 +8,7 @@ import List from './components/list';
 import Data from './data/data'
 import Search from './components/search';
 import ListItem from './components/listItem.js';
+import 'whatwg-fetch'
 
 
 class App extends Component {
@@ -17,7 +18,6 @@ class App extends Component {
     this.state = {
       issues: Data,
       st: 'open',
-      searchIssues: Data,
       findName: "",
      }
   }
@@ -39,6 +39,7 @@ class App extends Component {
       <Router>
 
         <div>
+          <Route path="/">
             <div>
               <div className="pagehead">
                 <div className="container">
@@ -46,10 +47,10 @@ class App extends Component {
                     <a href="#" className="reponav-item selected">
                       <svg height="16" version="1.1" viewBox="0 0 14 16" width="14">
                         <path fillRule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
-                      </svg>
-                      <MyButton className="reponav-item.selected btn-link"
-                        value='Issues' handler={this.allState} number={allIssuies}
-                      />
+                        </svg>
+                        <Link to="/" className="reponav-item.selected btn-link">
+                          {allIssuies} Issues
+                        </Link>
                     </a>
                   </nav>
                 </div>
@@ -58,12 +59,14 @@ class App extends Component {
               <div className="container">
                 <div className="issues-listing">
                   <div className="issues-listing__subnav">
-                    <div className="subnav">
-                      <Search handle={this.searchHandle}/>
-                      <MyButton className="btn btn-primary" value='New issue'
-                         handler={this.handlerAdd}
-                       />
-                    </div>
+                    <Link to="/">
+                      <div className="subnav">
+                        <Search handle={this.searchHandle}/>
+                        <MyButton className="btn btn-primary" value='New issue'
+                           handler={this.handlerAdd}
+                         />
+                      </div>
+                    </Link>
                   </div>
 
                   <div className="issues-listing__header">
@@ -71,11 +74,10 @@ class App extends Component {
                       <svg aria-hidden="true" className="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14">
                         <path fillRule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
                       </svg>
-                      <MyButton className ="btn-link btn-link--selected" type="button"
+                      <MyButton className ="btn-link btn-link--selected"
                         value='Open' handler={this.openState} number={openedAmount}
                       />
                       <svg aria-hidden="true" className="octicon octicon-check" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg>
-
                       <MyButton className="btn-link" type="button" value='Closed'
                         handler={this.closeState} number={closedAmount}
                       />
@@ -85,31 +87,23 @@ class App extends Component {
                 </div>
               </div>
             </div>
+          </Route>
 
           <Route exact path="/" component={() =>
             <div className="container">
               <div className="issues-listing__body">
-                {/* <List listData=
-                  {this.state.issues.filter((item) => item.title
-                                  .toLowerCase().includes(this.findName
-                                    .toLowerCase()) === true)
-                  } state={this.state.st}
-                  handler={this.handlerDel}
-                /> */}
-
-                <List listData={searchIssues} state={this.state.st}
-                  handler={this.handlerDel}
+                <List listData={this.state.issues} sortField={this.state.findName}
+                  state={this.state.st} handler={this.handlerDel}
                 />
-
               </div>
             </div>
           }/>
 
-          {/* <Route path="/:id" component={ListItem}/> */}
           <Route path="/:id" component={(props) =>
-                              <ListItem data={this.state.issues}
-                                id={props.match.params.id}/>}
+            <ListItem data={this.state.issues}
+              id={props.match.params.id}/>}
           />
+
         </div>
       </Router>
     );
@@ -120,47 +114,26 @@ class App extends Component {
     const id = Math.floor(Math.random()
       * (1000000000000 )) + 1000000000000;
 
+    const randomStr = Math.random().toString(36).slice(2)
+
     this.setState({
       issues: this.state.issues.concat([
         {
           "id": id,
-          "title": "Best way to load a folder of static files?",
+          "title": randomStr,
           "state": "open",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        }
-      ]),
-      searchIssues: this.state.issues.concat([
-        {
-          "id": id,
-          "title": "Best way to load a folder of static files?",
-          "state": "open",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "description": randomStr,
         }
       ]),
     });
   }
 
-
   searchHandle = (e) => {
     const findName = e.target.value;
-    // this.state.findName =  e.target.value;
 
-    if(findName.length > 0) {
-      let tempIssues = this.state.issues;
-      let coincidenceArray = tempIssues
-        .filter((item) => item.title.toLowerCase()
-          .includes(findName.toLowerCase()) === true);
-
-      this.setState({
-        searchIssues: coincidenceArray,
-        st: 'all'
-      })
-    }
-    else {
-      this.setState({
-        searchIssues: this.state.issues,
-      })
-    }
+    this.setState({
+      findName: findName,
+    })
   }
 
   handlerDel = (id) => (e) => {
@@ -175,7 +148,6 @@ class App extends Component {
     });
     this.setState({
         issues: newIssues,
-        searchIssues: newIssues,
     })
   }
 

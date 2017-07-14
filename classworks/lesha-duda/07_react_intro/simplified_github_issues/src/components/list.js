@@ -10,7 +10,17 @@ class List extends Component {
   }
 
   render() {
-    const data = this.props.listData;
+    let data = this.props.listData;
+    let tempData = [];
+
+    if(this.props.sortField.length > 0) {
+      tempData = data
+        .filter((item) => item.title.toLowerCase()
+          .includes(this.props.sortField.toLowerCase()) === true);
+    }
+
+    if(this.props.sortField.length > 0) (data = tempData)
+
     let temp = data.map((item) => {
       if(item.state === this.props.state || this.props.state === 'all') {
         return (
