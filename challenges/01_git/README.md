@@ -9,7 +9,7 @@
 **Задание**:
 ----------
 
-1. Lukyaniuk
+  * Lukyaniuk
   * Banana
   * Apple
 
