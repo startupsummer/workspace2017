@@ -7,11 +7,14 @@
   6. [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 **Задание**:
+----------
 
 * Sub list need to be unordered and first list item should be **your last name**
   * Slizenko
   * Banana
   * Apple
+  
+#### I need to be a H4 element, am I?
 
 [This should be an inline link](https://www.paralect.com)
 
@@ -19,10 +22,8 @@
 
 ![This need to be an inline image with your github avatar](https://avatars7.githubusercontent.com/u/23063254?v=4&s=460 "GitHub avatar")
 
-
 ```javascript
 var s = "Is formatting language correct?";
 alert(s);
 ```
-
 > This need to be a Blockquote.
