@@ -16,7 +16,7 @@
 #### I need to be a H4 element, am I?
 
 
-[Markdown](https://www.paralect.com)
+[https://www.paralect.com](https://www.paralect.com)
 
 **I need to be a bold text, am I?**
 
