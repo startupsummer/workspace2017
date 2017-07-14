@@ -1,9 +1,0 @@
-@define-mixin flex-center-all {
-    justify-content: center;
-    align-items: center;
-}
-
-@define-mixin elevation $level {
-    box-shadow: 0 resolve($level * 0.75 * 1)px resolve(2 + $level * 2.5 * 1)px rgba(0,0,0,resolve(0.06 + 0.02 * $level)), 0 resolve($level * 1)px resolve(2 + $level * 2 * 1)px rgba(0,0,0,resolve(0.3 - 0.025 * $level));
-    z-index: resolve($level * 10);
-}
