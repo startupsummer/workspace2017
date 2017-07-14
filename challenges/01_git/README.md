@@ -11,7 +11,7 @@
 
 1. Sub list need to be unordered and first list item should be **your last name**
   * **Ilya**
-  * **Apple**
+  * Apple
 
 #### I need to be a H4 element, am I?
 
