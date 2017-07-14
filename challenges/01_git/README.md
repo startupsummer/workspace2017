@@ -19,19 +19,11 @@ Sub list need to be unordered and first list item should be **your last name**
 
 **I need to be a bold text, am I?**
 
-![This need to be an inline image with your github avatar](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-
-```python
-s = "Is formatting language correct?";
-alert(s);
-```
-
-![This need to be an inline image with your github avatar](https://avatars7.githubusercontent.com/u/14136436?v=3&s=460)
+![This need to be an inline image with your github avatar](https://avatars.githubusercontent.com/Hellycat)
 
 
 ```javascript
-var s = "Is formatting language correct?";
+s = "Is formatting language correct?";
 alert(s);
 ```
 
