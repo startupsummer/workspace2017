@@ -4,6 +4,8 @@
  1. Lifecycle
  2. How to make your react app work faster
  3. Navigation in react
+
+ [Lecture presentation](https://docs.google.com/a/paralect.com/presentation/d/1YMZFRuwAUI-BNAHJslXVZuJJpBdMK8T-17uqcWlNQpQ/edit?usp=sharing)
  
 
  ### Learning objectives
