@@ -1,0 +1,23 @@
+.btn-link {
+  display: inline-block;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  font-weight: normal;
+  background-color: transparent;
+  border: 0;
+  font-size: inherit;
+}
+
+.btn-link svg {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+
+.btn-link--selected {
+  font-weight: 600;
+}
+
+.btn-link + .btn-link {
+  margin-left: 10px;
+}
