@@ -7,24 +7,24 @@
   6. [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 **Задание**:
-----------
 
 1. Sub list need to be unordered and first list item should be **your last name**
-  1. Banana
-  2. Apple
+  ⋅⋅* chepicov
+  ⋅⋅* Apple
 
-#### I need to be a H4 element, am I?
 
-(This should be an inline link)[https://www.paralect.com]
+#### I need to be a H4 element, am I? ####
+
+[This should be an inline link])https://www.paralect.com)
 
 **I need to be a bold text, am I?**
 
-[This need to be an inline image with your github avatar](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![This need to be an inline image with your github avatar](https://avatars5.githubusercontent.com/u/26717855?v=4&s=460 "Logo Title Text 1")
 
 
 ```python
-var s = "Is formatting language correct?";
-alert(s);
+s = "Is formatting language correct?"
+print s;
 ```
 
-< This need to be a Blockquote.
+> This need to be a Blockquote.
