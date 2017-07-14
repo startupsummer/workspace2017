@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 
 import ButtonLink from '../button-link';
 
@@ -8,8 +10,12 @@ import './index.css';
 const  IssuesListingHeader  = (props) => (
   <div className="issues-listing__header">
     <div className="issues-listing__states">
-      <ButtonLink length={props.issuesLength} name={'Open'} cliked={props.stateOpen}/>
-      <ButtonLink length={props.issuesClose} name={'Closed'} cliked={props.stateClosed}/>
+      <Link to="/">
+        <ButtonLink length={props.issuesLength} name={'Open'} cliked={props.stateOpen}/>
+      </Link>
+      <Link to="/">
+        <ButtonLink length={props.issuesClose} name={'Closed'} cliked={props.stateClosed}/>
+      </Link>
     </div>
   </div>
 );
