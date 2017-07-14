@@ -20,14 +20,16 @@ class Subnav extends Component {
             onClick = {
               () => {
                 let title = prompt("enter issue");
-                this.props.status.records.push(
-                  {
-                    "id": Math.floor((Math.random()+1)*100000000),
-                    "title": title,
-                    "state": "open",
-                  });
-                  this.props.status.updatePage();
-                console.log(title);
+                  if(title){
+                  this.props.status.records.push(
+                    {
+                      "id": Math.floor((Math.random()+1)*100000000),
+                      "title": title,
+                      "state": "open",
+                    });
+                    this.props.status.updatePage();
+                  console.log(title);
+                }
               }
             }>
                 New issue
