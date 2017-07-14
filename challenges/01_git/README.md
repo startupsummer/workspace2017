@@ -15,14 +15,12 @@
 
 #### I need to be a H4 element, am I?
 
-(This should be an inline link) 
-
-<a href="https://www.paralect.com">https://www.paralect.com</a>
+<a href="https://www.paralect.com">This should be an inline link</a>
 
 **I need to be a bold text, am I?**
 
 [This need to be an inline image with your github avatar]
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1"))
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 ```python
 s = "Is formatting language correct?"
