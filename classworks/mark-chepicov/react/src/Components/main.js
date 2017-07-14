@@ -22,21 +22,18 @@ class Main extends Component {
 
   closeIssue = (id) => () => {
     let array =[...this.state.issues];
-    this.state.issues = []; //так можно или нужно через setState обнулять?
     array.find((item) => id === item.id).state = 'closed';
     this.setState({issues : array});
   }
 
   openIssue = (id) => () => {
     let array =[...this.state.issues];
-    this.state.issues = [];
     array.find((item) => id === item.id).state = 'open';
     this.setState({issues : array});
   }
 
   newIssue = () => () =>{
     let array =[...this.state.issues];
-    this.state.issues = [];
     let d = new Date();
     array.push({id: d.getTime(), title:"Lorem ipsum", state:"open"});
     this.setState({issues : array});
