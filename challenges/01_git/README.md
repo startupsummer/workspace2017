@@ -8,10 +8,10 @@
 
 **Задание**:
 ----------
-1. Sub list need to be unordered and first list item should be **your last name**
-  1. Osipov
-  2. Banana
-  3. Apple
+* Sub list need to be unordered and first list item should be **your last name**
+  * Osipov
+  * Banana
+  * Apple
 
 #### I need to be a H4 element, am I?
 
