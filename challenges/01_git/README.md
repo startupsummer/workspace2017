@@ -8,12 +8,7 @@
 
 **Задание**:
 ----------
-* Sub list need to be unordered and first list item should be **your last name**
-  * Osipov
-  * Banana
-  * Apple
 
-<<<<<<< HEAD
 1. Sub list need to be unordered and first list item should be **your last name**
   * Drozd
   * Banana
@@ -21,27 +16,15 @@
 
 #### I need to be a H4 element, am I?
 
-=======
->>>>>>> master
 [This should be an inline link](https://www.paralect.com)
 
 **I need to be a bold text, am I?**
 
-<<<<<<< HEAD
 ![This need to be an inline image with your github avatar](https://avatars6.githubusercontent.com/u/17383329?v=4&s=400)
 
 ```javascript
 var s = "Is formatting language correct?";
 alert(s);
-=======
-![This need to be an inline image with your github avatar](https://avatars7.githubusercontent.com/u/17255519?v=3&u=bc759acf1729726499748ac7bdaa966273fab022&s=400 "Logo Title Text 1")
-
-
-```javascript
-let s = "Is formatting language correct?";
-alert (s);
->>>>>>> master
 ```
-#### I need to be a H4 element, am I? ####
 
 > This need to be a Blockquote.
