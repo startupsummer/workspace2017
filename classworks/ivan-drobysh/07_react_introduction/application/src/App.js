@@ -18,7 +18,7 @@ class App extends Component {
   }
   newOnClick= () => {
 
-    let newIssue = this.state.issuesAll;
+    let newIssue =  Object.assign([], this.state.issuesAll);
     newIssue.push({
       "id" : Math.random() * (1000000000 - 100000000) + 100000000,
       "title" : "New Issue!",
@@ -30,7 +30,8 @@ class App extends Component {
 
   closeOnClick = (item) => () => {
     let stateItem = item.state;
-    let issues = this.state.issuesAll.map((itemIssues)=> {
+    let issues = Object.assign([], this.state.issuesAll);
+    issues.map((itemIssues)=> {
       if(itemIssues.id === item.id) {
         if(stateItem === 'open')
           itemIssues.state = 'closed';
