@@ -10,20 +10,21 @@
 ----------
 
 1. Sub list need to be unordered and first list item should be **your last name**
-  - Lukyaniuk
-  - Banana
-  - Apple
-  
+  * Drozd
+  * Banana
+  * Apple
+
 #### I need to be a H4 element, am I?
 
 [This should be an inline link](https://www.paralect.com)
 
 **I need to be a bold text, am I?**
 
-![](https://avatars7.githubusercontent.com/u/23434698?v=4&s=460)
+![This need to be an inline image with your github avatar](https://avatars6.githubusercontent.com/u/17383329?v=4&s=400)
 
 ```javascript
 var s = "Is formatting language correct?";
 alert(s);
 ```
+
 > This need to be a Blockquote.
