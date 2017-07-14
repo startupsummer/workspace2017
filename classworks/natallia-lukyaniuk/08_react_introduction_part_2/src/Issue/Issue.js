@@ -5,9 +5,9 @@ import ClosedIssueIcon from './ClosedIssueIcon'
 
 class Issue extends Component {
   render() {
-    const {issue, handleCloseIssue, status} = this.props;
+    const {issue, handleChangeState, status} = this.props;
     return (
-      <div>
+      <div className="issues__item">
         <div className="issues__status issues__status--open">
           {
               status === "open" ? <OpenIssueIcon /> : <ClosedIssueIcon />
@@ -19,7 +19,9 @@ class Issue extends Component {
           </Link>
         </div>
           {
-            status === "open" && <button className="btn issue__close" type="button" onClick={handleCloseIssue.bind(null, issue.id)}> Close issue </button>
+            status === "open"
+            ? <button className="btn issue__close" value="closed" type="button" onClick={handleChangeState.bind(null, issue.id)}> Close issue </button>
+            : <button className="btn issue__close" value="open" type="button" onClick={handleChangeState.bind(null, issue.id)}> Open issue </button>
           }
       </div>
     )

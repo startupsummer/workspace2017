@@ -20,11 +20,11 @@ class App extends Component {
   handleState(e) {
     this.setState({issuesState: e.target.value})
   }
-  handleCloseIssue(id, e) {
+  handleChangeState(id, e) {
     const {issues} = this.state;
     const newIssuesList = issues.map((item) => {
       if (item.id === id) 
-      return Object.assign(item, {state: 'closed'});
+      return Object.assign(item, {state: e.target.value});
       return item;
     })
     this.setState({issues: newIssuesList});
@@ -61,7 +61,7 @@ class App extends Component {
               </div>
               <IssuesListHeader issues={issues} handleIssueState={this.handleState.bind(this)}/>
             </div>
-            <Route exact path="/" component={() => <IssuesListContainer issues={displayedIssues} issuesState={issuesState} handleCloseIssue={this.handleCloseIssue.bind(this)}/>} />
+            <Route exact path="/" component={() => <IssuesListContainer issues={displayedIssues} issuesState={issuesState} handleChangeState={this.handleChangeState.bind(this)}/>} />
             <Route path="/:id" component={(props) => <IssueDescription issues={issues} id={props.match.params.id} />} />
           </div>
         </main>
