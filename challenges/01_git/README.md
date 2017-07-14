@@ -22,7 +22,7 @@
 ![](https://avatars7.githubusercontent.com/u/23434698?v=4&s=460)
 
 
-```python
+```javascript
 var s = "Is formatting language correct?";
 alert(s);
 ```
