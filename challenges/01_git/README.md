@@ -10,8 +10,8 @@
 ----------
 
 1. Sub list need to be unordered and first list item should be **your last name**
-  * Kirik
-  * Apple
+  ..* Kirik
+  ..* Apple
 
 #### I need to be a H4 element, am I?
 
@@ -24,7 +24,7 @@
 
 ```python
 s = "Is formatting language correct?"
-print s;
+print s
 ```
 
 > This need to be a Blockquote.
