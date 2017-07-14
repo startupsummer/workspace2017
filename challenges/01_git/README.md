@@ -10,13 +10,13 @@
 ----------
 
 1. Sub list need to be unordered and first list item should be **your last name**
-  - Oliferchik
+  - OLiferchik
   - Banana
   - Apple
 
 #### I need to be a H4 element, am I?
 
-[Markdown](https://www.paralect.com)
+[This should be an inline link](https://www.paralect.com)
 
 **I need to be a bold text, am I?**
 
