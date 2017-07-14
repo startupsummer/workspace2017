@@ -12,7 +12,9 @@ class Pagehead extends Component {
                 <path fillRule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
               </svg>
               <span>Issues</span>
-              <span className="counter">5</span>
+              <span className="counter">
+                {this.props.issuesNum}
+              </span>
             </a>
           </nav>
         </div>
@@ -123,8 +125,8 @@ class Header extends Component {
     return (
       <div className="issues-listing__header">
         <div className="issues-listing__states">
-          <Btn classes={classStr1} text="4 Open" type="open" onShowOpenTab={this.showOpenTab} />
-          <Btn classes={classStr2} text="1 Closed" type="closed" onShowClosedTab={this.showClosedTab} />
+          <Btn classes={classStr1} text={this.props.openIssuesNum + ' Open'} type="open" onShowOpenTab={this.showOpenTab} />
+          <Btn classes={classStr2} text={this.props.closedIssuesNum + ' Closed'}  type="closed" onShowClosedTab={this.showClosedTab} />
         </div>
       </div>
     );
@@ -225,7 +227,12 @@ class Body extends Component {
 class Container extends Component {
   constructor(props) {
     super(props);
-    this.state = {currentTab: 'open', data: this.props.data};
+    this.state = {
+      currentTab: 'open',
+      data: props.data,
+      openIssuesNum: props.openIssuesNum,
+      closedIssuesNum: props.closedIssuesNum,
+    };
     this.handleShowOpenTab = this.handleShowOpenTab.bind(this);
     this.handleShowClosedTab = this.handleShowClosedTab.bind(this);
     this.handleAddNewIssue = this.handleAddNewIssue.bind(this);
@@ -249,22 +256,20 @@ class Container extends Component {
         "title": "New issue",
         "state": "open",
       });
-      return {currentTab: 'open', data: newData};
+      return {currentTab: 'open', data: newData, openIssuesNum: ++prevState.openIssuesNum};
     });
+    this.props.handleAddNewIssue();
   }
 
   handleCloseIssue(index) {
     this.setState((prevState) => {
-      /*let newData = prevState.data;
-      newData[index].state = 'closed';
-      return {data: newData};*/
       let newData = prevState.data;
       let deletedElement = newData.splice(index, 1)[0];
       let newId = newData[newData.length - 1].id + 1;
       deletedElement.id = newId;
       deletedElement.state = 'closed';
       newData.push(deletedElement);
-      return {data: newData};
+      return {data: newData, openIssuesNum: --prevState.openIssuesNum, closedIssuesNum: ++prevState.closedIssuesNum};
     });
   }
 
@@ -275,6 +280,8 @@ class Container extends Component {
           <Subnav onAddNewIssue={this.handleAddNewIssue}/>
           <Header
             currentTab={this.state.currentTab}
+            openIssuesNum={this.state.openIssuesNum}
+            closedIssuesNum={this.state.closedIssuesNum}
             onShowOpenTab={this.handleShowOpenTab}
             onShowClosedTab={this.handleShowClosedTab} />
           <Body currentTab={this.state.currentTab} data={this.props.data} onCloseIssue={this.handleCloseIssue}/>
@@ -285,11 +292,34 @@ class Container extends Component {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {issuesNum: props.data.length};
+    this.handleAddNewIssue = this.handleAddNewIssue.bind(this);
+  }
+
+  handleAddNewIssue() {
+    this.setState((prevState) => ({issuesNum: ++prevState.issuesNum}));
+  }
+
   render() {
+    let openIssuesCounter = 0, closedIssuesCounter = 0;
+    for (let i = 0; i < this.props.data.length; i++) {
+      if (this.props.data[i].state === 'open') {
+        openIssuesCounter++;
+      } else {
+        closedIssuesCounter++;
+      }
+    }
+
     return (
     <div>
-      <Pagehead />
-      <Container data={this.props.data}/>
+      <Pagehead issuesNum={this.state.issuesNum} />
+      <Container
+        data={this.props.data}
+        handleAddNewIssue={this.handleAddNewIssue}
+        openIssuesNum={openIssuesCounter}
+        closedIssuesNum={closedIssuesCounter} />
     </div>
     );
   }
