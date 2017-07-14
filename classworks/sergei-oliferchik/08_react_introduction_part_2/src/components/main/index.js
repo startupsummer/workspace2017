@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Pagehead from '../pagehead/index';
-import IssuesListing from '../issues-listing';
+import Pagehead from './pagehead';
+import IssuesListing from './issues-listing';
 
 import './index.css';
 
