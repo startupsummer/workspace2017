@@ -7,14 +7,11 @@
   6. [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 **Задание**:
-----------
 
 * Sub list need to be unordered and first list item should be **your last name**
   * Slizenko
   * Banana
   * Apple
-
-#### I need to be a H4 element, am I?
 
 [This should be an inline link](https://www.paralect.com)
 
