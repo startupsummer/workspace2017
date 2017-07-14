@@ -14,7 +14,8 @@ class App extends Component {
     super(props);
     this.state = {
       issues: data,
-      menuState : "open"
+      menuState : "open",
+      searchText : ''
     };
 
     this.handleOpenButtonLinkClick = this.handleOpenButtonLinkClick.bind(this);
@@ -22,6 +23,13 @@ class App extends Component {
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handlerCloseIssueClick = this.handlerCloseIssueClick.bind(this);
     this.checkActivePage = this.checkActivePage.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  handleSearch(event) {
+    this.setState({
+      searchText : event.target.value.toLowerCase()
+    });
   }
 
   handleOpenButtonLinkClick() {
@@ -72,6 +80,7 @@ class App extends Component {
   }
 
   render() {
+    const filteredIssues = this.state.issues.filter(issue => issue.title.toLowerCase().startsWith(this.state.searchText));
     return (
       <div>
         <Header />
@@ -81,7 +90,7 @@ class App extends Component {
             <div className="issues-listing">
               <div className="issues-listing__subnav">
                 <div className="subnav">
-                  <SubnavSearch />
+                  <SubnavSearch onChange={this.handleSearch} />
                   <Button text='New issue' className='btn-primary' onClick={this.handleButtonClick} />
                 </div>
               </div>
@@ -91,18 +100,19 @@ class App extends Component {
                     className={this.checkActivePage("open")}
                     svgClassName="open"
                     text="Open"
-                    count={this.state.issues.filter((item) => { if (item.state === "open") return true;}).length}
+                    count={filteredIssues.filter((item) => { if (item.state === "open") return true;}).length}
                     onClick={this.handleOpenButtonLinkClick}
                   />
                   <ButtonLink
                     className={this.checkActivePage("closed")}
-                    svgClassName="closed" text="Close"
-                    count={this.state.issues.filter((item) => { if (item.state === "closed") return true;}).length}
+                    svgClassName="closed"
+                    text="Close"
+                    count={filteredIssues.filter((item) => { if (item.state === "closed") return true;}).length}
                     onClick={this.handleClosedButtonLinkClick} />
                 </div>
               </div>
               <div className="issues-listing__body">
-                <Issues issues={this.state.issues} menuState={this.state.menuState} onClick={this.handlerCloseIssueClick} />
+                <Issues issues={filteredIssues} menuState={this.state.menuState} onClick={this.handlerCloseIssueClick} />
               </div>
             </div>
           </div>
