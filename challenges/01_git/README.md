@@ -20,7 +20,7 @@
 
   **I need to be a bold text, am I?**
 
-  ![This need to be an inline image with your github avatar](https://avatars6.githubusercontent.com/u/29101647?v=4&s=400)
+![This need to be an inline image with your github avatar](https://avatars6.githubusercontent.com/u/29101647?v=4&s=400)
 
 
   ```javascript
@@ -28,4 +28,4 @@
   alert(s);
   ```
 
-  >This need to be a Blockquote.
+>This need to be a Blockquote.
