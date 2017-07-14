@@ -10,8 +10,8 @@
 ----------
 
 1. Lukyaniuk
-⋅⋅1.Banana
-⋅⋅2. Apple
++Banana
++Apple
 
 #### I need to be a H4 element, am I?
 
