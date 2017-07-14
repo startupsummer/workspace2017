@@ -9,6 +9,7 @@ class Main extends Component {
     this.state = {
       tab: 'open',
       issues: data,
+      value: '',
     }
   }
   
@@ -49,14 +50,20 @@ class Main extends Component {
   }
 
   searchTitle = (event) => {
-    const issuesValue = event.target.value;
-    console.log(issuesValue);
+    this.setState({
+      value: event.target.value,
+    })
   }
 
   render() {
 
-  const renderIssues = this.state.issues.filter(item => item.state === this.state.tab);
-  const count = this.state.issues.length - renderIssues.length;
+  const renderIssues = this.state.issues.filter(item => item.state === this.state.tab && item.title.toLowerCase().includes(this.state.value.toLowerCase()));
+
+  const openIssues = this.state.issues.filter(item => item.state === 'open');
+  const closeIssues = this.state.issues.filter(item => item.state === 'closed');
+  
+  const countOpen = openIssues.length;
+  const countClose = closeIssues.length;
   
   return (
     
@@ -99,10 +106,10 @@ class Main extends Component {
 
         <div className="issues-listing__header">
           <div className="issues-listing__states">
-            <Button link selected={this.state.tab === 'open'} text={`Open ${this.state.tab === 'open' ? renderIssues.length : count}`} click={this.openList}>
+            <Button link selected={this.state.tab === 'open'} text={`Open ${ countOpen }`} click={this.openList}>
             </Button>
 
-            <Button link selected={this.state.tab === 'closed'} text={`Closed ${this.state.tab === 'closed' ? renderIssues.length : count}`} click={this.closedList}>
+            <Button link selected={this.state.tab === 'closed'} text={`Closed ${ countClose }`} click={this.closedList}>
             </Button>
           </div>
         </div>
