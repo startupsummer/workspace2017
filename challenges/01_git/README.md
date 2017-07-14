@@ -8,23 +8,23 @@
 
 **Задание**:
 
-Sub list need to be unordered and first list item should be **your last name**
-  * Duda
-  * Apple
+1. Sub list need to be unordered and first list item should be **your last name**
+  ⋅⋅* chepicov
+  ⋅⋅* Apple
 
 
 #### I need to be a H4 element, am I? ####
 
-[This should be an inline link](https://www.paralect.com)
+[This should be an inline link])https://www.paralect.com)
 
 **I need to be a bold text, am I?**
 
-![This need to be an inline image with your github avatar](https://avatars.githubusercontent.com/Hellycat)
+![This need to be an inline image with your github avatar](https://avatars5.githubusercontent.com/u/26717855?v=4&s=460 "Logo Title Text 1")
 
 
-```javascript
-s = "Is formatting language correct?";
-alert(s);
+```python
+s = "Is formatting language correct?"
+print s;
 ```
 
 > This need to be a Blockquote.
