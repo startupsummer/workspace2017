@@ -14,12 +14,13 @@ class MyButton extends Component {
   constructor(props){
     super(props);
   }
-
-  return(
-    <button className={props.className} onClick = {props.handler}>
-      {props.number} {props.value}
-    </button>
-  )
+  render() {
+    return(
+      <button className={this.props.className} onClick = {this.props.handler}>
+        {this.props.number} {this.props.value}
+      </button>
+    )
+  }
 }
 
 export default MyButton;
