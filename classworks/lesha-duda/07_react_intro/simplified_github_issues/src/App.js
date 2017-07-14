@@ -22,6 +22,20 @@ class App extends Component {
      }
   }
 
+
+  // componentDidMount() {
+  //   fetch('https://api.github.com/repos/Hellycat/react_test/issues?access_token=d76ef4819f603e1deb94be5479f229abc13a85e9', {
+  //       method: "POST",
+  //       body:JSON.stringify({
+  //         title: Math.random().toString(36).slice(2),
+  //         body: Math.random().toString(36).slice(2),
+  //         assignee: "Hellycat",
+  //       })
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => console.log(data));
+  // }
+
   render() {
     const {searchIssues} = this.state;
     const allIssuies = this.state.issues.length;
@@ -56,8 +70,7 @@ class App extends Component {
                 </div>
               </div>
 
-              <div className="container">
-                <div className="issues-listing">
+                <div className="container issues-listing">
                   <div className="issues-listing__subnav">
                     <Link to="/">
                       <div className="subnav">
@@ -86,7 +99,6 @@ class App extends Component {
 
                 </div>
               </div>
-            </div>
           </Route>
 
           <Route exact path="/" component={() =>
@@ -126,6 +138,7 @@ class App extends Component {
         }
       ]),
     });
+
   }
 
   searchHandle = (e) => {

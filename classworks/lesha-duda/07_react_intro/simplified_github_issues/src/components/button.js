@@ -2,7 +2,19 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
-function MyButton(props) {
+// function MyButton(props) {
+//   return(
+//     <button className={props.className} onClick = {props.handler}>
+//       {props.number} {props.value}
+//     </button>
+//   )
+// }
+
+class MyButton extends Component {
+  constructor(props){
+    super(props);
+  }
+
   return(
     <button className={props.className} onClick = {props.handler}>
       {props.number} {props.value}
