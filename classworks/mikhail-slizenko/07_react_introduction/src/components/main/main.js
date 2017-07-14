@@ -13,13 +13,11 @@ class Main extends Component {
   updateCountIssues = (count) => {
     this.setState({
       count
-    })
+    });
   }
 
 
   render() {
-
-
     return (
       <main className="content">
         <Pagehead count={ this.state.count } />

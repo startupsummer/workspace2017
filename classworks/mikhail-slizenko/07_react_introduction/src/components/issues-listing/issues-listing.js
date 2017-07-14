@@ -34,7 +34,7 @@ class IssuesListing extends Component {
         state: "open"
       }])
     });
-    this.props.updateCountIssues(this.state.issues.length);
+    this.props.updateCountIssues(this.state.issues.filter(item => item.state === 'open').length + 1);
   }
 
   searchIssue = (value) => {
@@ -47,12 +47,14 @@ class IssuesListing extends Component {
     this.setState({
       issues: this.state.issues.map(item => item.id === id ? {...item, state: 'closed'} : item)
     });
+    this.props.updateCountIssues(this.state.issues.filter(item => item.state === 'open').length - 1);
   }
 
   openIssues = (id) => () => {
     this.setState({
       issues: this.state.issues.map(item => item.id === id ? {...item, state: 'open'} : item)
     });
+    this.props.updateCountIssues(this.state.issues.filter(item => item.state === 'open').length + 1);
   }
 
   render() {
