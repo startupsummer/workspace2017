@@ -6,24 +6,15 @@ import IssuesListing from './../issues-listing/issues-listing';
 import './main.css';
 
 class Main extends Component {
-
-  constructor() {
-    super();
-    let temp = 0;
-    let idInter = setI
-  }
-
   state ={
-    count: 5
+    count: 4
   }
 
   updateCountIssues = (count) => {
-      setState({
-        count
-      })
-  // }
-
-  // setTimeout(updateCountIssues, 1000);
+    this.setState({
+      count
+    })
+  }
 
 
   render() {
@@ -31,7 +22,7 @@ class Main extends Component {
 
     return (
       <main className="content">
-        <Pagehead cointIssue={ this.temp } />
+        <Pagehead count={ this.state.count } />
         <Container>
           <IssuesListing updateCountIssues={ this.updateCountIssues } />
         </Container>

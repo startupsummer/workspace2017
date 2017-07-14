@@ -11,7 +11,7 @@ class Pagehead extends Component {
       <section className="pagehead">
         <Container>
           <Repohead username="startupsummer" reponame="react-task-1" />
-          <Reponav tabname="Issues" counter={ this.props.count } />
+          <Reponav tabname="Issues" count={ this.props.count } />
         </Container>
       </section>
     );

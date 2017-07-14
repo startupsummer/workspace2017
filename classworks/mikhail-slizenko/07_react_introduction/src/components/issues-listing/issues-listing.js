@@ -33,7 +33,8 @@ class IssuesListing extends Component {
         title: "Best way to load a folder of static files?",
         state: "open"
       }])
-    })
+    });
+    this.props.updateCountIssues(this.state.issues.length);
   }
 
   searchIssue = (value) => {
@@ -45,21 +46,17 @@ class IssuesListing extends Component {
   closeIssues = (id) => () => {
     this.setState({
       issues: this.state.issues.map(item => item.id === id ? {...item, state: 'closed'} : item)
-    })
+    });
   }
 
   openIssues = (id) => () => {
     this.setState({
       issues: this.state.issues.map(item => item.id === id ? {...item, state: 'open'} : item)
-    })
+    });
   }
 
   render() {
     const { issues, value, issuesState } = this.state;
-
-    let issuesLength = issues.length;
-
-    this.props.updateCountIssues(issuesLength)
 
     const searchedIssues = issues.filter(item => item.title.toLowerCase().includes(value));
 
