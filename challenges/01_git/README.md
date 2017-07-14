@@ -9,13 +9,14 @@
 **Задание**:
 ----------
 
-1. Sub list need to be unordered and first list item should be **your last name**
-  1. Banana
-  2. Apple
+-OLiferchik Sergey
+-Banana
+-Apple
 
 #### I need to be a H4 element, am I?
 
-(This should be an inline link)[https://www.paralect.com]
+
+[https://www.paralect.com]
 
 **I need to be a bold text, am I?**
 
