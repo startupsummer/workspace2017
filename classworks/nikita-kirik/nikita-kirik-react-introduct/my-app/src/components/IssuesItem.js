@@ -11,19 +11,19 @@ class IssuesItem extends Component {
 
 
   constructor(props) {
-   super(props);
- }
+    super(props);
+  }
 
-      toogleHandler = e => {
-        this.props.onIssueToogle(this.props.itemData.id)
-      };
+  toogleHandler = e => {
+    this.props.onIssueToogle(this.props.itemData.id)
+  };
 
 
   render() {
     const buttonLabel =
-       this.props.itemData.state === 'open'
-       ? 'Close'
-       : 'Open';
+    this.props.itemData.state === 'open'
+    ? 'Close'
+    : 'Open';
 
     return (
       <li className="issues__item" key={this.props.itemData.id}>
@@ -40,7 +40,7 @@ class IssuesItem extends Component {
           {buttonLabel}
         </ButtonHandle>
       </li>
-  )
+    )
   }
 }
 

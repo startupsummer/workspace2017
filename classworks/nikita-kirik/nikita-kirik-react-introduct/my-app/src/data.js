@@ -21,7 +21,7 @@ export default [
   },
   {
     "id": 242209483,
-    "title": "CLOSED ! Code splitting with import promise in object",
+    "title": "Code splitting with import promise in object",
     "state": "closed",
   }
 ];
