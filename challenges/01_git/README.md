@@ -9,7 +9,6 @@
 
 **Задание**:
 ----------
-
   1. Sub list need to be unordered and first list item should be **Bushuev**
   2. Banana
   3. Apple
