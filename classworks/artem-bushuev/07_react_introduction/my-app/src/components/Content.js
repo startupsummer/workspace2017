@@ -8,14 +8,13 @@ import Subnav from './issues/Subnav.js'
 class Content extends Component {
   constructor(props) {
     super(props);
-    this.state = {state: "open"};
-    this.changeStateOnClosed = () => { this.setState({state: 'closed'}); } 
-    this.changeStateOnOpen = () => { 
-      if(this.state.state === 'closed') { this.setState({state: 'open'});}
-    }
-    this.getState = () => {return this.state;}
-    this.updatePage = () => {this.setState(this.getState())}
+    this.state = {
+      state: "open",
+      data: this.props.data  
+    };
+
   }
+  
   render() {
     let data = this.props.data;
     return (
@@ -25,22 +24,21 @@ class Content extends Component {
             <Container countOpen ={data.getCountOpen()} />
         </div>
         <div className = "container">
-            <Subnav />
-            <ListingStates  status = {
-              {
-                data: this.props.data,
-                changeStateClosed : this.changeStateOnClosed,
-                changeStateOpen : this.changeStateOnOpen
-              }
-            } />  
+            <Subnav data = {this.state.data}
+              updatePage = {this.setState.bind(this)} 
+              state = {this.state.state}
+           />
+            <ListingStates  data = {this.props.data}
+                updatePage = {this.setState.bind(this)}
+                CountOpen = {this.state.data.getCountOpen()}
+                CountClose = {this.state.data.getCountClose()}       
+             />  
             
-            <ListingBody status ={ 
-              { 
-                data: this.props.data,
-                state : this.state.state,
-                updatePage : this.updatePage
-              }
-            }/>
+            <ListingBody data = {this.state.data}
+              search = {this.state.search}
+              updatePage = {this.setState.bind(this)}
+              currentState = {this.state.state}
+             />
         </div>
      </div>
     );

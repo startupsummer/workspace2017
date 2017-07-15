@@ -1,18 +1,4 @@
-export default  { 
-
-getCountOpen : function(){
-  let count = 0;
-  for(let i of this.records){
-    if(i.state === "open"){
-      count++;
-    }
-  }
-  return count;
-},
-getCountClose : function(){
-  return this.records.length - this.getCountOpen();
-},
-records : [
+export default [
   {
     "id": 242209479,
     "title": "Best way to load a folder of static files?",
@@ -38,9 +24,4 @@ records : [
     "title": "Code splitting with import promise in object",
     "state": "closed",
   },
-]
-
-}
-
-
-
+];
