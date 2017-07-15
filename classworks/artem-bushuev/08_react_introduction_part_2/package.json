@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "browser-history": "^1.0.1",
+    "caniuse-lite": "^1.0.30000701",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^4.1.1",

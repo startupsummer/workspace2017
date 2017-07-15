@@ -8,7 +8,13 @@ class Element extends Component {
     return (
      <div>
        { 
-         item ? item.context : "doesn't exist"
+         item ? 
+          <div>
+              <p>Issues: {item.title}</p>
+              <p>{item.context}</p>
+              <p>state: {item.state}</p>
+          </div>
+         : "doesn't exist"
       }
       </div>
     );
