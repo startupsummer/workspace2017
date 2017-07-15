@@ -6,6 +6,7 @@ import ListSubnav from './components/listing/ListSubnav';
 import ListHeader from './components/listing/ListHeader';
 import ListBody from './components/listing/ListBody';
 import data from './data';
+import cloneDeep from 'lodash';
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class App extends Component {
   }
   newOnClick= () => {
 
-    let newIssue =  Object.assign([], this.state.issuesAll);
+    let newIssue =  cloneDeep(this.state.issuesAll).__wrapped__;
     newIssue.push({
       "id" : Math.random() * (1000000000 - 100000000) + 100000000,
       "title" : "New Issue!",
@@ -30,7 +31,7 @@ class App extends Component {
 
   closeOnClick = (item) => () => {
     let stateItem = item.state;
-    let issues = Object.assign([], this.state.issuesAll);
+    let issues = cloneDeep(this.state.issuesAll).__wrapped__;
     issues.map((itemIssues)=> {
       if(itemIssues.id === item.id) {
         if(stateItem === 'open')
@@ -45,7 +46,7 @@ class App extends Component {
   }
   count() {
     let close = 0, open = 0;
-    open = this.state.issues.reduce(
+    open = this.state.issuesAll.reduce(
       (previousValue, currentValue, index, array)=> {
       if(currentValue.state === 'open')
         return previousValue + 1;
