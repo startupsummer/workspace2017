@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import Btn from './Btn';
 
 export default class Item extends Component {
@@ -12,7 +14,7 @@ export default class Item extends Component {
   }
 
   render() {
-    const {title, state, display} = this.props.data;
+    const {title, state, display, id} = this.props.data;
 
     if (!display) {
       return null;
@@ -44,7 +46,7 @@ export default class Item extends Component {
           {svg}
         </div>
         <div className="issues__title">
-          <a className="issues__link" href="#">{title}</a>
+          <Link to={`/${id}`} className="issues__link">{title}</Link>
         </div>
         {closeIssueButton}
       </li>

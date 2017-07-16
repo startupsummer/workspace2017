@@ -1,7 +1,10 @@
 import React, {Component, PropTypes} from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import './App.css';
 import Pagehead from './Pagehead';
 import Container from './Container';
+import Description from './Description';
 
 import {displayAll} from './utils';
 
@@ -57,15 +60,24 @@ class App extends Component {
     const { issues } = this.state;
 
     return (
-      <div>
-        <Pagehead issuesNum={issues.length}/>
-        <Container
-          data={issues}
-          handleAddNewIssue={this.handleAddNewIssue}
-          handleCloseIssue={this.handleCloseIssue}
-          handleSearchText={this.handleSearchText}
-        />
-      </div>
+      <Router>
+        <div>
+          <Pagehead issuesNum={issues.length} />
+          <Route exact path="/" component={() => (
+            <Container
+              data={issues}
+              handleAddNewIssue={this.handleAddNewIssue}
+              handleCloseIssue={this.handleCloseIssue}
+              handleSearchText={this.handleSearchText}
+          />
+          )} />
+          <Route exact path="/:id" component={({match}) => (
+            <Description
+              issue={issues.find(elem => elem.id === +match.params.id)}
+            />
+          )} />
+        </div>
+      </Router>
     );
   }
 }

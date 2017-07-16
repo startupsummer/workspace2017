@@ -27,8 +27,8 @@ export default class Header extends Component {
     return (
       <div className="issues-listing__header">
         <div className="issues-listing__states">
-          <Btn classes={classStr1} text={this.props.openIssuesNum + ' Open'} type="open" onShowOpenTab={this.showOpenTab} />
-          <Btn classes={classStr2} text={this.props.closedIssuesNum + ' Closed'}  type="closed" onShowClosedTab={this.showClosedTab} />
+          <Btn classes={classStr1} text={` ${this.props.openIssuesNum} Open`} type="open" onShowOpenTab={this.showOpenTab} />
+          <Btn classes={classStr2} text={` ${this.props.closedIssuesNum} Closed`}  type="closed" onShowClosedTab={this.showClosedTab} />
         </div>
       </div>
     );
