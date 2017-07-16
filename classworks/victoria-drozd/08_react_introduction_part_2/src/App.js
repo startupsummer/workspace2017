@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import './App.css';
 import Pagehead from './Pagehead';
@@ -8,24 +8,18 @@ import Description from './Description';
 
 import {displayAll} from './utils';
 
+const TOKEN = '5a46ea30cc32615ddaa1d3683b7567d08e85a07b';
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      issues: displayAll(props.data)
+      issues: []
     };
     this.handleAddNewIssue = this.handleAddNewIssue.bind(this);
     this.handleCloseIssue = this.handleCloseIssue.bind(this);
     this.handleSearchText = this.handleSearchText.bind(this);
   }
-
-  static propTypes = {
-    data: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      state: PropTypes.string.isRequired
-    })).isRequired
-  };
 
   handleAddNewIssue(issues) {
     this.setState({issues});
@@ -35,7 +29,7 @@ class App extends Component {
     this.setState((prevState) => {
       const newData = prevState.issues.map(issue => {
         if (issue.id !== id) {
-         return issue;
+          return issue;
         }
 
         return {...issue, state: 'closed'};
@@ -56,26 +50,32 @@ class App extends Component {
     });
   }
 
+  componentDidMount() {
+    fetch(`https://api.github.com/repos/andemerie/01_git_task/issues?access_token=${TOKEN}&state=all`)
+      .then(response => response.json())
+      .then(data => this.setState({issues: displayAll(data)}));
+  }
+
   render() {
-    const { issues } = this.state;
+    const {issues} = this.state;
 
     return (
       <Router>
         <div>
-          <Pagehead issuesNum={issues.length} />
+          <Pagehead issuesNum={issues.length}/>
           <Route exact path="/" component={() => (
             <Container
               data={issues}
               handleAddNewIssue={this.handleAddNewIssue}
               handleCloseIssue={this.handleCloseIssue}
               handleSearchText={this.handleSearchText}
-          />
-          )} />
+            />
+          )}/>
           <Route exact path="/:id" component={({match}) => (
             <Description
               issue={issues.find(elem => elem.id === +match.params.id)}
             />
-          )} />
+          )}/>
         </div>
       </Router>
     );

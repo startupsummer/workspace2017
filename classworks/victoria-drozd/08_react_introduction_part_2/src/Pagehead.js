@@ -7,8 +7,6 @@ export default class Pagehead extends Component {
   }
 
   render() {
-    console.log('Pagehead rerender');
-
     return (
       <div className="pagehead">
         <div className="container">
