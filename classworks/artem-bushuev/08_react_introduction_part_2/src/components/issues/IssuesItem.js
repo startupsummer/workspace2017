@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 
 class IssuesItem extends Component {
+  issueClose = ()=> {
+    this.props.item.state = this.props.item.state === 'open' ? 'closed' : 'open';
+    this.props.updatePage(
+      {
+        data: this.props.data,
+        state: this.props.currentState
+
+      }
+    );
+  }
   render() {
-    let {item} = this.props.element;
-    console.log(item);
-   // console.log(this.props.item.title);
+    let {item} = this.props;
     return (
        <li className="issues__item">
           <div className="issues__status issues__status--open">
@@ -15,17 +23,15 @@ class IssuesItem extends Component {
                   {item.title}
               </a>
           </div>
-          <button className="btn issue__close" type="button" id = {item.id}  onClick={ 
-              () => {
-                item.state = item.state === 'open' ? 'closed' : 'open';
-                this.props.element.update();
-              }
-            }>
+          <button className="btn issue__close" type="button" id = {item.id}  
+            onClick={this.issueClose}
+          >
               {item.state === 'open' ? 'close' : 'open' } issue
           </button>
         </li>
     );
   }
+ 
 }
 
 export default IssuesItem;
