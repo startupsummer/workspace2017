@@ -19,22 +19,18 @@ class App extends Component {
       issues: Data,
       st: 'open',
       findName: "",
+      cratch: "",
      }
   }
 
 
-  // componentDidMount() {
-  //   fetch('https://api.github.com/repos/Hellycat/react_test/issues?access_token=d76ef4819f603e1deb94be5479f229abc13a85e9', {
-  //       method: "POST",
-  //       body:JSON.stringify({
-  //         title: Math.random().toString(36).slice(2),
-  //         body: Math.random().toString(36).slice(2),
-  //         assignee: "Hellycat",
-  //       })
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => console.log(data));
-  // }
+  componentDidMount() {
+    fetch('https://api.github.com/repos/Hellycat/react_test/issues?access_token=d76ef4819f603e1deb94be5479f229abc13a85e9&state=all')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ issues: data });
+      }); 
+  }
 
   render() {
     const {searchIssues} = this.state;
@@ -121,24 +117,41 @@ class App extends Component {
     );
   }
 
-  handlerAdd = (e) => {
+   hadnlerUpdate = () => {
+    fetch('https://api.github.com/repos/Hellycat/react_test/issues?access_token=d76ef4819f603e1deb94be5479f229abc13a85e9&state=all')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ issues: data });
+      }); 
+  }
+
+  handlerDel = (number) => (e) => {
     e.preventDefault();
-    const id = Math.floor(Math.random()
-      * (1000000000000 )) + 1000000000000;
-
-    const randomStr = Math.random().toString(36).slice(2)
-
-    this.setState({
-      issues: this.state.issues.concat([
-        {
-          "id": id,
-          "title": randomStr,
-          "state": "open",
-          "description": randomStr,
-        }
-      ]),
+    fetch(`https://api.github.com/repos/Hellycat/react_test/issues/${number}?access_token=d76ef4819f603e1deb94be5479f229abc13a85e9`, {
+      method: "PATCH",
+      body:JSON.stringify({
+        state: "closed",
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({issues: data});
     });
+  }
 
+  handlerAdd = (e) => {
+    console.log("handler add");
+    e.preventDefault();
+    fetch('https://api.github.com/repos/Hellycat/react_test/issues?access_token=d76ef4819f603e1deb94be5479f229abc13a85e9', {
+      method: "POST",
+      body:JSON.stringify({
+        title: Math.random().toString(36).slice(2),
+        body: Math.random().toString(36).slice(2),
+        state: "open",
+      })
+    })
+    .then(response  => response.json())
+    .then(data => this.hadnlerUpdate());
   }
 
   searchHandle = (e) => {
@@ -146,21 +159,6 @@ class App extends Component {
 
     this.setState({
       findName: findName,
-    })
-  }
-
-  handlerDel = (id) => (e) => {
-    e.preventDefault();
-
-    const tempIssues = this.state.issues;
-    let newIssues = tempIssues.map(function(item) {
-      if(item.id === id) {
-        return { ...item, state: 'closed' };
-      }
-      return item;
-    });
-    this.setState({
-        issues: newIssues,
     })
   }
 
