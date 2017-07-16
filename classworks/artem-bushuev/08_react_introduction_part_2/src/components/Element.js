@@ -1,25 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ElementDescription from './element/ElementDescription.js';
  
- class Element extends Component {
-   render() {
-     console.log( this.props );
-     console.log(this.props.status.data.findById(this.props.status.id));
-     var item = this.props.status.data.findById(this.props.status.id);
+ const Element = ({data,id})=> {
+     var item = data.findById(id);
      return (
       <div>
         { 
           item ?  
-            <div>
-                <p> title: {item.title} </p>
-                <p> {item.context} </p> 
-                <p> state: {item.state}</p>
-            </div>
-          
+           ElementDescription(item)
           : "doesn't exist"
        }
        </div>
-     );
-   }
- }
+     );}
  
  export default Element; 

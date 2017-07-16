@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import IssuesItem from './IssuesItem.js'
 
-class ListingBody extends Component {
-  render() {
-    let {data} = this.props;
+const ListingBody = ({data,search,updatePage,currentState})=> {
      return (
      <ul className="issues"> {
          data.records.map(
            item => 
-               ( (item.state === this.props.currentState) && (!this.props.search 
-               || item.title.toLowerCase().includes(this.props.search.toLowerCase()) ) )  
-               && <IssuesItem item = {item}
-                    updatePage = {this.props.updatePage}
-                    currentState = {this.props.currentState}
-                    data = {this.props.data}
-                  />
+               ( (item.state === currentState) && (!search 
+               || item.title.toLowerCase().includes(search.toLowerCase()) ) )  
+               && IssuesItem({
+                    item,
+                    updatePage,
+                    currentState,
+                    data,
+               })    
           )
     }
     </ul>
-    );
-  }
-}
+    );}
+
 export default ListingBody;

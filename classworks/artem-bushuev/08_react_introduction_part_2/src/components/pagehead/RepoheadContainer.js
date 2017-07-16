@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class RepoheadContainer extends Component {
-  render() {
+const RepoheadContainer = ()=> {
     return (
      <div className="container repohead-container">
         <h1 className="pagehead-title">
@@ -13,8 +12,6 @@ class RepoheadContainer extends Component {
           <b><a href="">react-task-1</a></b>
         </h1>
       </div>
-    );
-  }
-}
+    );}
 
 export default RepoheadContainer;

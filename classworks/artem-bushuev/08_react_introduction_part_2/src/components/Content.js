@@ -22,49 +22,50 @@ class Content extends Component {
     return (
      <div className = "content">
         <div className = "pagehead">
-            <RepoheadContainer />
-            <Container countOpen ={data.getCountOpen()} />
+
+            {RepoheadContainer()}
+
+            {Container(data.getCountOpen())}
+
         </div>
         <div className = "container">
     
-          <Route exact path='/' component={
-            ()=>{
-              return <Subnav data = {this.state.data}
-                updatePage = {this.setState.bind(this)} 
-                state = {this.state.state}
-                />
-              }
-           }/>
+           {Subnav({
+              data: this.state.data,
+              updatePage: this.setState.bind(this),
+              state: this.state.state,
+              
+           })}            
 
             <Route exact path='/' component={
               ()=>{
-                return <ListingStates  data = {this.props.data}
-                    updatePage = {this.setState.bind(this)}
-                    CountOpen = {this.state.data.getCountOpen()}
-                    CountClose = {this.state.data.getCountClose()}       
-                /> 
+                return ListingStates({
+                    data: this.props.data,
+                    updatePage: this.setState.bind(this),
+                    CountOpen: this.state.data.getCountOpen(),
+                    CountClose: this.state.data.getCountClose(),    
+                }) 
               }
             }
             /> 
             
             <Route exact path='/' component={
               () => {
-                return <ListingBody data = {this.state.data}
-                  search = {this.state.search}
-                  updatePage = {this.setState.bind(this)}
-                  currentState = {this.state.state}
-                />
-              } 
+                return ListingBody({
+                  data: this.state.data,
+                  search: this.state.search,
+                  updatePage: this.setState.bind(this),
+                  currentState: this.state.state,
+                  }); 
+              }
             }/>
             <Route path={`/:id`} component={
            
                 (props) => {
-                    return <Element status = {
-                      {
-                        data: this.props.data,
-                        id: props.match.params.id,
-                       }
-                    }/>
+                    return Element({
+                      data: this.props.data,
+                      id: props.match.params.id,
+                    });
                 }   
             } />
 

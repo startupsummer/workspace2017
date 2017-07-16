@@ -33,7 +33,8 @@ let data = {
 
 ReactDOM.render(
 <main>
-  <Header />
+
+  {Header()}
   
   <Router>
     <Content data = {data}/>

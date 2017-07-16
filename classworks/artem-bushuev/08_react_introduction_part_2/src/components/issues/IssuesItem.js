@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class IssuesItem extends Component {
-  issueClose = ()=> {
-    this.props.item.state = this.props.item.state === 'open' ? 'closed' : 'open';
-    this.props.updatePage(
+const IssuesItem = ({data,item,updatePage,currentState})=> {
+  let issueClose = ()=> {
+    item.state = item.state === 'open' ? 'closed' : 'open';
+    updatePage(
       {
-        data: this.props.data,
-        state: this.props.currentState
-
+        data,
+        state: currentState,
       }
     );
   }
-  render() {
-    let {item} = this.props;
+
     return (
        <li className="issues__item">
           <div className="issues__status issues__status--open">
@@ -24,14 +22,11 @@ class IssuesItem extends Component {
               </a>
           </div>
           <button className="btn issue__close" type="button" id = {item.id}  
-            onClick={this.issueClose}
+            onClick={issueClose}
           >
               {item.state === 'open' ? 'close' : 'open' } issue
           </button>
         </li>
-    );
-  }
- 
-}
+    );}
 
 export default IssuesItem;

@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Container extends Component {
-  render() {
-    let countOpen = this.props.countOpen;
+const Container = (countOpen)=> {
     return (
      <div className="container">
         <nav className="reponav">
@@ -15,8 +13,6 @@ class Container extends Component {
           </a>
         </nav>
       </div>
-    );
-  }
-}
+    );}
 
 export default Container;
