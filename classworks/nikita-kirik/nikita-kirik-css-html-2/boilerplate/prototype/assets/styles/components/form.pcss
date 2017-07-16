@@ -10,14 +10,22 @@
 
 		width: 100%;
 	}
+
 	&__txt-inp {
 
 		width: 45%;
+		/* min-width: 300px; */
 		padding: 5px;
+		margin: 0 10px;
 		border-radius: 5px;
 		margin-bottom: 40px;
 		font-size: 2rem;
 		border: none;
+
+		@media (--before-desktop-viewport) {
+			width: 100%;
+		}
+
 
 		&--message {
 			width: 100%;

@@ -1,3 +1,15 @@
 .main {
 	padding-left: 250px;
+	/*transform: translateX(250px);*/
+
+		@media (--before-medium-viewport) {
+		&--aside-closed {
+			padding-left: 0px;
+		}
+		&--aside-opened {
+			transform: translateX(250px);
+			/*position: absolute;
+			left: 250px;*/
+		}
+	}
 }

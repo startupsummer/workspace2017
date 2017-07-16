@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 
-<html lang="eng">	
+<html lang="eng">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 	<script src="/bundle.js"></script>
 
-	<title>	</title>
+	<script type="text/javascript">
+
+		function asideHandler() {
+			document.getElementById("aside").classList.toggle("aside--closed");
+			document.getElementById("aside-toggle").classList.toggle("aside-toggle--opened");
+			// document.getElementById("main").classList.toggle("main--aside-opened");
+		}
+	</script>
+	<title>Lorem Page</title>
 </head>
 
 <body>
 
+	<div class="aside-toggle aside-toggle--hidden" id="aside-toggle" onclick="asideHandler()"></div>
 
-	<aside class="aside" > 
-
-
+	<aside class="aside aside--closed" id="aside">
 		<div class="aside__header">
 
 			<div class="as-header">
@@ -31,7 +39,6 @@
 			</div>
 
 		</div>
-
 
 		<nav class="aside__nav">
 
@@ -57,16 +64,16 @@
 			<ul class="icons-list">
 				<li class="icons-list__item">
 					<a class="icons-list__twitter" href=""></a>
-				</li>			
+				</li>
 				<li class="icons-list__item">
 					<a class="icons-list__facebook" href=""></a>
-				</li>			
+				</li>
 				<li class="icons-list__item">
 					<a class="icons-list__github" href=""></a>
-				</li>			
+				</li>
 				<li class="icons-list__item">
 					<a class="icon" href=""></a>
-				</li>			
+				</li>
 				<li class="icons-list__item">
 					<a class="icons-list__letter" href=""></a>
 				</li>
@@ -76,14 +83,12 @@
 
 	</aside>
 
-	
 
-
-	<main class="main">
+	<main class="main main--aside-closed" id="main">
 
 		<div class="main-block main-block--top" id="main-top">
 
-			<div class="centre-block"> 
+			<div class="centre-block">
 
 				<h1 class="centre-block__title">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -104,7 +109,7 @@
 
 			<div class="main-block__gallery">
 				<ul class="gallery">
-					<li class="gallery__column"> 
+					<li class="gallery__column">
 						<figure class="figure">
 							<img class="figure__img"  src="images/pic02.jpg">
 							<figcaption class="figure__caption">Australian Birds</figcaption>
@@ -121,13 +126,13 @@
 							<figcaption class="figure__caption">Australian Birds</figcaption>
 						</figure>
 					</li>
-					<li class="gallery__column"> 
+					<li class="gallery__column">
 						<figure class="figure">
 							<img class="figure__img"  src="images/pic06.jpg">
 							<figcaption class="figure__caption">Australian Birds</figcaption>
 						</figure>
 						<figure class="figure">
-							<img class="figure__img"  src="images/pic05.jpg">	
+							<img class="figure__img"  src="images/pic05.jpg">
 							<figcaption class="figure__caption">Australian Birds</figcaption>
 						</figure>
 					</li>
@@ -149,7 +154,7 @@
 					<div class="form__txt-inp-block">
 						<input class="form__txt-inp  form__txt-inp--left" type="text" name="" placeholder="Name">
 
-						<input class="form__txt-inp  form__txt-inp--right " type="email" name="" placeholder="Email">			
+						<input class="form__txt-inp  form__txt-inp--right " type="email" name="" placeholder="Email">
 						<textarea class="form__txt-inp  form__txt-inp--message" name="" placeholder="Message"></textarea>
 					</div>
 					<input type="submit" class="form__button" name="" value="Send Message">
@@ -161,7 +166,6 @@
 		</div>
 
 	</main>
-
 
 </body>
 

@@ -3,6 +3,9 @@
 	display: flex;
 	flex-direction: column;
 
+	z-index: 1;
+	
+
 	background-color: #141111;
 	width: 250px;
 	height: 100vh;
@@ -24,5 +27,10 @@
 
 	}
 
+	@media (--before-medium-viewport) {
+		&--closed {
+			transform: translateX(-100%);
+		}
+	}
 
 }
