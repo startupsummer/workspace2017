@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class IssueDescription extends Component {
-  static propTypes = {
-    number: PropTypes.string, 
-  }
-  
-  render() {
-    const id = this.props.number.slice(1);
-    const title = this.props.items
-      .find(item => item.id === Number(id));
-    return (
-      <div>
-        <h1 className="issues__item">{title.title}</h1>
-        <p className="issues__description">{title.body}</p>
-      </div>
-    );
-  }
-}
+const IssueDescription = ({ number, items }) => {
+  const id = number.slice(1);
+  const title = items.find(item => item.id === Number(id));
+  return (
+    <div>
+      <h1 className="issues__item">{title.title}</h1>
+      <p className="issues__description">{title.body}</p>
+    </div>
+  );
+};
+
+IssueDescription.propTypes = {
+  number: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default IssueDescription;

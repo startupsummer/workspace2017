@@ -1,23 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Form from './Form';
 import Button from './Button';
-import PropTypes from 'prop-types';
 
-const ListingSubnav = (props) => (
+const ListingSubnav = ({ onChange, onClick }) => (
   <div className="issues-listing__subnav">
     <div className="subnav">
-      <Form onChange={props.onChange}/>
+      <Form onChange={onChange} />
       <Button
         className="btn btn-primary"
-        onClick={props.onClick}
+        onClick={onClick}
       >New issue</Button>
     </div>
-  </div>  
-)
+  </div>
+);
 
 ListingSubnav.propTypes = {
   onChange: PropTypes.func,
-  onClick: PropTypes.func
-}
+  onClick: PropTypes.func,
+};
 
 export default ListingSubnav;

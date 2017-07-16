@@ -1,17 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import RepoHead from './RepoHead';
 import NavIssues from './NavIssues';
-import PropTypes from 'prop-types';
 
-const PageHead = (props) => (
+const PageHead = ({ itemsNumber }) => (
   <div className="pagehead">
     <RepoHead />
-    <NavIssues itemsNumber={props.itemsNumber}/>
+    <NavIssues itemsNumber={itemsNumber} />
   </div>
-)
+);
 
 PageHead.propTypes = {
-  itemsNumber: PropTypes.string,
-}
+  itemsNumber: PropTypes.number,
+};
 
 export default PageHead;
