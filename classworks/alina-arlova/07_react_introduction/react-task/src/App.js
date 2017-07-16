@@ -51,15 +51,17 @@ class App extends Component {
       "title": "New Issue",
       "state": "open",
     };
-    this.state.issues.push(newIssue);
+
+    let newIssues = [...this.state.issues, newIssue];
 
     this.setState({
-      menuState : "open"
+        issues: newIssues,
+        menuState : "open",
     });
   }
 
   handlerCloseIssueClick(issue) {
-    let newIssues = this.state.issues;
+    let newIssues = Object.assign([], this.state.issues);
     newIssues.map((item) => {
       if (item === issue) {
         item.state = "closed";
@@ -67,7 +69,7 @@ class App extends Component {
     });
 
     this.setState({
-      issues : newIssues
+      issues : newIssues,
     });
   }
 
@@ -100,14 +102,14 @@ class App extends Component {
                     className={this.checkActivePage("open")}
                     svgClassName="open"
                     text="Open"
-                    count={filteredIssues.filter((item) => { if (item.state === "open") return true;}).length}
+                    count={filteredIssues.filter(item => item.state === "open").length}
                     onClick={this.handleOpenButtonLinkClick}
                   />
                   <ButtonLink
                     className={this.checkActivePage("closed")}
                     svgClassName="closed"
                     text="Close"
-                    count={filteredIssues.filter((item) => { if (item.state === "closed") return true;}).length}
+                    count={filteredIssues.filter(item => item.state === "closed").length}
                     onClick={this.handleClosedButtonLinkClick} />
                 </div>
               </div>
