@@ -1,7 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 const winston = require('winston');
-const body = require('body/form');
+const anyBody = require('body/any');
+const multipart = require('parse-multipart');
 
 
 winston.level = 'debug';
@@ -12,11 +13,25 @@ winston.configure({
   ],
 });
 
-const parseBody = (req, opt) =>
+const parseBody = (req, res, opt) =>
   new Promise((resolve, reject) => {
-    body(req, opt, (err, data) => {
+    anyBody(req, opt, (err, data) => {
       if (err) return reject(err);
       return resolve(data);
+    });
+  });
+
+const collect = stream =>
+  new Promise((resolve, reject) => {
+    let data = '';
+    stream.on('data', (chunk) => {
+      data += chunk;
+    });
+    stream.on('end', () => {
+      resolve(data);
+    });
+    stream.on('error', (error) => {
+      reject(error);
     });
   });
 
@@ -40,7 +55,7 @@ const router = {
       file.pipe(res);
     },
     POST: (req, res) => {
-      parseBody(req)
+      parseBody(req, res)
       .then((data) => {
         res.write(`FirstName: ${data.first_name}, LastName: ${data.last_name}`);
         res.end();
@@ -54,6 +69,29 @@ const router = {
     GET: (req, res) => {
       http.get('http://media.giphy.com/media/Vg0JstydL8HCg/giphy.gif', (getRes) => {
         getRes.pipe(res);
+      });
+    },
+  },
+  '/upload': {
+    POST: (req, res) => {
+      const header = req.rawHeaders.find(item => item.startsWith('multipart/form-data'));
+      const boundary = multipart.getBoundary(header);
+      collect(req)
+      .then((data) => {
+        const parts = multipart.Parse(
+          new Buffer(data, 'utf-8'), boundary,
+        );
+        parts.forEach((part) => {
+          const ext = part.filename.split('.').pop();
+          const file = fs.createWriteStream(`files/upload.${ext}`);
+          file.write(part.data.slice(3).toString('utf-8'));
+          file.end();
+          res.end('Upload sucessfull');
+        });
+      })
+      .catch((reason) => {
+        res.writeHead(500);
+        res.end(`Not completed: ${reason.toString()}`);
       });
     },
   },

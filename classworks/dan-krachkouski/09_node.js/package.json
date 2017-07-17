@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "body": "^5.1.0",
+    "parse-multipart": "^1.0.4",
     "winston": "^2.3.1"
   }
 }
