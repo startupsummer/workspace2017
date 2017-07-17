@@ -1,36 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
+import classnames from 'classnames';
+
 import Btn from './Btn';
 
-export default class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.showOpenTab = this.showOpenTab.bind(this);
-    this.showClosedTab = this.showClosedTab.bind(this);
-  }
+export default ({openIssuesNum, closedIssuesNum, onShowOpenTab, onShowClosedTab, currentTab}) => {
+  const openClass = classnames({
+    'btn-link': true,
+    'btn-link--selected': currentTab === 'open'
+  });
 
-  showOpenTab() {
-    this.props.onShowOpenTab();
-  }
+  const closedClass = classnames({
+    'btn-link': true,
+    'btn-link--selected': currentTab === 'closed'
+  });
 
-  showClosedTab() {
-    this.props.onShowClosedTab();
-  }
-
-  render() {
-    let classStr1 = "btn-link", classStr2 = "btn-link";
-    if (this.props.currentTab === 'open') {
-      classStr1 += " btn-link--selected";
-    } else {
-      classStr2 += " btn-link--selected";
-    }
-
-    return (
-      <div className="issues-listing__header">
-        <div className="issues-listing__states">
-          <Btn classes={classStr1} text={` ${this.props.openIssuesNum} Open`} type="open" onShowOpenTab={this.showOpenTab} />
-          <Btn classes={classStr2} text={` ${this.props.closedIssuesNum} Closed`}  type="closed" onShowClosedTab={this.showClosedTab} />
-        </div>
+  return (
+    <div className="issues-listing__header">
+      <div className="issues-listing__states">
+        <Btn classes={openClass} type="open" onClick={onShowOpenTab}>
+          {` ${openIssuesNum} Open`}
+        </Btn>
+        <Btn classes={closedClass} type="closed" onClick={onShowClosedTab}>
+          {` ${closedIssuesNum} Closed`}
+        </Btn>
       </div>
-    );
-  }
+    </div>
+  );
 }

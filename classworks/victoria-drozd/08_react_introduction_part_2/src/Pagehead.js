@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
-export default class Pagehead extends Component {
-  shouldComponentUpdate(nextProps) {
-    return this.props.issuesNum !== nextProps.issuesNum;
-  }
-
+export default class Pagehead extends PureComponent {
   render() {
     return (
       <div className="pagehead">

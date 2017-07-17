@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import './App.css';
@@ -16,16 +16,17 @@ class App extends Component {
     this.state = {
       issues: []
     };
-    this.handleAddNewIssue = this.handleAddNewIssue.bind(this);
-    this.handleCloseIssue = this.handleCloseIssue.bind(this);
-    this.handleSearchText = this.handleSearchText.bind(this);
   }
 
-  handleAddNewIssue(issues) {
-    this.setState({issues});
+  componentDidMount() {
+    fetch(`https://api.github.com/repos/andemerie/01_git_task/issues?access_token=${TOKEN}&state=all`)
+      .then(response => response.json())
+      .then(data => this.setState({issues: displayAll(data)}));
   }
 
-  handleCloseIssue(id) {
+  handleAddNewIssue = issues => this.setState({issues});
+
+  handleCloseIssue = (id) => {
     this.setState((prevState) => {
       const newData = prevState.issues.map(issue => {
         if (issue.id !== id) {
@@ -37,9 +38,9 @@ class App extends Component {
 
       return {issues: newData};
     });
-  }
+  };
 
-  handleSearchText(text) {
+  handleSearchText = (text) => {
     this.setState((prevState) => {
       const newData = prevState.issues.map(issue => ({
         ...issue,
@@ -48,13 +49,7 @@ class App extends Component {
 
       return {issues: newData};
     });
-  }
-
-  componentDidMount() {
-    fetch(`https://api.github.com/repos/andemerie/01_git_task/issues?access_token=${TOKEN}&state=all`)
-      .then(response => response.json())
-      .then(data => this.setState({issues: displayAll(data)}));
-  }
+  };
 
   render() {
     const {issues} = this.state;
@@ -71,11 +66,10 @@ class App extends Component {
               handleSearchText={this.handleSearchText}
             />
           )}/>
-          <Route exact path="/:id" component={({match}) => (
-            <Description
-              issue={issues.find(elem => elem.id === +match.params.id)}
-            />
-          )}/>
+          <Route
+            exact path="/:id"
+            component={({match}) => (<Description issue={issues.find(elem => elem.id === +match.params.id)}/>)}
+          />
         </div>
       </Router>
     );

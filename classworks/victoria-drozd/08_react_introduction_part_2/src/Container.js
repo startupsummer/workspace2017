@@ -11,20 +11,13 @@ export default class Container extends Component {
     this.state = {
       currentTab: 'open'
     };
-    this.handleShowOpenTab = this.handleShowOpenTab.bind(this);
-    this.handleShowClosedTab = this.handleShowClosedTab.bind(this);
-    this.handleAddNewIssue = this.handleAddNewIssue.bind(this);
   }
 
-  handleShowOpenTab() {
-    this.setState({currentTab: 'open'});
-  }
+  handleShowOpenTab = () => this.setState({currentTab: 'open'});
 
-  handleShowClosedTab() {
-    this.setState({currentTab: 'closed'});
-  }
+  handleShowClosedTab = () => this.setState({currentTab: 'closed'});
 
-  handleAddNewIssue() {
+  handleAddNewIssue = () => {
     const {data, handleAddNewIssue} = this.props;
 
     const newData = data.concat({
@@ -35,10 +28,10 @@ export default class Container extends Component {
 
     handleAddNewIssue(displayAll(newData));
     this.handleShowOpenTab();
-  }
+  };
 
   render() {
-    const { data } = this.props;
+    const { data, handleSearchText, handleCloseIssue } = this.props;
     const [openIssuesNum, closedIssuesNum] = countIssues(data);
 
     return (
@@ -46,7 +39,7 @@ export default class Container extends Component {
         <div className="issues-listing">
           <Subnav
             onAddNewIssue={this.handleAddNewIssue}
-            onSearchText={this.props.handleSearchText}
+            onSearchText={handleSearchText}
           />
           <Header
             currentTab={this.state.currentTab}
@@ -58,7 +51,7 @@ export default class Container extends Component {
           <Body
             data={data}
             currentTab={this.state.currentTab}
-            onCloseIssue={this.props.handleCloseIssue}
+            onCloseIssue={handleCloseIssue}
           />
         </div>
       </div>
