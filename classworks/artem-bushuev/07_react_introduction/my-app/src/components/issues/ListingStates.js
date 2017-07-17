@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 class ListingStates extends Component {
   clickOpen = () => {
-                this.props.updatePage(this.props.data,'open');              
+                this.props.updatePageState('open');              
               }
   clickClose =  () => {
-              this.props.updatePage(this.props.data,'closed');
+              this.props.updatePageState('closed');
                 }
   render() {
-    console.log(this.props);
-    return (
+    
+     return (
      <div className="issues-listing__states">
         <button className="btn-link btn-link--selected" type="button" 
           onClick={this.clickOpen}

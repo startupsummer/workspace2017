@@ -27,16 +27,29 @@ class Content extends Component {
     }
     return count;
   }
-  updatePage = (data,state,search) => {
+  updatePageSearch = (search)  => {
+    this.setState({
+      data: this.state.data,
+      state: this.state.state,
+      search,
+    });
+  }
+  updatePageState = (state) => {
+    this.setState({
+      data: this.state.data,
+      state,
+      search: this.state.search,
+    });
+  }
+  updatePageData = (data) => {
     this.setState({
       data,
-      state,
-      search,
-    })
+      state: this.state.state,
+      search: this.state.search,
+    });
   }
   
   render() {
-    console.log(data);
     return (
      <div className = "content">
         <div className = "pagehead">
@@ -45,18 +58,19 @@ class Content extends Component {
         </div>
         <div className = "container">
             <Subnav data = {this.state.data}
-              updatePage = {this.updatePage} 
+              updatePageSearch = {this.updatePageSearch} 
+              updatePageData = {this.updatePageData}
               state = {this.state.state}
            />
             <ListingStates  data = {this.state.data}
-                updatePage = {this.updatePage}
+                updatePageState = {this.updatePageState}
                 CountOpen = {this.getCountOpen()}
                 CountClose = {this.getCountClose()}       
              />  
             
             <ListingBody data = {this.state.data}
               search = {this.state.search}
-              updatePage = {this.updatePage}
+              updatePageData = {this.updatePageData}
               currentState = {this.state.state}
              />
         </div>

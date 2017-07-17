@@ -3,10 +3,7 @@ import IssuesItem from './IssuesItem.js'
 
 class ListingBody extends Component {
   render() {
-    console.log('ListingBody');
-    console.log(this.props)
-    let {data} = this.props;
-    console.log(data);
+    let data = [ ...this.props.data];
      return (
      <ul className="issues"> {
          data.map(
@@ -14,9 +11,9 @@ class ListingBody extends Component {
                ( (item.state === this.props.currentState) && (!this.props.search 
                || item.title.toLowerCase().includes(this.props.search.toLowerCase()) ) )  
                && <IssuesItem item = {item}
-                    updatePage = {this.props.updatePage}
+                    updatePageData = {this.props.updatePageData}
                     currentState = {this.props.currentState}
-                    data = {this.props.data}
+                    data = {data}
                   />
           )
     }
