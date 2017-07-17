@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Header from './components/header/header';
-import Pagehead from './components/pagehead/pagehead';
+import Logo from './components/logo/logo';
 import Repohead from './components/repohead/repohead';
 import Reponav from './components/reponav/reponav';
 import IssuesListing from './components/issues-listing/issues-listing';
@@ -21,15 +20,15 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://api.github.com/repos/hovoodd/studious-octo-adventure/issues?access_token=ed746ed3ab74c8a0ccd49375f0240c81a70c56bc&state=all')
+    fetch('https://api.github.com/repos/hovoodd/fuzzy-octo-pancake/issues?access_token=ed746ed3ab74c8a0ccd49375f0240c81a70c56bc&state=all')
       .then(response => response.json())
       .then(data => {
-        const issuesList = data.map(item => ({
-          id: item.id,
-          description: item.body,
-          title: item.title,
-          state: item.state,
-          number: item.number
+        const issuesList = data.map(i => ({
+          id: i.id,
+          description: i.body,
+          title: i.title,
+          state: i.state,
+          number: i.number
         }));
         this.setState({
           issuesList,
@@ -40,18 +39,17 @@ export default class App extends Component {
 
   openNewIssue = () => {
     const newIssueBody = {
-      title: 'Option to ask User Gist Description Before Creating new Gist.',
-      body: 'When user creates new Gist to upload.',
-      labels: ['bug']
+      title: 'Missing builtins',
+      body: 'Bash shell builtin help is missing in the guide.'
     };
 
-    fetch('https://api.github.com/repos/hovoodd/studious-octo-adventure/issues?access_token=ed746ed3ab74c8a0ccd49375f0240c81a70c56bc', {
+    fetch('https://api.github.com/repos/hovoodd/fuzzy-octo-pancake/issues?access_token=ed746ed3ab74c8a0ccd49375f0240c81a70c56bc', {
       method: 'POST',
       body: JSON.stringify(newIssueBody)
     })
       .then(response => response.json())
       .then(data => {
-        const newIssuesList = [...this.state.issuesList, data];
+        const newIssuesList = [data, ...this.state.issuesList];
         this.setState({
           issuesList: newIssuesList,
           amtOpenIssues: this.getAmtOpenIssues(newIssuesList)
@@ -59,14 +57,16 @@ export default class App extends Component {
       })
   }
 
-  changeIssue = (issue) => () => {
-    issue.state === 'open' ? issue.state = 'closed' : issue.state = 'open';
+  changeIssue = issue => () => {
+    issue.state === 'open'
+      ? issue.state = 'closed'
+      : issue.state = 'open';
 
-    const newIssuesList = this.state.issuesList.map((item, index) => {
-      return issue.id === item.id ? issue : item
+    const newIssuesList = this.state.issuesList.map(i => {
+      return issue.id === i.id ? issue : i
     });
 
-    fetch(`https://api.github.com/repos/hovoodd/studious-octo-adventure/issues/${issue.number}?access_token=ed746ed3ab74c8a0ccd49375f0240c81a70c56bc`, {
+    fetch(`https://api.github.com/repos/hovoodd/fuzzy-octo-pancake/issues/${issue.number}?access_token=ed746ed3ab74c8a0ccd49375f0240c81a70c56bc`, {
       method: 'PATCH',
       body: JSON.stringify({
         state: issue.state
@@ -79,21 +79,17 @@ export default class App extends Component {
   }
 
   showOpenIssues = () => {
-    this.setState({
-      issuesState: 'open'
-    })
+    if (this.state.issuesState === 'open') return;
+    this.setState({ issuesState: 'open' });
   }
 
   showClosedIssues = () => {
-    this.setState({
-      issuesState: 'closed'
-    })
+    if (this.state.issuesState === 'closed') return;
+    this.setState({ issuesState: 'closed' });
   }
 
-  searchIssue = (searchQuery) => {
-    this.setState({
-      searchQuery
-    })
+  searchIssue = searchQuery => {
+    this.setState({ searchQuery });
   }
 
   render() {
@@ -106,14 +102,20 @@ export default class App extends Component {
 
     return (
       <div className="app">
-        <Header />
+        <header className="header">
+          <div className="container">
+            <Logo />
+          </div>
+        </header>
 
         <Router>
           <main className="content">
-            <Pagehead>
-              <Repohead username='startupsummer' reponame='react-task-1' />
-              <Reponav tabname='Issues' amtOpenIssues={ amtOpenIssues } />
-            </Pagehead>
+            <section className="pagehead">
+              <div className="container">
+                <Repohead username='startupsummer' reponame='react-task-1' />
+                <Reponav tabname='Issues' amtOpenIssues={ amtOpenIssues } />
+              </div>
+            </section>
 
             <div className="container">
 

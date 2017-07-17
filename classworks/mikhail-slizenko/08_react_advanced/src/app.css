@@ -18,3 +18,15 @@ body {
   width: 980px;
   margin: 0 auto;
 }
+
+.header {
+  padding: 12px 0;
+  background-color: #24292e;
+}
+
+.pagehead {
+    padding-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e1e4e8;
+    background-color: #fafbfc;
+}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './repohead.css';
 
-export default class Repohead extends PureComponent  {
+export default class Repohead extends PureComponent {
   static propTypes = {
     username: PropTypes.string.isRequired,
     reponame: PropTypes.string.isRequired

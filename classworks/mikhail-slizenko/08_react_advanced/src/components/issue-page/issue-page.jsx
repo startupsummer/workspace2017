@@ -2,9 +2,9 @@ import React from 'react';
 
 import './issue-page.css';
 
-const IssuesPage = (props) => {
+const IssuesPage = props => {
   const { id, issuesList } = props;
-  let targetIssue = issuesList.filter( item => item.id === +id && item)[0];
+  const targetIssue = issuesList.filter(i => i.id === +id && i)[0];
 
   return (
     <div className="issue-page">

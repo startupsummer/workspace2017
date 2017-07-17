@@ -5,12 +5,11 @@ import Button from '../button/button';
 import './subnav.css';
 
 export default class Subnav extends PureComponent {
-  handleChange = (event) => {
+  handleChange = event =>
     this.props.searchIssue(event.target.value.toLowerCase());
-  }
 
   render() {
-    const openNewIssue = this.props.openNewIssue;
+    const { openNewIssue } = this.props;
 
     return (
       <div className="subnav">
