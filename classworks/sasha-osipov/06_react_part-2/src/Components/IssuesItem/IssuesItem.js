@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 class IssuesItem extends Component {
     render() {
-        const issues = this.props.issues;
        
         return (
             <li className="issues__item">

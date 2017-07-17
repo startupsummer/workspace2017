@@ -4,9 +4,9 @@ import './Description.css';
 class Description extends Component {
     render() {
         const { issues }  = this.props.issues;
-        const id = this.props.id;
+        const id = +this.props.id;
 
-        const currentIssues = issues.filter( item => item.id == id )[0];
+        const currentIssues = issues.filter( item => item.id === id )[0];
 
         return (
             <div className="description">

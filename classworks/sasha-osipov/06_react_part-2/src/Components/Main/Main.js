@@ -4,7 +4,7 @@ import Container from '../Container/Container';
 import Pagehead from '../Pagehead/Pagehead';
 import IssuesListing from '../IssuesListing/IssuesListing';
 import data from '../../data';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Description from '../Description/Description';
 
 class Main extends Component {
