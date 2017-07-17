@@ -17,6 +17,7 @@
     "request": "^2.81.0"
   },
   "devDependencies": {
+    "eslint": "^4.2.0",
     "nodemon": "^1.11.0"
   }
 }

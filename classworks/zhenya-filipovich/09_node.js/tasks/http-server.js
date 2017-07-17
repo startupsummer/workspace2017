@@ -9,12 +9,10 @@ const username = 'Zhenya Filippovich';
 
 const getHandler = (request, response) => {
   response.end('Hello Startup Summer');
-  logger.info(request.url);
 };
 
 const getUser = (request, response) => {
-  response.end(`Hello! My name is ${username}!`);
-  logger.info(request.url);  
+  response.end(`Hello! My name is ${username}!`); 
 };
 
 const showFormPage = (request, response) => {
@@ -24,8 +22,7 @@ const showFormPage = (request, response) => {
       return;
     }
     response.writeHeader(200, {'Content-Type': 'text/html'}); 
-    response.end(result);
-    logger.info(request.url); 
+    response.end(result); 
   });
 }
 
@@ -62,26 +59,32 @@ const defaultPage = (requst, response) => {
 
 
 const requestHandler = (request, response) => {
-  switch (request.url) {
-    case '/':
-      getHandler(request, response);
-      break; 
-    case '/info':
-      getUser(request, response);
-      break;
-    case '/index.html':
-      showFormPage(request, response);
-      break;
-    case '/internet-file':
-      getImage(request, response);
-      break;
-    case '/http-server.js':
-      if (request.method === 'POST') {
+  logger.info(request.url);
+  if (request.method === 'GET') {
+    switch (request.url) {
+      case '/':
+        getHandler(request, response);
+        break; 
+      case '/info':
+        getUser(request, response);
+        break;
+      case '/index.html':
+        showFormPage(request, response);
+        break;
+      case '/internet-file':
+        getImage(request, response);
+        break;
+      default:
+        defaultPage(request, response);     
+    }
+  }
+
+  if (request.method === 'POST') {
+    switch (request.url) {
+      case '/http-server.js':
         processForm(request, response);
-      }
-      break;
-    default:
-      defaultPage(request, response);     
+        break;
+    }
   }
 };
 
