@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Header from './components/header.js';
+import IssuesHeader from './components/IssuesHeader.js';
 import Pageheader from './components/Pageheader.js';
-import SubnavSearch from './components/SubnavSearch.js';
-import Button from './components/Buttons/Button.js';
-import ButtonLink from './components/Buttons/ButtonLink.js';
+import Navigation from './components/Navigation/Navigation.js';
 import Issues from './components/Issues/Issues.js';
 import data from './data.js';
 import './App.css';
@@ -22,7 +21,6 @@ class App extends Component {
     this.handleClosedButtonLinkClick = this.handleClosedButtonLinkClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handlerCloseIssueClick = this.handlerCloseIssueClick.bind(this);
-    this.checkActivePage = this.checkActivePage.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
@@ -51,15 +49,17 @@ class App extends Component {
       "title": "New Issue",
       "state": "open",
     };
-    this.state.issues.push(newIssue);
+
+    let newIssues = [...this.state.issues, newIssue];
 
     this.setState({
-      menuState : "open"
+        issues: newIssues,
+        menuState : "open",
     });
   }
 
   handlerCloseIssueClick(issue) {
-    let newIssues = this.state.issues;
+    let newIssues = Object.assign([], this.state.issues);
     newIssues.map((item) => {
       if (item === issue) {
         item.state = "closed";
@@ -67,16 +67,8 @@ class App extends Component {
     });
 
     this.setState({
-      issues : newIssues
+      issues : newIssues,
     });
-  }
-
-  checkActivePage(state) {
-    if (this.state.menuState === state) {
-      return " btn-link--selected";
-    } else {
-      return "";
-    };
   }
 
   render() {
@@ -88,32 +80,13 @@ class App extends Component {
           <Pageheader count={this.state.issues.length} />
           <div className="container">
             <div className="issues-listing">
-              <div className="issues-listing__subnav">
-                <div className="subnav">
-                  <SubnavSearch onChange={this.handleSearch} />
-                  <Button text='New issue' className='btn-primary' onClick={this.handleButtonClick} />
-                </div>
-              </div>
-              <div className="issues-listing__header">
-                <div className="issues-listing__states">
-                  <ButtonLink
-                    className={this.checkActivePage("open")}
-                    svgClassName="open"
-                    text="Open"
-                    count={filteredIssues.filter((item) => { if (item.state === "open") return true;}).length}
-                    onClick={this.handleOpenButtonLinkClick}
-                  />
-                  <ButtonLink
-                    className={this.checkActivePage("closed")}
-                    svgClassName="closed"
-                    text="Close"
-                    count={filteredIssues.filter((item) => { if (item.state === "closed") return true;}).length}
-                    onClick={this.handleClosedButtonLinkClick} />
-                </div>
-              </div>
-              <div className="issues-listing__body">
-                <Issues issues={filteredIssues} menuState={this.state.menuState} onClick={this.handlerCloseIssueClick} />
-              </div>
+              <Navigation onSearchChange={this.handleSearch} onButtonClick={this.handleButtonClick} />
+              <IssuesHeader onOpenClick={this.handleOpenButtonLinkClick}
+                onCloseClick={this.handleClosedButtonLinkClick}
+                newIssues={filteredIssues}
+                menuState={this.state.menuState}
+              />
+              <Issues issues={filteredIssues} menuState={this.state.menuState} onClick={this.handlerCloseIssueClick} />
             </div>
           </div>
         </main>

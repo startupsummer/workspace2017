@@ -13,7 +13,7 @@ class ButtonLink extends Component {
   render() {
     return (
       <button
-        className={'btn-link' + this.props.className}
+        className={`btn-link ${this.props.className}`}
         type="button"
         onClick={this.props.onClick}
       >
@@ -22,7 +22,7 @@ class ButtonLink extends Component {
           ? <SvgOpenPage />
           : <SvgClosedPage />
         }
-        {' ' + this.props.count + ' ' + this.props.text}
+        {` ${this.props.count} ${this.props.text}`}
       </button>
     )
   }
