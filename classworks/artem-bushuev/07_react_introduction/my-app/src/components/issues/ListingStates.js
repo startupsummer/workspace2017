@@ -2,22 +2,11 @@ import React, { Component } from 'react';
 
 class ListingStates extends Component {
   clickOpen = () => {
-                this.props.updatePage(
-                  {
-                    data: this.props.data,
-                    state: "open",
-                  }
-                )
-                
+                this.props.updatePage(this.props.data,'open');              
               }
   clickClose =  () => {
-              this.props.updatePage(
-                {
-                  data : this.props.data,
-                  state: "closed",
+              this.props.updatePage(this.props.data,'closed');
                 }
-              )
-            }
   render() {
     console.log(this.props);
     return (

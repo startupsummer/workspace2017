@@ -3,13 +3,7 @@ import React, { Component } from 'react';
 class IssuesItem extends Component {
   issueClose = ()=> {
     this.props.item.state = this.props.item.state === 'open' ? 'closed' : 'open';
-    this.props.updatePage(
-      {
-        data: this.props.data,
-        state: this.props.currentState
-
-      }
-    );
+    this.props.updatePage(this.props.data,this.props.currentState);
   }
   render() {
     let {item} = this.props;

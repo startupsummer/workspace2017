@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 
 class Subnav extends Component {
   search =  (e) => {
-                   this.props.updatePage(
-                      {
-                        data: this.props.data,
-                        search: e.target.value,
-                        state: this.props.state
-                      }
-                    );
+                   this.props.updatePage(this.props.data,
+                    this.props.state,
+                    e.target.value
+                  );
+                      
                   }
   addIssue =   () => {
                 let title = prompt("enter issue");
@@ -20,13 +18,8 @@ class Subnav extends Component {
                       "title": title,
                       "state": "open",
                     });
-                    this.props.updatePage(
-                      {
-                        data: data,
-                        state: this.props.state
-                      }
-                    );
-                  console.log(title);
+                    this.props.updatePage(data,this.props.state);
+                    console.log(title);
                 }
               }
   render() {

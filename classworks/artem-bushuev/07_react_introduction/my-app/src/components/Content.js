@@ -27,6 +27,13 @@ class Content extends Component {
     }
     return count;
   }
+  updatePage = (data,state,search) => {
+    this.setState({
+      data,
+      state,
+      search,
+    })
+  }
   
   render() {
     console.log(data);
@@ -38,18 +45,18 @@ class Content extends Component {
         </div>
         <div className = "container">
             <Subnav data = {this.state.data}
-              updatePage = {this.setState.bind(this)} 
+              updatePage = {this.updatePage} 
               state = {this.state.state}
            />
             <ListingStates  data = {this.state.data}
-                updatePage = {this.setState.bind(this)}
+                updatePage = {this.updatePage}
                 CountOpen = {this.getCountOpen()}
                 CountClose = {this.getCountClose()}       
              />  
             
             <ListingBody data = {this.state.data}
               search = {this.state.search}
-              updatePage = {this.setState.bind(this)}
+              updatePage = {this.updatePage}
               currentState = {this.state.state}
              />
         </div>
