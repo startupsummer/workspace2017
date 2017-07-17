@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const stream = fs.createReadStream('./public/index.html');
 const formBody = require("body/form");
-
+const request = require('request');
 
 const winston = require('winston');
 winston.configure({
@@ -35,25 +35,26 @@ const postHandler = (request, response) => {
 // });
 }
 
+//
 
+const getHandler = (req, res) => {
+  const urlImg = 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Red_Hot_Chili_Peppers_2012-07-02_001.jpg';
 
-const getHandler = (request, response) => {
-  winston.log('info', 'Test Log Message', { anything: 'This is metadata' });
-
-  switch (request.url) {
-    case '/': response.end('Hello Node.js Server!');
+  switch (req.url) {
+    case '/': res.end('Hello Node.js Server!');
       break;
-    case '/info': response.end(`Hello. My name is ${username}`);
+    case '/info': res.end(`Hello. My name is ${username}`);
       break;
-    case '/index.html': response.end(data);
+    case '/index.html': res.end(data);
       break;
-    case '/internet-file': http.get('https://upload.wikimedia.org/wikipedia/commons/9/9b/Red_Hot_Chili_Peppers_2012-07-02_001.jpg')    
+    case '/internet-file': request(urlImg).pipe(res);
     default:
   }
 }
 
 
 const requestHandler = (request, response) => {
+  winston.log('info', 'Test Log Message', { anything: 'This is metadata' });
 
   switch (request.method) {
     case 'GET':
