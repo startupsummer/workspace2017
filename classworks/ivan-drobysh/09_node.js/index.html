@@ -1,0 +1,23 @@
+<head>
+  <head>
+    <link rel="stylesheet" href="/index.css">
+    <script type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <main class="main">
+      <h1 class="title">Enter your first name and last name</h1>
+      <form class="form" autocomplete="off" action="/info" method="POST">
+        <input class="input" type="text" name="firstName">
+        <input  class="input" type="text" name="lastName">
+        <button class="button" type="submit">Submit</button>
+      </form>
+
+      <h1 class="title">Choose file</h1>
+      <form class="form" autocomplete="off" enctype="multipart/form-data"action="/imageS"  method="POST">
+        <input class="input" style="width: 325px"  size="200" type="file" name="file">
+        <button class="button" type="submit">Submit</button>
+      </form>
+    </main>
+  </body>
+</head>

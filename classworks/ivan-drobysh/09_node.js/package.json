@@ -1,0 +1,21 @@
+{
+  "name": "09_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "busboy": "^0.2.14",
+    "nodemon": "^1.11.0",
+    "sharp": "^0.18.2",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "images": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_PATH=../ nodemon --harmony --inspect index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
