@@ -1,0 +1,21 @@
+{
+  "name": "09_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_PATH=../ nodemon --inspect app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "body-parser": "^1.17.2",
+    "image-downloader": "^3.2.2",
+    "log4js": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
