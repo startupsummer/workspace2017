@@ -4,34 +4,47 @@ import RepoheadContainer from './pagehead/RepoheadContainer.js';
 import ListingStates from './issues/ListingStates.js'
 import ListingBody from './issues/ListingBody.js'
 import Subnav from './issues/Subnav.js'
+import data from '../data.js'
 
 class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
       state: "open",
-      data: this.props.data  
+      data,  
     };
 
   }
+  getCountClose = () => {
+    return this.state.data.length - this.getCountOpen();
+  }
+  getCountOpen = () => {
+    let count = 0;
+    for(let i of this.state.data){
+      if(i.state === "open"){
+        count++;
+      }
+    }
+    return count;
+  }
   
   render() {
-    let data = this.props.data;
+    console.log(data);
     return (
      <div className = "content">
         <div className = "pagehead">
             <RepoheadContainer />
-            <Container countOpen ={data.getCountOpen()} />
+            <Container countOpen ={this.getCountOpen()} />
         </div>
         <div className = "container">
             <Subnav data = {this.state.data}
               updatePage = {this.setState.bind(this)} 
               state = {this.state.state}
            />
-            <ListingStates  data = {this.props.data}
+            <ListingStates  data = {this.state.data}
                 updatePage = {this.setState.bind(this)}
-                CountOpen = {this.state.data.getCountOpen()}
-                CountClose = {this.state.data.getCountClose()}       
+                CountOpen = {this.getCountOpen()}
+                CountClose = {this.getCountClose()}       
              />  
             
             <ListingBody data = {this.state.data}

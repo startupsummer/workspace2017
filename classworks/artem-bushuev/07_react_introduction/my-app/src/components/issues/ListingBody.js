@@ -3,10 +3,13 @@ import IssuesItem from './IssuesItem.js'
 
 class ListingBody extends Component {
   render() {
+    console.log('ListingBody');
+    console.log(this.props)
     let {data} = this.props;
+    console.log(data);
      return (
      <ul className="issues"> {
-         data.records.map(
+         data.map(
            item => 
                ( (item.state === this.props.currentState) && (!this.props.search 
                || item.title.toLowerCase().includes(this.props.search.toLowerCase()) ) )  

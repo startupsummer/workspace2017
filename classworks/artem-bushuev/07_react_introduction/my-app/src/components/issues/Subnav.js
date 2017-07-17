@@ -14,7 +14,7 @@ class Subnav extends Component {
                 let title = prompt("enter issue");
                 let {data} =  this.props;
                   if(title){
-                    data.records.push(
+                    data.push(
                     {
                       "id": Math.floor((Math.random()+1)*100000000),
                       "title": title,
