@@ -150,8 +150,11 @@ class App extends Component {
         state: "open",
       })
     })
-    .then(response  => response.json())
-    .then(data => this.hadnlerUpdate());
+    .then((response) =>  response.json())
+    .then((data) => {
+      this.setState({issues: data})
+    });
+
   }
 
   searchHandle = (e) => {
