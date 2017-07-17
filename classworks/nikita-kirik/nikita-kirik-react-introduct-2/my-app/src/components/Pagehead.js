@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class Pagehead extends Component {
+class Pagehead extends PureComponent {
   render() {
     return (
       <div className="pagehead">

@@ -55,6 +55,17 @@ class IssuesListening extends Component {
       });
     }
 
+    componentDidMount() {
+      fetch(
+        'https://github.com/SuperKirik/Issues-for-react-introduct/blob/master/data.js?access_token=634d20247dafb56443be3827738373c18c467e97', {
+        method: 'GET',
+        mode: 'no-cors',
+        }
+      ).then(response => response.json())
+      .then(data => console.log(data));
+
+    }
+
     render() {
       let openCounter = this.state.data.filter((curr) => curr.state === 'open').length;
       let closeCounter = this.state.data.filter((curr) => curr.state === 'closed').length;
@@ -64,10 +75,14 @@ class IssuesListening extends Component {
           <IssuesListeningSubnav onSearch={this.onSearch} onIssueAdd={this.onIssueAdd}/>
           <IssuesListeningHeader onTabSwitch={this.onTabSwitch} closeCounter={closeCounter} openCounter={openCounter}/>
           <IssuesListeningBody issuesType={this.state.issuesType} text={this.state.text} issuesState={this.state} onIssueToogle={this.onIssueToogle} />
-          <Route path="/discription/:id" component={IssueDiscription} />
-        </div>
-      )
-    }
-  }
 
-  export default IssuesListening;
+          <Route path="/discription/:id" render={props => (
+              <IssueDiscription {...props} data={this.state.data}/>
+            )}/>
+
+          </div>
+        )
+      }
+    }
+
+    export default IssuesListening;

@@ -1,12 +1,21 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class IssueDiscription extends Component {
+class IssueDiscription extends PureComponent {
   render() {
-    console.log(this.props.match);
+    let discription = 'gfgf';
+    console.log(this.props.data);
+
+    this.props.data.forEach(it => {
+      console.log(it.id + " " + this.props.match.params.id + " " + (it.id == this.props.match.params.id));
+      console.log(discription);
+      // (it.id === this.props.match.params.id) && (discription = it.title);
+      (it.id == this.props.match.params.id) ? discription = it.title : null;
+    });
+
     return(
       <div className="discription">
         <div className="discription__title"> DISCRIPTION </div>
-        {this.props.match.params.id}
+        {discription}
       </div>
     );
   }

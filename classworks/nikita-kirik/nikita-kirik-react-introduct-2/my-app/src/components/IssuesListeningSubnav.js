@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import SubnavSearch from './SubnavSearch';
 import Button from './Button';
 
 
-class IssuesListeningSubnav extends Component {
+class IssuesListeningSubnav extends PureComponent {
   static propTypes = {
     onSearch: React.PropTypes.func.isRequired,
     onIssueAdd: React.PropTypes.func.isRequired
@@ -14,7 +14,7 @@ class IssuesListeningSubnav extends Component {
         <div className="issues-listing__subnav">
           <div className="subnav">
             <SubnavSearch onSearch={this.props.onSearch}/>
-            <Button onIssueAdd={this.props.onIssueAdd}> New Issue  </Button>
+            <Button onIssueAdd={this.props.onIssueAdd}> New Issue </Button>
           </div>
         </div>
   )

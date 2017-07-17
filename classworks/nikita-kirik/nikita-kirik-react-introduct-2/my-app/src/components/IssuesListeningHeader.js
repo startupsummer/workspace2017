@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import SwitchButton from './SwitchButton';
 
-class IssuesListeningHeader extends Component {
+class IssuesListeningHeader extends PureComponent {
 
   static propTypes = {
     onTabSwitch: React.PropTypes.func.isRequired

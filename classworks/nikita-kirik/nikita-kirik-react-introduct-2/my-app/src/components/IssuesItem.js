@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ButtonHandle from './ButtonHandle';
 import { Link } from 'react-router-dom';
 
 
-class IssuesItem extends Component {
+class IssuesItem extends PureComponent {
   static propTypes = {
     itemData: React.PropTypes.object.isRequired,
     onIssueToogle: React.PropTypes.func.isRequired,

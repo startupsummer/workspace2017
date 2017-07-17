@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ButtonHandle extends Component {
-  static propTypes = {
-    onClick: React.PropTypes.func.isRequired,
-  }
+const ButtonHandle = ({ onClick, children }) => (
+  <button onClick={onClick} className="btn issue__close" type="button">
+    {children}
+  </button>
+)
 
-  render() {
-    return (
-      <button onClick={this.props.onClick} className="btn issue__close" type="button">
-        {this.props.children}
-      </button>
-    )
-  }
+ButtonHandle.propTypes = {
+  onClick: React.PropTypes.func.isRequired,
+  children: React.PropTypes.string.isRequired,
 }
 
 export default ButtonHandle;
