@@ -39,7 +39,10 @@ const getHandlerIndex = (request, response) => {
 }
 
 const postHandler = (request, response) => {
-    formBody(request, {}, send = ((err, body) => response.end(`My name is ${body.firstName} ${body.lastName}`)))
+    console.log(request.url)
+    if(request.url === 'sendName') {
+        formBody(request, {}, send = ((err, body) => response.end(`My name is ${body.firstName} ${body.lastName}`)))
+    }
 }
 
 const getHandler = (request, response) => {
