@@ -1,0 +1,53 @@
+:root {
+  --frontSize600: 2vw;
+  --frontSize900: 1.2vw;
+}
+
+
+.input{
+   display: flex;
+   flex-flow: row,nowrap;
+   justify-content: space-around; 
+}
+.input__name{
+    position: relative;
+    height: 2vw;
+    width: 30vw;
+    font-size: 3vw;   
+}
+.input__email{
+    height: 2vw;
+    width: 30vw;
+    font-size: 3vw;
+}
+.input__message{
+    height: 20vw;
+    max-height: 25vw;
+    width: 68.5vw;
+    max-width: 70vw;
+    font-size: 3vw;
+    padding: 1vw;
+}
+
+@media (min-width:600px) and (max-width:899px) {
+    .input__message{
+        font-size: var(--frontSize600);
+    }
+    .input__email{
+        font-size: var(--frontSize600);
+    }
+    .input__name{
+        font-size: var(--frontSize600);
+    }
+}
+@media(min-width:900px){
+    .input__message{
+        font-size: var(--frontSize900);
+    }
+    .input__email{
+        font-size: var(--frontSize900);
+    }
+    .input__name{
+        font-size: var(--frontSize900);
+    }
+}

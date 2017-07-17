@@ -1,0 +1,37 @@
+
+:root {
+  --colorWhite: #EEE;
+}
+
+.content{
+        font-weight: normal;
+        font-size: 6vw;
+        font-family: 'Dosis', sans-serif;
+}
+@media (min-width: 480px) and (max-width: 759px){
+    .content{
+        font-size: 3vw;
+    }
+}
+@media (min-width: 760px) and (max-width: 959px){
+    .content{
+        font-size: 2vw;
+    }
+}
+@media(min-width:960px){
+    .content{
+        font-size: 1.5vw;
+     }
+}
+.content--white{
+    color: var(--colorWhite);
+}
+.content--person-name{
+    position: relative;
+    right: 0.5vw;
+    top: 0.5vw; 
+    color: var(--colorWhite);
+    opacity: 0.60;
+    float: right;
+    font-size: 2vw;
+}
