@@ -1,0 +1,43 @@
+.centre-block {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	min-height: 100vh;
+
+	&__title {
+		display: block;
+		width: 50%;
+		font-size: 4rem;
+		color: white;
+		margin-bottom: 40px;
+	}
+
+	&__subtitle {
+		width: 35%;
+		font-size: 2rem;
+		color: #DBE2DD;
+		margin-bottom: 40px;
+	}
+
+	&__button {
+		width: 15%;
+		max-width: 200px;
+		min-width: 100px;
+		padding: 20px 20px;
+
+		border-radius: 5px;
+		background-color: #5BAC83;
+		font-size: 1.2rem;
+		color: #D6D8D7;
+		border: none;
+
+		&:hover {
+			background-color: #3E7358;
+			color: white;
+			box-shadow: 1px 1px 10px 2px #888888;
+
+		}
+	}
+}
