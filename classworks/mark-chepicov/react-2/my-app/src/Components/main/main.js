@@ -17,31 +17,64 @@ class Main extends PureComponent {
     text: '',
   };
 
-  closeIssue = (id) => () => {
-    const array = this.state.issues.map((item) => item.id === id ? {...item, state:'closed'} : item);
-    this.setState({issues: array});
-  }
-
-  openIssue = (id) => () => {
-    const array = this.state.issues.map((item) => item.id === id ? {...item, state:'open'} : item);
-    this.setState({issues: array});
-  }
-
   openState = (status) => () => {
     status !== this.state.tab ? this.setState({tab : status}) : true;
   }
 
+  closeIssue = (id) => () => {
+    const issue = this.state.issues.find((item) => item.id === id);
+    const number = issue.number;
+    fetch(
+      `https://api.github.com/repos/chepicov/react/issues/${number}?access_token=9294d42dc8c23075967707aa366e867931fcb2d6`, 
+      {
+        body: JSON.stringify({
+          state: 'closed'
+        }),
+        method: 'PATCH'
+      }
+    )
+    .then(response => response.json())
+    .then(data => {
+      const array = this.state.issues.map((item) => item.id === id ? {...item, state:'closed'} : item);
+      return this.setState({issues:array})
+    });
+  }
+
+  openIssue = (id) => () => {
+    const issue = this.state.issues.find((item) => item.id === id);
+    const number = issue.number;
+    fetch(
+      `https://api.github.com/repos/chepicov/react/issues/${number}?access_token=9294d42dc8c23075967707aa366e867931fcb2d6`, 
+      {
+        body: JSON.stringify({
+          state: 'open'
+        }),
+        method: 'PATCH'
+      }
+    )
+    .then(response => response.json())
+    .then(data => {
+      const array = this.state.issues.map((item) => item.id === id ? {...item, state:'open'} : item);
+      return this.setState({issues:array})
+    });
+  }
+
   newIssue = () => () => {
-    const d = new Date();
-    let newItem = {
-      id: `${d.getTime()}`, 
-      title:'Lorem ipsum', 
-      state: 'open', 
-      body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
-    };
-    let array =[...this.state.issues, newItem];
-    this.setState({
-      issues : array
+    fetch(
+      'https://api.github.com/repos/chepicov/react/issues?state=all;access_token=9294d42dc8c23075967707aa366e867931fcb2d6', 
+      {
+        body: JSON.stringify({ 
+          title: 'Lorem ipsum', 
+          body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.", 
+          state: 'open'
+        }),
+        method: 'POST'
+      }
+    )
+    .then(response => response.json())
+    .then(data => {
+      data = {...data, id: `${data.id}`};
+      return this.setState({issues:[...this.state.issues, data]})
     });
   }
 
@@ -50,7 +83,7 @@ class Main extends PureComponent {
   }
 
   componentDidMount(){
-    fetch('https://api.github.com/repos/chepicov/react/issues?access_token=9294d42dc8c23075967707aa366e867931fcb2d6')
+    fetch('https://api.github.com/repos/chepicov/react/issues?state=all;access_token=9294d42dc8c23075967707aa366e867931fcb2d6')
     .then(response => response.json())
     .then(data => {
       data = data.map(item => {return {...item, id: `${item.id}`}});
@@ -60,7 +93,6 @@ class Main extends PureComponent {
 
   render() {
     const newIssues = this.state.issues.filter((item) => item.title.indexOf(this.state.text) !== -1);
-    console.log(this.props.location);
     return (
       <main className="content">
         <div className="pagehead">
