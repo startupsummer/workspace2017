@@ -1,0 +1,248 @@
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T08:37:31.774Z"}
+{"anything":"request: /info","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T08:37:35.460Z"}
+{"anything":"require page: /info","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T08:37:35.460Z"}
+{"anything":"require page: /info","level":"info","message":"getHandlerInfo","timestamp":"2017-07-17T08:37:35.460Z"}
+{"anything":"request: /","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T08:37:37.741Z"}
+{"anything":"require page: /","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T08:37:37.741Z"}
+{"anything":"require page: /","level":"info","message":"getHandlerHome","timestamp":"2017-07-17T08:37:37.741Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T08:42:56.333Z"}
+{"anything":"request: /","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T08:42:58.017Z"}
+{"anything":"require page: /","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T08:42:58.017Z"}
+{"anything":"require page: /","level":"info","message":"getHandlerHome","timestamp":"2017-07-17T08:42:58.018Z"}
+{"anything":"request: /gvfsdf","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T08:42:59.793Z"}
+{"anything":"require page: /gvfsdf","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T08:42:59.793Z"}
+{"anything":"require page: /gvfsdf","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T08:42:59.793Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:00:30.800Z"}
+{"anything":"request: /","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:00:34.323Z"}
+{"anything":"require page: /","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:00:34.323Z"}
+{"anything":"require page: /","level":"info","message":"getHandlerHome","timestamp":"2017-07-17T09:00:34.323Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:00:42.074Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:00:42.074Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandlerInfo","timestamp":"2017-07-17T09:00:42.076Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:06:22.934Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:06:29.816Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:07:28.062Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:07:31.109Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:07:53.513Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:07:58.369Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:07:58.369Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:08:01.516Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:08:16.953Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:08:50.085Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:08:51.312Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:08:51.312Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:09:03.109Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:09:04.106Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:09:04.107Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:09:19.109Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:09:20.345Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:09:20.345Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:09:49.086Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:09:49.897Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:09:49.897Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:10:58.511Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:11:01.361Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:11:01.362Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:11:06.103Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:12:57.375Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:13:03.349Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:14:19.941Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:14:23.528Z"}
+{"anything":"request: /","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:14:28.986Z"}
+{"anything":"require page: /","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:14:28.986Z"}
+{"anything":"require page: /","level":"info","message":"getHandlerHome","timestamp":"2017-07-17T09:14:28.986Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:14:36.374Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:14:36.374Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:14:40.102Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:19:11.360Z"}
+{"anything":"request: /","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:19:14.675Z"}
+{"anything":"require page: /","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:19:14.676Z"}
+{"anything":"require page: /","level":"info","message":"getHandlerHome","timestamp":"2017-07-17T09:19:14.676Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:19:19.190Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:19:19.190Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:19:21.769Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:20:08.232Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:20:13.940Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:20:13.940Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:20:16.195Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:21:22.489Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:21:27.283Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:21:27.283Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:21:30.514Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:21:46.970Z"}
+{"anything":"require page: /sendName","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:21:46.970Z"}
+{"anything":"require page: /sendName","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T09:21:46.971Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:21:52.569Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:21:52.570Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:22:03.661Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:22:37.201Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:22:48.819Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:22:48.820Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:22:51.687Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:28:52.002Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:28:57.803Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:28:57.803Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:29:00.125Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:29:11.918Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:29:16.279Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:29:16.279Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:29:18.989Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:30:34.982Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:30:43.424Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:30:43.425Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:30:46.004Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:32:46.012Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:32:59.189Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:33:05.338Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:33:05.338Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:33:07.933Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:33:42.421Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:33:47.240Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:33:55.648Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:42:17.948Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:49:34.056Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:49:48.204Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:49:48.204Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:50:00.151Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:50:02.109Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:51:13.703Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:51:17.272Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:51:37.630Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:51:45.104Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:51:45.104Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:52:24.713Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:52:38.510Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:52:38.510Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:52:41.851Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:52:55.477Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:53:11.768Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:53:14.040Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:53:14.040Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:55:08.188Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:55:11.903Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:55:11.903Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:57:11.979Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:57:11.979Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:57:28.534Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:57:30.183Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:57:30.183Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:57:48.609Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:57:48.609Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:57:59.858Z"}
+{"anything":"require page: /sendName","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:57:59.858Z"}
+{"anything":"require page: /sendName","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T09:57:59.858Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:58:08.507Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:58:08.507Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:58:51.413Z"}
+{"anything":"require page: /sendName","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:58:51.413Z"}
+{"anything":"require page: /sendName","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T09:58:51.414Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:59:10.617Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:59:10.617Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:59:35.171Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:59:39.532Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:59:39.532Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:59:40.767Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:59:40.767Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T09:59:58.267Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T09:59:59.685Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T09:59:59.685Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:00:10.630Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:00:12.334Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:00:12.335Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:02:26.973Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:02:26.973Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:03:13.000Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:03:19.503Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:03:19.503Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:04:03.200Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:04:06.652Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:05:03.199Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:05:12.409Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:05:50.888Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:05:53.132Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:05:53.132Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:09:18.343Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:09:20.410Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:09:20.411Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:09:20.543Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:09:20.543Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:09:20.543Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:09:24.118Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:09:24.118Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:09:24.217Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:09:24.217Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:09:24.218Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:09:43.863Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:09:49.031Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:09:49.032Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:09:49.044Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:09:49.044Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:09:49.044Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:10:06.014Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:10:08.594Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:10:08.594Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:10:08.622Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:10:08.622Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:10:08.622Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:10:08.971Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:10:08.971Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:10:08.977Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:10:08.977Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:10:08.977Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:10:10.860Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:10:10.890Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:10:10.890Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:10:10.890Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:10:42.487Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:10:47.495Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:10:47.495Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:10:47.508Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:10:47.508Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:10:47.508Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:12:31.540Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:12:34.499Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:12:34.500Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:12:34.509Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:12:34.509Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:12:34.509Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:13:09.482Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:13:12.215Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:13:12.216Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:13:12.238Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:13:12.238Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:13:12.238Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:13:22.310Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:13:22.341Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:13:22.341Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:13:22.341Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:14:01.990Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:14:09.731Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:14:09.731Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:14:09.732Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:14:09.741Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:14:09.741Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandlerPageNotExist","timestamp":"2017-07-17T10:14:09.741Z"}
+{"anything":"Server listening at port: 3000","level":"info","message":"Listen server is ok","timestamp":"2017-07-17T10:14:27.518Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:14:29.606Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:14:29.607Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:14:29.615Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:14:29.615Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:14:30.979Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:14:30.979Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:14:30.992Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:14:30.992Z"}
+{"anything":"request: /sendName","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:14:33.369Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:14:33.376Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:14:33.376Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:14:34.845Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:14:34.846Z"}
+{"anything":"request: /index.html","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:15:42.202Z"}
+{"anything":"require page: /index.html","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:15:42.202Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:15:42.209Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:15:42.209Z"}
+{"anything":"request: /internet-file","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:15:51.091Z"}
+{"anything":"require page: /internet-file","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:15:51.091Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:15:51.207Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:15:51.207Z"}
+{"anything":"request: /favicon.ico","level":"info","message":"requestHandler is ok","timestamp":"2017-07-17T10:15:53.410Z"}
+{"anything":"require page: /favicon.ico","level":"info","message":"getHandler is ok","timestamp":"2017-07-17T10:15:53.411Z"}
