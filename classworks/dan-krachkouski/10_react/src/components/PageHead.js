@@ -1,6 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+
+import * as select from '../resources/selectors';
+
 
 const repoSvg = (
 <svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 12 16" width="12">
@@ -12,32 +17,41 @@ const issueSvg = (
   <path fillRule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
 </svg>);
 
-const PageHead = ({ count, repo, user }) => (
-  <div className="pagehead">
-    <div className="container repohead-container">
-      <h1 className="pagehead-title">
-        { repoSvg }
-        <a href="#">{ user }</a>
-        <span>/</span>
-        <b><a href="#">{ repo }</a></b>
-      </h1>
-    </div>
-    <div className="container">
-      <nav className="reponav">
-        <Link to="/" className="reponav-item selected">
-          { issueSvg }
-          <span>Issues</span>
-          <span className="counter">{ count }</span>
-        </Link>
-      </nav>
-    </div>
-  </div>
-);
 
-PageHead.propTypes = {
-  count: PropTypes.number,
-  repo: PropTypes.string,
-  user: PropTypes.string
+class PageHead extends PureComponent {
+  render() {
+    const { count, repo, user } = this.props;
+    return (
+      <div className="pagehead">
+        <div className="container repohead-container">
+          <h1 className="pagehead-title">
+            { repoSvg }
+            <a href="#">{ user }</a>
+            <span>/</span>
+            <b><a href="#">{ repo }</a></b>
+          </h1>
+        </div>
+        <div className="container">
+          <nav className="reponav">
+            <Link to="/" className="reponav-item selected">
+              { issueSvg }
+              <span>Issues</span>
+              <span className="counter">{ count }</span>
+            </Link>
+          </nav>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default PageHead;
+PageHead.propTypes = {
+  count: PropTypes.number.isRequired,
+  repo: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+};
+
+export default connect((store, props) => ({
+  count: select.getIssuesCount(store),
+  ...props,
+}))(PageHead);

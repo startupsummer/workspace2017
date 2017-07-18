@@ -1,8 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+import * as select from '../../../resources/selectors';
+
 import Button from '../../../components/Button';
+
 
 const svgOpen = (
 <svg aria-hidden="true" className="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14">
@@ -14,27 +18,51 @@ const svgClosed = (
   <path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path>
 </svg>);
 
-const IssuesHeader = ({ tab, wraps, count }) => (
-  <div className="issues-listing__header">
-    <div className="issues-listing__states">
-      <Button
-        type={ classNames('btn-link', { 'btn-link--selected': tab === 'open' }) }
-        click={ wraps.openTab('open') }>
-          { svgOpen } { count.open } Open
-      </Button>
-      <Button
-        type={ classNames('btn-link', { 'btn-link--selected': tab === 'closed' }) }
-        click={ wraps.openTab('closed') }>
-          { svgClosed } { count.closed } Closed
-      </Button>
-    </div>
-  </div>
-);
 
-IssuesHeader.propTypes = {
-  tab: PropTypes.string.isRequired,
-  wraps: PropTypes.object.isRequired,
-  count: PropTypes.object.isRequired,
+class IssuesHeader extends Component {
+  shouldComponentUpdate(nextProps) {
+    return !(nextProps.countOpen === this.props.countOpen &&
+      nextProps.countClosed === this.props.countClosed);
+  }
+
+  classType = (tab, expected) =>
+    classNames('btn-link', { 'btn-link--selected': tab === expected });
+
+  onSetTab = (tab) => () => this.props.setTab(tab);
+
+  render() {
+    const { tab, countOpen, countClosed } = this.props;
+    return(
+      <div className="issues-listing__header">
+        <div className="issues-listing__states">
+
+          <Button
+            type={this.classType(tab, 'open')}
+            click={this.onSetTab('open')} >
+            {svgOpen} {countOpen} Open
+          </Button>
+
+          <Button
+            type={this.classType(tab, 'closed')}
+            click={this.onSetTab('closed')} >
+            {svgClosed} {countClosed} Closed
+          </Button>
+
+        </div>
+      </div>
+    );
+  }
 }
 
-export default IssuesHeader;
+IssuesHeader.propTypes = {
+  tab: PropTypes.oneOf(['open', 'closed']).isRequired,
+  setTab: PropTypes.func.isRequired,
+  countOpen: PropTypes.number.isRequired,
+  countClosed: PropTypes.number.isRequired,
+};
+
+export default connect((store, props) => ({
+  countOpen: select.getIssuesCount(store, 'open'),
+  countClosed: select.getIssuesCount(store, 'closed'),
+  ...props,
+}))(IssuesHeader);

@@ -17,6 +17,8 @@ const Issue = ({ data, action }) => {
       'issues__status--closed': data.state === 'closed',
     });
 
+  const onAction = action(data.number, data.state);
+
   return (
     <li key={ data.id } className="issues__item">
       <div className={ svgClass }>
@@ -26,7 +28,7 @@ const Issue = ({ data, action }) => {
         <Link to={ `/${data.id}` } className="issues__link">{ data.title }</Link>
       </div>
       <Button
-        type="btn issue__close" click={ action(data.number, data.state === 'open' ? 'closed' : 'open') }>
+        type="btn issue__close" click={ onAction }>
           { data.state === 'open' ? 'Close issue' : 'Reopen' }
       </Button>
     </li>
@@ -34,8 +36,8 @@ const Issue = ({ data, action }) => {
 }
 
 Issue.propTypes = {
-  data: PropTypes.object,
-  action: PropTypes.func
+  data: PropTypes.object.isRequired,
+  action: PropTypes.func.isRequired
 };
 
 export default Issue;
