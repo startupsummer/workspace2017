@@ -1,0 +1,40 @@
+.issues__item {
+  display: flex;
+  align-items: center;
+  min-height: 55px;
+  padding: 8px 16px;
+  margin-top: -1px;
+  border-top: 1px solid rgb(225, 228, 232);
+}
+
+.issues__item:first-of-type {
+  border-top-color: transparent;
+}
+
+.issues__status {
+  margin-right: 8px;
+}
+
+.issues__status--open {
+  color: rgb(40, 167, 69);
+}
+
+.issues__icon {
+  fill: currentColor;
+  vertical-align: text-top;
+}
+
+.issues__title {
+  line-height: 1.25;
+  flex-grow: 1;
+}
+
+.issues__link {
+  color: rgb(36, 41, 46);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.issues__link:hover, .issues__link:focus {
+  color: rgb(3, 102, 214);
+}
