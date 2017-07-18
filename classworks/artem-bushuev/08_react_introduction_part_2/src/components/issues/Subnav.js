@@ -1,37 +1,26 @@
 import React from 'react';
 
-const Subnav = ({data,state,updatePage})=> {
-  let search =  (e) => {
-                  updatePage(
-                      {
-                        data,
-                        state,
-                        search: e.target.value,
-                      }
-                    );
+const Subnav = (dataFromState,updatePageSearch,updatePageData,state)=> {
+  let search = (e) => {
+                   updatePageSearch(e.target.value);
+                      
                   }
-  let addIssue =   () => {
+  let addIssue = () => {
                 let title = prompt("enter issue");
+                let data = [ ...dataFromState];
                   if(title){
-                    let context = prompt("enter context");
+                    let context = prompt("enter issue");
                     if(context){
-
-                      data.records.push(
+                      data.push(
                       {
                         "id": Math.floor((Math.random()+1)*100000000),
                         "title": title,
                         "state": "open",
                         "context": context,
-                      });
-                     updatePage(
-                        {
-                          data,
-                          state,
-                        }
-                      );
-                    console.log(title);
-                  }
-                }
+                    });
+                      updatePageData(data);
+                    }
+              }
               }
     return (
       <div className="issues-listing__subnav">
@@ -48,6 +37,7 @@ const Subnav = ({data,state,updatePage})=> {
           </button>
         </div>
       </div>
-    );}
+    );
+  }
 
 export default Subnav;

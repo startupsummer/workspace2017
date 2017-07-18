@@ -4,6 +4,8 @@ import RepoheadContainer from './pagehead/RepoheadContainer.js';
 import ListingStates from './issues/ListingStates.js'
 import ListingBody from './issues/ListingBody.js'
 import Subnav from './issues/Subnav.js'
+import data from '../data.js'
+
 import { Route } from 'react-router-dom';
 import Element from './Element.js'
 
@@ -12,63 +14,103 @@ class Content extends Component {
     super(props);
     this.state = {
       state: "open",
-      data: this.props.data  
+      data,  
     };
 
   }
+  getCountClose = () => {
+    return this.state.data.length - this.getCountOpen();
+  }
+  getCountOpen = () => {
+    let count = 0;
+    for(let i of this.state.data){
+      if(i.state === "open"){
+        count++;
+      }
+    }
+    return count;
+  }
+  findById(data,id){ 
+    for(let i = 0 ; i < data.length ; ++i){
+      if(data[i].id === Number(id)){
+        return data[i];
+      }
+    }
+  }
+
+  updatePageSearch = (search)  => {
+    this.setState({
+      data: this.state.data,
+      state: this.state.state,
+      search,
+    });
+  }
+  updatePageState = (state) => {
+    this.setState({
+      data: this.state.data,
+      state,
+      search: this.state.search,
+    });
+  }
+  updatePageData = (data) => {
+    this.setState({
+      data,
+      state: this.state.state,
+      search: this.state.search,
+    });
+  }
   
   render() {
-    let data = this.props.data;
+
     return (
      <div className = "content">
         <div className = "pagehead">
+            { RepoheadContainer() }
+            
+            {Container(this.getCountOpen())}           
+        </div >
 
-            {RepoheadContainer()}
+        < div className = "container">
+                        
+            <Route exact path='/' render={
+              ()=>{
+                return Subnav(this.state.data,
+                this.updatePageSearch,
+                this.updatePageData,
+                this.state.state,
+            )}
+            }
+            /> 
 
-            {Container(data.getCountOpen())}
-
-        </div>
-        <div className = "container">
-    
-           {Subnav({
-              data: this.state.data,
-              updatePage: this.setState.bind(this),
-              state: this.state.state,
-              
-           })}            
+            < Route exact path='/' component={
+              ()=>{
+                return ListingStates(this.state.data,
+                  this.updatePageState,
+                  this.getCountOpen(),
+                  this.getCountClose(),
+            )}
+            }
+            /> 
 
             <Route exact path='/' component={
               ()=>{
-                return ListingStates({
-                    data: this.props.data,
-                    updatePage: this.setState.bind(this),
-                    CountOpen: this.state.data.getCountOpen(),
-                    CountClose: this.state.data.getCountClose(),    
-                }) 
-              }
+               return ListingBody(this.state.data,
+                this.state.search,
+                this.state.state,
+                this.updatePageData,
+            )}
             }
-            /> 
-            
-            <Route exact path='/' component={
-              () => {
-                return ListingBody({
-                  data: this.state.data,
-                  search: this.state.search,
-                  updatePage: this.setState.bind(this),
-                  currentState: this.state.state,
-                  }); 
-              }
-            }/>
-            <Route path={`/:id`} component={
+            />
+              <Route path={`/:id`} component={
            
                 (props) => {
-                    return Element({
-                      data: this.props.data,
-                      id: props.match.params.id,
-                    });
+                    return Element(this.state.data,
+                      props.match.params.id,
+                      this.findById,
+                    );
                 }   
             } />
-
+            
         </div>
      </div>
     );

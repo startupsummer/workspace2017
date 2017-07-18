@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Container = (countOpen)=> {
-    return (
+const Container = (countOpen) => {
+  return (
      <div className="container">
         <nav className="reponav">
           <a href="/" className="reponav-item selected">
@@ -13,6 +13,7 @@ const Container = (countOpen)=> {
           </a>
         </nav>
       </div>
-    );}
+    );
+  }
 
 export default Container;

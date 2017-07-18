@@ -12,6 +12,7 @@ const RepoheadContainer = ()=> {
           <b><a href="">react-task-1</a></b>
         </h1>
       </div>
-    );}
+    );
+  }
 
 export default RepoheadContainer;

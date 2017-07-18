@@ -1,8 +1,8 @@
 import React from 'react';
 import ElementDescription from './element/ElementDescription.js';
  
- const Element = ({data,id})=> {
-     var item = data.findById(id);
+ const Element = (data,id,findById)=> {
+     var item = findById(data,id);
      return (
       <div>
         { 

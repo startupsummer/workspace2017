@@ -1,24 +1,14 @@
 import React from 'react';
 
-const ListingStates = ({data,updatePage,countOpen,countClose})=>  {
- let clickOpen = () => {
-                updatePage(
-                  {
-                    data,
-                    state: "open",
-                  }
-                )
-                
+const ListingStates = (data,updatePageState,countOpen,countClose)=> {
+  let clickOpen = () => {
+                updatePageState('open');              
               }
   let clickClose =  () => {
-              updatePage(
-                {
-                  data,
-                  state: "closed",
+              updatePageState('closed');
                 }
-              )
-            }
-    return (
+
+     return (
      <div className="issues-listing__states">
         <button className="btn-link btn-link--selected" type="button" 
           onClick={clickOpen}
@@ -36,6 +26,7 @@ const ListingStates = ({data,updatePage,countOpen,countClose})=>  {
           {countClose} Closed
         </button>
     </div>
-    );}
+    );
+  }
 
 export default ListingStates;
