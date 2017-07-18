@@ -5,15 +5,13 @@ const logger = require('logger').createLogger('./fileForLog.log');
 let formBody = require('body/form');
 
 const postHandler = (request, response) => {
-  let body = '';
-
-  request.on('data', data => {
-    body += data;
-  });
-
-  request.on('end', () => {
-    console.log(body);
-  });
+  formBody(request, response, function (err, body) {
+    if (err) {
+      response.statusCode = 500;
+      return response.end("NO U");
+    }
+    response.end(`My name is ${body.firstName} ${body.lastName}!`);
+  })
 };
 
 const getHandler = (require, response) => {
@@ -37,10 +35,6 @@ const getHandlerFile = (require, response) => {
   });
 };
 
-let getHandlerForm = (require, response) => {
-  response.end(`My name is ${require.param('firstname')} ${require.param('lastName')}`);
-};
-
 const requestHandler = (request, response) => {
   console.log(request.url);
 
@@ -57,14 +51,14 @@ const requestHandler = (request, response) => {
         http.get('http://www.google.by/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png', (getResponse) => {
           getResponse.pipe(response);
         })
-      } else {
-        getHandlerForm(request, response);
       }
 
       break;
 
     case 'POST':
-      postHandler(request, response);
+      if (request.url === '/submit-form') {
+        postHandler(request, response);
+      }
       break;
   }
 };
