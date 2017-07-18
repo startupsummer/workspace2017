@@ -1,0 +1,16 @@
+{
+  "name": "09_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node_server.js",
+  "dependencies": {
+    "body": "^5.1.0",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
