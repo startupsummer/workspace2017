@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 class IssuesHeader extends Component{
 
   count = (issues,str) => {
-    console.log(issues);
     let count = 0;
-        for(let item of issues){
-            if(item.state == str){
-                count++;
-            }
+    
+        for(const item of issues){
+          console.log(item.state);
+          if(item.state == str){
+              count++;
+          }
         }
-        return count;
+    return count;
   }
 
   handleClick = (str) => () => {

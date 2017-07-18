@@ -19,9 +19,10 @@ class Issues extends Component{
   }
 
   componentDidMount(){
-    fetch('https://api.github.com/repos/i-kohan/lecture1/issues?access_token=2ba5b37a5778956ae94876fe027bb5257daade6e&state=all')
+    fetch('https://api.github.com/repos/i-kohan/test/issues?access_token=2ba5b37a5778956ae94876fe027bb5257daade6e&state=all')
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         this.setState({issues:data,someIssues:data});
       });
   }
@@ -30,12 +31,22 @@ class Issues extends Component{
     this.setState({issues:array,someIssues:array})
   }
 
-  changeArray= ()=>{
-    fetch('https://api.github.com/repos/i-kohan/lecture1/issues?access_token=2ba5b37a5778956ae94876fe027bb5257daade6e&state=all')
-    .then(response => response.json())
-    .then(data => {
-        this.setState({issues:data,someIssues:data});
+  changeArray= (data) => {
+    const newIssues = [...this.state.issues,data];
+    this.setState({issues:newIssues,someIssues:newIssues});
+  }
+
+  changeIssueInArray= (data) => {
+    let newIssues = [...this.state.issues];
+    newIssues.map(item => {
+      if(item.id !== data.id)
+        return true;
+      console.dir(item);
+      console.dir(data);
+      item.state = data.state;
     });
+    console.log(newIssues);
+    this.setState({issues:newIssues,someIssues:newIssues});
   }
 
   changeActiveButton = (str) => {
@@ -54,7 +65,7 @@ class Issues extends Component{
 
           <Route path="/:id" component={(props) => <Description  items={this.state.someIssues} {...props}/>}/>
           
-          <Route exact path="/" component={(props) => <IssuesList info={this.state.someIssues} button={this.state.activeButton} func={this.changeArray}/>}/>
+          <Route exact path="/" component={(props) => <IssuesList info={this.state.someIssues} button={this.state.activeButton} func={this.changeIssueInArray}/>}/>
         </div>
       </div>
     )

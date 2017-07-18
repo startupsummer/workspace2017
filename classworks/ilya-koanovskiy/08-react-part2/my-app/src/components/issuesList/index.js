@@ -13,15 +13,14 @@ class IssuesList extends Component{
 
   handleClick = (number) => () => {
 
-    fetch(`https://api.github.com/repos/i-kohan/lecture1/issues/${number}?access_token=2ba5b37a5778956ae94876fe027bb5257daade6e`,{
+    fetch(`https://api.github.com/repos/i-kohan/test/issues/${number}?access_token=2ba5b37a5778956ae94876fe027bb5257daade6e`,{
       method:"PATCH",
       body:JSON.stringify({
         state:"close"
       })
     })
     .then(response => response.json())
-    .then(data => this.props.func())
-    this.props.func();
+    .then(data => this.props.func(data))
   }
 
 

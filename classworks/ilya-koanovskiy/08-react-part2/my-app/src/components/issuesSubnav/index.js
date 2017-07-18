@@ -17,7 +17,7 @@ class Subnav extends Component{
   }
 
   handleClick = () => {
-    fetch('https://api.github.com/repos/i-kohan/lecture1/issues?access_token=2ba5b37a5778956ae94876fe027bb5257daade6e',{
+    fetch('https://api.github.com/repos/i-kohan/test/issues?access_token=2ba5b37a5778956ae94876fe027bb5257daade6e',{
       method:"POST",
       body:JSON.stringify({
         title: this.makeStr(10),
@@ -26,7 +26,7 @@ class Subnav extends Component{
       })
     })
     .then(response => response.json())
-    .then(data => this.props.func())
+    .then(data => this.props.func(data))
   }
 
   changeHandle = (e) => {
