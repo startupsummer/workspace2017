@@ -5,7 +5,6 @@ import Pageheader from './components/Headers/Pageheader.js';
 import Navigation from './components/Navigation/Navigation.js';
 import Issues from './components/Issues/Issues.js';
 import Description from './components/Issues/Description.js';
-import data from './data.js';
 import './App.css';
 import './main.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -14,10 +13,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      issues: data,
+      issues: [],
       menuState : "open",
       searchText : ''
     };
+  }
+
+  componentDidMount() {
+    fetch('https://api.github.com/repos/arlovaalina/git-test/issues?access_token=a6720130830b1bd2e94b62a87f8ab4dd446d41f8&state=all')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          issues: data.map(item => ({
+            id: item.id,
+            title: item.title,
+            state: item.state,
+            description: item.description,
+          }))
+        });
+      });
   }
 
   handleSearch = (event) => {
