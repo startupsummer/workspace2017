@@ -32,8 +32,6 @@ class IssuesItem extends PureComponent {
           <Link to={`/discription/${id}`} className="issues__link">
             {this.props.itemData.title}
           </Link>
-
-
         </div>
 
         <ButtonHandle onClick={this.toogleHandler}>
