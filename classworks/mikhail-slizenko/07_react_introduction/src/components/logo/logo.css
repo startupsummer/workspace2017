@@ -1,0 +1,8 @@
+.logo__link {
+    display: block;
+    font-size: 0;
+}
+
+.logo__img {
+    fill: #ffffff;
+}

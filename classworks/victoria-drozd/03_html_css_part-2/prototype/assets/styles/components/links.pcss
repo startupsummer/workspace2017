@@ -1,0 +1,40 @@
+.links {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8em;
+  justify-content: space-around;
+  padding: 1.5em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__item {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.15;
+    height: 1.25em;
+    width: 1.25em;
+
+    &--twitter {
+      background-image: svg-load("twitter.svg");
+    }
+
+    &--facebook {
+      background-image: svg-load("facebook.svg");
+    }
+
+    &--github {
+      background-image: svg-load("github.svg");
+    }
+
+    &--dribbble {
+      background-image: svg-load("dribbble.svg");
+    }
+
+    &--email {
+      background-image: svg-load("contact.svg");
+    }
+  }
+}

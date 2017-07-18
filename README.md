@@ -31,9 +31,9 @@ If lecturer decline pull request, he will assign label `Work In Progress` and pr
 4. July 10th - Reading materials: [Webpack 3](./lectures/04_webpack/README.md). [Lecture video](https://vimeo.com/224923552/b9e5687914)
 5. July 11th - Reading materials: [Javascript](./lectures/05_javascript/README.md). [Javascript History video](https://vimeo.com/225099715/8b21a0f0fb). [Javascript Basics video](https://vimeo.com/225100066/2740dd970b). [Event Loop video](https://vimeo.com/225108523/8c6be42e53)
 6. July 12th - Reading materials: [ES6 Introduction](./lectures/06_es6/README.md). [Lecture video](https://vimeo.com/225251923/9196c3c65c)
-7. July 13th - Reading materials: [React.JS Introduction](./lectures/07_react_introduction/README.md)
-8. July 14th - Reading materials: [React.JS Advanced](./lectures/08_react_introduction_part_2/README.md)
-9. July 17th - React.JS with Redux
-10. July 18th - Introduction to Node.JS
-11. July 19th - Koa.JS 2 (async/await)
-12. July 20th - Node.JS API Server
+7. July 13th - Reading materials: [React.JS Introduction](./lectures/07_react_introduction/README.md). [Lecture video](https://vimeo.com/225751004/76650cadb5)
+8. July 14th - Reading materials: [React.JS Advanced](./lectures/08_react_introduction_part_2/README.md). [Lecture video](https://vimeo.com/225755932/04e0f495fe)
+9. July 17th - Reading materials: [Introduction to Node.JS](./lectures/09_node.js/README.md).
+10. July 18th - Reading materials: React.JS with Redux
+11. July 24th - Koa.JS 2 (async/await)
+12. July 25th - Node.JS API Server

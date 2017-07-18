@@ -2,11 +2,7 @@
 
 A deeper look into HTML and CSS.
 
-<<<<<<< HEAD
-[Lecture presentation](https://docs.google.com/a/paralect.com/presentation/d/1BcUZR2aBdb0NdDbDzRezOF3Gth4Xf0PhN71c4y7ZNJY/edit?usp=sharing)
-=======
 [Lecture presentation](https://docs.google.com/presentation/d/1BcUZR2aBdb0NdDbDzRezOF3Gth4Xf0PhN71c4y7ZNJY/edit?usp=sharing)
->>>>>>> aa55f202d9d9198fc14ea5160b5470b29b4fa1a4
 
 ### Learning objectives
 
@@ -31,8 +27,4 @@ A deeper look into HTML and CSS.
 7. Another good way to use SVG https://css-tricks.com/svg-symbol-good-choice-icons/#article-header-id-1
 8. Stylelint — как и зачем линтить CSS https://www.youtube.com/watch?v=geoy-41wRQw
 9. Responsive Web Design Fundamentals https://developers.google.com/web/fundamentals/design-and-ui/responsive/
-<<<<<<< HEAD
 10. Длинная телега про Бутстрап https://gist.github.com/iAdramelk/d328b73c72cab92ef95f
-=======
-10. Длинная телега про Бутстрап https://gist.github.com/iAdramelk/d328b73c72cab92ef95f
->>>>>>> aa55f202d9d9198fc14ea5160b5470b29b4fa1a4
