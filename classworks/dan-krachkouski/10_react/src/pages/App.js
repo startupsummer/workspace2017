@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 
 import lorem from 'lorem-ipsum';
 
-import PageHead from './PageHead';
-import Issues from './Issues';
-import DetailedIssue from './DetailedIssue';
+import PageHead from '../components/PageHead';
+import Issues from './Issues/Issues';
+import DetailedIssue from './DetailedIssue/DetailedIssue';
 
 const access_token = 'access_token=bfc4541d21741c3b3e3e20e9b407b4f84d1686fa';
 
@@ -72,14 +72,14 @@ class App extends Component {
             repo="dan's_react_task"
             count={ issues.length } />
 
-          <Route exact path="/" component={ () =>
+          <Route exact path="/" render={ () =>
             <Issues
               data={ issues }
               callbacks={{ openIssue: this.openIssue }}
               wraps={{ setIssueState: this.setIssueState }} />
           } />
 
-          <Route exact path="/:id" component={ ({ match }) =>
+          <Route exact path="/:id" render={ ({ match }) =>
             <DetailedIssue data={ issues.find(issue => issue.id === +match.params.id) }/>
           } />
 

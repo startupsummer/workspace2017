@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import Button from './Button';
+import Button from '../../../components/Button';
 
 const navSvg = (
   <svg className="subnav__search-icon" height="16" version="1.1" viewBox="0 0 16 16" width="16">

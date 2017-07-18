@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import IssuesNav from './IssuesNav';
-import IssuesHeader from './IssuesHeader';
-import IssuesList from './IssuesList';
+import IssuesNav from './components/IssuesNav';
+import IssuesHeader from './components/IssuesHeader';
+import IssuesList from './components/IssuesList';
 
 class Issues extends Component {
   constructor(props) {

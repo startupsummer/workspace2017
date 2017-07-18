@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import Button from './Button';
+import Button from '../../../components/Button';
 
 const issueSvg = (
   <svg className="issues__icon" height="16" version="1.1" viewBox="0 0 14 16" width="14">

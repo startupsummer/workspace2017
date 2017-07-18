@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import Button from './Button';
+import Button from '../../../components/Button';
 
 const svgOpen = (
 <svg aria-hidden="true" className="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14">
