@@ -2,35 +2,17 @@
 export function fetchIssues() {
   return fetch('https://api.github.com/repos/Ivanko5417/google/issues?access_token=c2bca6983f3a5881e7d364c6d300e659862617b2&state=all')
   .then((resp) => resp.json());
-
-  // .then(data=>{
-  // this.setState({issuesAll: data.map((item) => ({
-  //   id: item.id,
-  //   description: item.body,
-  //   title: item.title,
-  //   state: item.state,
-  //   number: item.number,
-  // }))});
-  // });
 }
-//newOnClick
-// export function newOnClick() {
-//   return fetch('https://api.github.com/repos/Ivanko5417/google/issues?access_token=c2bca6983f3a5881e7d364c6d300e659862617b2', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       title: 'My issue',
-//       body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-//     }),
-//   }).then((resp) => resp.json());
-//   // .then( item => this.setState({issuesAll:
-//   //   [...this.state.issuesAll, {
-//   //     id: item.id,
-//   //     description: item.body,
-//   //     title: item.title,
-//   //     state: item.state,
-//   //     number: item.number,
-//   //   }]}));
-// }
+
+export function newIssue() {
+  return fetch('https://api.github.com/repos/Ivanko5417/google/issues?access_token=c2bca6983f3a5881e7d364c6d300e659862617b2', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: 'My issue',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    }),
+  }).then((resp) => resp.json());
+}
 //
 export function switchState(item) {
   let stateItem = item.state;
@@ -43,15 +25,6 @@ export function switchState(item) {
       state: stateItem,
     }),
   }).then((resp) => resp.json());
-
-  // .then( item => this.setState({issuesAll:
-  //     issues.map((issue, index) => {
-  //     if(issue.id === item.id) {
-  //       issues[index].state = stateItem;
-  //       return issues[index];
-  //     }
-  //     return issue;
-  //   })}));
 }
 // count() {
 //   let close = 0, open = 0;
@@ -67,10 +40,10 @@ export function switchState(item) {
 //     close,
 //   }
 // }
-// inputChange = (event) => {
-//   const searchText = event.currentTarget.value.toLowerCase();
-//   this.setState({searchText});
-// }
+export function  setSearchRequest(event){
+  const searchText = event.currentTarget.value.toLowerCase();
+  return Promise.resolve(searchText);
+}
 //
 // showIssues = () => {
 //   let issues =  this.state.issuesAll.filter((item) => item.title.toLowerCase().indexOf(this.state.searchText) !== -1);

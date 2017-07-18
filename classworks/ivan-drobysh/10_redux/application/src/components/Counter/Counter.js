@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import selectors from '../../index.selectors.js'
 
 class Counter extends Component {
   render() {
@@ -16,4 +18,6 @@ class Counter extends Component {
   }
 }
 
-export default Counter;
+export default connect((state) => ({
+  count: selectors.getIssues(state).length,
+}))(Counter);

@@ -17,5 +17,5 @@ class ListBody extends Component {
 }
 
 export default connect((state) => ({
-  issues: selectors.getIssues(state)
+  issues: selectors.getIssuesByWord(state)
 }))(ListBody);

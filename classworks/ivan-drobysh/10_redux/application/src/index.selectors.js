@@ -2,8 +2,8 @@ import * as fromIssue from './resources/selectors';
 
 
 export default {
-  getIssueById: (state, listId) =>
-    fromIssue.getIssueById(state.cards, listId),
+  getIssuesByWord: (state) =>
+    fromIssue.getIssueByWord(state),
 
   getIssues: state => {
     return state.issues;

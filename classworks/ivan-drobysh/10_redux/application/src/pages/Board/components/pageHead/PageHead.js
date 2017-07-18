@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import Counter from './Counter';
+import React from 'react';
+import Counter from '../../../../components/Counter/Counter';
 
 function PageHead (props) {
     return (

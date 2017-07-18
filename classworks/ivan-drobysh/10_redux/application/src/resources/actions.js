@@ -8,3 +8,11 @@ export const fetchIssues = () => dispatch =>
 export const switchState = (item) => dispatch =>
   api.switchState(item)
     .then(data => dispatch({ type: 'switchState', data}));
+
+export const newIssue = () => dispatch =>
+  api.newIssue()
+    .then(data => dispatch({ type: 'newIssue', data }));
+
+export const setSearchRequest = (event) => dispatch =>
+  api.setSearchRequest(event)
+    .then(data => dispatch({ type: 'setSearchRequest', data }));
