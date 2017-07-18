@@ -9,20 +9,14 @@ class IssuesItem extends PureComponent {
     onIssueToogle: React.PropTypes.func.isRequired,
   }
 
-  constructor(props) {
-    super(props);
-    this.buttonLabel =
-    this.props.itemData.state === 'open'
-    ? 'Close'
-    : 'Open';
-  }
-
   toogleHandler = e => {
     this.props.onIssueToogle(this.props.itemData.id)
   };
 
   render() {
+    const buttonLabel = this.props.itemData.state === 'open' ? 'Close' : 'Open';
     const id = this.props.itemData.id;
+    
     return (
       <li className="issues__item" key={this.props.itemData.id}>
         <div className="issues__status issues__status--open">
@@ -35,7 +29,7 @@ class IssuesItem extends PureComponent {
         </div>
 
         <ButtonHandle onClick={this.toogleHandler}>
-          {this.buttonLabel}
+          {buttonLabel}
         </ButtonHandle>
       </li>
     )
