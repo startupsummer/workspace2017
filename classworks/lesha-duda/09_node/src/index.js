@@ -15,17 +15,14 @@ winston.configure({
 });
 
 const getHandlerPageNotExist = (request, response) => {
-    winston.log('info', 'getHandlerPageNotExist', { anything: `require page: ${request.url}`});
     response.end("Ooops, sorry this page isn't exist")
 }
 
 const getHandlerHome = (request, response) => {
-    winston.log('info', 'getHandlerHome', { anything: `require page: ${request.url}`});
     response.end(`Hello Startup Summer`)
 }
 
 const getHandlerInfo = (request, response) => {
-    winston.log('info', 'getHandlerInfo', { anything: `require page: ${request.url}`});
     response.end(`Hello. My name is ${username}`)
 }
 
