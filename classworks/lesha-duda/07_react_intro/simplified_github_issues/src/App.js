@@ -135,7 +135,18 @@ class App extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      this.setState({issues: data});
+
+      let length = this.state.issues.length
+
+      let tempData = [...this.state.issues]
+      for(let i = 0; i < length; i++) {
+        if(this.state.issues[i].id === data.id) {
+          tempData[i].state = `closed`;
+          break;
+        }
+      }
+
+      this.setState({issues: tempData})
     });
   }
 
@@ -152,7 +163,7 @@ class App extends Component {
     })
     .then((response) =>  response.json())
     .then((data) => {
-      this.setState({issues: data})
+      this.setState({issues: [...this.state.issues, data]})
     });
 
   }
