@@ -1,0 +1,44 @@
+.reponav {
+  display: block;
+  position: relative;
+  top: 1px;
+  margin-top: -5px;
+}
+
+.reponav-item svg {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+
+.reponav-item {
+  display: inline-block;
+  padding: 7px 15px 8px;
+  color: #586069;
+  white-space: nowrap;
+  border: solid transparent;
+  border-width: 3px 1px 1px;
+  border-radius: 3px 3px 0 0;
+}
+
+.reponav-item.selected {
+  color: #24292e;
+  background-color: #fff;
+  border-color: #e36209 #e1e4e8 transparent;
+}
+
+.reponav-item.selected svg {
+  margin-right: 5px;
+}
+
+.counter {
+  display: inline-block;
+  padding: 2px 5px;
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  color: #444d56;
+  background-color: rgba(27,31,35,0.08);
+  border-radius: 20px;
+}
