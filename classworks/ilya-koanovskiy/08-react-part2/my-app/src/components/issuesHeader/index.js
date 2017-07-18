@@ -3,10 +3,16 @@ import { Link } from 'react-router-dom';
 
 class IssuesHeader extends Component{
 
+  inputArr = (issues,value) => {
+    console.log(value);
+    const newArr = issues.filter((item)=> item.title.toLowerCase().indexOf(value.toLowerCase())>-1);
+    return newArr;
+  }
+
   count = (issues,str) => {
+    const newArr = this.inputArr(issues,this.props.input);
     let count = 0;
-    
-        for(const item of issues){
+        for(const item of newArr){
           console.log(item.state);
           if(item.state == str){
               count++;
@@ -25,7 +31,7 @@ class IssuesHeader extends Component{
         <div className="issues-listing__states">
           <Link to="/">
             <button className="btn-link btn-link--selected" type="button" onClick={this.handleClick("all")}>
-              {this.props.info.length} All
+              {this.inputArr(this.props.info,this.props.input).length} All
             </button>
           </Link>
           <Link to="/">

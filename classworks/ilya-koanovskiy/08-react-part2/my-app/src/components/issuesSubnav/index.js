@@ -31,11 +31,7 @@ class Subnav extends Component{
 
   changeHandle = (e) => {
     let value = e.target.value;
-    let newArr = this.props.info.filter((item)=> item.title.toLowerCase().indexOf(value.toLowerCase())>-1);
-
-    console.log(newArr);
-    this.props.func(newArr);
-
+    this.props.changeIssues(value);
   }
 
   render(){
