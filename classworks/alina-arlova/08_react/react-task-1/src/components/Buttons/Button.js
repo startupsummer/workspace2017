@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
 import '../../main.css';
 
-class Button extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <button
-        className={`btn ${this.props.className}`} type="button"
-        onClick={this.props.onClick}
-      >
-        {this.props.text}
-      </button>
-    )
-  }
+function Button(props) {
+  return (
+    <button
+      className={`btn ${props.className}`} type="button"
+      onClick={props.onClick}
+    >
+      {props.text}
+    </button>
+  )
 }
 
 export default Button;

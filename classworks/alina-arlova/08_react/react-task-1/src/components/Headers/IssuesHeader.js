@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ButtonLink from './Buttons/ButtonLink.js';
-import '../main.css';
+import ButtonLink from '../Buttons/ButtonLink.js';
+import '../../main.css';
 
 class IssuesHeader extends Component {
   constructor(props) {

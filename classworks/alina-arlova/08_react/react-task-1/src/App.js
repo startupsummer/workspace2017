@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './components/header.js';
-import IssuesHeader from './components/IssuesHeader.js';
-import Pageheader from './components/Pageheader.js';
+import Header from './components/Headers/header.js';
+import IssuesHeader from './components/Headers/IssuesHeader.js';
+import Pageheader from './components/Headers/Pageheader.js';
 import Navigation from './components/Navigation/Navigation.js';
 import Issues from './components/Issues/Issues.js';
 import Description from './components/Issues/Description.js';
@@ -44,6 +44,7 @@ class App extends Component {
       "id": this.state.issues[this.state.issues.length - 1].id + 1,
       "title": "New Issue",
       "state": "open",
+      "description": "Issue description",
     };
 
     let newIssues = [...this.state.issues, newIssue];
@@ -86,7 +87,7 @@ class App extends Component {
                 <Route path="/:id" component={(props) =>
                   <Description issues={this.state.issues} {...props} />}
                 />
-                <Route exact path="/" component={() => 
+                <Route exact path="/" component={() =>
                   <Issues issues={filteredIssues} menuState={this.state.menuState} onClick={this.closeIssue} /> }
                 />
               </div>
