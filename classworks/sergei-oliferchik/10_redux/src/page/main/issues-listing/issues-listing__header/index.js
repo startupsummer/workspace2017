@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 
-import ButtonLink from '../../../button-link';
+import ButtonLink from 'src/components/button-link';
 
 import './index.css';
 

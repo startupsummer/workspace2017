@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Search from './subnav__search';
-import Button from '../../../button';
+import Button from 'src/components/button';
 
 import './index.css';
 
