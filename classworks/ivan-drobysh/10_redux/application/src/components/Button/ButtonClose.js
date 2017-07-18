@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 function ButtonClose (props) {
   return (
-    <div className="issues-listing__subnav">
       <button onClick={props.onClick} className="btn issue__close" type="button">
         {
           props.state === 'open'
@@ -10,7 +9,6 @@ function ButtonClose (props) {
           : <span> Open issue </span>
         }
       </button>
-    </div>
   )
 }
 

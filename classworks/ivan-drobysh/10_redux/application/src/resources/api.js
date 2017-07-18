@@ -32,33 +32,27 @@ export function fetchIssues() {
 //   //   }]}));
 // }
 //
-// closeOnClick = (item) => () => {
-//   let stateItem = item.state;
-//   let issues = Object.assign([], this.state.issuesAll);
-//   issues.map((itemIssues)=> {
-//     if(itemIssues.id === item.id) {
-//       if(stateItem === 'open')
-//         stateItem = 'closed';
-//       else
-//         stateItem = 'open';
-//     }
-//   });
-//   fetch(`https://api.github.com/repos/Ivanko5417/google/issues/${item.number}?access_token=c2bca6983f3a5881e7d364c6d300e659862617b2`, {
-//     method: 'PATCH',
-//     body: JSON.stringify({
-//       state: stateItem,
-//     }),
-//   }).then((resp) => resp.json())
-//   .then( item => this.setState({issuesAll:
-//       issues.map((issue, index) => {
-//       if(issue.id === item.id) {
-//         issues[index].state = stateItem;
-//         return issues[index];
-//       }
-//       return issue;
-//     })}));
-//     console.log(this.state.issuesAll);
-// }
+export function switchState(item) {
+  let stateItem = item.state;
+    stateItem === 'open'
+    ? stateItem = 'closed'
+    : stateItem = 'open';
+  return fetch(`https://api.github.com/repos/Ivanko5417/google/issues/${item.number}?access_token=c2bca6983f3a5881e7d364c6d300e659862617b2`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      state: stateItem,
+    }),
+  }).then((resp) => resp.json());
+
+  // .then( item => this.setState({issuesAll:
+  //     issues.map((issue, index) => {
+  //     if(issue.id === item.id) {
+  //       issues[index].state = stateItem;
+  //       return issues[index];
+  //     }
+  //     return issue;
+  //   })}));
+}
 // count() {
 //   let close = 0, open = 0;
 //   open = this.state.issuesAll.reduce(
