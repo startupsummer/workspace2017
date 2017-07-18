@@ -1,6 +1,7 @@
 import data from '.././data';
 
 export default (state = [], action) => {
+  console.log('reducer');
   console.log(action.type);
   switch(action.type){
     case '@@redux/INIT':
@@ -15,6 +16,10 @@ export default (state = [], action) => {
         ...state,
         data: [...state.data, action.item],
       };
+    case 'searchIssue':
+      console.log('search');
+      return state;
+
     default:
       return state;
   }

@@ -17,7 +17,7 @@ class Content extends Component {
     this.state = {
       state: "open",
     };
-  
+    
   }
   
   

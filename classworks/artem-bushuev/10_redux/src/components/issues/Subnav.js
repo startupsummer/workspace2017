@@ -3,19 +3,21 @@ import React from 'react';
 import fromStore from '../../index.selectors';
 import { connect } from 'react-redux';
 
-import { addIssue } from '../../reduce/data.action';
+import { searchIssue, addIssue } from '../../reduce/data.action';
 
 
-const Subnav = ({data,updatePageSearch,addIssue})=> {
+const Subnav = ({data,updatePageSearch,addIssue,searchIssue})=> {
   
   let search = (e) => {
-                   updatePageSearch(e.target.value);
-                      
-                  }
+                   console.log('search');
+                   console.log(searchIssue);
+                   searchIssue(e.target.value);                     
+                }
  
   let add = () => {
                 console.log('add');
                 console.log(data);
+                console.log(addIssue);
                 let title = prompt("enter issue");
                   if(title){
                     let context = prompt("enter issue");
@@ -55,5 +57,6 @@ export default connect( (store) => ({
   data: fromStore.getData(store),
 
 }), {
-  addIssue
+     addIssue,
+     searchIssue,
 })(Subnav);
