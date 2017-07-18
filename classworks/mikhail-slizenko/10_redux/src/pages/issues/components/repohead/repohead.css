@@ -1,0 +1,26 @@
+.repohead {
+  margin-bottom: 20px;
+}
+
+.repohead__img {
+  fill: #959da5;
+  vertical-align: middle;
+}
+
+.repohead__title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  color: #586069;
+  font-weight: 400;
+}
+
+.repohead__username {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.repohead__reponame {
+  color: #0366d6;
+  text-decoration: none;
+}
