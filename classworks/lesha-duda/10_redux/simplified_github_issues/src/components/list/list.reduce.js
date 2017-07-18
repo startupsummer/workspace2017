@@ -1,7 +1,7 @@
 export default (state = [], action) => {
   switch(action.type) {
-    case 'actionName': 
-      return state;
+    case 'fetchList': 
+      return action.payload;
     default:
       return state;
   }

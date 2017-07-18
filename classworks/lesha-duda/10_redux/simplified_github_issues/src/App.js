@@ -197,4 +197,6 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  list
+)(App);
