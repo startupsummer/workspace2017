@@ -20,7 +20,7 @@ const Issues = ({
   )
 }
 Issues.propTypes = {
-  counter: React.PropTypes.number.isRequired,
+  issues: React.PropTypes.array.isRequired,
 };
 
 export default Issues;
