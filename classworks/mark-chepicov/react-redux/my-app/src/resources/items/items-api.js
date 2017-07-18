@@ -1,5 +1,5 @@
 export function fetchItems() {
-  return fetch('https://api.github.com/repos/chepicov/react/issues?state=all;access_token=9294d42dc8c23075967707aa366e867931fcb2d6')
+  return fetch('https://api.github.com/repos/chepicov/react/issues?state=all;access_token=9294d42dc8c23075967707aa366e867931fcb2d6&per_page=100')
     .then(response => response.json());
 }
 
