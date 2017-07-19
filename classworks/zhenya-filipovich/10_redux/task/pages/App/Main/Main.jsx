@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+// import { connect } from 'react-redux';
 import PageHead from './PageHead';
 import Container from './Container';
+// import store from './store';
 import './main.styles.css';
 
 class Main extends Component {
@@ -39,5 +41,12 @@ class Main extends Component {
     );
   }
 }
+
+// const mapStateToProps = (state) => ({
+//   issues: store.dispatch({ type:  })
+// })
+
+// export default connect()(Main);
+
 
 export default Main;

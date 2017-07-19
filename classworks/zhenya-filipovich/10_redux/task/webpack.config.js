@@ -24,9 +24,8 @@ module.exports = {
 
   devtool: 'source-map',
 
-  // use resolve to use syntax like "import 'something' from './index'"
   resolve: {
-    modules: ['', './', 'node_modules'],
+    modules: ['./', 'node_modules'],
     extensions: ['.js', '.jsx', '.css'],
   },
 };
