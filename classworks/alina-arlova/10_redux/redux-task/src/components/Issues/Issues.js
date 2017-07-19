@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import fromStore from '../../resources/issues.selector.js';
-import { fetchIssues } from '../../resources/issues.actions.js';
 import { closeIssue } from '../../resources/issues.actions.js';
 import OpenIssue from './OpenIssue.js'
 import ClosedIssue from './ClosedIssue.js'
@@ -11,15 +10,10 @@ import '../../main.css';
 
 class Issues extends React.Component {
   static propsTypes = {
-    fetchIssues: PropTypes.func.isRequired,
     closeIssue: PropTypes.func.isRequired,
     issues: PropTypes.array.isRequired,
     menuState: PropTypes.string.isRequired,
     searchText: PropTypes.string.isRequired,
-  }
-
-  componentDidMount = () => {
-    this.props.fetchIssues();
   }
 
   onCloseIssue = (issueId) => {
@@ -55,6 +49,5 @@ export default connect(state => ({
   menuState: fromStore.getMenuState(state),
   searchText: fromStore.getSearchText(state),
 }), {
-  fetchIssues,
   closeIssue,
 })(Issues);

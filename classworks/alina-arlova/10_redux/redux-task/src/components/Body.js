@@ -9,23 +9,41 @@ import Pageheader from './Headers/Pageheader.js';
 import Navigation from './Navigation/Navigation.js';
 import Issues from './Issues/Issues.js';
 import Description from './Issues/Description.js';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import '../main.css';
 
 class Body extends React.Component {
+  static propsTypes = {
+    fetchIssues: PropTypes.func.isRequired,
+    issues: PropTypes.array.isRequired,
+  }
+
+  componentDidMount = () => {
+    this.props.fetchIssues();
+  }
+
   render() {
+    const issues = this.props.issues;
     return (
-      <main className="content">
-        <Pageheader />
-        <div className="container">
-          <div className="issues-listing">
-            <Navigation />
-            <IssuesHeader />
-            <Issues />
+      <Router>
+        <main className="content">
+          <Pageheader />
+          <div className="container">
+            <div className="issues-listing">
+              <Navigation />
+              <IssuesHeader />
+              <Route exact path="/" render={ () =>  <Issues /> }/>
+              <Route path="/:id" render={ (props) =>  <Description issues = { issues } id = { props.match.params.id } /> }/>
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </Router>
     );
   }
 }
 
-export default Body;
+export default connect(state => ({
+    issues: fromStore.getIssues(state),
+}), {
+    fetchIssues,
+})(Body);

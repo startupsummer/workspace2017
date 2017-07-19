@@ -15,7 +15,7 @@ export default function reducer(state = { issues: [], menuState: 'open', searchT
         } );
         return { ...state, issues: newIssues }
       case 'searchIssue':
-        return { ...state, searchText: action.text }
+        return { ...state, searchText: action.text.toLowerCase() }
       default:
         return state;
     };

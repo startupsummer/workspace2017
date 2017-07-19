@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../../main.css';
 
 function ClosedIssue(props) {
@@ -16,7 +17,7 @@ function ClosedIssue(props) {
         </svg>
       </div>
       <div className="issues__title">
-        <a className="issues__link"> {props.issue.title} </a>
+        <Link className="issues__link" to={`/${props.issue.id}`} >{props.issue.title}</Link>
       </div>
     </li>
   )
