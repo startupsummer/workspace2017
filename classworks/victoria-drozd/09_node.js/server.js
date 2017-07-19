@@ -1,8 +1,15 @@
 const http = require('http');
 const port = 3000;
 const fs = require('fs');
-const logger = require('logger').createLogger('./fileForLog.log');
+/*const logger = require('logger').createLogger('./fileForLog.log');*/
+let winston = require('winston');
 let formBody = require('body/form');
+
+winston.configure({
+  transports: [
+    new (winston.transports.File)({ filename: './fileForLog.log' })
+  ]
+});
 
 const postHandler = (request, response) => {
   formBody(request, response, function (err, body) {
@@ -15,12 +22,12 @@ const postHandler = (request, response) => {
 };
 
 const getHandler = (require, response) => {
-  logger.info(require.url);
   response.end('Hello, Paralect Startup Summer!');
 };
 
 const getHandlerInfo = (require, response) => {
-  logger.info(require.url);
+  /*logger.info(require.url);*/
+  winston.log('info', require.url);
   response.end('Hello, my name is Victoria!');
 };
 
@@ -30,7 +37,6 @@ const getHandlerFile = (require, response) => {
       console.error(err);
       return;
     }
-    logger.info(require.url);
     response.end(result);
   });
 };

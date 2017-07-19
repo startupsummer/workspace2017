@@ -14,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "NODE_PATH=./ nodemon --harmony --inspect server.js"
+    "dev": "NODE_PATH=../ nodemon --harmony --inspect server.js"
   },
   "author": "",
   "license": "ISC"
