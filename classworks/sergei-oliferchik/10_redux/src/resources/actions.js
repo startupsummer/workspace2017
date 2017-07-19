@@ -12,22 +12,18 @@ export const chengeIssuesStatus = (number, status) => dispatch => (
     }))
 );
 
-export const initialState = () => dispatch => (
+export const initialState = () => dispatch =>
   api.initialState()
-    .then(response => response.json())
     .then(data => dispatch({
       type: 'INITIAL_STATE',
-      payload: data.reduce( (prev, cur) => {
-        return prev.concat({
-          id: cur.id,
-          about: cur.body,
-          state: cur.state,
-          title: cur.title,
-          number: cur.number,
-        })
-      }, []),
-    }))
-);
+      payload: data.map( (el) => ({
+        id: el.id,
+        about: el.body,
+        state: el.state,
+        title: el.title,
+        number: el.number,
+      }))
+    }));
 
 export const addIssues = () => dispatch => {
   const newData = addData.pop();

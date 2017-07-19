@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Pagehead from './pagehead';
 import IssuesListing from './issues-listing';
 
 import './index.css';
 
-const  Main  = (props) => (
+const Main = () => (
   <main className='content'>
     <Pagehead />
     <IssuesListing />

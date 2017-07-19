@@ -1,6 +1,4 @@
-import data from '../data';
-
-export default (state = data, action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case 'INITIAL_STATE':
       return action.payload;
@@ -11,7 +9,7 @@ export default (state = data, action) => {
     case 'CHENGE_ISSUES':
       return state.map(el =>
         el.id === action.payload.id
-          ? Object.assign({}, el, {state: action.payload.state})
+          ? { ...el, state: action.payload.state }
           : el
       );
 

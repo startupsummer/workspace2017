@@ -20,4 +20,4 @@ export const addIssues = (body) => (
   }).then(response => response.json())
 )
 
-export const initialState = () => fetch(urlGet)
+export const initialState = () => fetch(urlGet).then(response => response.json())

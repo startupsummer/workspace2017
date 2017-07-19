@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import fromStore from 'src/index.selectors';
 
@@ -34,8 +33,7 @@ class IssuesListingBody extends Component {
   }
 }
 
-
-export default connect(state => ({
+export default withRouter(connect(state => ({
   openIssues: fromStore.getOpensIssues(state),
   closedIssues: fromStore.getClosedsIssues(state),
-}))(IssuesListingBody);
+}))(IssuesListingBody));

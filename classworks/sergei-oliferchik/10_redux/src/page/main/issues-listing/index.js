@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import './index.css';
-
-import fromStore from 'src/index.selectors';
 
 import Subnav from './subnav';
 import IssuesListingHeader from './issues-listing__header';
@@ -22,21 +18,13 @@ class IssuesListing extends Component {
   triger = (status) => () => {
     const curStatus = status === 'open' ? 'closed' : 'open';
 
-    this.setState(
-      Object.assign({}, this.state, {
-        curStatus,
-      })
-    );
+    this.setState({ curStatus });
   }
 
   eventSearch = (e) => {
     const value = e.target.value;
 
-    this.setState(
-      Object.assign({}, this.state, {
-        searchField: value,
-      })
-    );
+    this.setState({ searchField: value });
   }
 
   render() {
@@ -52,7 +40,4 @@ class IssuesListing extends Component {
   }
 }
 
-export default connect(state => ({
-  openIssues: fromStore.getOpensIssues(state),
-  closedIssues: fromStore.getClosedsIssues(state),
-}))(IssuesListing);
+export default IssuesListing;

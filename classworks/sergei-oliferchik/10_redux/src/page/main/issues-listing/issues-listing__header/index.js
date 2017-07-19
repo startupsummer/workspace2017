@@ -10,10 +10,6 @@ import ButtonLink from 'src/components/button-link';
 import './index.css';
 
 class IssuesListingHeader extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return(
       <div className="issues-listing__header">

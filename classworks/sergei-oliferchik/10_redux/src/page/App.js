@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import { initialState } from 'src/resources/actions';
 
@@ -11,6 +11,7 @@ class App extends Component {
   componentDidMount = () => {
     this.props.initialState();
   }
+
   render() {
     return (
       <div>
@@ -21,6 +22,6 @@ class App extends Component {
   }
 }
 
-export default connect(null, ({
+export default withRouter(connect(null, {
   initialState,
-}))(App);
+})(App));
