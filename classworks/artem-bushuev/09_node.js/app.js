@@ -4,17 +4,18 @@ let formBody = require('body/form');
 let req = require('request');
 let download = require('image-downloader')
 let log4js = require('log4js');
+let base64 = require('base64-stream');
 
 log4js.configure({
   appenders: {
-    out: { type: 'stdout' },
-    app: { type: 'file', filename: 'application.log' }
+    out: { type: 'stdout', },
+    app: { type: 'file', filename: 'application.log', },
   },
   categories: {
-    default: { appenders: [ 'out', 'app' ], level: 'debug' },
-    error: { appenders: [ 'out', 'app' ], level: 'error' }
-  }
-});;;
+    default: { appenders: [ 'out', 'app', ], level: 'debug', },
+    error: { appenders: [ 'out', 'app', ], level: 'error', },
+  },
+},);
 
 let logger = log4js.getLogger();
  
@@ -25,19 +26,21 @@ http.createServer(function(request, response){
  if(request.method == 'GET'){        
     switch(request.url){
       case '/': 
-        logger.debug('GET "/" ');
-        response.end('Hello Startup Summer')
+        logger.debug(`${request.method} "${request.url}"`);
+        
+        response.end('Hello Startup Summer');
         break;
 
       case '/info': 
-        logger.debug('GET "/info" ');
+        logger.debug(`${request.method} "${request.url}"`);
+
         response.end('Hello. My name is Artem'); 
         break;
 
       case '/index.html':
-         logger.debug(' GET "/index.html" '); 
-         fs.readFile(`./public/index.html`, function(error, data){
-                 
+         logger.debug(`${request.method} "${request.url}"`);
+
+         fs.readFile(`./public/index.html`, function(error, data){         
             if(error){
               logger.error('error from GET "/index.html" ');        
             }   
@@ -46,32 +49,30 @@ http.createServer(function(request, response){
             } 
         })
         break;
-        case '/img':{
-
-          logger.debug(' GET "/img" '); 
-
-          const options = {
-          url: 'https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg',
-          dest: 'img.jpg'
-          }
-          
-          download.image(options)
-            .then(({ filename, image }) => {
-              console.log('File saved to', filename);
-            }).then( () => {
-              fs.createReadStream('img.jpg').pipe(response);
-            }).catch((err) => {
-              
-              logger.error('error (download image) from GET "/img" ')
-
-              throw err
-            })
+        case '/img': {
+          logger.debug(`${request.method} "${request.url}"`)
+               
+          var img = 'http://minionomaniya.ru/wp-content/uploads/2016/01/%D0%BC%D0%B8%D0%BD%D1%8C%D0%BE%D0%BD%D1%8B-%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BB%D1%8B-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8.jpg';
+          http.get(img, function(res) {
+              if (res.statusCode === 200){
+                  res.pipe(response);
+              }    
+          });
         } 
     }
 }
   if(request.method == 'POST'){
-     const send = (err, body) => response.end(`My name is ${body.firstName} ${body.lastName}`);
-     formBody(request, {}, send);
+    switch(request.url){
+      case '/info': 
+        logger.debug(`${request.method} "${request.url}"`);
+
+        const send = (err, body) => response.end(`My name is ${body.firstName} ${body.lastName}`);
+        formBody(request, {}, send);
+        break;
+        default:
+        break;  
+    }
+
   }
     
 }).listen(port);
