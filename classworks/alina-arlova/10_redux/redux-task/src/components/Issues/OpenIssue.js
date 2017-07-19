@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../../main.css';
-import {Link } from 'react-router-dom';
 
 function OpenIssue(props) {
   return (
@@ -17,13 +16,13 @@ function OpenIssue(props) {
       </div>
 
       <div className="issues__title">
-        <Link className="issues__link" to={`/${props.issue.id}`} >{props.issue.title}</Link>
+        <a className="issues__link"> {props.issue.title} </a>
       </div>
 
       <button
         className="btn issue__close"
         type="button"
-        onClick={props.onClick.bind(this, props.issue)}
+        onClick = {props.onClick.bind(this, props.issue.id)}
       >
         Close issue
       </button>

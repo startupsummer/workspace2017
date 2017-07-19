@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../../main.css';
-import {Link } from 'react-router-dom';
 
 function ClosedIssue(props) {
   return (
@@ -17,7 +16,7 @@ function ClosedIssue(props) {
         </svg>
       </div>
       <div className="issues__title">
-        <Link className="issues__link" to={`/${props.issue.id}`} >{props.issue.title}</Link>
+        <a className="issues__link"> {props.issue.title} </a>
       </div>
     </li>
   )

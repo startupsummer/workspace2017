@@ -1,25 +1,60 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import fromStore from '../../resources/issues.selector.js';
+import { fetchIssues } from '../../resources/issues.actions.js';
+import { closeIssue } from '../../resources/issues.actions.js';
 import OpenIssue from './OpenIssue.js'
 import ClosedIssue from './ClosedIssue.js'
 import '../../main.css';
 
-function Issues(props) {
-  return (
-    <div className="issues-listing__body">
-      <ul className="issues">
-        {
-            props.issues.filter((item) => item.state === props.menuState).map((item) =>
+class Issues extends React.Component {
+  static propsTypes = {
+    fetchIssues: PropTypes.func.isRequired,
+    closeIssue: PropTypes.func.isRequired,
+    issues: PropTypes.array.isRequired,
+    menuState: PropTypes.string.isRequired,
+    searchText: PropTypes.string.isRequired,
+  }
+
+  componentDidMount = () => {
+    this.props.fetchIssues();
+  }
+
+  onCloseIssue = (issueId) => {
+    this.props.closeIssue(issueId);
+  }
+
+  render() {
+    const issues = this.props.issues;
+    const menuState = this.props.menuState;
+    const filteredIssues = issues.filter(issue => issue.title.toLowerCase().startsWith(this.props.searchText));
+
+    return (
+      <div className="issues-listing__body">
+        <ul className="issues">
+          {
+            filteredIssues.filter((item) => item.state === menuState).map((issue) =>
             <li className="issues__wrapper">
               {
-                item.state === 'open'
-                ? <OpenIssue issue={item} onClick={props.onClick} />
-                : <ClosedIssue issue={item}/>
+                issue.state === 'open'
+                ? <OpenIssue issue={issue} onClick = {this.onCloseIssue} />
+                : <ClosedIssue issue={issue} />
               }
             </li>)
-        }
-      </ul>
-    </div>
-  )
+          }
+        </ul>
+      </div>
+    );
+  }
 }
 
-export default Issues;
+export default connect(state => ({
+  issues: fromStore.getIssues(state),
+  menuState: fromStore.getMenuState(state),
+  searchText: fromStore.getSearchText(state),
+}), {
+  fetchIssues,
+  closeIssue,
+})(Issues);
