@@ -6,6 +6,9 @@
   },
   "rules": {
     "jsx-a11y/href-no-hash": "off",
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": "off"
   }
 }

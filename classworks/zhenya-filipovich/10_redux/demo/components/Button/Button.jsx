@@ -7,6 +7,7 @@ import './button.styles';
 
 const Button = ({ onClick, title, small }) => (
   <div className={cx('button', { 'button--small': small })} onClick={onClick}>
+    <div className=""></div>
     {title}
   </div>
 );
