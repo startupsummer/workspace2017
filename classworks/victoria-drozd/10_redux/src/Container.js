@@ -3,7 +3,7 @@ import Subnav from './Subnav';
 import Header from './Header';
 import Body from './Body';
 
-import {displayAll, countIssues} from './utils';
+import {displayAll, countIssues} from './resources/utils';
 
 export default class Container extends Component {
   constructor(props) {
