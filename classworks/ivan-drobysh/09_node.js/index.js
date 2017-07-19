@@ -4,6 +4,16 @@ const fs = require('fs')
 const sharp = require('sharp');
 const winston = require('winston');
 const Busboy = require('busboy');
+let firstName = '', lastName = '';
+
+const parseBody = (body) => {
+  let args = body.split('&');
+  let argums = [];
+  for(let i = 0; i < args.length; i++) {
+    argums[i] = args[i].split('=');
+  }
+  return argums;
+}
 
 winston.configure({
     transports: [
@@ -19,14 +29,10 @@ const postHandler = (request, response) => {
   });
 
   request.on('end', () => {
-    let args = body.split('&');
-    let argum = [];
-    for(let i = 0; i < args.length; i++) {
-      argum[i] = args[i].split('=');
-    }
+    let argum = parseBody(body);
+
     switch (request.url) {
     case '/info':
-      let firstName,  lastName;
       for(let i = 0; i < args.length; i++) {
         if( argum[i][0] === 'firstName')
          firstName = argum[i][1];
@@ -81,7 +87,7 @@ const getHandler = (request, response) => {
         response.end(data);
       });
       break;
-    case '/image':
+      case '/image':
 
       sharp('./img.jpg').
       toBuffer()
