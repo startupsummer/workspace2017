@@ -9,7 +9,7 @@ class AboutIssue extends Component {
     const element = this.props.issues.find(el => `id:${el.id}` === id);
     const title = element.title;
     const about = element.about;
-    
+
     return (
       <div>
         <h1>{title}</h1>

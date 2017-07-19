@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { chengeIssuesStatus } from 'src/resources/actions'
 
 import Button from 'src/components/button';
 import './index.css';
@@ -14,13 +16,13 @@ const IssuesItem = (props) => (
     <div className="issues__title">
       <Link to={`/id:${props.issues.id}`} className="issues__link">{props.issues.title}</Link>
     </div>
-    <Button text={`${props.issues.state === 'opened' ? 'Opened' : 'Close'} issues`} eventClick={props.chengedIssues} id={props.issues.id}/>
+    <Button
+      text={`${props.issues.state === 'open' ? 'Close' : 'Opened'} issues`}
+      eventClick={() => props.chengeIssuesStatus(props.issues.number, props.issues.state === 'open' ? 'closed' : 'open')}
+    />
   </div>
 );
 
-IssuesItem.PropTypes = {
-  chengedIssues: PropTypes.func,
-  issues: PropTypes.array,
-};
-
-export default IssuesItem;
+export default connect(null, {
+  chengeIssuesStatus,
+})(IssuesItem);

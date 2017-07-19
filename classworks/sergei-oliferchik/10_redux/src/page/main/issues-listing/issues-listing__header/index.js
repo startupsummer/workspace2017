@@ -1,30 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import fromStore from 'src/index.selectors';
 
 import ButtonLink from 'src/components/button-link';
 
 import './index.css';
 
-const  IssuesListingHeader  = (props) => (
-  <div className="issues-listing__header">
-    <div className="issues-listing__states">
-      <Link to="/">
-        <ButtonLink length={props.issuesLength} name={'Open'} cliked={props.stateOpen}/>
-      </Link>
-      <Link to="/">
-        <ButtonLink length={props.issuesClose} name={'Closed'} cliked={props.stateClosed}/>
-      </Link>
-    </div>
-  </div>
-);
+class IssuesListingHeader extends Component {
+  constructor(props) {
+    super(props)
+  }
 
-IssuesListingHeader.PropTypes = {
-  issuesLength: PropTypes.number,
-  issuesClose: PropTypes.number,
-  stateOpen: PropTypes.func,
-  stateClosed: PropTypes.func,
+  render() {
+    return(
+      <div className="issues-listing__header">
+        <div className="issues-listing__states">
+          <Link to="/">
+            <ButtonLink length={this.props.openIssues} name={'оpen'} cliked={this.props.triger('open')}/>
+          </Link>
+          <Link to="/">
+            <ButtonLink length={this.props.closedIssues} name={'сlosed'} cliked={this.props.triger('closed')}/>
+          </Link>
+        </div>
+      </div>
+    )
+  }
 };
 
-export default IssuesListingHeader;
+export default connect(state => ({
+  openIssues: fromStore.getOpensIssues(state).length,
+  closedIssues: fromStore.getClosedsIssues(state).length,
+}))(IssuesListingHeader);

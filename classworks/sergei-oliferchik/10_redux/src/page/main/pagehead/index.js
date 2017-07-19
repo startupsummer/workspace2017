@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import fromStore from 'src/index.selectors';
 import Peponav from './reponav-item';
 
 import './index.css';
 
 class Pagehead extends Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.issues !== this.props.issues;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextProps.issuesLength === this.props.issuesLength;
+  // }
   render() {
-    const lengthIssues = this.props.issues.length;
     return (
       <div className="pagehead">
           <div className="container repohead-container">
@@ -25,7 +26,7 @@ class Pagehead extends Component {
           </div>
           <div className="container">
             <nav className="reponav">
-              <Peponav  issuesLength={lengthIssues}/>
+              <Peponav issuesLength={this.props.issuesLength}/>
             </nav>
           </div>
       </div>
@@ -33,8 +34,6 @@ class Pagehead extends Component {
   }
 }
 
-Pagehead.PropTypes = {
-  issues: PropTypes.array,
-}
-
-export default Pagehead;
+export default connect(state => ({
+  issuesLength: fromStore.getOpensIssues(state).length,
+}))(Pagehead);

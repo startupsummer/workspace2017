@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './index.css';
 
 const Button = (props) => (
-  <button className={`btn ${props.color}`} type="button" onClick={props.eventClick(props.id)}>
+  <button className={`btn ${props.color}`} type="button" onClick={props.eventClick}>
     {props.text}
   </button>
 );

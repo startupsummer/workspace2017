@@ -17,6 +17,7 @@ const Peponav = (props) => (
   </Link>
 );
 
+
 Peponav.PropTypes = {
   issuesLength: PropTypes.number,
 };
