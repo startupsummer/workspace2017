@@ -1,34 +1,26 @@
 import data from '.././data';
 
-export default (state = [], action) => {
-  console.log('reducer');
-  console.log(action.type);
+export default (state = [], action)=> {
+  
   switch(action.type){
     case '@@redux/INIT':
-      return {
+      return{
         data,
         state: 'open',
       } 
     case 'addIssue':
-      // console.log('reducer addIssue');
-      // console.log(state);
-      return {
+      return{
         ...state,
         data: [...state.data, action.item],
       };
     case 'searchIssue':
-      // console.log('search');
-      // console.log(state);
-      return {
-        ...state,
-        data: [...state.data],   //!!! ???
-        search: action.searchStr,
-      };
-    case 'changeCurrentState':{
-      // console.log('changeCurrentState');
       return{
         ...state,
-        data: [...state.data],
+        search: action.searchStr,
+      };
+    case 'changeCurrentState': {
+      return{
+        ...state,
         state: action.state,
       }
     }

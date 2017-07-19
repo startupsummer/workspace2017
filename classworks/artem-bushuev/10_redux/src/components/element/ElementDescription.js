@@ -1,8 +1,6 @@
+import React from 'react'
 
-import React from 'react';
-
-
-const ElementDescription = ({item}) => {  
+const ElementDescription = ({ item }) => {  
   return <div>
         <p> title: {item.title} </p>
         <p> {item.context} </p> 

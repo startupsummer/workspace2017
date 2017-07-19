@@ -1,11 +1,9 @@
-import React from 'react';
-
+import React from 'react'
 import fromStore from '../../index.selectors'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import {chageStateIssue} from '../../reduce/data.action'
 
-const IssuesItem = ({item,chageStateIssue,state}) => {
-
+const IssuesItem = ({ item,chageStateIssue,state }) => {
   let issueClose = ()=> {
     chageStateIssue(item.state,item.id);
   }
@@ -17,18 +15,17 @@ const IssuesItem = ({item,chageStateIssue,state}) => {
         </div>
             <div className="issues__title">
             <a href = {`/${item.id}`}  className="issues__link">
-                {item.title}
+              {item.title}
             </a>
         </div>
         <button className="btn issue__close" type="button" id = {item.id}  
           onClick={issueClose}
         >
-            {item.state === 'open' ? 'close' : 'open' } issue
+          {item.state === 'open' ? 'close' : 'open' } issue
         </button>
       </li>
   );
 }
- 
 
 export default connect( (store) => ({
   state: fromStore.getState(store),
