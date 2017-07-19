@@ -23,19 +23,7 @@ const postHandler = (request, response) => {
   }
 
   formBody(request, {}, send);
-// let body = '';
-//
-// request.on('data', data => {
-//   body += data;
-// });
-//
-// request.on('end', () => {
-//   let [firstname, lastName] = JSON.parse(body);
-//   response.end(`my name ${firstname} LastName ${lastName}`);
-// });
 }
-
-//
 
 const getHandler = (req, res) => {
   const urlImg = 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Red_Hot_Chili_Peppers_2012-07-02_001.jpg';
