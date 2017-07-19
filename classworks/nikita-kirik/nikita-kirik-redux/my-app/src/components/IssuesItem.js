@@ -1,28 +1,29 @@
 import React, { PureComponent } from 'react';
 import ButtonHandle from './ButtonHandle';
 import { Link } from 'react-router-dom';
-import { issuesToggle } from '../resources/issue/issue.actions'
-
+import { issueToggle } from '../resources/issue/issue.actions'
+import { connect } from 'react-redux';
 
 class IssuesItem extends PureComponent {
   static propTypes = {
     itemData: React.PropTypes.object.isRequired,
-    issueToogle: React.PropTypes.func.isRequired,
+    issueToggle: React.PropTypes.func.isRequired,
+    data: React.PropTypes.array.isRequired,
   }
 
   OnIssueToggle = () => {
     const currData = this.props.data;
-    let IssueInd;
+    const id = this.props.itemData.id;
+    let IssueNumb;
     let newState;
-
     currData.forEach((it, ind) => {
       it.id === id ? (function() {
-        IssueInd = currData.length - ind;
+        IssueNumb = currData.length - ind;
         newState = (it.state == 'open') ? 'closed' : 'open';
       })(): null;
     });
 
-    this.props.issueToogle(IssueInd, newState);
+    this.props.issueToggle(id, IssueNumb, newState);
   };
 
   render() {
@@ -40,7 +41,7 @@ class IssuesItem extends PureComponent {
           </Link>
         </div>
 
-        <ButtonHandle onClick={this.OnIssueToggle}>
+        <ButtonHandle onClick={this.OnIssueToggle} specClassName={'issue__close'}>
           {buttonLabel}
         </ButtonHandle>
       </li>
@@ -48,8 +49,6 @@ class IssuesItem extends PureComponent {
   }
 }
 
-export default connect((state, props) => ({
-  data: issuesSelector(state),
-}), {
+export default connect(null, {
   issueToggle,
 })(IssuesItem);

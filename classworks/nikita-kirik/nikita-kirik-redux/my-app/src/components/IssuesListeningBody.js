@@ -3,12 +3,9 @@ import IssuesItem from './IssuesItem';
 
 
 const IssuesListeningBody = ({ onIssueToogle, text, data, issuesType }) => {
-  console.log(data);
-  const data2 = data;
-  const listItems = data2
+  const listItems = data
     .filter(it => issuesType === it.state && it.title.search(new RegExp('^' + text, 'i')) !== -1)
-    .map(it => <IssuesItem itemData={it} onIssueToogle={onIssueToogle} />);
-
+    .map(it => <IssuesItem itemData={it} data={data} />);
   return (
     <ul className="issues">
       {listItems}

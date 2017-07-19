@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ButtonHandle = ({ onClick, children }) => (
-  <button onClick={onClick} className="btn issue__close" type="button">
+const ButtonHandle = ({ onClick, children, specClassName }) => (
+  <button onClick={onClick} className={`btn ${specClassName}`} type="button">
     {children}
   </button>
 )
@@ -9,6 +9,7 @@ const ButtonHandle = ({ onClick, children }) => (
 ButtonHandle.propTypes = {
   onClick: React.PropTypes.func.isRequired,
   children: React.PropTypes.string.isRequired,
+  specClassName: React.PropTypes.string.isRequired,
 }
 
 export default ButtonHandle;

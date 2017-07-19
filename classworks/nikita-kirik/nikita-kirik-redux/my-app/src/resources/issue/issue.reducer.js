@@ -4,6 +4,8 @@ export default (state = [], action) => {
     return action.payload;
     case 'issueAdd':
     return [action.payload, ...state];
+    case 'issueToggle':
+    return state.map(it => it.id === action.id ? {...it, state: action.newState} : it);
     default:
     return state;
   }

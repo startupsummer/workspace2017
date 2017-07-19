@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import SubnavSearch from './SubnavSearch';
-import Button from './Button';
+import ButtonHandle from './ButtonHandle';
 import { issueAdd } from '../resources/issue/issue.actions'
 import { connect } from 'react-redux';
-
 
 class IssuesListeningSubnav extends PureComponent {
   static propTypes = {
@@ -16,7 +15,7 @@ class IssuesListeningSubnav extends PureComponent {
       <div className="issues-listing__subnav">
         <div className="subnav">
           <SubnavSearch onSearch={this.props.onSearch}/>
-          <Button onIssueAdd={this.props.issueAdd}> New Issue </Button>
+          <ButtonHandle onClick={this.props.issueAdd} specClassName={'btn-primary'}> New Issue </ButtonHandle>
         </div>
       </div>
     )

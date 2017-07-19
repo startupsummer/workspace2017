@@ -1,13 +1,17 @@
 import React, { PureComponent } from 'react';
 
 class IssueDiscription extends PureComponent {
-  render() {
-    let discription ;
-    this.props.data.forEach(it => {
-      (it.id == this.props.match.params.id) ? discription = it.title : null;
-    });
+  static propTypes = {
+    data: React.PropTypes.array.isRequired,
+  }
 
-    return(
+  render() {
+    let discription;
+    const id = this.props.match.params.id;
+    this.props.data.forEach(it => {
+      (it.id == id) ? discription = it.title : null;
+    });
+    return (
       <div className="discription">
         <div className="discription__title"> DISCRIPTION </div>
         {discription}
