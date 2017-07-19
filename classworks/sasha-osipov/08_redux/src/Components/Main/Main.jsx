@@ -39,7 +39,7 @@ class Main extends Component {
 }
 
 export default connect(state => ({
-  issues: fromStore.getIssues(state),
+    issues: fromStore.getIssues(state),
 }), {
-  fetchIssues,
+    fetchIssues,
 })(Main);

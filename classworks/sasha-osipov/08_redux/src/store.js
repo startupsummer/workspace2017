@@ -3,4 +3,8 @@ import thunkMiddleware from 'redux-thunk';
 
 import reducer from './Resources/issues.reducer';
 
-export default createStore(reducer, applyMiddleware(thunkMiddleware));
+const store = createStore(reducer, applyMiddleware(thunkMiddleware))
+
+store.subscribe(() => console.log('subscribe', store.getState()))
+
+export default store;
