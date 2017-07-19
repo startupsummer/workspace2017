@@ -12,99 +12,93 @@ import fromStore from '../index.selectors'
 import { connect } from 'react-redux';
 
 class Content extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      state: "open",
-    };
+  
+  // constructor(props) {
+  //   // console.log('constructor Content');
+  //   super(props);
+  //   this.state = {
+  //     state: "open",
+  //   };
     
-  }
+  // }
   
   
-  getCountClose = () => {
-    return this.props.data.length - this.getCountOpen();
-  }
-  getCountOpen = () => {
-    let count = 0;
-    for(let i of this.props.data){
-      if(i.state === "open"){
-        count++;
-      }
-    }
-    return count;
-  }
-  findById(data,id){ 
-    for(let i = 0 ; i < data.length ; ++i){
-      if(data[i].id === Number(id)){
-        return data[i];
-      }
-    }
-  }
+  // getCountClose = () => {
+  //   return this.props.data.length - this.getCountOpen();
+  // }
+  // getCountOpen = () => {
+  //   let count = 0;
+  //   for(let i of this.props.data){
+  //     if(i.state === "open"){
+  //       count++;
+  //     }
+  //   }
+  //   return count;
+  // }
+  // findById(data,id){ 
+  //   for(let i = 0 ; i < data.length ; ++i){
+  //     if(data[i].id === Number(id)){
+  //       return data[i];
+  //     }
+  //   }
+  // }
 
-  updatePageSearch = (search)  => {
-    this.setState({
-      data: this.props.data,
-      state: this.state.state,
-      search,
-    });
-  }
-  updatePageState = (state) => {
-    this.setState({
-      data: this.props.data,
-      state,
-      search: this.state.search,
-    });
-  }
-  updatePageData = (data) => {
-    this.setState({
-      data,
-      state: this.state.state,
-      search: this.state.search,
-    });
-  }
+  // updatePageSearch = (search)  => {
+  //   this.setState({
+  //     data: this.props.data,
+  //     state: this.props.state,
+  //     search,
+  //   });
+  // }
+  // updatePageState = (state) => {
+  //   this.setState({
+  //     data: this.props.data,
+  //     state,
+  //     search: this.props.search,
+  //   });
+  // }
+  // updatePageData = (data) => {
+  //   this.setState({
+  //     data,
+  //     state: this.props.state,
+  // //     search: this.props.search,
+  //   });
+  // }
   
 
 
   render() {
 
-    console.log('constructor');
-    console.log(this.props);
+    // console.log('constructor');
+    // console.log(this.props);
 
-    return (
+    return (                                          
      <div className = "content">
-        <div className = "pagehead">
-            < RepoheadContainer />
-            < Container />
+        <div className = "pagehead">  
+            < RepoheadContainer />     {/* ++*/}                    
+            < Container />             {/* ++*/}
         </div >
 
         < div className = "container">
                         
             <Route exact path='/' render={
               ()=>{
-                return <Subnav updatePageSearch = {this.updatePageSearch}
-                                updatePageData = {this.updatePageData}
-                 />
+                return <Subnav />   //++
               }
             }
             /> 
 
             < Route exact path='/' component={
               ()=>{
-                return ListingStates(this.props.data,
-                  this.updatePageState,
-                  this.getCountOpen(),
-                  this.getCountClose(),
-            )}
-            }
+                return <ListingStates />          //++   
+              }
+            }    
             /> 
 
             <Route exact path='/' component={
               ()=>{
-               return ListingBody(this.props.data,
-                this.state.search,
-                this.state.state,
-                this.updatePageData,
-            )}
+               return  <ListingBody />      //++
+              }
             }
             />
               <Route path={`/:id`} component={
@@ -123,4 +117,5 @@ class Content extends Component {
 export default connect( (store) => ({
   data: fromStore.getData(store),
   state: fromStore.getState(store),
+  search: fromStore.getSearch(store),
 }))(Content);

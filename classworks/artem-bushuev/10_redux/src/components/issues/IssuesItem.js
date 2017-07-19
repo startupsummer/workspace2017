@@ -1,9 +1,13 @@
 import React from 'react';
 
-const IssuesItem = (item,updatePageData,currentState,data) => {
+import fromStore from '../../index.selectors'
+import { connect } from 'react-redux';
+import {chageStateIssue} from '../../reduce/data.action'
+
+const IssuesItem = ({item,chageStateIssue,state}) => {
+
   let issueClose = ()=> {
-    item.state = item.state === 'open' ? 'closed' : 'open';
-    updatePageData(data);
+    chageStateIssue(item.state,item.id);
   }
 
   return (
@@ -26,4 +30,8 @@ const IssuesItem = (item,updatePageData,currentState,data) => {
 }
  
 
-export default IssuesItem;
+export default connect( (store) => ({
+  state: fromStore.getState(store),
+}),{
+  chageStateIssue,
+})(IssuesItem);

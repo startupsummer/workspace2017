@@ -10,15 +10,40 @@ export default (state = [], action) => {
         state: 'open',
       } 
     case 'addIssue':
-      console.log('reducer addIssue');
-      console.log(state);
+      // console.log('reducer addIssue');
+      // console.log(state);
       return {
         ...state,
         data: [...state.data, action.item],
       };
     case 'searchIssue':
-      console.log('search');
-      return state;
+      // console.log('search');
+      // console.log(state);
+      return {
+        ...state,
+        data: [...state.data],   //!!! ???
+        search: action.searchStr,
+      };
+    case 'changeCurrentState':{
+      // console.log('changeCurrentState');
+      return{
+        ...state,
+        data: [...state.data],
+        state: action.state,
+      }
+    }
+    case 'chageStateIssue' :{
+      let newData = [...state.data];
+      for(let i = 0 ; i < newData.length; ++i){
+        if(newData[i].id === action.id){
+            newData[i].state = action.state === 'open'? 'closed': 'open';
+        }
+      }
+      return{
+        ...state,
+        data: [...newData],
+      }
+    }  
 
     default:
       return state;

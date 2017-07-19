@@ -17,7 +17,7 @@ import { connect } from 'react-redux';
      );}
  
 export default connect( (store, props) => ({
-  data: fromStore.getData(store),
+ // data: fromStore.getData(store),
   item: fromStore.findById(store.data,props.id),
 }), {
 })(Element);

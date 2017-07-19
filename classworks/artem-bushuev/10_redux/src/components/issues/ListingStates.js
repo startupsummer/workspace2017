@@ -1,11 +1,21 @@
 import React from 'react';
 
-const ListingStates = (data,updatePageState,countOpen,countClose)=> {
+import fromStore from '../../index.selectors'
+import { connect } from 'react-redux';
+import {changeCurrentState} from '../../reduce/data.action'
+
+const ListingStates = ({data,changeCurrentState,countOpen,countClose})=> {
+  // console.log('ListingStates');
+  // console.log(data);
+  // console.log(countOpen);
+  // console.log(countClose);
+  // console.log();
+
   let clickOpen = () => {
-                updatePageState('open');              
-              }
+                changeCurrentState('open');
+                }
   let clickClose =  () => {
-              updatePageState('closed');
+              changeCurrentState('closed');
                 }
 
      return (
@@ -29,4 +39,11 @@ const ListingStates = (data,updatePageState,countOpen,countClose)=> {
     );
   }
 
-export default ListingStates;
+export default connect( (store) => ({
+  data: fromStore.getData(store),
+  countOpen: fromStore.getCountOpen(store),
+  countClose: fromStore.getCountClose(store),
+}),{
+  changeCurrentState,
+}
+)(ListingStates);

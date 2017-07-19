@@ -6,19 +6,18 @@ import { connect } from 'react-redux';
 import { searchIssue, addIssue } from '../../reduce/data.action';
 
 
-const Subnav = ({data,updatePageSearch,addIssue,searchIssue})=> {
+const Subnav = ({data,addIssue,searchIssue})=> {
   
   let search = (e) => {
-                   console.log('search');
-                   console.log(searchIssue);
-                   searchIssue(e.target.value);                     
+    
+                      searchIssue(e.target.value);                     
                 }
  
   let add = () => {
-                console.log('add');
-                console.log(data);
-                console.log(addIssue);
-                let title = prompt("enter issue");
+                // console.log('add');
+                // console.log(data);
+                // console.log(addIssue);
+                 let title = prompt("enter issue");
                   if(title){
                     let context = prompt("enter issue");
                     if(context){ 
