@@ -2,10 +2,11 @@ const http = require('http')  ;
 const body = require('body/form');
 const request = require('request');
 const winston = require('winston');
+path = require('path');
+const fs = require('fs');
 
 const port = 3002;
 const username = 'Natallia';
-const fs = require('fs');
 
 winston.configure({
   transports: [
@@ -43,16 +44,16 @@ const infoHandler = (request, response) => {
 }
 
 const getFileHandler = (request, response) => {
-  const stream = fs.createReadStream('./public/index.html');
+  const filePath = path.join(__dirname, './public/index.html');
+  const stat = fs.statSync(filePath);
 
-  let data  = '';
-  stream.on('data', (streamData) => {
-    data += streamData.toString('utf8');
-  })
+  response.writeHead(200, {
+      'Content-Type': 'text/html',
+      'Content-Length': stat.size
+  });
 
-  stream.on('end', () => {
-    response.end(data);
-  })
+  const readStream = fs.createReadStream(filePath);
+  readStream.pipe(response);
 }
 
 const server = http.createServer(requestHandler);
@@ -76,9 +77,7 @@ const loggerHandler = (request, resp) => {
 }
 
 const getImageHandler = (req, resp) => {
-  var image = request('https://static.pexels.com/photos/60224/pexels-photo-60224.jpeg');
-  req.pipe(image);
-  image.pipe(resp);
+  request.get('http://rcysl.com/wp-content/uploads/2017/02/New-Nature-Pictures-.jpg').pipe(resp)
 }
 
  
