@@ -28,22 +28,12 @@ const getHandler = (req,res) => {
             break;
 
         case '/index.html' :
-            const filePath = './public/file.txt';
-            logger.info(`file.txt`, {url : req.url});
-            fs.readFile(filePath,(err,data) => {
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.end(data);
-            }) 
-            break; 
-            
-        case "/data" :
             logger.info(`index.html`, {url : req.url});
-            fs.readFile('./index.html',(err,data) => {
+            fs.readFile('./public/index.html',(err,data) => {
                 res.writeHead(200, { 'Content-Type': 'text/html' });
                 res.end(data)   
             }) 
             break;
-
         case "/internet-file" :
             logger.info(`image file`, {url : req.url});
             http.get("http://politobzor.net/uploads/images/2017/372/org_jner529.jpg", (getResponse) => {
@@ -74,5 +64,5 @@ const requestHandler = (req,res) => {
 
 const server = http.createServer(requestHandler);
 
-console.log(`Server is listend at port ${port}`)
+console.log(`The server is listening on port ${port}`)
 server.listen(port);
