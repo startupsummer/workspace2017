@@ -3,7 +3,7 @@ import Subnav from './Subnav';
 import Header from './Header';
 import Body from './Body';
 
-import {displayAll, countIssues} from './resources/utils';
+import { countIssues } from './resources/utils';
 
 export default class Container extends Component {
   constructor(props) {
@@ -17,19 +17,6 @@ export default class Container extends Component {
 
   handleShowClosedTab = () => this.setState({currentTab: 'closed'});
 
-  handleAddNewIssue = () => {
-    const {data, handleAddNewIssue} = this.props;
-
-    const newData = data.concat({
-      id: data[data.length - 1].id + 1,
-      title: 'New issue',
-      state: 'open'
-    });
-
-    handleAddNewIssue(displayAll(newData));
-    this.handleShowOpenTab();
-  };
-
   render() {
     const { data, handleSearchText, handleCloseIssue } = this.props;
     const [openIssuesNum, closedIssuesNum] = countIssues(data);
@@ -38,7 +25,6 @@ export default class Container extends Component {
       <div className="container">
         <div className="issues-listing">
           <Subnav
-            onAddNewIssue={this.handleAddNewIssue}
             onSearchText={handleSearchText}
           />
           <Header

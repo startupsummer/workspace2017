@@ -8,25 +8,12 @@ import Container from './Container';
 import Description from './Description';
 
 
-import { fetchIssues, closeIssue } from './resources/issues.actions';
+import { fetchIssues, closeIssue, searchText } from './resources/issues.actions';
 import fromStore from './resources/issues.selectors';
 
 class App extends Component {
   componentDidMount = () => {
     this.props.fetchIssues();
-  };
-
-  handleAddNewIssue = issues => this.setState({issues});
-
-  handleSearchText = (text) => {
-    this.setState((prevState) => {
-      const newData = prevState.issues.map(issue => ({
-        ...issue,
-        display: Boolean(~issue.title.toLowerCase().indexOf(text.toLowerCase()))
-      }));
-
-      return {issues: newData};
-    });
   };
 
   render() {
@@ -39,9 +26,8 @@ class App extends Component {
           <Route exact path="/" component={() => (
             <Container
               data={issues}
-              handleAddNewIssue={this.handleAddNewIssue}
               handleCloseIssue={this.props.handleCloseIssue}
-              handleSearchText={this.handleSearchText}
+              handleSearchText={this.props.handleSearchText}
             />
           )}/>
           <Route
@@ -58,5 +44,6 @@ export default connect(state => ({
   issues: fromStore.getIssues(state),
 }), {
   fetchIssues,
-  handleCloseIssue: closeIssue
+  handleCloseIssue: closeIssue,
+  handleSearchText: searchText
 })(App);

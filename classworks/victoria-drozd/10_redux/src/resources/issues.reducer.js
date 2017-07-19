@@ -1,3 +1,5 @@
+import {displayAll} from './utils';
+
 export default (state = [], action) => {
   switch (action.type) {
     case 'fetchIssues':
@@ -11,6 +13,15 @@ export default (state = [], action) => {
 
         return {...issue, state: 'closed'};
       });
+
+    case 'addNewIssue':
+      return displayAll(state.concat(action.payload));
+    case 'searchText':
+
+      return state.map(issue => ({
+        ...issue,
+        display: Boolean(~issue.title.toLowerCase().indexOf(action.text.toLowerCase()))
+      }));
 
     default:
       return state;

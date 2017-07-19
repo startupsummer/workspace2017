@@ -12,3 +12,15 @@ export function fetchIssues() {
 export function closeIssue(id) {
   return new Promise(resolve => resolve({id}));
 }
+
+export function addNewIssue(data) {
+  return new Promise(resolve => resolve({
+    id: data[data.length - 1].id + 1,
+    title: 'New issue',
+    state: 'open'
+  }));
+}
+
+export function searchText(text) {
+  return new Promise(resolve => resolve({text}));
+}
