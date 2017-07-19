@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import MyButton from '../button/button.js';
 import ListItem from '../listItem/listItem.js';
+import fromStore from '../../resourses/list.selectors';
+import { connect } from 'react-redux';
 
 
 class List extends Component {
@@ -10,7 +12,8 @@ class List extends Component {
   }
 
   render() {
-    let data = this.props.listData;
+    let data = this.props.issue.state
+
     let tempData = [];
 
     if(this.props.sortField.length > 0) {
@@ -57,4 +60,7 @@ class List extends Component {
   }
 }
 
-export default List;
+export default connect(state => ({
+  issue: fromStore.getList(state),
+}), {
+}) (List)

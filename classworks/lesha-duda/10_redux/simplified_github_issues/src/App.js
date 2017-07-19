@@ -1,44 +1,37 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import './index.js';
 import MyButton from './components/button/button';
 import List from './components/list/list';
-import Data from './data/data'
 import Search from './components/search/search';
 import ListItem from './components/listItem/listItem';
+import { connect } from 'react-redux';
+import { fetchList, addListItem, closeListItem } from './resourses/list.actions';
+import fromStore from './resourses/list.selectors';
 import 'whatwg-fetch'
-
 
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      issues: Data,
       st: 'open',
       findName: "",
-      cratch: "",
      }
   }
 
-  componentDidMount() {
-    fetch('https://api.github.com/repos/Hellycat/react_test/issues?access_token=d76ef4819f603e1deb94be5479f229abc13a85e9&state=all')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ issues: data });
-      }); 
+  componentDidMount = () => {
+    this.props.fetchList();
   }
 
   render() {
-    const {searchIssues} = this.state;
-    const allIssuies = this.state.issues.length;
+    const allIssuies = this.props.issue.state.length
     let openedAmount = 0;
 
-    this.state.issues.map(function(e) {
+    this.props.issue.state.map(function(e) {
       if(e.state === 'open') {
-        openedAmount += 1;
+        openedAmount += 1;        
       }
     });
 
@@ -46,7 +39,6 @@ class App extends Component {
 
     return (
       <Router>
-
         <div>
           <Route path="/">
             <div>
@@ -99,7 +91,7 @@ class App extends Component {
           <Route exact path="/" component={() =>
             <div className="container">
               <div className="issues-listing__body">
-                <List listData={this.state.issues} sortField={this.state.findName}
+                <List sortField={this.state.findName}
                   state={this.state.st} handler={this.handlerDel}
                 />
               </div>
@@ -107,7 +99,7 @@ class App extends Component {
           }/>
 
           <Route path="/:id" component={(props) =>
-            <ListItem data={this.state.issues}
+            <ListItem data={this.props.issue}
               id={props.match.params.id}/>}
           />
 
@@ -116,55 +108,12 @@ class App extends Component {
     );
   }
 
-   hadnlerUpdate = () => {
-    fetch('https://api.github.com/repos/Hellycat/react_test/issues?access_token=d76ef4819f603e1deb94be5479f229abc13a85e9&state=all')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ issues: data });
-      }); 
-  }
-
   handlerDel = (number) => (e) => {
-    e.preventDefault();
-    fetch(`https://api.github.com/repos/Hellycat/react_test/issues/${number}?access_token=d76ef4819f603e1deb94be5479f229abc13a85e9`, {
-      method: "PATCH",
-      body:JSON.stringify({
-        state: "closed",
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-
-      let length = this.state.issues.length
-
-      let tempData = [...this.state.issues]
-      for(let i = 0; i < length; i++) {
-        if(this.state.issues[i].id === data.id) {
-          tempData[i].state = `closed`;
-          break;
-        }
-      }
-
-      this.setState({issues: tempData})
-    });
+    this.props.closeListItem(number);
   }
 
   handlerAdd = (e) => {
-    console.log("handler add");
-    e.preventDefault();
-    fetch('https://api.github.com/repos/Hellycat/react_test/issues?access_token=d76ef4819f603e1deb94be5479f229abc13a85e9', {
-      method: "POST",
-      body:JSON.stringify({
-        title: Math.random().toString(36).slice(2),
-        body: Math.random().toString(36).slice(2),
-        state: "open",
-      })
-    })
-    .then((response) =>  response.json())
-    .then((data) => {
-      this.setState({issues: [...this.state.issues, data]})
-    });
-
+    this.props.addListItem();
   }
 
   searchHandle = (e) => {
@@ -197,6 +146,10 @@ class App extends Component {
   }
 }
 
-export default connect(
-  list
-)(App);
+export default connect(state => ({
+  issue: fromStore.getList(state),
+}), {
+  fetchList,
+  addListItem,
+  closeListItem,
+}) (App)
