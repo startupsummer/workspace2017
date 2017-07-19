@@ -9,7 +9,7 @@ import cards from './resources/cards/cards.reducer';
 const reducer = combineSectionReducers({ lists, cards });
 
 export default createStore(
-  reducer,
+  reducer,  
   compose(
     applyMiddleware(thunkMiddleware),
     window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : noop => noop,

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Form = ({ onChange }) => (
   <form className="subnav__search">
     <input
-      onKeyDown={onChange}
+      onChange={onChange}
       className="subnav__search-input"
       type="text"
       placeholder="Search"
@@ -16,7 +16,7 @@ const Form = ({ onChange }) => (
 );
 
 Form.propTypes = {
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Form;

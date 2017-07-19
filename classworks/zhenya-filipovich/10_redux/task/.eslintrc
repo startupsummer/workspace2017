@@ -1,0 +1,11 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "jsx-a11y/href-no-hash": "off",
+    "linebreak-style": "off"
+  }
+}

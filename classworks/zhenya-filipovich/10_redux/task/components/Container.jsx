@@ -8,8 +8,8 @@ import IssueDescription from './IssueDescription';
 
 class Container extends Component {
   static propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object),
-    getDataFromServer: PropTypes.func,
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    getDataFromServer: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -51,7 +51,7 @@ class Container extends Component {
     const options = {
       method: 'POST',
       body: JSON.stringify({
-        title: `Some problems with ${~~(Math.random() * 200)}`,
+        title: `Some problems with ${Math.trunc((Math.random() * 200))}`,
         body: 'Description of this problem',
       }),
     };
@@ -63,12 +63,9 @@ class Container extends Component {
   }
 
   searchIssue = (e) => {
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      this.setState({
-        inputValue: e.target.value.toLowerCase(),
-      });
-    }
+    this.setState({
+      inputValue: e.target.value.toLowerCase(),
+    });
   }
 
   render() {
@@ -78,7 +75,7 @@ class Container extends Component {
           <Route
             exact
             path="/"
-            component={() => (
+            render={() => (
               <div>
                 <ListingSubnav
                   onClick={this.addIssues}
@@ -101,7 +98,7 @@ class Container extends Component {
           />
           <Route
             path="/issue/:number"
-            component={props => (
+            render={props => (
               <IssueDescription
                 number={props.match.params.number}
                 items={this.props.items}

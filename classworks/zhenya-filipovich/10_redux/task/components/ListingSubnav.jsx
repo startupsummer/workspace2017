@@ -16,8 +16,8 @@ const ListingSubnav = ({ onChange, onClick }) => (
 );
 
 ListingSubnav.propTypes = {
-  onChange: PropTypes.func,
-  onClick: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ListingSubnav;

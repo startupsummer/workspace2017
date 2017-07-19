@@ -7,6 +7,9 @@
     "start": "webpack-dev-server",
     "lint": "eslint ."
   },
+  "plugins": [
+    "react"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
