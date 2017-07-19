@@ -2,10 +2,10 @@ import * as fromIssue from './resources/selectors';
 
 
 export default {
-  getIssuesByWord: (state) =>
-    fromIssue.getIssueByWord(state),
+  getIssuesShowNow: (state) =>
+    fromIssue.getIssuesShowNow(state),
 
-  getIssues: state => {
-    return state.issues;
-  }
+  getIssues: state => state.issues,
+
+  getIssuesByStateShow: (state, stateShow) => fromIssue.getIssuesByStateShow(state, stateShow),
 };

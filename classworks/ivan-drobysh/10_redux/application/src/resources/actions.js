@@ -1,6 +1,5 @@
 import * as api from './api';
 
-
 export const fetchIssues = () => dispatch =>
   api.fetchIssues()
     .then(data => dispatch({ type: 'fetchIssues', data }));
@@ -16,3 +15,7 @@ export const newIssue = () => dispatch =>
 export const setSearchRequest = (event) => dispatch =>
   api.setSearchRequest(event)
     .then(data => dispatch({ type: 'setSearchRequest', data }));
+
+export const setStateShow = (stateShow) => dispatch =>
+ api.setStateShow(stateShow)
+    .then(data =>  dispatch({ type: 'setStateShow', data }));

@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import '../../main.css';
 import { fetchIssues } from '../../resources/actions';
 
-// import Header from './components/Header'
+ import Header from './components/header/Header'
  import PageHead from './components/pageHead/PageHead';
  import ListSubnav from './components/listSubnav/ListSubnav';
-// import ListHeader from './components/listing/ListHeader';
+ import ListHeader from './components/listHeader/ListHeader';
  import ListBody from './components/listBody/ListBody';
-// import Description from './components/listing/Description';
+ import Description from './components/description/Description';
 
 class Board extends Component {
 
@@ -22,20 +22,15 @@ class Board extends Component {
       <Router>
         <div className="App">
           <div className="App-header">
-            {
-            //  <Header />
-            }
+            <Header />
           </div>
           <div className="content">
             <PageHead />
             <div className="container">
               <div className="issues-listing">
-                <ListSubnav onClick={this.newOnClick} onChange={this.inputChange}/>
-                {
-
-                // <ListHeader count={count} show={this.setShow} state={this.state.stateShow}/>
-                // <Route path="/:id" component={(props) => <Description issues={this.state.issuesAll} {...props} />} />
-              }
+                <ListSubnav />
+                <ListHeader />
+                <Route path="/:id" component={(props) => <Description issues={this.props.state.issues} {...props} />} />
                 <Route exact path="/" component={() => <ListBody />}/>
               </div>
             </div>
@@ -46,6 +41,8 @@ class Board extends Component {
   }
 }
 
-export default connect(null, {
+export default connect((state) => ({
+  state
+}), {
   fetchIssues
 })(Board);

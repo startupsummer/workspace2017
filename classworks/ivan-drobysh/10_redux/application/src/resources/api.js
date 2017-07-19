@@ -26,20 +26,7 @@ export function switchState(item) {
     }),
   }).then((resp) => resp.json());
 }
-// count() {
-//   let close = 0, open = 0;
-//   open = this.state.issuesAll.reduce(
-//     (previousValue, currentValue, index, array)=> {
-//     if(currentValue.state === 'open')
-//       return previousValue + 1;
-//     return previousValue;
-//   }, 0);
-//   close = this.state.issuesAll.length - open;
-//   return {
-//     open,
-//     close,
-//   }
-// }
+
 export function  setSearchRequest(event){
   const searchText = event.currentTarget.value.toLowerCase();
   return Promise.resolve(searchText);
@@ -56,6 +43,6 @@ export function  setSearchRequest(event){
 //     return issues;
 //   }
 // }
-// setShow = (stateShow) => () => {
-//   this.setState({stateShow});
-// }
+ export function setStateShow(stateShow){
+   return Promise.resolve(stateShow);
+ }

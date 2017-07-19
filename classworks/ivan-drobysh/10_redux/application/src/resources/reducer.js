@@ -1,6 +1,10 @@
 
 let issues;
-export default (state = {issues: [], searchRequest: ''}, action) => {
+export default (state = {
+  issues: [],
+  searchRequest: '',
+  stateShow: 'all'
+}, action) => {
   switch (action.type) {
     case 'fetchIssues':
        issues = action.data;
@@ -11,6 +15,7 @@ export default (state = {issues: [], searchRequest: ''}, action) => {
     case 'switchState':
 
       return {
+        ...state,
         issues: state.issues.map((item) => {
           if(item.id === action.data.id) {
             return action.data;
@@ -21,6 +26,7 @@ export default (state = {issues: [], searchRequest: ''}, action) => {
     case 'newIssue':
      issues = [...state.issues, action.data];
       return {
+        ...state,
         issues
       }
     case 'setSearchRequest':
@@ -30,5 +36,10 @@ export default (state = {issues: [], searchRequest: ''}, action) => {
       }
     default:
       return state;
+    case 'setStateShow':
+     return {
+       ...state,
+       stateShow: action.data,
+     }
   }
 };

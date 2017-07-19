@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import IssueItem from '../issue/IssueItem';
-import selectors from '../../../../index.selectors.js'
+import selectors from '../../../../index.selectors.js';
 class ListBody extends Component {
 
   render() {
@@ -17,5 +17,5 @@ class ListBody extends Component {
 }
 
 export default connect((state) => ({
-  issues: selectors.getIssuesByWord(state)
+  issues: selectors.getIssuesShowNow(state)
 }))(ListBody);
