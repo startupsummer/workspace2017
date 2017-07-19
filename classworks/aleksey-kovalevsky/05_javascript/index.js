@@ -116,7 +116,7 @@ function buildTimeString(sec) {
 const secondsPerMinute = 60;
 
 const timeBoard = document.querySelector('.timer');
-const results = document.querySelector('.results');
+let results = document.querySelector('.results');
 
 const buttons = {
   start: document.querySelector('.start.button'),
@@ -124,33 +124,48 @@ const buttons = {
   reset: document.querySelector('.reset.button'),
   plus: document.querySelector('.plus.button'),
   minus: document.querySelector('.minus.button'),
+  addToTable: document.querySelector('#addToTable'),
+  clearTable: document.querySelector('#clearTable')
 };
 
 timeBoard.textContent = '00:00';
 
 
-// var stopwatch = new StopWatch();
-// stopwatch.on('tick', t => timeBoard.textContent = buildTimeString(t))
-//   .on('reset', () => timeBoard.textContent = '00:00')
-//   .on('plus', t => timeBoard.textContent = buildTimeString(t))
-//   .on('minus', t => timeBoard.textContent = buildTimeString(t))
-
-// buttons.start.addEventListener('click', () => stopwatch.start());
-// buttons.stop.addEventListener('click', () => stopwatch.stop());
-// buttons.reset.addEventListener('click', () => stopwatch.reset());
-// buttons.plus.addEventListener('click', () => stopwatch.plus(10));
-// buttons.minus.addEventListener('click', () => stopwatch.minus(10));
-
-var timer = new Timer();
-timer.on('tick', t => timeBoard.textContent = buildTimeString(t))
+var stopwatch = new StopWatch();
+stopwatch.on('tick', t => timeBoard.textContent = buildTimeString(t))
   .on('reset', () => timeBoard.textContent = '00:00')
   .on('plus', t => timeBoard.textContent = buildTimeString(t))
   .on('minus', t => timeBoard.textContent = buildTimeString(t))
-  .on('end', () => alert("Timer stopped!"))
 
-buttons.start.addEventListener('click', () => timer.start());
-buttons.stop.addEventListener('click', () => timer.stop());
-buttons.reset.addEventListener('click', () => timer.reset());
-buttons.plus.addEventListener('click', () => timer.plus(10));
-buttons.minus.addEventListener('click', () => timer.minus(10));
+buttons.start.addEventListener('click', () => stopwatch.start());
+buttons.stop.addEventListener('click', () => stopwatch.stop());
+buttons.reset.addEventListener('click', () => stopwatch.reset());
+buttons.plus.addEventListener('click', () => stopwatch.plus(10));
+buttons.minus.addEventListener('click', () => stopwatch.minus(10));
+
+// uncomment it and comment the StopWatch above to use Timer
+// var timer = new Timer();
+// timer.on('tick', t => timeBoard.textContent = buildTimeString(t))
+//   .on('reset', () => timeBoard.textContent = '00:00')
+//   .on('plus', t => timeBoard.textContent = buildTimeString(t))
+//   .on('minus', t => timeBoard.textContent = buildTimeString(t))
+//   .on('end', () => alert("Timer stopped!"))
+
+// buttons.start.addEventListener('click', () => timer.start());
+// buttons.stop.addEventListener('click', () => timer.stop());
+// buttons.reset.addEventListener('click', () => timer.reset());
+// buttons.plus.addEventListener('click', () => timer.plus(10));
+// buttons.minus.addEventListener('click', () => timer.minus(10));
+
+buttons.addToTable.addEventListener('click', () => {
+  var result = document.createElement('li');
+  result.appendChild(document.createTextNode(timeBoard.textContent));
+  results.appendChild(result);
+});
+
+buttons.clearTable.addEventListener('click', () => {
+  while(results.firstChild){
+    results.removeChild(results.firstChild);
+  }
+})
 
