@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-
 import IssuesListeningSubnav from './IssuesListeningSubnav';
 import IssuesListeningHeader from './IssuesListeningHeader';
 import IssuesListeningBody from './IssuesListeningBody';
-import IssueDiscription from './IssueDiscription';
-import data from '../data.js';
 
+import { connect } from 'react-redux';
 import { fetchIssues } from '../resources/issue/issue.actions'
 import issuesSelector from '../resources/issue/issue.selectors';
 
@@ -61,17 +57,13 @@ class IssuesList extends Component {
         <IssuesListeningSubnav onSearch={this.onSearch}/>
         <IssuesListeningHeader onTabSwitch={this.onTabSwitch} closeCounter={closeCounter} openCounter={openCounter}/>
         <IssuesListeningBody issuesType={this.state.issuesType} text={this.state.text} data={this.props.data} />
-
-        <Route path="/discription/:id" render={props => (
-            <IssueDiscription {...props} data={this.props.data}/>
-          )}/>
-        </div>
-      )
-    }
+      </div>
+    )
   }
+}
 
-  export default connect((state, props) => ({
-    data: issuesSelector(state),
-  }), {
-    fetchIssues
-  })(IssuesList);
+export default connect((state, props) => ({
+  data: issuesSelector(state),
+}), {
+  fetchIssues
+})(IssuesList);

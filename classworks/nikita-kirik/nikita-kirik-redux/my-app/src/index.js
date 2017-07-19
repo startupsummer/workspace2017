@@ -11,8 +11,7 @@ import store from './store.js';
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Route path='/' component={App}>
-      </Route>
+      <App />
     </Router>
   </Provider>,
   document.getElementById('root')

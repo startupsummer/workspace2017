@@ -1,6 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import issuesSelector from '../resources/issue/issue.selectors';
 
-class IssueDiscription extends PureComponent {
+class IssueDiscription extends Component {
   static propTypes = {
     data: React.PropTypes.array.isRequired,
   }
@@ -20,4 +22,6 @@ class IssueDiscription extends PureComponent {
   }
 }
 
-export default IssueDiscription;
+export default connect((state, props) => ({
+  data: issuesSelector(state),
+}))(IssueDiscription);
