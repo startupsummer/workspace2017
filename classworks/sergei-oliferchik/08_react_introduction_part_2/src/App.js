@@ -23,7 +23,7 @@ chengedIssues = (id) => () => {
   const chengeState = issuesState === 'open' ? 'closed' : 'open';
   let newState = this.state.issues.map(el => {
     const issuesNumber = el.number;
-    const url = `https://api.github.com/repos/Oliferchik/newPublickRepo/issues/${issuesNumber}?${ACCESS_TOKEN}`;
+    const url = `https://api.github.com/repos/Oliferchik/delrep/issues/${issuesNumber}?${ACCESS_TOKEN}`;
 
     if(el.id === id) {
       fetch(url, {
@@ -46,7 +46,7 @@ addIssues = () => () => {
     const issues = this.state.issues;
     const newData = addData.pop();
     const newState  = [...issues,newData];
-    const url = `https://api.github.com/repos/Oliferchik/newPublickRepo/issues?${ACCESS_TOKEN}`
+    const url = `https://api.github.com/repos/Oliferchik/delrep/issues?${ACCESS_TOKEN}`
 
     fetch(url, {
       method: 'post',
@@ -83,9 +83,10 @@ search = (e) => {
   this.setState({searchField: value})
 }
   componentDidMount() {
-    fetch(`https://api.github.com/repos/Oliferchik/newPublickRepo/issues?state=all&${ACCESS_TOKEN}`)
+    fetch(`https://api.github.com/repos/Oliferchik/delrep/issues?state=all&${ACCESS_TOKEN}`)
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         const newState = data.reduce( (prev, cur) => {
           return prev.concat({
             id: cur.id,
