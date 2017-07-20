@@ -22,7 +22,7 @@ class Issue extends Component {
           }
         </div>
         <div className="issues__title">
-          <Link className="issues__link" onClick={this.handleSelectIssue} to={`/${issue.id}`}>
+          <Link className="issues__link" to={`/${issue.id}`}>
             {issue.title}
           </Link>
         </div>
