@@ -21,13 +21,14 @@ winston.configure({
   });
 
 const handlePostRequests = (request, response, data) => {
+  console.log('d');
   switch (request.url) {
   case '/info':
-    for(let i = 0; i < args.length; i++) {
-      if( argum[i][0] === 'firstName')
-       firstName = argum[i][1];
-      if( argum[i][0] === 'lastName')
-      lastName = argum[i][1];
+    for(let i = 0; i < data.length; i++) {
+      if( data[i][0] === 'firstName')
+       firstName = data[i][1];
+      if( data[i][0] === 'lastName')
+      lastName = data[i][1];
     }
     response.end(`Hello my name is ${firstName} ${lastName}`);
     break;
