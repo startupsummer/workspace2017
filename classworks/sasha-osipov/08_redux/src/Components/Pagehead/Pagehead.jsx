@@ -11,7 +11,7 @@ class Pagehead extends Component {
         count: PropTypes.number.isRequired,
     }
   
-  render() {
+    render() {
         return (
             <div className="pagehead">
                 <Container repohead>

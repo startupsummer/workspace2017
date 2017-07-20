@@ -13,6 +13,8 @@ class IssuesItem extends Component {
         changeIssue: PropTypes.func.isRequired,
         issues: PropTypes.array.isRequired,
         issuesState: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
     }
 
     closeItem = (id) => () => {
