@@ -8,9 +8,6 @@ import IssuesListingHeader from './issues-listing__header';
 import IssuesListingBody from './issues-listing__body';
 
 class IssuesListing extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     const props = this.props;
     const openIssues = props.issues

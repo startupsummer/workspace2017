@@ -6,7 +6,7 @@ import Main from './components/main/index';
 import data from './data';
 import addData from './addData';
 
-
+const ACCESS_TOKEN = 'access_token=15565f636cf3a818858158b85e87d9d1cbb5a639';
 
 class App extends Component {
   constructor() {
@@ -19,27 +19,25 @@ class App extends Component {
   }
 
 chengedIssues = (id) => () => {
-  const chengeState = issuesState === 'open' ? 'closed' : 'open';
   const issuesState = this.state.issuesState;
+  const chengeState = issuesState === 'open' ? 'closed' : 'open';
   let newState = this.state.issues.map(el => {
+    const issuesNumber = el.number;
+    const url = `https://api.github.com/repos/Oliferchik/newPublickRepo/issues/${issuesNumber}?${ACCESS_TOKEN}`;
+
     if(el.id === id) {
-
-      fetch('https://api.github.com/repos/Oliferchik/newPublickRepo/issues?access_token=15565f636cf3a818858158b85e87d9d1cbb5a639', {
-        method: 'post',
-        body:JSON.stringify({chengeState}),
-      })
-
-      .then(response => response.json())
-      .then(data => console.log(data));
+      fetch(url, {
+        method: 'PATCH',
+        body:JSON.stringify({
+          state: chengeState,
+        }),
+      });
       return Object.assign({}, el, {
         state: chengeState
       });
     }
     return el;
   });
-
-
-
   this.setState({ issues: newState });
 }
 
@@ -48,8 +46,9 @@ addIssues = () => () => {
     const issues = this.state.issues;
     const newData = addData.pop();
     const newState  = [...issues,newData];
+    const url = `https://api.github.com/repos/Oliferchik/newPublickRepo/issues?${ACCESS_TOKEN}`
 
-    fetch('https://api.github.com/repos/Oliferchik/newPublickRepo/issues?access_token=15565f636cf3a818858158b85e87d9d1cbb5a639', {
+    fetch(url, {
       method: 'post',
       body:JSON.stringify({
         "title": newData.title,
@@ -84,7 +83,7 @@ search = (e) => {
   this.setState({searchField: value})
 }
   componentDidMount() {
-    fetch('https://api.github.com/repos/Oliferchik/newPublickRepo/issues?state=all&access_token=15565f636cf3a818858158b85e87d9d1cbb5a639')
+    fetch(`https://api.github.com/repos/Oliferchik/newPublickRepo/issues?state=all&${ACCESS_TOKEN}`)
       .then(response => response.json())
       .then(data => {
         const newState = data.reduce( (prev, cur) => {
@@ -92,7 +91,8 @@ search = (e) => {
             id: cur.id,
             about: cur.body,
             state: cur.state,
-            title: cur.title
+            title: cur.title,
+            number: cur.number,
           })
           }, []);
           this.setState({ issues: newState });

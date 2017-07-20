@@ -8,9 +8,6 @@ import AboutIssue from './issues-about';
 import './index.css';
 
 class IssuesListingBody extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     const findField = this.props.issues
       .filter(el => (

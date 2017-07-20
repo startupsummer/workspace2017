@@ -6,9 +6,6 @@ import Peponav from './reponav-item';
 import './index.css';
 
 class Pagehead extends Component {
-  constructor(props) {
-    super(props)
-  }
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.issues !== this.props.issues;
   }
