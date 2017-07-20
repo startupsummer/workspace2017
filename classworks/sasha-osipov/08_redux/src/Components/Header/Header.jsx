@@ -5,7 +5,7 @@ import Logo from '../Logo/Logo';
 
 const Header = () => (
     <header className="header">
-        <Container classRepoHead={ false }>
+        <Container>
             <Logo />
         </Container>
     </header>

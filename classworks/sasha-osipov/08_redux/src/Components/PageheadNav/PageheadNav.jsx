@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import './PageheadNav.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class PageheadNav extends Component {
+
+    static propsTypes = {
+        counter: PropTypes.number.isRequired,
+    }
   
-  render() {
+    render() {
         return (
             <nav className="reponav">
                 <Link to="/" className="reponav-item selected">

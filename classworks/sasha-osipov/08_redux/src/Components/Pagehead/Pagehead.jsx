@@ -3,8 +3,13 @@ import Container from '../Container/Container';
 import PageheadTitle from '../PageheadTitle/PageheadTitle';
 import PageheadNav from '../PageheadNav/PageheadNav';
 import './Pagehead.css';
+import PropTypes from 'prop-types';
 
 class Pagehead extends Component {
+    
+    static propsTypes = {
+        count: PropTypes.number.isRequired,
+    }
   
   render() {
         return (

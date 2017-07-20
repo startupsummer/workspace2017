@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import './PageheadTitle.css';
+import PropTypes from 'prop-types';
 
 class PageheadTitle extends Component {
+
+    static propsTypes = {
+        username: PropTypes.string.isRequired,
+        reponame: PropTypes.string.isRequired
+    }
+
     render() {
         return (
             <h1 className="pagehead-title">
