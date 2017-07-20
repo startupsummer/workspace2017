@@ -1,7 +1,6 @@
 const http = require('http')
 const port = 3000;
-const fs = require('fs')
-const sharp = require('sharp');
+const fs = require('fs');
 const winston = require('winston');
 const Busboy = require('busboy');
 let firstName = '', lastName = '';
@@ -21,88 +20,86 @@ winston.configure({
     ]
   });
 
-const postHandler = (request, response) => {
-  let body = '';
-
-  request.on('data', data => {
-    body += data;
-  });
-
-  request.on('end', () => {
-    let argum = parseBody(body);
-
-    switch (request.url) {
-    case '/info':
-      for(let i = 0; i < args.length; i++) {
-        if( argum[i][0] === 'firstName')
-         firstName = argum[i][1];
-        if( argum[i][0] === 'lastName')
-        lastName = argum[i][1];
-      }
-      winston.log('info', 'POST /info');
-      response.end(`Hello my name is ${firstName} ${lastName}`);
-      break;
-    case '/imageS':
-      response.end('The image is successfully loaded');
-    break;
+const handlePostRequests = (request, response, data) => {
+  switch (request.url) {
+  case '/info':
+    for(let i = 0; i < args.length; i++) {
+      if( argum[i][0] === 'firstName')
+       firstName = argum[i][1];
+      if( argum[i][0] === 'lastName')
+      lastName = argum[i][1];
     }
-  });
+    response.end(`Hello my name is ${firstName} ${lastName}`);
+    break;
+  }
+}
+
+const postHandler = (request, response) => {
   if(request.url === '/image') {
     let busboy = new Busboy({ headers: request.headers });
     busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
       let saveTo = './img.jpg';
       file.pipe(fs.createWriteStream(saveTo));
     });
-
     request.pipe(busboy);
-  }
+    busboy.on('finish', () => {
+      fs.readFile('./img.jpg', (err, data) => {
+        if (err)
+          throw err;
 
+        response.end(data);
+      });
+      });
+    } else {
+    let body = '';
+
+    request.on('data', data => {
+      body += data;
+    });
+
+    request.on('end', () => {
+      let argum = parseBody(body);
+      handlePostRequests(request, response, argum);
+    });
+  }
 }
 
 const getHandler = (request, response) => {
   switch (request.url) {
     case '/':
-      winston.log('info', 'GET /');
       response.end('Hello Startup Summer');
       break;
     case '/info':
-      winston.log('info', 'GET /info');
       response.end(`Hello my name is ${firstName} ${lastName}`);
       break;
 
+    case '/index.css':
+      fs.readFile('./index.css', (err, data) => {
+        if (err)
+          throw err;
+        response.end(data);
+      });
+      break;
     case '/index.html':
       fs.readFile('./index.html', (err, data) => {
         if (err)
           throw err;
 
-        winston.log('info', 'GET /index.html');
         response.end(data);
       });
       break;
-    case '/index.css':
-      fs.readFile('./index.css', (err, data) => {
-        if (err)
-          throw err;
-        winston.log('info', 'GET /index.css');
-        response.end(data);
-      });
-      break;
-      case '/image':
+    case '/image':
+    fs.readFile('./img.jpg', (err, data) => {
+      if (err)
+        throw err;
 
-      sharp('./img.jpg').
-      toBuffer()
-      .then( data => {
-        winston.log('info', 'GET /image');
-        response.end(data);
-      })
-      .catch( err => console.log(err.message));
-
+      response.end(data);
+    });
     break;
   }
 }
 
 const requestHandler = (request, response) => {
-
   switch (request.method) {
     case 'GET':
       getHandler(request, response);
@@ -112,8 +109,11 @@ const requestHandler = (request, response) => {
       postHandler(request, response);
       break;
   }
+  loggerHandler(request, response);
 }
-
+const loggerHandler = (request) => {
+    winston.log('info', 'logger handler', { anything: `require page: ${request.url}`});
+}
 const server = http.createServer(requestHandler);
 
 server.listen(port, (err) => {

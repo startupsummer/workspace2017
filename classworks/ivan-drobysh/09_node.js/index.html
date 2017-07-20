@@ -1,8 +1,6 @@
 <head>
   <head>
     <link rel="stylesheet" href="/index.css">
-    <script type="text/javascript">
-    </script>
   </head>
   <body>
     <main class="main">
@@ -14,7 +12,7 @@
       </form>
 
       <h1 class="title">Choose file</h1>
-      <form class="form" autocomplete="off" enctype="multipart/form-data"action="/imageS"  method="POST">
+      <form id="image-form" class="form" autocomplete="off" enctype="multipart/form-data" action="/image" method="post">
         <input class="input" style="width: 325px"  size="200" type="file" name="file" />
         <button class="button" type="submit">Submit</button>
       </form>
