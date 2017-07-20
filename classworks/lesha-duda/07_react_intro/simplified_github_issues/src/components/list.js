@@ -34,10 +34,9 @@ class List extends Component {
                 </a>
               </div>
 
-
               {item.state === 'open'
                 ? <MyButton className="btn issue__close" type="button"
-                    handler={this.props.handler(item.id)} value="Close issue"
+                    handler={this.props.handler(item.number)} value="Close issue"
                     id={item.id}
                   />
                 : null
