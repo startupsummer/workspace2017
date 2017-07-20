@@ -1,0 +1,32 @@
+.aside-toggle {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	width: 48px;
+	height: 48px;
+	/*z-index: 1;*/
+
+	opacity: .7;
+	background: #2E2E2E;
+	border-radius: 5px;
+
+	background-image: svg-load("aside-toggle.svg");
+	background-repeat: no-repeat;
+	background-size: 80%;
+	background-position: center;
+	/*transform: translateX(250px);*/
+
+
+	@media (--medium-viewport) {
+		&--hidden {
+			display: none;
+		}
+	}
+
+	@media (--before-medium-viewport) {
+		&--opened {
+			transform: translateX(250px);
+		}
+	}
+
+}

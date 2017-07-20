@@ -1,0 +1,29 @@
+.articles {
+  @media (--medium-viewport) {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__column {
+    margin-right: 20px;
+  }
+
+  &__item {
+    text-decoration: none;
+    margin-bottom: 20px;
+    box-shadow: 0 0.05em 0.15em 0 rgba(0, 0, 0, 0.05);
+    display: block;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__name {
+    font-size: 1em;
+    color: #667;
+    line-height: 1.5em;
+    background: #fff;
+    padding: 1em 0;
+  }
+}

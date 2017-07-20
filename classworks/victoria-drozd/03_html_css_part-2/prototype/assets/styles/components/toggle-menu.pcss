@@ -1,0 +1,26 @@
+.toggle-menu {
+  display: block;
+  position: fixed;
+  background: rgba(128, 136, 144, 0.5);
+  border-radius: 0.35em;
+  width: 2.2em;
+  height: 1.7em;
+  border: 0;
+  text-align: center;
+  margin: 10px 0 0 10px;
+  outline: none;
+
+  @media (--desktop-viewport) {
+    display: none;
+  }
+
+  &__icon {
+    margin-top: 0.3em;
+    display: inline-block;
+    height: 1.5em;
+    width: 1em;
+    background-image: svg-load("toggle-menu.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}

@@ -1,0 +1,29 @@
+.button{
+    height: 4vw;
+    width: 14vw;
+    margin: 1vw;
+    border-radius: 5px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: #84B3AF;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    min-height: 30px;
+    min-width: 80px;
+    opacity: 0.99;
+    z-index: 1;
+}
+.button:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+ .button__text{
+        position: relative;
+        font-size: 10px;
+    }
+@media(min-width: 760px){
+    .button__text{
+        top: 1.5vw;
+        font-size: 1.5vw;
+    }
+}
