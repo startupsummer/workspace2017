@@ -1,8 +1,9 @@
 const http = require('http');
 const fs = require('fs');
-const stream = fs.createReadStream('./public/index.html');
 const formBody = require("body/form");
 const request = require('request');
+
+const port = 3000;
 
 const winston = require('winston');
 winston.configure({
@@ -11,35 +12,37 @@ winston.configure({
    ]
  });
 
-const port = 3000;
+const postHandler = (req, res) => {
+  switch (req.url) {
+    case '/form': formBody(req, {}, (err,body) => {
+        let { firstName, lastName } = body;
+        res.end (`My name is ${firstName} ${lastName}`);
+      });
+      break;
 
-const username = 'Sergei  Oliferchik';
-let data  = '';
-
-const postHandler = (request, response) => {
-  function send(err, body) {
-    let { firstName, lastName } = body;
-    response.end(`My name is ${firstName} ${lastName}`);
+    default:
   }
-
-  formBody(request, {}, send);
 }
 
 const getHandler = (req, res) => {
   const urlImg = 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Red_Hot_Chili_Peppers_2012-07-02_001.jpg';
+  const username = 'Sergei  Oliferchik';
+  const stream = fs.createReadStream('./public/index.html');
 
   switch (req.url) {
     case '/': res.end('Hello Node.js Server!');
       break;
     case '/info': res.end(`Hello. My name is ${username}`);
       break;
-    case '/index.html': res.end(data);
+    case '/index.html': stream.on('data',
+    (streamData) => {
+      res.end(streamData.toString('utf8'));
+    });
       break;
     case '/internet-file': request(urlImg).pipe(res);
     default:
   }
 }
-
 
 const requestHandler = (request, response) => {
   winston.log('info', 'Test Log Message', { anything: 'This is metadata' });
@@ -56,10 +59,6 @@ const requestHandler = (request, response) => {
 };
 
 const server = http.createServer(requestHandler);
-
-stream.on('data', (streamData) => {
-  data += streamData.toString('utf8')
-})
 
 server.listen(port, (err) => {
   if (err) {
