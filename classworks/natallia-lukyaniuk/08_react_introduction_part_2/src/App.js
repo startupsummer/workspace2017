@@ -17,6 +17,7 @@ class App extends Component {
       filterIssues: '',
     }    
   }
+
   componentDidMount() {
     fetch('https://api.github.com/repos/natallia-lukyaniuk/githubApp/issues?access_token=a703c8d41fd00ac64c44bdbc1b987952ef5110de&state=all')
       .then(response => response.json())
@@ -24,9 +25,11 @@ class App extends Component {
         this.setState({issues: data});
       });
   }
+  
   handleState(e) {
     this.setState({issuesState: e.target.value})
   }
+
   handleChangeState(number, e) {
     const {issues} = this.state;
     
@@ -47,6 +50,7 @@ class App extends Component {
         this.setState({issues: newIssuesList});
       });
   }
+
   handleNewIssue() {
     const {issues} = this.state;
     const id = Math.random().toString();
@@ -64,9 +68,11 @@ class App extends Component {
         this.setState({issues: newIssuesList});
       });
   }
+
   handleSearch(e) {
     this.setState({filterIssues: e.target.value});
   }
+  
   render() {
     const {issues, issuesState, filterIssues} = this.state;
     const displayedIssues = issues.filter((item) => item.title.toString().toLowerCase().includes(filterIssues));

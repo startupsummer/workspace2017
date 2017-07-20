@@ -10,6 +10,7 @@ class IssueDescription extends Component {
       issue: issues.filter((item) => item.id == id),
     }
   }
+  
   componentWillReceiveProps(nextProps) {
     const {id: prevId, issues} = this.props;
     const {id: nextId} = nextProps;
@@ -18,6 +19,7 @@ class IssueDescription extends Component {
       this.setState({id: nextId, issue: newIssue});
     }
   }
+
   render() {
     return (
       <div>{this.state.issue[0].body}</div>

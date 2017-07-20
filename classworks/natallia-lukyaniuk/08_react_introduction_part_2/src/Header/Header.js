@@ -6,6 +6,7 @@ class Header extends Component {
     const {count: nextCount} = nextProps;
     return currentCount !== nextCount;
   }
+  
   render() {
     const {count} = this.props;
     return (
