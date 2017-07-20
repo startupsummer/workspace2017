@@ -1,8 +1,8 @@
 export function getIssuesShowNow(state) {
   let stateShow = '';
   if (state.stateShow !== 'all') stateShow = state.stateShow;
-  return state.issues.filter(issue => (issue.title.toLowerCase().indexOf(state.searchRequest.toLowerCase()) !== -1 &&
-  issue.state.indexOf(stateShow) !== -1));
+  return state.issues.filter(issue => (issue.title.toLowerCase().includes(state.searchRequest.toLowerCase()) &&
+  issue.state.includes(stateShow)));
 }
 
 export function getIssuesByStateShow(state, stateShow) {

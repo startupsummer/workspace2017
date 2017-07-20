@@ -3,6 +3,7 @@ import {Link } from 'react-router-dom';
 import { setStateShow } from '../../../../resources/actions';
 import selectors from '../../../../index.selectors.js';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class ButtonCloseShow extends Component {
   onClick = () => {
@@ -23,6 +24,12 @@ class ButtonCloseShow extends Component {
     )
   }
 }
+
+ButtonCloseShow.propTypes = {
+  setStateShow: PropTypes.func,
+  stateShow: PropTypes.string,
+  count: PropTypes.number,
+};
 
 export default connect((state) => {
   return {

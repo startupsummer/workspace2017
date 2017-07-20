@@ -1,6 +1,7 @@
 import React from 'react';
 import ButtonClose from '../buttonClose/ButtonClose';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function IssueItem(props) {
   return (
@@ -21,4 +22,9 @@ function IssueItem(props) {
     </li>
   )
 }
+
+IssueItem.propTypes = {
+  issue: PropTypes.object,
+};
+
 export default IssueItem;

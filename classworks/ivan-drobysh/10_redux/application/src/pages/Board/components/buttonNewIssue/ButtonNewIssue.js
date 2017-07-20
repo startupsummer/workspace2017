@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '../../../../components/Button/Button'
 import { newIssue } from '../../../../resources/actions.js';
+import PropTypes from 'prop-types';
 
 class ButtonNewIssue extends Component {
 
@@ -11,6 +12,11 @@ class ButtonNewIssue extends Component {
     )
   }
 }
+
+ButtonNewIssue.propTypes = {
+  newIssue: PropTypes.func,
+};
+
 
 export default connect(null, {
   newIssue

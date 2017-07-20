@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../../main.css';
 import { fetchIssues } from '../../resources/actions';
-
- import Header from './components/header/Header'
- import PageHead from './components/pageHead/PageHead';
- import ListSubnav from './components/listSubnav/ListSubnav';
- import ListHeader from './components/listHeader/ListHeader';
- import ListBody from './components/listBody/ListBody';
- import Description from './components/description/Description';
+import PropTypes from 'prop-types';
+import Header from './components/header/Header'
+import PageHead from './components/pageHead/PageHead';
+import ListSubnav from './components/listSubnav/ListSubnav';
+import ListHeader from './components/listHeader/ListHeader';
+import ListBody from './components/listBody/ListBody';
+import Description from './components/description/Description';
 
 class Board extends Component {
 
@@ -40,6 +40,11 @@ class Board extends Component {
     );
   }
 }
+
+Board.propTypes = {
+  fetchIssues: PropTypes.func,
+  state: PropTypes.object,
+};
 
 export default connect((state) => ({
   state

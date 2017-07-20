@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link } from 'react-router-dom';
 import { setStateShow } from '../../../../resources/actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class AllShow extends Component {
   onClick = () => {
@@ -19,6 +20,11 @@ class AllShow extends Component {
     )
   }
 }
+
+AllShow.propTypes = {
+  stateShow: PropTypes.string,
+  setStateShow: PropTypes.func,  
+};
 
 export default connect((state) => {
   return {

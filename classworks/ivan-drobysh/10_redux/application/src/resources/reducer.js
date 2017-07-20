@@ -7,13 +7,12 @@ export default (state = {
 }, action) => {
   switch (action.type) {
     case 'fetchIssues':
-       issues = action.data;
+      issues = action.data;
       return {
         ...state,
         issues
       }
     case 'switchState':
-
       return {
         ...state,
         issues: state.issues.map((item) => {
@@ -24,7 +23,7 @@ export default (state = {
         })
       }
     case 'newIssue':
-     issues = [...state.issues, action.data];
+      issues = [...state.issues, action.data];
       return {
         ...state,
         issues
@@ -34,12 +33,13 @@ export default (state = {
         ...state,
         searchRequest: action.data,
       }
+    case 'setStateShow':
+      return {
+        ...state,
+        stateShow: action.data,
+      }
     default:
       return state;
-    case 'setStateShow':
-     return {
-       ...state,
-       stateShow: action.data,
-     }
+
   }
 };

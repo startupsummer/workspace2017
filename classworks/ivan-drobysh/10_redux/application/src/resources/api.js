@@ -13,7 +13,7 @@ export function newIssue() {
     }),
   }).then((resp) => resp.json());
 }
-//
+
 export function switchState(item) {
   let stateItem = item.state;
     stateItem === 'open'
@@ -31,18 +31,7 @@ export function  setSearchRequest(event){
   const searchText = event.currentTarget.value.toLowerCase();
   return Promise.resolve(searchText);
 }
-//
-// showIssues = () => {
-//   let issues =  this.state.issuesAll.filter((item) => item.title.toLowerCase().indexOf(this.state.searchText) !== -1);
-//   let state = this.state.stateShow;
-//   if(state !== 'all')  {
-//     issues = this.state.issuesAll.filter((item) => item.state === state);
-//     return issues;
-//   }
-//   else {
-//     return issues;
-//   }
-// }
- export function setStateShow(stateShow){
-   return Promise.resolve(stateShow);
- }
+
+export function setStateShow(stateShow){
+  return Promise.resolve(stateShow);
+}
