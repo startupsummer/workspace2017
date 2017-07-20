@@ -19,7 +19,7 @@ const Peponav = (props) => (
 
 
 Peponav.PropTypes = {
-  issuesLength: PropTypes.number,
+  issuesLength: PropTypes.number.isRequired,
 };
 
 export default Peponav;

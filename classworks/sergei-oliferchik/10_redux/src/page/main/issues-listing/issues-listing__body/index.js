@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Route, withRouter } from 'react-router-dom';
 
 import fromStore from 'src/index.selectors';
 
 import IssuesItem from './issues__item';
 import AboutIssue from './issues-about';
-
-
 
 import './index.css';
 
@@ -31,6 +30,13 @@ class IssuesListingBody extends Component {
       </div>
     )
   }
+}
+
+IssuesListingBody.propTypes = {
+  searchField: PropTypes.string.isRequired,
+  curStatus: PropTypes.string.isRequired,
+  closedIssues: PropTypes.array.isRequired,
+  openIssues: PropTypes.array.isRequired,
 }
 
 export default withRouter(connect(state => ({

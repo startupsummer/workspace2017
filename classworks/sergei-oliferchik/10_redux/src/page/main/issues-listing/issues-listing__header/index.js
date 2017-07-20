@@ -26,6 +26,12 @@ class IssuesListingHeader extends Component {
   }
 };
 
+IssuesListingHeader.propTypes = {
+  openIssues: PropTypes.number.isRequired,
+  closedIssues: PropTypes.number.isRequired,
+  triger: PropTypes.func.isRequired,
+}
+
 export default connect(state => ({
   openIssues: fromStore.getOpensIssues(state).length,
   closedIssues: fromStore.getClosedsIssues(state).length,

@@ -10,10 +10,10 @@ const Button = (props) => (
 );
 
 Button.PropTypes = {
-  eventClick:  PropTypes.func,
-  color: PropTypes.string,
-  text: PropTypes.string,
-  id: PropTypes.number,
+  eventClick:  PropTypes.func.isRequired,
+  color: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 }
 
 export default Button;

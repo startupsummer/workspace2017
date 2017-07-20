@@ -13,9 +13,9 @@ const ButtonLink  = (props) => (
 );
 
 ButtonLink.PropTypes = {
-  cliked: PropTypes.func,
-  length: PropTypes.number,
-  name: PropTypes.string,
+  cliked: PropTypes.func.isRequired,
+  length: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
 }
 
 export default ButtonLink;

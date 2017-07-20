@@ -17,7 +17,7 @@ class Subnav extends Component{
       buttonText: 'new issues',
     };
   }
-  
+
   render() {
     return (
       <div className="issues-listing__subnav">
@@ -32,6 +32,11 @@ class Subnav extends Component{
       </div>
     );
   }
+}
+
+Subnav.propTypes = {
+  eventSearch: PropTypes.func.isRequired,
+  addIssues: PropTypes.func.isRequired,
 }
 
 export default connect(null, ({

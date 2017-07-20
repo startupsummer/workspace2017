@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 import './index.css';
 
@@ -16,6 +18,11 @@ class AboutIssue extends Component {
       </div>
     )
   }
+}
+
+AboutIssue.propTypes = {
+  match: PropTypes.string.isRequired,
+  issues: PropTypes.array.isRequired,
 }
 
 export default AboutIssue;

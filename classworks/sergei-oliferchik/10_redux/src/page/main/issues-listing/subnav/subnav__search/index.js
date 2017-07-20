@@ -13,4 +13,8 @@ const Search  = (props) => (
   </form>
 );
 
+Search.propTypes = {
+  eventSearch: PropTypes.func.isRequired,
+}
+
 export default Search;

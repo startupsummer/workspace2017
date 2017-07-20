@@ -23,6 +23,11 @@ const IssuesItem = (props) => (
   </div>
 );
 
+IssuesItem.propTypes = {
+  issues: PropTypes.object.isRequired,
+  chengeIssuesStatus: PropTypes.func.isRequired,
+}
+
 export default connect(null, {
   chengeIssuesStatus,
 })(IssuesItem);
