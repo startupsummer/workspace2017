@@ -15,3 +15,15 @@ export const addNewIssue = data => dispatch =>
 export const searchText = text => dispatch =>
   listsApi.searchText(text)
     .then(() => dispatch({type: 'searchText', text }));
+
+export const setCurrentTab = () => dispatch =>
+  listsApi.setCurrentTab()
+    .then(payload => dispatch({type: 'setCurrentTab', payload }));
+
+export const showOpenTab = () => dispatch =>
+  listsApi.showOpenTab()
+    .then(payload => dispatch({type: 'showOpenTab', payload }));
+
+export const showClosedTab = () => dispatch =>
+  listsApi.showClosedTab()
+    .then(payload => dispatch({type: 'showClosedTab', payload }));

@@ -24,3 +24,15 @@ export function addNewIssue(data) {
 export function searchText(text) {
   return new Promise(resolve => resolve({text}));
 }
+
+export function setCurrentTab() {
+  return new Promise(resolve => resolve('open'));
+}
+
+export function showOpenTab() {
+  return new Promise(resolve => resolve('open'));
+}
+
+export function showClosedTab() {
+  return new Promise(resolve => resolve('closed'));
+}

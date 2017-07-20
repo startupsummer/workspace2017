@@ -1,28 +1,40 @@
 import {displayAll} from './utils';
 
-export default (state = [], action) => {
+export default (state = {issues: [], currentTab: ''}, action) => {
+  let newIssues;
+
   switch (action.type) {
     case 'fetchIssues':
-      return action.payload;
+      return {...state, issues: action.payload};
     case 'closeIssue':
 
-      return state.map(issue => {
+      newIssues = state.issues.map(issue => {
         if (issue.id !== action.id) {
           return issue;
         }
 
         return {...issue, state: 'closed'};
       });
+      return {...state, issues: newIssues};
 
     case 'addNewIssue':
-      return displayAll(state.concat(action.payload));
+
+      newIssues = displayAll(state.issues.concat(action.payload));
+      return {currentTab: 'open', issues: newIssues};
+
     case 'searchText':
 
-      return state.map(issue => ({
+      newIssues = state.issues.map(issue => ({
         ...issue,
         display: Boolean(~issue.title.toLowerCase().indexOf(action.text.toLowerCase()))
       }));
 
+      return {...state, issues: newIssues};
+
+    case 'setCurrentTab':
+    case 'showOpenTab':
+    case 'showClosedTab':
+      return {...state, currentTab: action.payload};
     default:
       return state;
   }

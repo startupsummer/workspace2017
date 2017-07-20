@@ -13,11 +13,13 @@ import fromStore from './resources/issues.selectors';
 
 class App extends Component {
   componentDidMount = () => {
-    this.props.fetchIssues();
+    console.log(this.props.fetchIssues());
   };
 
   render() {
     const issues = this.props.issues;
+
+    console.log(issues);
 
     return (
       <Router>

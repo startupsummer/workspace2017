@@ -1,23 +1,22 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+
 import Subnav from './Subnav';
 import Header from './Header';
 import Body from './Body';
 
 import { countIssues } from './resources/utils';
 
-export default class Container extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentTab: 'open'
-    };
-  }
+import { setCurrentTab, showOpenTab, showClosedTab } from './resources/issues.actions';
+import fromStore from './resources/issues.selectors';
 
-  handleShowOpenTab = () => this.setState({currentTab: 'open'});
-
-  handleShowClosedTab = () => this.setState({currentTab: 'closed'});
+class Container extends Component {
+  componentDidMount = () => {
+    this.props.setCurrentTab();
+  };
 
   render() {
+
     const { data, handleSearchText, handleCloseIssue } = this.props;
     const [openIssuesNum, closedIssuesNum] = countIssues(data);
 
@@ -28,15 +27,15 @@ export default class Container extends Component {
             onSearchText={handleSearchText}
           />
           <Header
-            currentTab={this.state.currentTab}
+            currentTab={this.props.currentTab}
             openIssuesNum={openIssuesNum}
             closedIssuesNum={closedIssuesNum}
-            onShowOpenTab={this.handleShowOpenTab}
-            onShowClosedTab={this.handleShowClosedTab}
+            onShowOpenTab={this.props.handleShowOpenTab}
+            onShowClosedTab={this.props.handleShowClosedTab}
           />
           <Body
             data={data}
-            currentTab={this.state.currentTab}
+            currentTab={this.props.currentTab}
             onCloseIssue={handleCloseIssue}
           />
         </div>
@@ -44,3 +43,11 @@ export default class Container extends Component {
     );
   }
 }
+
+export default connect(state => ({
+  currentTab: fromStore.getCurrentTab(state),
+}), {
+  setCurrentTab,
+  handleShowOpenTab: showOpenTab,
+  handleShowClosedTab: showClosedTab
+})(Container);
