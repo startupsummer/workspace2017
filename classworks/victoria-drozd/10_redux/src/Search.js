@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export default class Search extends Component {
+  static propsTypes = {
+    onSearchText: PropTypes.func.isRequired,
+  };
+
   render() {
     return (
       <div className="subnav__search">

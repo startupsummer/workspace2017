@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Btn, {openSvg} from './Btn';
 
@@ -12,7 +13,7 @@ const closedSvg = (
   </svg>
 );
 
-export default ({data, onCloseIssue}) => {
+const Item = ({data, onCloseIssue}) => {
   const {title, state, display, id} = data;
 
   if (!display) {
@@ -38,4 +39,12 @@ export default ({data, onCloseIssue}) => {
       )}
     </li>
   );
-}
+};
+
+Item.propTypes = {
+  data: PropTypes.object.isRequired,
+  key: PropTypes.number.isRequired,
+  onCloseIssue: PropTypes.func.isRequired,
+};
+
+export default Item;

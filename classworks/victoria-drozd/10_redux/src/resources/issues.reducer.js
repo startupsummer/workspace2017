@@ -18,15 +18,13 @@ export default (state = {issues: [], currentTab: ''}, action) => {
       return {...state, issues: newIssues};
 
     case 'addNewIssue':
-
       newIssues = displayAll(state.issues.concat(action.payload));
       return {currentTab: 'open', issues: newIssues};
-
     case 'searchText':
 
       newIssues = state.issues.map(issue => ({
         ...issue,
-        display: Boolean(~issue.title.toLowerCase().indexOf(action.text.toLowerCase()))
+        display: issue.title.toLowerCase().includes(action.text.toLowerCase())
       }));
 
       return {...state, issues: newIssues};

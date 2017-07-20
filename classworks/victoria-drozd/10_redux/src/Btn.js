@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const openSvg = (
   <svg
@@ -29,11 +30,19 @@ const closedSvg = (
   </svg>
 );
 
-export default ({onClick, type, children, classes}) => {
+const Btn = ({onClick, type, children, classes}) => {
   return (
     <button className={classes} type="button" onClick={onClick}>
       {type === 'open' ? openSvg : type === 'closed' ? closedSvg : null}
       {children}
     </button>
   );
-}
+};
+
+Btn.propTypes = {
+  classes: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
+export default Btn;

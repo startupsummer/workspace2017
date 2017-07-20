@@ -1,7 +1,8 @@
 import React from 'react';
 import Item from './Item';
+import PropTypes from 'prop-types';
 
-export default ({data, currentTab, onCloseIssue}) => (
+const Body = ({data, currentTab, onCloseIssue}) => (
   <div className="issues-listing__body">
     <ul className="issues">
       {data.filter(issue => issue.state === currentTab).map(item => (
@@ -14,3 +15,11 @@ export default ({data, currentTab, onCloseIssue}) => (
     </ul>
   </div>
 );
+
+Body.propTypes = {
+  data: PropTypes.array.isRequired,
+  currentTab: PropTypes.string.isRequired,
+  onCloseIssue: PropTypes.func.isRequired,
+};
+
+export default Body;

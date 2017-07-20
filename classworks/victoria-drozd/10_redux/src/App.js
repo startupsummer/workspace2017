@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import './App.css';
 import Pagehead from './Pagehead';
@@ -12,6 +13,14 @@ import { fetchIssues, closeIssue, searchText } from './resources/issues.actions'
 import fromStore from './resources/issues.selectors';
 
 class App extends Component {
+  static propsTypes = {
+    fetchIssues: PropTypes.func.isRequired,
+    handleCloseIssue: PropTypes.func.isRequired,
+    handleSearchText: PropTypes.func.isRequired,
+
+    issues: PropTypes.array.isRequired,
+  };
+
   componentDidMount = () => {
     console.log(this.props.fetchIssues());
   };

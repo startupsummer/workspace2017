@@ -1,9 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 
 import Btn from './Btn';
 
-export default ({openIssuesNum, closedIssuesNum, onShowOpenTab, onShowClosedTab, currentTab}) => {
+const Header =  ({openIssuesNum, closedIssuesNum, onShowOpenTab, onShowClosedTab, currentTab}) => {
   const openClass = classnames({
     'btn-link': true,
     'btn-link--selected': currentTab === 'open'
@@ -26,4 +27,17 @@ export default ({openIssuesNum, closedIssuesNum, onShowOpenTab, onShowClosedTab,
       </div>
     </div>
   );
-}
+};
+
+Header.propsTypes = {
+  openIssuesNum: PropTypes.func.isRequired,
+  closedIssuesNum: PropTypes.func.isRequired,
+  onShowOpenTab: PropTypes.func.isRequired,
+  onShowClosedTab: PropTypes.func.isRequired,
+
+  currentTab: PropTypes.string.isRequired,
+};
+
+export default Header;
+
+

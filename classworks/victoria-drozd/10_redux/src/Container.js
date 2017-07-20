@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Subnav from './Subnav';
 import Header from './Header';
@@ -11,6 +12,17 @@ import { setCurrentTab, showOpenTab, showClosedTab } from './resources/issues.ac
 import fromStore from './resources/issues.selectors';
 
 class Container extends Component {
+  static propsTypes = {
+    setCurrentTab: PropTypes.func.isRequired,
+    handleShowOpenTab: PropTypes.func.isRequired,
+    handleShowClosedTab: PropTypes.func.isRequired,
+    handleCloseIssue: PropTypes.func.isRequired,
+    handleSearchText: PropTypes.func.isRequired,
+
+    currentTab: PropTypes.string.isRequired,
+    data: PropTypes.array.isRequired,
+  };
+
   componentDidMount = () => {
     this.props.setCurrentTab();
   };

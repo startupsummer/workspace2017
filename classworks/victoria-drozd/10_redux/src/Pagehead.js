@@ -1,7 +1,12 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default class Pagehead extends PureComponent {
+  static propsTypes = {
+    issuesNum: PropTypes.number.isRequired,
+  };
+
   render() {
     return (
       <div className="pagehead">
