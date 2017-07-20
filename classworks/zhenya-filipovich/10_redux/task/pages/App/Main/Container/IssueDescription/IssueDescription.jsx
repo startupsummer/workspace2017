@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import './issue-description.styles';
 
 const IssueDescription = ({ number, items }) => {
@@ -18,4 +19,6 @@ IssueDescription.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default IssueDescription;
+export default connect(state => ({
+  items: state.issues,
+}))(IssueDescription);

@@ -7,12 +7,8 @@ import './page-head.styles';
 const PageHead = ({ itemsNumber }) => (
   <div className="pagehead">
     <RepoHead />
-    <NavIssues itemsNumber={itemsNumber} />
+    <NavIssues />
   </div>
 );
-
-PageHead.propTypes = {
-  itemsNumber: PropTypes.number.isRequired,
-};
 
 export default PageHead;

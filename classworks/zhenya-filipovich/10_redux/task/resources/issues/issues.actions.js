@@ -1,8 +1,11 @@
-// import getDataFromServer from './issues.api';
+export const fetchIssues = payload => ({ type: 'FETCH_ISSUES', payload });
 
-// const getIssues = () => dispatch => (
-//   getDataFromServer()
-//     .then(payload => dispatch({ type: 'FETCH_ISSUES', payload }))
-// );
+export const changeIssueState = payload => ({
+  type: 'CHANGE_ISSUE_STATE',
+  payload,
+});
 
-// export default getIssues;
+export const addIssue = payload => ({
+  type: 'ADD_ISSUE',
+  payload,
+});

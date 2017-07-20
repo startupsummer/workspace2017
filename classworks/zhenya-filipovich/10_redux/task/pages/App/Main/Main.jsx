@@ -1,52 +1,31 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getDataFromServer } from 'index.selectors';
 import PageHead from './PageHead';
 import Container from './Container';
-// import store from './store';
 import './main.styles.css';
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-    };
-    this.getDataFromServer = this.getDataFromServer.bind(this);
+  static propTypes = {
+    getDataFromServer: PropTypes.func.isRequired,
   }
 
-  componentWillMount() {
-    this.getDataFromServer();
-  }
-
-  getDataFromServer() {
-    fetch('https://api.github.com/repos/filipochka97/react-github/issues?' +
-      'access_token=c8c50b1970bdd6f537626534103dba0a5dfb4b88&state=all')
-      .then(response => response.json())
-      .then(data => this.setState({
-        items: data,
-      }),
-      );
+  componentDidMount() {
+    this.props.getDataFromServer();
   }
 
   render() {
     return (
       <main className="content">
-        <PageHead itemsNumber={this.state.items.length} />
-        <Container
-          items={this.state.items}
-          initialItems={this.state.initialItems}
-          getDataFromServer={this.getDataFromServer}
-        />
+        <PageHead />
+        <Container />
       </main>
     );
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   issues: store.dispatch({ type:  })
-// })
-
-// export default connect()(Main);
-
-
-export default Main;
+export default connect(null, {
+  getDataFromServer,
+},
+)(Main);
