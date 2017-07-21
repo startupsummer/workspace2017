@@ -59,7 +59,7 @@ class App extends Component {
                         <Search handle={this.searchHandle}/>
                         <MyButton className="btn btn-primary" value='New issue'
                            handler={this.handlerAdd}
-                         />
+                        />
                       </div>
                     </Link>
                   </div>

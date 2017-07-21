@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 function ListItem(props) {
-  const desc = props.data.state.filter((e) => (e.id === parseInt(props.id, 10)));
+  const desc = props.data.state.filter((issue) => (issue.id === parseInt(props.id, 10)));
   return(
     <div className="container issues__title">
         <span>{desc[0].body}</span>      
@@ -17,3 +17,4 @@ ListItem.propTypes = {
 }
 
 export default ListItem;
+
