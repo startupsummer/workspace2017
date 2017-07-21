@@ -17,9 +17,9 @@ class IssuesListingBody extends Component {
     const issuesAfterFind = curIssues.filter(el =>
       el.title.toLowerCase().includes(searchField.toLowerCase())
     );
-    const content = issuesAfterFind.map((el) => (
-        <li key={el.id}>
-          <IssuesItem issues={el} />
+    const content = issuesAfterFind.map((ussue) => (
+        <li key={ussue.id}>
+          <IssuesItem issue={ussue} />
         </li>
       ));
 

@@ -16,12 +16,12 @@ export const initialState = () => dispatch =>
   api.initialState()
     .then(data => dispatch({
       type: 'INITIAL_STATE',
-      payload: data.map( (el) => ({
-        id: el.id,
-        about: el.body,
-        state: el.state,
-        title: el.title,
-        number: el.number,
+      payload: data.map( (ussue) => ({
+        id: ussue.id,
+        about: ussue.body,
+        state: ussue.state,
+        title: ussue.title,
+        number: ussue.number,
       }))
     }));
 

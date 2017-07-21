@@ -7,10 +7,10 @@ export default (state = [], action) => {
       return state.concat(action.payload);
 
     case 'CHENGE_ISSUES':
-      return state.map(el =>
-        el.id === action.payload.id
-          ? { ...el, state: action.payload.state }
-          : el
+      return state.map(issue =>
+        issue.id === action.payload.id
+          ? { ...issue, state: action.payload.state }
+          : issue
       );
 
     default:
