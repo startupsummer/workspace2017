@@ -1,13 +1,15 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import SubnavSearch from './SubnavSearch';
 import ButtonHandle from './ButtonHandle';
 import { issueAdd } from '../resources/issue/issue.actions'
 import { connect } from 'react-redux';
 
-class IssuesListeningSubnav extends PureComponent {
+class IssuesListeningSubnav extends Component {
   static propTypes = {
-    onSearch: React.PropTypes.func.isRequired,
-    onIssueAdd: React.PropTypes.func.isRequired
+    onSearch: PropTypes.func.isRequired,
+    issueAdd: PropTypes.func.isRequired
   }
 
   render() {

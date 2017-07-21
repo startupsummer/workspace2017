@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import IssuesItem from './IssuesItem';
+import { issuesSelector } from '../resources/issue/issue.selectors';
 
-
-const IssuesListeningBody = ({ onIssueToogle, text, data, issuesType }) => {
-  const listItems = data
-    .filter(it => issuesType === it.state && it.title.search(new RegExp('^' + text, 'i')) !== -1)
-    .map(it => <IssuesItem itemData={it} data={data} />);
-  return (
-    <ul className="issues">
-      {listItems}
-    </ul>
-  );
+class IssuesListeningBody extends Component {
+  render() {
+    const { text, data, issuesType } = this.props;
+    const listItems = data
+      .filter(
+        it => issuesType === it.state && it.title.includes(text)
+      )
+      .map(it => <IssuesItem key={it.id} itemData={it} data={data} />);
+    return (
+      <ul className="issues">
+        {listItems}
+      </ul>
+    );
+  }
 }
 
 IssuesListeningBody.propTypes = {
-  onIssueToogle: React.PropTypes.func.isRequired,
-  text: React.PropTypes.string.isRequired,
-  data: React.PropTypes.array.isRequired,
-  issuesType: React.PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired,
+  issuesType: PropTypes.string.isRequired,
 }
 
-export default IssuesListeningBody;
+export default connect(
+  (state, props) => ({
+    data: issuesSelector(state),
+  })
+)(IssuesListeningBody);
