@@ -11,7 +11,7 @@ const ListingBody = ({data,search,state})=> {
         item => 
           ( (item.state === state) && (!search 
           || item.title.toLowerCase().includes(search.toLowerCase()) ) )  
-          && <IssuesItem item = {item} /> 
+          && <IssuesItem key = {item.id}  item = {item} /> 
       )
     }
     </ul>

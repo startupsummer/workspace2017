@@ -1,6 +1,6 @@
 import data from '.././data';
 
-export default (state = [], action)=> {
+export default (state = { data, state : 'open', search : '' }, action)=> {
   
   switch(action.type){
     case '@@redux/INIT':
