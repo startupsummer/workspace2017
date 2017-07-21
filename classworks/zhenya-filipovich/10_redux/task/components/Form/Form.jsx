@@ -16,7 +16,7 @@ const Form = ({ onChange }) => (
       type="text"
       placeholder="Search"
     />
-      {logo}
+    {logo}
   </form>
 );
 

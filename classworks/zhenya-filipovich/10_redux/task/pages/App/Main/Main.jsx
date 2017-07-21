@@ -5,6 +5,7 @@ import { getDataFromServer } from 'index.selectors';
 import PageHead from './PageHead';
 import Container from './Container';
 import './main.styles.css';
+import { withRouter } from 'react-router';
 
 class Main extends Component {
   static propTypes = {
@@ -25,7 +26,7 @@ class Main extends Component {
   }
 }
 
-export default connect(null, {
+export default withRouter(connect(null, {
   getDataFromServer,
 },
-)(Main);
+)(Main));
