@@ -9,15 +9,13 @@ import ListItem from './components/listItem/listItem';
 import { connect } from 'react-redux';
 import { fetchList, addListItem, closeListItem } from './resourses/list.actions';
 import fromStore from './resourses/list.selectors';
-import 'whatwg-fetch'
 
 class App extends Component {
-
   constructor() {
     super();
     this.state = {
-      st: 'open',
-      findName: "",
+      stateShow: 'open',
+      searchField: "",
      }
   }
 
@@ -28,12 +26,9 @@ class App extends Component {
   render() {
     const allIssuies = this.props.issue.state.length
     let openedAmount = 0;
-
-    this.props.issue.state.map(function(e) {
-      if(e.state === 'open') {
-        openedAmount += 1;        
-      }
-    });
+    this.props.issue.state.forEach(function(issue) {
+       if(issue.state === 'open') openedAmount += 1;
+    })
 
     const closedAmount = allIssuies - openedAmount;
 
@@ -91,8 +86,8 @@ class App extends Component {
           <Route exact path="/" component={() =>
             <div className="container">
               <div className="issues-listing__body">
-                <List sortField={this.state.findName}
-                  state={this.state.st} handler={this.handlerDel}
+                <List sortField={this.state.searchField}
+                  state={this.state.stateShow} handler={this.handlerDel}
                 />
               </div>
             </div>
@@ -117,31 +112,30 @@ class App extends Component {
   }
 
   searchHandle = (e) => {
-    const findName = e.target.value;
-
+    const searchField = e.target.value;
     this.setState({
-      findName: findName,
+      searchField,
     })
   }
 
   closeState = (e) => {
       e.preventDefault();
       this.setState({
-        st: 'closed'
+        stateShow: 'closed'
       })
   }
 
   openState = (e) => {
       e.preventDefault();
       this.setState({
-        st: 'open'
+        stateShow: 'open'
       })
   }
 
   allState = (e) => {
       e.preventDefault();
       this.setState({
-        st: 'all'
+        stateShow: 'all'
       })
   }
 }

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 
 function ListItem(props) {
@@ -8,6 +9,11 @@ function ListItem(props) {
         <span>{desc[0].body}</span>      
     </div>
   )
+}
+
+ListItem.propTypes = {
+  data: PropTypes.object,
+  id: PropTypes.string
 }
 
 export default ListItem;

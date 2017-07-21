@@ -1,18 +1,20 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Route, Link } from 'react-router-dom';
+import React from 'react'
+import PropTypes from 'prop-types';
 
 
-class MyButton extends Component {
-  constructor(props){
-    super(props);
-  }
-  render() {
-    return(
-      <button className={this.props.className} onClick = {this.props.handler}>
-        {this.props.number} {this.props.value}
-      </button>
-    )
-  }
+function MyButton(props){
+  return(
+    <button className={props.className} onClick = {props.handler}>
+      {props.number} {props.value}
+    </button>
+  )
 }
+
+MyButton.propTypes = {
+  className: PropTypes.string,
+  handler: PropTypes.func,
+  number: PropTypes.number,
+  value: PropTypes.string
+} 
 
 export default MyButton;
