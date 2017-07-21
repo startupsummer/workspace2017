@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import './App.css';
-import './index.js';
 import MyButton from './components/button/button';
 import List from './components/list/list';
 import Search from './components/search/search';
@@ -9,6 +7,8 @@ import ListItem from './components/listItem/listItem';
 import { connect } from 'react-redux';
 import { fetchList, addListItem, closeListItem } from './resourses/list.actions';
 import fromStore from './resourses/list.selectors';
+import './App.css';
+import './index.js';
 
 class App extends Component {
   constructor() {
