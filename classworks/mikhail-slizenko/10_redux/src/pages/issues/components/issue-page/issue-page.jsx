@@ -6,8 +6,7 @@ import './issue-page.css';
 const IssuePage = props => {
   const {id, issuesList} = props;
   const targetIssue = issuesList
-    .filter(issue => issue.id === +id && issue)
-    .shift();
+    .find(issue => issue.id === +id);
 
   return (
     <div className="issue-page">

@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     const {issuesList} = this.props;
     const amtOpenIssues = issuesList
-      .filter(item => item.state === 'open' && item)
+      .filter(item => item.state === 'open')
       .length;
 
     return (
