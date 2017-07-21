@@ -22,7 +22,7 @@ class App extends Component {
   };
 
   componentDidMount = () => {
-    console.log(this.props.fetchIssues());
+    this.props.fetchIssues();
   };
 
   render() {
