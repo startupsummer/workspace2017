@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Search from './Search';
-import Btn from './Btn';
+import Btn from '../../../components/Btn/Btn';
 
-import { addNewIssue } from './resources/issues.actions';
-import fromStore from './resources/issues.selectors';
+import { addNewIssue } from '../../../resources/issues.actions';
+import fromStore from '../../../resources/issues.selectors';
 
 class Subnav extends PureComponent {
   static propsTypes = {

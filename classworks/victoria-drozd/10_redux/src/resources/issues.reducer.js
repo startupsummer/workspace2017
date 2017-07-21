@@ -1,4 +1,4 @@
-import {displayAll} from './utils';
+import {displayAll} from '../utils';
 
 export default (state = {issues: [], currentTab: ''}, action) => {
   let newIssues;

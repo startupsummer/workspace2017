@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Subnav from './Subnav';
-import Header from './Header';
-import Body from './Body';
+import Subnav from './components/Subnav';
+import Header from './components/Header';
+import Body from './components/Body';
 
-import { countIssues } from './resources/utils';
+import { countIssues } from '../../utils';
 
-import { setCurrentTab, showOpenTab, showClosedTab } from './resources/issues.actions';
-import fromStore from './resources/issues.selectors';
+import { setCurrentTab, showOpenTab, showClosedTab } from '../../resources/issues.actions';
+import fromStore from '../../resources/issues.selectors';
 
 class Container extends Component {
   static propsTypes = {

@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Btn, {openSvg} from './Btn';
+import Btn, {openSvg} from '../../../components/Btn/Btn';
 
 const closedSvg = (
   <svg className="issues__icon" aria-hidden="true" height={16} version="1.1" viewBox="0 0 16 16" width={16}>

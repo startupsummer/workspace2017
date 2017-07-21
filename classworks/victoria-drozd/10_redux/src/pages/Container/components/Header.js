@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import Btn from './Btn';
+import Btn from '../../../components/Btn/Btn';
 
 const Header =  ({openIssuesNum, closedIssuesNum, onShowOpenTab, onShowClosedTab, currentTab}) => {
   const openClass = classnames({

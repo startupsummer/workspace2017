@@ -1,4 +1,4 @@
-import { displayAll } from './utils';
+import { displayAll } from '../utils';
 
 export function fetchIssues() {
   const TOKEN = '5a46ea30cc32615ddaa1d3683b7567d08e85a07b';

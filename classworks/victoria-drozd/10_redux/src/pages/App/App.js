@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './App.css';
-import Pagehead from './Pagehead';
-import Container from './Container';
-import Description from './Description';
+import Pagehead from './components/Pagehead';
+import Container from '../Container/Container';
+import Description from '../Description/Description';
 
 
-import { fetchIssues, closeIssue, searchText } from './resources/issues.actions';
-import fromStore from './resources/issues.selectors';
+import { fetchIssues, closeIssue, searchText } from '../../resources/issues.actions';
+import fromStore from '../../resources/issues.selectors';
 
 class App extends Component {
   static propsTypes = {
