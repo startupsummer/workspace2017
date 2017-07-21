@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import fromStore from 'index.selectors';
-import { changeIssuesState } from 'resources/issues/issues.actions';
+import fromIssues from 'resources/issues/issues.selectors';
 
 import Subnav from '../subnav/subnav';
 import ButtonLink from 'components/button-link/button-link';
@@ -12,35 +11,27 @@ import Issue from '../issue/issue';
 import './issues-listing.css';
 
 class IssuesListing extends Component {
-  static propTypes = {
-    issuesList: PropTypes.array.isRequired,
-    issuesState: PropTypes.string.isRequired,
-    searchQuery: PropTypes.string.isRequired,
-    changeIssuesState: PropTypes.func.isRequired
-  }
+  state = {issuesState: 'open'}
 
-  showOpenIssues = () => {
-    if (this.props.issuesState === 'open') return;
-    this.props.changeIssuesState('open');
-  }
+  showOpenIssues = () =>
+    this.state.issuesState === 'open'
+      || this.setState({issuesState: 'open'});
 
-  showClosedIssues = () => {
-    if (this.props.issuesState === 'closed') return;
-    this.props.changeIssuesState('closed');
-  }
+  showClosedIssues = () =>
+    this.state.issuesState === 'closed'
+      || this.setState({issuesState: 'closed'});
 
   render() {
-    const {
-      issuesList,
-      issuesState,
-      searchQuery
-    } = this.props;
+    const {issuesList, searchQuery} = this.props;
+    const {issuesState} = this.state;
 
     let amtOpenIssues = 0, amtClosedIssues = 0;
-    const filteredIssues = issuesList.filter(i => {
-      if (i.title.toLowerCase().includes(searchQuery)) {
-        i.state === 'open' ? amtOpenIssues++ : amtClosedIssues++;
-        return i.state === issuesState;
+    const filteredIssues = issuesList.filter(item => {
+      if (item.title.toLowerCase().includes(searchQuery)) {
+        item.state === 'open'
+          ? amtOpenIssues++
+          : amtClosedIssues++;
+        return item.state === issuesState;
       }
       return false;
     });
@@ -80,11 +71,14 @@ class IssuesListing extends Component {
   }
 }
 
+IssuesListing.propTypes = {
+  issuesList: PropTypes.array.isRequired,
+  searchQuery: PropTypes.string.isRequired
+}
+
 export default connect(
   state => ({
-    issuesList: fromStore.getIssuesList(state),
-    issuesState: fromStore.getIssuesState(state),
-    searchQuery: fromStore.getSearchQuery(state),
-  }), 
-  { changeIssuesState }
+    issuesList: fromIssues.getIssuesList(state),
+    searchQuery: fromIssues.getSearchQuery(state),
+  })
 )(IssuesListing);

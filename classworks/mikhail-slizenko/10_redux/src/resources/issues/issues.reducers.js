@@ -1,7 +1,6 @@
 const initialState = {
   issuesList: [],
-  searchQuery: '',
-  issuesState: 'open'
+  searchQuery: ''
 };
 
 export default (state = initialState, action) => {
@@ -19,9 +18,6 @@ export default (state = initialState, action) => {
           ? action.payload
           : issue);
       return {...state, issuesList: newIssuesList};
-
-    case 'issuesState':
-      return {...state, issuesState: action.issuesState};
 
     case 'searchQuery':
       return {...state, searchQuery: action.searchQuery};

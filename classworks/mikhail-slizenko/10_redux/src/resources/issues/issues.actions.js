@@ -2,26 +2,26 @@ import * as issuesListApi from './issues.api';
 
 export const fetchIssuesList = () => dispatch => {
   issuesListApi.fetchIssuesList()
-    .then(data => data.map(i => ({
-        id: i.id,
-        description: i.body,
-        title: i.title,
-        state: i.state,
-        number: i.number
+    .then(data => data.map(item => ({
+        id: item.id,
+        description: item.body,
+        title: item.title,
+        state: item.state,
+        number: item.number
       })))
-    .then(payload => dispatch({ type: 'fetchIssuesList', payload }));
+    .then(payload => dispatch({type: 'fetchIssuesList', payload}));
 }
 
 export const openNewIssue = () => dispatch => {
   issuesListApi.openNewIssue()
-    .then(i => ({
-      id: i.id,
-      description: i.body,
-      title: i.title,
-      state: i.state,
-      number: i.number
+    .then(item => ({
+      id: item.id,
+      description: item.body,
+      title: item.title,
+      state: item.state,
+      number: item.number
     }))
-    .then(payload => dispatch({ type: 'openNewIssue', payload }));
+    .then(payload => dispatch({type: 'openNewIssue', payload}));
 }
 
 export const changeIssue = issue => dispatch => {
@@ -31,18 +31,15 @@ export const changeIssue = issue => dispatch => {
   const number = issue.number;
 
   issuesListApi.changeIssue(newIssueState, number)
-    .then(i => ({
-      id: i.id,
-      description: i.body,
-      title: i.title,
-      state: i.state,
-      number: i.number
+    .then(item => ({
+      id: item.id,
+      description: item.body,
+      title: item.title,
+      state: item.state,
+      number: item.number
     }))
-    .then(payload => dispatch({ type: 'changeIssue', payload }));
+    .then(payload => dispatch({type: 'changeIssue', payload}));
 }
 
-export const changeIssuesState = issuesState =>
-  ({ type: 'issuesState', issuesState });
-
 export const setSearchQuery = searchQuery =>
-  ({ type: 'searchQuery', searchQuery });
+  ({type: 'searchQuery', searchQuery});
