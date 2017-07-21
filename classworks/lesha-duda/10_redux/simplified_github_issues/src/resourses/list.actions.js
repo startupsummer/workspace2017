@@ -16,4 +16,5 @@ export const closeListItem = (number) => dispatch =>
     id: item.id,
   }))
   .then(payload => dispatch({type: 'closeListItem', payload}));
+
   
