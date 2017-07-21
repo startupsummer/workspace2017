@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import MyButton from '../button/button.js';
 import fromStore from '../../resourses/list.selectors';
