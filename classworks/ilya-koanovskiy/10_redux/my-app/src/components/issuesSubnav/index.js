@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Button from '../button/index.js';
 import { connect } from 'react-redux';
-import { addIssue, changeInput } from '../../Resources/issues/issues.actions';
+import { addIssue } from '../../Resources/issues/issues.actions';
+import './index.css';
 
 class Subnav extends Component{
 
@@ -11,7 +12,7 @@ class Subnav extends Component{
 
   changeHandle = (e) => {
     let value = e.target.value;
-    this.props.changeInput(value);
+    this.props.searchText(value);
   }
 
   render(){
@@ -32,7 +33,6 @@ class Subnav extends Component{
 }
 
 export default connect(null, {
-    addIssue,
-    changeInput
+    addIssue
   }
 )(Subnav);

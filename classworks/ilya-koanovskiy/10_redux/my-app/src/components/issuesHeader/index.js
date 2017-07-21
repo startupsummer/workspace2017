@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeActiveButton } from '../../Resources/issues/issues.actions';
 import select from '../../Resources/issues/issues.selectors';
+import './index.css';
 
 class IssuesHeader extends Component{
 
@@ -12,9 +13,8 @@ class IssuesHeader extends Component{
   }
 
   count = (issues,str) => {
-    let newArr = this.inputArr(issues,this.props.value);
     let count = 0;
-    newArr = newArr.map(item => {
+    this.inputArr(issues,this.props.searchText).map(item => {
       if(item.state === str) count++ ;
     })
     return count;
@@ -39,7 +39,7 @@ class IssuesHeader extends Component{
         <div className="issues-listing__states">
           <Link to="/">
             <button className="btn-link btn-link--selected" type="button" onClick={this.allTab}>
-              {this.inputArr(this.props.issues,this.props.value).length} All
+              {this.inputArr(this.props.issues,this.props.searchText).length} All
             </button>
           </Link>
           <Link to="/">
@@ -64,8 +64,7 @@ class IssuesHeader extends Component{
 
 export default connect(state => ({
   issues : select.getIssues(state),
-  activeButton : select.getIssuesState(state),
-  value : select.getValue(state)
+  activeButton : select.getIssuesState(state)
 }), 
   {
   changeActiveButton,

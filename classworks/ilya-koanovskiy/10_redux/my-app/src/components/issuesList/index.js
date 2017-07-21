@@ -3,6 +3,7 @@ import Issue from '../singleIssue/index.js';
 import { connect } from 'react-redux';
 import { changeIssue } from '../../Resources/issues/issues.actions';
 import select from '../../Resources/issues/issues.selectors';
+import './index.css';
 
 class IssuesList extends Component{
 
@@ -23,8 +24,8 @@ class IssuesList extends Component{
 
 
   render(){
-    const newIssues = this.createIssues(this.props.issues,this.props.value).map((item)=>                
-              <Issue identifier={item.id} issue={item} func={this.handleClick}/>);
+    const newIssues = this.createIssues(this.props.issues,this.props.searchText).map((item)=>                
+              <Issue key={item.id} issue={item} func={this.handleClick}/>);
     return(
       <div className="issues-listing__body">
         <ul className="issues">
@@ -37,8 +38,7 @@ class IssuesList extends Component{
 
 export default connect(state => ({
   issues : select.getIssues(state),
-  activeButton : select.getIssuesState(state),
-  value : select.getValue(state)
+  activeButton : select.getIssuesState(state)
 }), 
   {
   changeIssue,
