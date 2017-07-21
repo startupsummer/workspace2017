@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/form" method="post">
+   <input placeholder="First Name" name="firstName" class="FirstName" />
+   <input placeholder="Lasta Name" name="lastName" class="LastName" />
+   <p><input type="submit" value="Отправить" /></p>
+   <!-- <button type="button" name="button" class='button'> SEND </button> -->
+  </form>
+
+  <!-- <script type="text/javascript">
+    const button = document.querySelector('.button');
+    const Firstname = document.querySelector('.FirstName');
+    const LastName = document.querySelector('.LastName');
+    const PostRequest = () => {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:3000");
+      xhr.send(`["${Firstname.value}", "${LastName.value}"]`);
+    }
+
+
+
+    button.addEventListener("click", PostRequest, false);
+    console.log(Firstname.value)
+  </script> -->
+</body>
+</html>
