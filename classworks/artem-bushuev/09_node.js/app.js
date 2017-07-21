@@ -1,10 +1,8 @@
 let http = require("http");
 let fs = require("fs");
 let formBody = require('body/form');
-let req = require('request');
-let download = require('image-downloader')
 let log4js = require('log4js');
-let base64 = require('base64-stream');
+
 
 log4js.configure({
   appenders: {
@@ -64,7 +62,7 @@ http.createServer(function(request, response){
         default:
         break;  
     }
-
+    
   }
     
 }).listen(port);
