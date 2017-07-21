@@ -12,13 +12,11 @@ class IssuesHeader extends Component{
   }
 
   count = (issues,str) => {
-    const newArr = this.inputArr(issues,this.props.value);
+    let newArr = this.inputArr(issues,this.props.value);
     let count = 0;
-        for(const item of newArr){
-          if(item.state === str){
-              count++;
-          }
-        }
+    newArr = newArr.map(item => {
+      if(item.state === str) count++ ;
+    })
     return count;
   }
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Button from '../button/index.js';
 import { connect } from 'react-redux';
 import { addIssue, changeInput } from '../../Resources/issues/issues.actions';
-import select from '../../Resources/issues/issues.selectors';
 
 class Subnav extends Component{
 

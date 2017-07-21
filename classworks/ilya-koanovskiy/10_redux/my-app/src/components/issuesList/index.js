@@ -7,7 +7,7 @@ import select from '../../Resources/issues/issues.selectors';
 class IssuesList extends Component{
 
   inputArr = (issues,value) => {
-    const newArr = issues.filter((item)=> item.title.toLowerCase().indexOf(value.toLowerCase())>-1);
+    const newArr = issues.filter((item)=> item.title.toLowerCase().includes(value.toLowerCase()));
     return newArr;
   }
 
@@ -18,20 +18,17 @@ class IssuesList extends Component{
   }
 
   handleClick = (number) => () =>{
-    console.log(number);
     this.props.changeIssue(number);
   }
 
 
   render(){
+    const newIssues = this.createIssues(this.props.issues,this.props.value).map((item)=>                
+              <Issue identifier={item.id} issue={item} func={this.handleClick}/>);
     return(
       <div className="issues-listing__body">
         <ul className="issues">
-          {
-            this.createIssues(this.props.issues,this.props.value).map((item)=>                
-              <Issue issue={item} func={this.handleClick}/>
-            )                                          
-          }
+          { newIssues }
         </ul>
       </div>
     ) 

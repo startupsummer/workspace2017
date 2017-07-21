@@ -6,13 +6,9 @@ import Description from '../issueDescription/index.js';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchIssues } from '../../Resources/issues/issues.actions'
-import select from '../../Resources/issues/issues.selectors';
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router';
 
 class Issues extends Component{
-  constructor(props){
-    super(props);
-  }
 
   componentDidMount(){
     this.props.fetchIssues();

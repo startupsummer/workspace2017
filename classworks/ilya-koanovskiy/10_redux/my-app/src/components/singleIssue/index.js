@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Issue(props){
   return(
-    <li key={props.issue.id} className="issues__item" >               
+    <li key={props.identifier} className="issues__item" >               
       <div className="issues__statusAndTitle">
         <div className="issues__status issues__status--open">
           <svg className="issues__icon" height="16" version="1.1" viewBox="0 0 14 16" width="14">

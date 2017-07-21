@@ -29,6 +29,5 @@ export const changeActiveButton = (activeButton) => dispatch =>{
 }
 
 export const changeInput = (value) => dispatch =>{
-  console.log(value);
   return dispatch({type:"CHANGE_INPUT", payload: value});
 }

@@ -29,7 +29,6 @@ export function addIssue() {
 }
 
 export function changeIssue(number) {
-  console.log(number);
   return fetch(`https://api.github.com/repos/i-kohan/test2/issues/${number}?access_token=2ba5b37a5778956ae94876fe027bb5257daade6e`,{
       method:"PATCH",
       body:JSON.stringify({
