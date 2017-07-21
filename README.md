@@ -37,3 +37,5 @@ If lecturer decline pull request, he will assign label `Work In Progress` and pr
 10. July 18th - Reading materials: React.JS with Redux
 11. July 24th - Koa.JS 2 (async/await)
 12. July 25th - Node.JS API Server
+13. July 26th - Databases: SQL vs NoSQL, MongoDB
+14. July 27th - API testing
