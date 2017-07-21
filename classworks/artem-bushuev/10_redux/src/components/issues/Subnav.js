@@ -2,7 +2,7 @@ import React from 'react';
 import fromStore from '../../index.selectors';
 import { connect } from 'react-redux';
 import { searchIssue, addIssue } from '../../reduce/data.action';
-
+import PropTypes from 'prop-types'
 
 const Subnav = ({ data,addIssue,searchIssue })=> {
   
@@ -53,3 +53,9 @@ export default connect( (store) => ({
      addIssue,
      searchIssue,
 })(Subnav);
+
+Subnav.propTypes = {
+  data: PropTypes.array.isRequired,
+  addIssue: PropTypes.func.isRequired,
+  searchIssue: PropTypes.func.isRequired,
+};

@@ -2,6 +2,7 @@ import React from 'react'
 import fromStore from '../../index.selectors'
 import { connect } from 'react-redux'
 import {chageStateIssue} from '../../reduce/data.action'
+import PropTypes from  'prop-types'
 
 const IssuesItem = ({ item,chageStateIssue,state }) => {
   let issueClose = ()=> {
@@ -26,6 +27,14 @@ const IssuesItem = ({ item,chageStateIssue,state }) => {
       </li>
   );
 }
+
+
+IssuesItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  chageStateIssue: PropTypes.func.isRequired,
+  state: PropTypes.string.isRequired,
+};
+
 
 export default connect( (store) => ({
   state: fromStore.getState(store),

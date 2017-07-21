@@ -2,6 +2,7 @@ import React from 'react';
 import IssuesItem from './IssuesItem.js'
 import fromStore from '../../index.selectors'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 const ListingBody = ({data,search,state})=> {
   return (
@@ -22,3 +23,9 @@ export default connect( (store) => ({
   state: fromStore.getState(store),
   search: fromStore.getSearch(store),
 }))(ListingBody);
+
+ListingBody.propTypes = {
+  data: PropTypes.array.isRequired,
+  search: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+};

@@ -2,6 +2,7 @@ import React from 'react';
 import fromStore from '../../index.selectors'
 import { connect } from 'react-redux';
 import {changeCurrentState} from '../../reduce/data.action'
+import PropTypes from 'prop-types'
 
 const ListingStates = ( {data,changeCurrentState,countOpen,countClose} )=> {
 
@@ -39,3 +40,10 @@ export default connect( (store) => ({
   changeCurrentState,
 }
 )(ListingStates);
+
+ListingStates.propTypes = {
+  data: PropTypes.array.isRequired,
+  changeCurrentState: PropTypes.func.isRequired,
+  countOpen: PropTypes.number.isRequired,
+  countClose: PropTypes.number.isRequired,
+};

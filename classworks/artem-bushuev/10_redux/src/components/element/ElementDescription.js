@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const ElementDescription = ({ item }) => {  
   return <div>
@@ -9,3 +10,8 @@ const ElementDescription = ({ item }) => {
 }
 
 export default ElementDescription;
+
+
+ElementDescription.propTypes = {
+  item: PropTypes.object.isRequired,
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import fromStore from '../../index.selectors'
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const Container = (countOpen) => {
   return (
@@ -17,6 +18,10 @@ const Container = (countOpen) => {
     </div>
     );
   }
+
+Container.propTypes = {
+  countOpen: PropTypes.number.isRequired,
+};
 
 export default connect(state => ({
   countOpen: fromStore.getCountOpen(state),
