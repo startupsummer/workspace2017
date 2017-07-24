@@ -3,7 +3,7 @@
     "mocha": true
   },
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": "standart",
   "settings": {
     "import/resolver": {
       "node": {
@@ -14,13 +14,5 @@
       }
     }
   },
-  "rules":{
-    "react/jsx-no-bind": [2, {
-      "ignoreRefs": true,
-      "allowArrowFunctions": false,
-      "allowBind": false
-    }],
-    "arrow-body-style": [2, "as-needed"],
-    "no-underscore-dangle": [0]
-  }
+  "rules": {}
 }
