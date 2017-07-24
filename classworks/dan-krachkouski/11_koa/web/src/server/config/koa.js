@@ -7,6 +7,8 @@ const routes = require('./routes')
 const views = require('koa-views')
 const logger = require('koa-logger')
 const serve = require('koa-static')
+const bodyParser = require('koa-bodyparser')
+const validate = require('koa-validate')
 const handlebars = require('handlebars')
 
 handlebars.registerHelper('json', context => JSON.stringify(context))
@@ -18,8 +20,6 @@ const webpackConfig = require('web/config/webpack.config.js')
 const compile = webpack(webpackConfig)
 
 module.exports = (app) => {
-  app.use(logger())
-
   app.use(serve(path.join(__dirname, './../../client')))
 
   app.use(views(path.join(__dirname, './../../client'), {
@@ -41,6 +41,12 @@ module.exports = (app) => {
       expires: false
     }
   }))
+
+  app.use(logger())
+
+  validate(app)
+
+  app.use(bodyParser())
 
   app.use(async (ctx, next) => {
     try {

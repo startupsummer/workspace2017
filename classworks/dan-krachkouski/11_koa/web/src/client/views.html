@@ -3,5 +3,20 @@
  <head> </head>
   <body>
     <h1 style="text-align: center">Hello {{{json name}}}. You visited this site {{{json count}}} times.</h1>
+    <form name="form"
+      style="display: flex; flex-direction: column; padding: 10px;">
+      <input type="text" name="first_name" placeholder="First Name">
+      <input type="text" name="last_name" placeholder="Last Name">
+      <textarea name="text" rows="8" cols="80"></textarea>
+      <select name="quality">
+        <option>*</option>
+        <option>**</option>
+        <option>***</option>
+        <option>****</option>
+        <option>*****</option>
+      </select>
+      <button type="submit">submit</button>
+    </form>
  </body>
+ <script type="text/javascript" src="/view.js"></script>
 </html>
