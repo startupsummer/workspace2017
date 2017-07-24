@@ -4,6 +4,6 @@ module.exports = {
   env: 'development',
   redis: {
     host: 'localhost',
-    port: '6380',
-  },
-};
+    port: '6380'
+  }
+}
