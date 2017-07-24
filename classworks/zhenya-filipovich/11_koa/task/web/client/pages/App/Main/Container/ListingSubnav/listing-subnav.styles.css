@@ -1,0 +1,8 @@
+.issues-listing__subnav {
+  margin-bottom: 20px;
+}
+
+.subnav {
+  display: flex;
+  justify-content: space-between;
+}

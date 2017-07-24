@@ -1,11 +1,60 @@
 {
-  "name": "task",
+  "name": "github-app",
   "version": "1.0.0",
-  "description": "- Add static files from previous lectures (webpack) to web/client folder - Add additional middlewares to koa web server (koa-webpack-dev-middleware) - Save last user's visit to session and display it on the page - Add form 'How I spent the summer' to page (should include first name input, last name input, textarea, select to set summer quality) - Create additional fetch API to send form to koa api server - Send form data to API server - Add body validator to validate request data (koa-validate) - Create the document that represented your form data in database - Add question to pull request comment related to lecture scope (this is optional)",
-  "main": "index.js",
+  "description": "Github app with react + redux",
+  "main": "index.jsx",
   "scripts": {
+    "lint": "eslint . --ext .js,.jsx --fix",
+    "start": "npm run lint && sudo docker-compose up -d && NODE_PATH=../ node src/server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "filipochka97",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-import": "^2.6.1",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "postcss-loader": "^2.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "babel-eslint": "^7.2.3",
+    "busboy": "0.2.12",
+    "co": "^4.6.0",
+    "co-busboy": "1.3.1",
+    "combine-section-reducers": "^1.0.4",
+    "handlebars": "^4.0.10",
+    "koa": "^2.3.0",
+    "koa-cors": "0.0.16",
+    "koa-generic-session": "^2.0.0",
+    "koa-logger": "^3.0.1",
+    "koa-redis": "^3.0.0",
+    "koa-router": "^7.2.1",
+    "koa-static": "^3.0.0",
+    "koa-views": "^6.0.2",
+    "koa-webpack-dev-middleware": "^2.0.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.2",
+    "react-router-dom": "^4.1.2",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "engines": {
+    "node": "~6.9.1"
+  }
 }
