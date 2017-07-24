@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>I certainly love Javascript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  </head>
+  <body>
+    <div class="main-page">
+      <div class="img__centre">
+      </div>
+      <span class="text--love">The reason why I love JS is</span>
+    </div>
+    <div class="main-page">
+      <span>Session count: {{{json count}}}</span>
+    </div>
+    <div>
+      <form class="form"  title="How I spent the summer" method="post">
+        <input id="firstName" class="form__element" type="text" title="first name" placeholder="first name" name="firstName"/>
+        <input id="lastName" class="form__element" type="text" title="last name" placeholder="last name" name="lastName"/>
+        <textarea id="area" class="form__element" rows="2" cols="30" name="area"> </textarea>
+        <select id="select" class="form__element" name="summerQuality">
+          <option value="Awesome">Awesome! </option>
+          <option value="Nice">Nice) </option>
+          <option value="Good">Good </option>
+          <option value="Bad">Bad </option>
+        </select>
+        <button class="form__element" type="submit" onclick="postData()">Submit</button>
+      </form>
+    </div>  
+
+    <div class="footer">
+      Lesha Duda, <span class="year"></span> © All rights reserved
+    </div>
+    <script src="bundle.js"></script>
+
+    <script>
+      function postData() {
+        fetch(`/hello`, {
+          method: 'POST',
+          body: JSON.stringify({
+            firstName: firstName.value,
+            lastName: lastName.value,
+            area: area.value,
+            select: select.value,
+          }),
+        });
+      }
+    </script>
+  </body>
+</html>
+
+
