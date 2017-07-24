@@ -1,7 +1,4 @@
 const router = require('koa-router')();
-const KoaBody = require('koa-body');
-const convert = require('koa-convert');
-const koaBody = convert(KoaBody());
 
 
 router.post('/post', async (ctx) => {
