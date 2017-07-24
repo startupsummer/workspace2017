@@ -2,8 +2,11 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 const config = require('web/config');
 const Koa = require('koa');
+const koaBody = require('koa-body');
 
 const app = new Koa();
+
+app.use(koaBody());
 
 app.keys = ['keys', 'keykeys']; // session keys
 

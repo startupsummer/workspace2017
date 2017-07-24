@@ -13,11 +13,15 @@ const webpackConfig = require('web/webpack.config');
 const compile = webpack(webpackConfig);
 const serve = require('koa-static');
 
+
+const bodyParser = require('koa-bodyparser');
+
+
 handlebars.registerHelper('json', context => JSON.stringify(context));
 
 
 module.exports = (app) => {
-
+  app.use(bodyParser());
   app.use(devMiddleware(compile));
   app.use(serve(path.join(__dirname, './../../client')));
 
