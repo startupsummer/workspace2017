@@ -5,7 +5,7 @@
   "main": "index.jsx",
   "scripts": {
     "lint": "eslint . --ext .js,.jsx --fix",
-    "start": "npm run lint && sudo docker-compose up -d && NODE_PATH=../ node src/server/app.js",
+    "start": "sudo docker-compose up -d && NODE_PATH=../ node server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "filipochka97",
