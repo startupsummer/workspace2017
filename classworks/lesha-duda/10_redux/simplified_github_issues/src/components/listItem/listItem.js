@@ -13,8 +13,8 @@ function ListItem(props) {
 }
 
 ListItem.propTypes = {
-  data: PropTypes.object,
-  id: PropTypes.string
+  data: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired
 }
 
 export default ListItem;
