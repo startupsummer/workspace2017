@@ -4,18 +4,26 @@
 <head>
   <meta charset="utf-8">
   <title>I certainly love Javascript</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body id="root">
-  <header class="header">
-    <img class="image" alt="I love JS">
-    <p class="reason"></p>
-  </header>
+  <main class="main">
+    <header class="header">
+      <img class="image" alt="I love JS">
+      <p class="reason"></p>
+      <p class="visit">Visited the page {{count}} times</p>
+    </header>
+    <form class="login-page__form form" action="/post-form" method="POST">
+      <input class="form__email" type="text" placeholder="Firstname" />
+      <input class="form__password" type="text" placeholder="Lastname" />
+      <button class="form__submit" type="sumbit">Login</button>
+    </form>
+  </main>
   <footer class="footer">
     <p class="copy">Zhenya Filippovich, <span class="year"></span> &copy; All rights reserved</p>
   </footer>
-   <script src="/main.js"></script> 
+   <script src="/main.js"></script>
 </body>
 
 </html>

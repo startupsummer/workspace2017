@@ -7,23 +7,26 @@ const routes = require('./routes');
 const logger = require('koa-logger');
 const handlebars = require('handlebars');
 const webpack = require('webpack');
-const webpackConfig = require('web/webpack.config');
-const compile = webpack(webpackConfig);
+const webpackConfig = require('web/webpack.config.js');
 const { devMiddleware } = require('web/koa-webpack-middleware-master/middleware/index.js');
 const serve = require('koa-static');
+const koaBody = require('koa-body');
+const validator = require('koa-validator');
+
+const compile = webpack(webpackConfig);
 
 handlebars.registerHelper('json', context => JSON.stringify(context));
 
 module.exports = (app) => {
-  app.use(serve(path.join(__dirname, './../../client')));
+
+  app.use(logger());
+  app.use(koaBody());
+  app.use(validator());
 
   app.use(views(path.join(__dirname, './../../client'), {
     default: 'html',
     map: { html: 'handlebars' },
   }));
-
-  app.use(devMiddleware(compile));
-
 
   app.use(session({
     store: redisStore({
@@ -35,8 +38,6 @@ module.exports = (app) => {
       expires: false,
     },
   }));
-
-  app.use(logger());
 
   app.use(async (ctx, next) => {
     try {
@@ -50,4 +51,7 @@ module.exports = (app) => {
   });
 
   app.use(routes);
+
+  app.use(serve(path.join(__dirname, './../../client')));
+  app.use(devMiddleware(compile));
 };

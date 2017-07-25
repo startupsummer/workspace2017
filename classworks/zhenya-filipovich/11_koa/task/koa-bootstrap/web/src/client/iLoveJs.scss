@@ -1,12 +1,62 @@
-body {
-    text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-img {
-    padding-top: 100px;
+.main {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
 }
 
 .reason {
-    font-size: 30px;
-    color: green;
+  font-size: 30px;
+  color: green;
+}
+
+.visit {
+  margin-top: 10px;
+  font-size: 20px;
+  color: blue;
+}
+
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 300px;
+}
+
+.form__email,
+.form__password,
+.form__submit {
+  display: block;
+  height: 50px;
+  margin-bottom: 20px;
+
+  font-size: 24px;
+  border-radius: 15px;
+  outline: none;
+}
+
+.form__email,
+.form__password {
+  padding-left: 24px;
+  color: rgba(155, 155, 155, 1);
+  font-size: 24px;
+  font-weight: 300;
+  border: 1px solid rgba(155, 155, 155, 0.25);
+  box-shadow: inset 0 1px 7px 0 rgba(0, 0, 0, 0.11);
+}
+
+.form__email::placeholder,
+.form__password::placeholder {
+  opacity: 0.8;
+}
+
+.form__submit {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+  background-color: rgba(11, 209, 189, 1);
+  border: 1px solid rgba(11, 209, 189, 1);
 }
