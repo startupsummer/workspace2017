@@ -15,9 +15,7 @@ const bodyParser = require('koa-body');
 
 
 
-const jwtsecret = "mysecretkey"; // ключ для подписи JWT
-const jwt = require('jsonwebtoken'); // аутентификация по JWT для hhtp
-const socketioJwt = require('socketio-jwt'); // аутентификация по JWT для socket.io
+
 
 
 handlebars.registerHelper('json', context => JSON.stringify(context));

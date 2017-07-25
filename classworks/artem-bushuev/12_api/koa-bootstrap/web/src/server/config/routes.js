@@ -17,18 +17,19 @@ router.post('/post', async (ctx) => {
     };
     return;
   }
-
-  console.log(ctx.request.body);
   ctx.body = { ok: 'true' };
   const user = {
     email: ctx.request.body.email,
     password: ctx.request.body.password,
-    date: moment().format(),
   };
   const token = jwt.sign(user, jwtsecret);
-  store.set(token, user);
+  store.set(token, {
+    email: ctx.request.body.email,
+    password: ctx.request.body.password,
+    massage: ctx.request.body.summerQuality,
+    date: moment().format(),
+  });
   ctx.body.token = token;
-  console.log(store.get(token));
 });
 
 router.get('/hello/', async (ctx) => {
@@ -37,6 +38,15 @@ router.get('/hello/', async (ctx) => {
     name: ctx.params.name,
     count: ctx.session.count,
   });
+}).get('/massage/', async (ctx) => {
+  ctx.session.count = ctx.session.count ? ctx.session.count + 1 : 1;
+  const token = ctx.request.query.token;
+  let user = store.get(token);
+  if (user && moment().diff(user.date) / 10000 > 1) {
+    store.delete(user.title);
+    user = undefined;
+  }
+  ctx.body = user ? { massage: user.massage } : { massage: 'please logIn' };
 });
 
 module.exports = router.routes();
