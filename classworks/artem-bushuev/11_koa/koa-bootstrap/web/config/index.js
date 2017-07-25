@@ -1,5 +1,5 @@
 module.exports = {
-  port: 3004,
+  port: 3000,
   ip: '',
   env: 'development',
   redis: {

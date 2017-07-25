@@ -2,8 +2,14 @@ const router = require('koa-router')();
 
 
 router.post('/post', async (ctx) => {
-  console.dir(ctx.request.body);
-  ctx.body = ctx.request.body;
+  ctx.checkBody('firstName').optional().len(3, 20);
+  ctx.checkBody('lastName').optional().len(3, 20);
+  if (ctx.errors) {
+    ctx.status = 400;
+    ctx.body = ctx.errors;
+  } else {
+    ctx.body = { ok: 'true' };
+  }
 });
 
 router.get('/hello/', async (ctx) => {
