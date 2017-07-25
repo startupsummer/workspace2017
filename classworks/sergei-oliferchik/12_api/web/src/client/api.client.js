@@ -28,18 +28,22 @@ const responseHandler = response => {
           console.log(typeof JSON.stringify(obj))
           error.innerHTML = JSON.stringify(obj);
           iLoveJS.appendChild(error);
+          localStorage.getItem('token')
         });
     }
     return response.text()
       .then(text => { throw new Error(text); });
   }
 
+  localStorage.setItem('token', response.headers.get('X-ACCESS-TOKEN'));
+
   return response.json()
-    .then(obj => obj.results || obj);
+    .then(obj => console.log(obj));
 };
 
 const postJsonHeaders = {
   'Content-Type': 'application/json',
+  'X-ACCESS-TOKEN': localStorage.getItem('token'),
 };
 
 export const get = (path, queryStringObject) =>

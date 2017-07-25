@@ -17,7 +17,7 @@ handlebars.registerHelper('json', context => JSON.stringify(context));
 
 module.exports = (app) => {
   require('koa-validate')(app);
-  
+
   app.use(koaBody());
 
   app.use(serve(path.join(__dirname, './../../client')))

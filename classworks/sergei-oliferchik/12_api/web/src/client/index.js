@@ -10,14 +10,22 @@ import { get, post } from './api.client';
 $('#aboutJS').html(`${phrase}`);
 $('.my_name p').html(`Oliferchik Sergey, ${cur_date} © All rights reserved`);
 
-const send = document.querySelector('.send');
-const login = document.querySelector('.login');
-const password = document.querySelector('.password');
+const registration = document.querySelector('.registration');
+const authorization =  document.querySelector('.authorization');
+const loginAuthorization = document.querySelector('.loginAuthorization');
+const passwordAuthorization = document.querySelector('.passwordAuthorization');
+const loginRegistration = document.querySelector('.loginRegistration');
+const passwordRegistration = document.querySelector('.passwordRegistration');
 
-const request = () => post('hello', null, {
-  firsName: firsName.value,
-  lastName: lastName.value,
-  aboutSummer: aboutSummer.value,
+const requestRegistration = () => post('hello', null, {
+  loginRegistration: loginRegistration.value,
+  passwordRegistration: passwordRegistration.value,
 });
 
-send.addEventListener("click", request);
+const requestAuthorization = () => post('hello', null, {
+  loginAuthorization: loginAuthorization.value,
+  passwordAuthorization: passwordAuthorization.value,
+});
+
+registration.addEventListener("click", requestRegistration);
+authorization.addEventListener("click", requestAuthorization);

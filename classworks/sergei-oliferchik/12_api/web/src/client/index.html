@@ -13,13 +13,18 @@
       <div class="iLoveJs">
         <div class="img"></div>
         <p id='aboutJS'>i love js becouse it is ...</p>
-        <h1>
-          Hello Last time you were this in {{{json prevDate}}}.
-        </h1>
         <form action="handler.php">
-         <input type="email" name="" placeholder="Email" class='margin login'/>
-         <input type="input" name="password" placeholder="Password" class='margin password'/>
-         <button type="button" name="button" class='send'> Send </button>
+         <h2>Registration</h2>
+         <input type="email" name="email" placeholder="Email" class='margin loginRegistration'/>
+         <input type="input" name="password" placeholder="Password" class='margin passwordRegistration'/>
+         <button type="button" name="button" class='registration'> Send </button>
+        </form>
+
+        <form action="handler">
+          <h2>Authorization</h2>
+         <input type="email" name="email" placeholder="Email" class='margin loginAuthorization'/>
+         <input type="input" name="password" placeholder="Password" class='margin passwordAuthorization'/>
+         <button type="button" name="button" class='authorization'> Send </button>
         </form>
       </div>
     </main>
