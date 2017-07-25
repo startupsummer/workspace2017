@@ -5,7 +5,7 @@ function submitForm(e) {
 
   fetch('/form', {
     method: "post",
-    header: {
+    headers: {
     "Content-Type": "application/json",
     },
     body: JSON.stringify({

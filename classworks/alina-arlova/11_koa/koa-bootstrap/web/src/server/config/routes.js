@@ -11,7 +11,6 @@ router.get('/hello', async (ctx) => {
 router.post('/form', async (ctx) => {
   ctx.checkBody('firstName', 'Inappropriate length').notEmpty();
   ctx.checkBody('lastName', 'Inappropriate length').notEmpty();
-  ctx.checkBody('description', 'Inappropriate length').notEmpty();
 
   if(ctx.validationErrors()) {
     ctx.status = 400;

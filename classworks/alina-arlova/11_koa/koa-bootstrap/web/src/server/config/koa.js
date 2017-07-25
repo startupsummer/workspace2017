@@ -10,7 +10,7 @@ const webpack = require('webpack');
 const { devMiddleware, hotMiddleware } = require('web/koa-webpack-middleware-master/middleware/index.js');
 const configWebpack = require('web/webpack.config.js');
 const serve = require('koa-static');
-const koaBody = require('koa-body');
+const koaBody = require('koa-bodyparser');
 const koaValidate = require('koa-validator');
 
 
@@ -46,11 +46,6 @@ module.exports = (app) => {
   }));
 
   app.use(logger());
-
-  app.use(async (ctx, next) => {
-    ctx.request.body = JSON.parse(ctx.request.body);
-    await next();
-  });
 
   app.use(async (ctx, next) => {
     try {
