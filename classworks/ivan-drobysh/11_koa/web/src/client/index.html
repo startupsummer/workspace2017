@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>I certainly love Javascript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="body">
+  <main class="body__main main">
+    <div class="main__image-cont image-cont">
+      <img class="image-cont__image" src="/i-love-js.jpg" alt="">
+      <span class="image-cont__text">{{{ count }}}</span>
+    </div>
+    <form class="form" onsubmit="return false">
+      <input class="form__input" id="firstName" type="text" name="firstName" autocomplete="off" value="">
+      <input class="form__input" id="lastName" type="text" name="lastName" autocomplete="off" value="">
+      <textarea class="form__input form__textarea" id="textArea" name="textArea" rows="8" cols="80" autocomplete="off"></textarea>
+      <select class="form__input" id="select" name="select">
+        <option value="Very good">Very good</option>
+        <option value="Good">Good</option>
+        <option value="Normal">Normal</option>
+        <option value="Bad">Bad</option>
+        <option value="Very Bad">Very Bad</option>
+      </select>
+      <button class="form__button" onclick="sendData()">Submit</button>
+    </form>
+  </main>
+  <footer class="body__footer footer">
+    <span class="footer__text"></span>
+  </footer>
+<script type="text/javascript" src="/bundle.js"></script></body>
+<script>
+  function sendData() {
+    fetch('/session', {
+      method: "post",
+      headers: {
+      "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: firstName.value,
+        lastName: lastName.value,
+        textArea: textArea.value,
+        select: select.value}),
+    })
+  }
+</script>
+</html>
