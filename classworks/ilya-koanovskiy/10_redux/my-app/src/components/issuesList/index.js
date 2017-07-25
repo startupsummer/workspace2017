@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { changeIssue } from '../../Resources/issues/issues.actions';
 import select from '../../Resources/issues/issues.selectors';
 import './index.css';
+import PropTypes from 'prop-types';
 
 class IssuesList extends Component{
 
@@ -25,7 +26,7 @@ class IssuesList extends Component{
 
   render(){
     const newIssues = this.createIssues(this.props.issues,this.props.searchText).map((item)=>                
-              <Issue key={item.id} issue={item} func={this.handleClick}/>);
+              <Issue key={item.id} issue={item} handleClick={this.handleClick}/>);
     return(
       <div className="issues-listing__body">
         <ul className="issues">
@@ -34,6 +35,10 @@ class IssuesList extends Component{
       </div>
     ) 
   }
+}
+
+IssuesList.propTypes = {
+  searchText: PropTypes.func.isRequired
 }
 
 export default connect(state => ({

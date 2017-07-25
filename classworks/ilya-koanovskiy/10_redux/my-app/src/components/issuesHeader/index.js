@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { changeActiveButton } from '../../Resources/issues/issues.actions';
 import select from '../../Resources/issues/issues.selectors';
 import './index.css';
+import PropTypes from 'prop-types';
 
 class IssuesHeader extends Component{
 
@@ -61,6 +62,11 @@ class IssuesHeader extends Component{
       )
   }
 }
+
+IssuesHeader.propTypes = {
+  searchText: PropTypes.func.isRequired
+}
+
 
 export default connect(state => ({
   issues : select.getIssues(state),

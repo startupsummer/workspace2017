@@ -3,6 +3,7 @@ import Button from '../button/index.js';
 import { connect } from 'react-redux';
 import { addIssue } from '../../Resources/issues/issues.actions';
 import './index.css';
+import PropTypes from 'prop-types';
 
 class Subnav extends Component{
 
@@ -30,6 +31,10 @@ class Subnav extends Component{
       </div>
     )
   }
+}
+
+Subnav.propTypes = {
+  searchText: PropTypes.func.isRequired
 }
 
 export default connect(null, {

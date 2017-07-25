@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../button/index.js';
 import { Link } from 'react-router-dom';
 import './index.css';
-
+import PropTypes from 'prop-types';
 
 function Issue(props){
   return(
@@ -17,9 +17,15 @@ function Issue(props){
           <Link to={`/${props.issue.id}`} className="issues__link">{props.issue.title}</Link>
         </div>
       </div>     
-      {props.issue.state === "open" && <Button class="btn issue__close" text="Close issue" onClick={props.func(props.issue.number)}/>}
+      {props.issue.state === "open" && <Button class="btn issue__close" text="Close issue" onClick={props.handleClick(props.issue.number)}/>}
     </li>  
   )   
+}
+
+Issue.propTypes = {
+  key: PropTypes.number.isRequired,
+  issue: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired
 }
 
 export default Issue;
