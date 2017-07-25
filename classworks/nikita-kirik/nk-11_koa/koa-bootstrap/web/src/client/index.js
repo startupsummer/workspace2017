@@ -6,7 +6,7 @@ import $ from 'jquery';
 
 import { getYear } from './getYear.js';
 import { getWhyILove } from './getWhyILove.js';
-import { onSubmitSummerForm } from './summer-form';
+// import { onSubmitSummerForm } from './summer-form';
 
 import * as clientApi from './api.client';
 
@@ -20,8 +20,8 @@ document.querySelector('.summer-form__button').onclick = () => {
     message: $('#text-area-inp').val(),
     // rating: $('#select-inp').find(':selected').data(),    DOESNT WORK !!!
     rating: Number(document.getElementById("select-inp").value),
-  }
-  const form = $('#summer-form');
+  };
+  // const form = $('#summer-form');
   // clientApi.post('/post-summer-form', null, new FormData(form));
   clientApi.post('post-summer-form', null, data);
 };

@@ -32,6 +32,7 @@
 
     &--select {
       width: 60px;
+      align-self: center;
     }
 
   }
@@ -40,7 +41,6 @@
     padding: 10px;
     font-size: 16px;
   }
-
 
   &__button {
     display: inline-block;
@@ -54,7 +54,6 @@
 }
 
 .session-message {
-
   font-size: 20px;
   margin-bottom: 25px;
   align-self: center;

@@ -9,14 +9,12 @@ const logger = require('koa-logger');
 const handlebars = require('handlebars');
 
 const webpack = require('webpack');
-
 const { devMiddleware, hotMiddleware } = require("../../../koa-webpack-middleware-master/middleware");
 const webpackOptions = require("../../../webpack.config.js");
+
 const staticFiles = require('koa-static');
 const dateFormat = require('dateformat');
-
 const koaBody = require('koa-body');
-const bodyParser = require('koa-bodyparser');
 const validate = require('koa-validate');
 
 
@@ -55,7 +53,6 @@ module.exports = (app) => {
     try {
       const date = new Date();
       ctx.session.date = dateFormat(date, "dddd, mmmm dS, yyyy, h:MM:ss TT");
-
       await next();
     } catch (err) {
       console.log(err);
