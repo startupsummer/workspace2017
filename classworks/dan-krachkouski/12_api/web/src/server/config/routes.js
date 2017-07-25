@@ -12,14 +12,8 @@ const db = {
   }
 }
 
-const respondWithToken = (user, login) => {
-  const token = jwt.sign({ login }, 'supersecret')
-  const expires = moment().add(10, 'minutes').format()
-  user.jwt = { token, expires }
-  return { ok: true, token }
-}
-
-router.post('/auth', async (ctx, next) => {
+const checkBodyMiddleware = async (ctx, next) => {
+  console.log('auth')
   ctx.checkBody('login', 'Invalid email').isEmail()
   ctx.checkBody('password', 'Short password').isLength(4)
 
@@ -28,51 +22,80 @@ router.post('/auth', async (ctx, next) => {
   if (errors) {
     ctx.body = errors
     ctx.status = 400
-    return next()
+    return
   }
 
+  await next()
+}
+
+const generateToken = (login) => {
+  const expires = moment().add(10, 'minutes').format()
+  return jwt.sign({ login, expires }, 'supersecret')
+}
+
+const respondWithCookie = (ctx, token, expiresIn) => {
+  ctx.cookies.set('access_token', token, { expiresIn })
+  ctx.body = null
+}
+
+router.post('/auth', checkBodyMiddleware, async (ctx, next) => {
   const { login, password } = ctx.request.body
 
   if (db[login]) {
     const user = db[login]
     if (passwordHash.verify(password, user.hash)) {
-      ctx.body = respondWithToken(user, login)
+      const token = generateToken(login)
+      respondWithCookie(ctx, token)
     } else {
       ctx.status = 400
-
-      console.error(db)
-      return next()
     }
   } else {
     const hash = passwordHash.generate(password)
     db[login] = { hash }
-    const user = db[login]
-    ctx.body = respondWithToken(user, login)
+    const token = generateToken(login)
+    respondWithCookie(ctx, token)
   }
-
-  console.error(db)
 })
 
-router.post('/acess', async (ctx, next) => {
-  const token = ctx.request.body.token
+const validateAcessToken = (token) => {
   try {
     const decoded = jwt.verify(token, 'supersecret')
-
-    console.dir(decoded)
-
-    if (db[decoded.login] && db[decoded.login].jwt) {
-      const user = db[decoded.login]
-      if (moment(user.jwt.expires) < moment()) {
-        user.jwt = null
-        throw new Error()
-      } else {
-        ctx.body = { ok: true }
-      }
+    if (db[decoded.login] &&
+      moment(decoded.expires) > moment()) {
+      return true
     }
-  } catch (err) {
-    ctx.status = 401
+  } catch (err) {}
+  return false
+}
+
+const verifyAcessTokenMiddleware = async (ctx, next) => {
+  const token = ctx.cookies.get('access_token')
+  if (validateAcessToken(token)) {
     return next()
   }
+  ctx.status = 401
+}
+
+router.post('/access', verifyAcessTokenMiddleware, async (ctx, next) => {
+  ctx.body = null
+})
+
+router.get('/access', async (ctx, next) => {
+  const token = ctx.cookies.get('access_token')
+  let access = null
+  if (validateAcessToken(token)) {
+    access = {
+      access: 'ACCESS_GRANTED',
+      bg: 'green'
+    }
+  } else {
+    access = {
+      access: 'ACCESS_DENIED',
+      bg: 'red'
+    }
+    ctx.status = 403
+  }
+  await ctx.render('secure.html', access)
 })
 
 module.exports = (app) => {

@@ -10,23 +10,15 @@ document.forms.loginForm.onsubmit = (event) => {
   axios.post('/auth', data)
     .then(res => {
       document.forms.loginForm.style.background = '#e0ffe6'
-      // eslint-disable-next-line
-      localStorage.setItem('jwt_token', res.data.token)
     })
     .catch(() => {
       document.forms.loginForm.style.background = '#ffe0e0'
-      // eslint-disable-next-line
-      localStorage.clear()
     })
 }
 
-document.querySelector('#test-acess').onclick = (event) => {
-  const token = {
-    // eslint-disable-next-line
-    token: localStorage.getItem('jwt_token')
-  }
+document.querySelector('#test-access').onclick = (event) => {
   // eslint-disable-next-line
-  axios.post('/acess', token)
+  axios.post('/access')
     .then(res => {
       event.target.style.background = 'green'
     })
@@ -37,5 +29,8 @@ document.querySelector('#test-acess').onclick = (event) => {
 
 document.querySelector('#log-out').onclick = (event) => {
   // eslint-disable-next-line
-  localStorage.clear()
+  // localStorage.clear()
+  // document.cookie = 'access_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+  // eslint-disable-next-line
+  alert('How do i delete a cookie?')
 }
