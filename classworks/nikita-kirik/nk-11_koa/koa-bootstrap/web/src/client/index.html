@@ -5,8 +5,6 @@
   <meta charset="utf-8">
   <title>I certainly love Javascript</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
 </head>
 
 <body>
@@ -20,15 +18,32 @@
     <div class="session-message">
       Hello {{{json name}}}. You visited this site {{{json count}}} times. The last at {{{json date}}}
     </div>
-<form class="summer-form">
-  <div class="summer-form__title">
-    How I spent the summer
-  </div>
-  First name <input class="summer-form__txt-inp" placeholder="first name" />
-  Last name <input class="summer-form__txt-inp" placeholder="last name" />
-  <textarea class="form__txt-inp  form__txt-inp--message" name="" placeholder="Message"></textarea>
 
-</form>
+    <form class="summer-form" enctype="multipart/form-data" id="summer-form">
+      <div class="summer-form__title">
+        How I spent the summer
+      </div>
+      <div class="summer-form__txt-inputs">
+        <input class="summer-form__txt-inp summer-form__txt-inp--simple" placeholder="first name" name="first-name" id="first-name-inp"/>
+        <input class="summer-form__txt-inp summer-form__txt-inp--simple" placeholder="last name" name="last-name" id="last-name-inp" />
+      </div>
+      <textarea class="summer-form__txt-inp" name="" placeholder="Message" name="message" id="text-area-inp"></textarea>
+
+      Rate your summer quality
+      <select name="summer-form__txt-inp summer-form__txt-inp--select qwrert" id="select-inp">
+        <option data="1" value="1" selected>1</option>
+        <option data="2" value="2">2</option>
+        <option data="3" value="3">3</option>
+      </select>
+
+    </form>
+
+    <button class="summer-form__button">
+    <!-- <button class="summer-form__button" onclick="onSubmitSummerForm()"> -->
+    <!-- <button class="summer-form__button" onclick="(() => { console.log('IM HERE'); })()"> -->
+      Send Message
+    </button>
+
 
     <footer class="main-footer">
       <p>
@@ -37,8 +52,8 @@
     </footer>
 
   </main>
-
   <script src="/bundle.js"></script>
+
 </body>
 
 </html>

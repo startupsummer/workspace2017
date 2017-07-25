@@ -13,14 +13,20 @@ const webpack = require('webpack');
 const { devMiddleware, hotMiddleware } = require("../../../koa-webpack-middleware-master/middleware");
 const webpackOptions = require("../../../webpack.config.js");
 const staticFiles = require('koa-static');
-
 const dateFormat = require('dateformat');
+
+const koaBody = require('koa-body');
+const bodyParser = require('koa-bodyparser');
+const validate = require('koa-validate');
+
 
 handlebars.registerHelper('json', context => JSON.stringify(context));
 
 
 module.exports = (app) => {
 
+
+  app.use(koaBody());
 
   app.use(staticFiles(path.join(__dirname, './../../client/')));
 
@@ -43,6 +49,7 @@ module.exports = (app) => {
   }));
 
   app.use(logger());
+  validate(app);
 
   app.use(async (ctx, next) => {
     try {

@@ -9,4 +9,17 @@ router.get('/hello/:name', async (ctx) => {
   });
 });
 
+router.post('/post-summer-form', async (ctx) => {
+  ctx.checkBody('firstName').notEmpty().len(2, 20, 'Dont play with me m..ker !');
+  ctx.checkBody('lastName').notEmpty().len(2, 20, 'Dont play with me m..ker !');
+  ctx.checkBody('message').optional();
+  ctx.checkBody('rating').isInt();
+
+  if (ctx.errors) {
+    ctx.body = ctx.errors;
+    return;
+  }
+  ctx.body = { key: 'Thats all right, mama !' };
+});
+
 module.exports = router.routes();
