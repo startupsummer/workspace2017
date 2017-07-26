@@ -1,11 +1,9 @@
 1.
-
 ```javascript
 db.getCollection('users').insertOne({_id: 1, first_name: "Mark", last_name: "Chepicov"})
 ```
 
 2.
-
 ```javascript
 db.getCollection('users').updateOne({_id: 1}, {$set: {first_name: "Andrew", last_name: "Orsich"}})
 ```
@@ -16,7 +14,6 @@ db.getCollection('users').insertOne({_id: 3, first_name: "Nikita", last_name: "N
 ```
 
 3.
-
 ```javascript
 db.posts.updateOne(
 { _id : 1 }, 
@@ -24,9 +21,19 @@ db.posts.updateOne(
     {_id: 1, 
     title: "Belarus Central Bank Approves Blockchain Use For Bank Guarantees",
     content: "The central bank of Belarus has cleared the way for domestic banks to use blockchain as part of their processes of transmitting bank guarantees.",  
-    user_id: 1, 
-    comment: [{_id: 1, user_id: 1, content: "That's great!", like: [{_id: 1, user_id: 3, type: "wow"}]}], 
-    like: [{_id: 1, user_id: 2, type: "like"}], 
+    user_id: 2, 
+    comment: [
+    {
+        _id: 1, 
+        user_id: 1, 
+        content: "That's great!", 
+        like: [
+            {_id: 1, 
+            user_id: 3, 
+            type: "wow"}
+        ]
+    }], 
+    like: [{_id: 1, user_id: 1, type: "like"}], 
     share: [{_id: 1, user_id: 3}],
     views: 100500
     } 
@@ -35,7 +42,6 @@ db.posts.updateOne(
 ```
 
 4.
-
 ```javascript
 db.posts.updateOne(
 { _id : 1 }, 
@@ -44,14 +50,13 @@ db.posts.updateOne(
     content: "Novost' - bayan",  
     user_id: 3,
     replyOn_id: 1,
-    like: [{_id: 1, user_id: 1, type: "haha"}], 
+    like: [{_id: 1, user_id: 2, type: "haha"}], 
     } 
 }
 })
 ```
 
 5.
-
 ```javascript
 db.posts.updateOne(
 { _id : 1 }, 
@@ -60,19 +65,19 @@ db.posts.updateOne(
 ```
 
 6.
-
 ```javascript
 db.posts.deleteOne( { _id : 1 } );
 ```
 
 7.
-
 ```javascript
 db.posts.aggregate(
    [
       {
          $project: {
-            numberOfComments: { $size: "$comment" }
+            numberOfComments: { 
+                $size: "$comment" 
+            }
          }
       }
    ]
@@ -80,7 +85,6 @@ db.posts.aggregate(
 ```
 
 8.
-
 ```javascript
 db.posts.update(
     { _id: 1},
@@ -88,7 +92,7 @@ db.posts.update(
         {like: 
             {
                 _id: 2, 
-                user_id: 2, 
+                user_id: 1, 
                 type: "like"
             }
         }
@@ -108,7 +112,6 @@ db.posts.update(
 ```
 
 9.
-
 ```javascript
 db.posts.update(
     { _id: 1, "comment._id": 1},
