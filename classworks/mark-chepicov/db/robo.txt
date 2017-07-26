@@ -1,14 +1,21 @@
 1.
-```db.getCollection('users').insertOne({_id: 1, first_name: "Mark", last_name: "Chepicov"})```
+```javascript
+db.getCollection('users').insertOne({_id: 1, first_name: "Mark", last_name: "Chepicov"})
+```
 
 2.
-```db.getCollection('users').updateOne({_id: 1}, {$set: {first_name: "Andrew", last_name: "Orsich"}})```
+```javascript
+db.getCollection('users').updateOne({_id: 1}, {$set: {first_name: "Andrew", last_name: "Orsich"}})
+```
 
-```db.getCollection('users').insertOne({_id: 2, first_name: "Mark", last_name: "Chepicov"})
-db.getCollection('users').insertOne({_id: 3, first_name: "Nikita", last_name: "Nesterenko"})```
+```javascript
+db.getCollection('users').insertOne({_id: 2, first_name: "Mark", last_name: "Chepicov"})
+db.getCollection('users').insertOne({_id: 3, first_name: "Nikita", last_name: "Nesterenko"})
+```
 
 3.
-```db.posts.updateOne(
+```javascript
+db.posts.updateOne(
 { _id : 1 }, 
 { $set: 
     {_id: 1, 
@@ -21,10 +28,12 @@ db.getCollection('users').insertOne({_id: 3, first_name: "Nikita", last_name: "N
     views: 100500
     } 
 }, 
-{ upsert: true })```
+{ upsert: true })
+```
 
 4.
-```db.posts.updateOne(
+```javascript
+db.posts.updateOne(
 { _id : 1 }, 
 { $push: { comment:
     {_id: 2, 
@@ -34,19 +43,25 @@ db.getCollection('users').insertOne({_id: 3, first_name: "Nikita", last_name: "N
     like: [{_id: 1, user_id: 1, type: "haha"}], 
     } 
 }
-})```
+})
+```
 
 5.
-```db.posts.updateOne(
+```javascript
+db.posts.updateOne(
 { _id : 1 }, 
 { $pull: { comment: {_id: 2}} 
-})```
+})
+```
 
 6.
-```db.posts.deleteOne( { _id : 1 } );```
+```javascript
+db.posts.deleteOne( { _id : 1 } );
+```
 
 7.
-```db.posts.aggregate(
+```javascript
+db.posts.aggregate(
    [
       {
          $project: {
@@ -54,9 +69,11 @@ db.getCollection('users').insertOne({_id: 3, first_name: "Nikita", last_name: "N
          }
       }
    ]
-)```
+)
+```
 
 8.
+```javascript
 db.posts.update(
     { _id: 1},
     { $push: 
@@ -80,6 +97,8 @@ db.posts.update(
         }
     }
 )
+```
+
 9.
 db.posts.update(
     { _id: 1, "comment._id": 1},
@@ -104,4 +123,4 @@ db.posts.update(
         }
     }
 )
-
+```
