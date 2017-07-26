@@ -75,9 +75,11 @@ db.posts.update(
   {
     title: "Mona Lisa is alive !",
     content: "Rusty James from Minessota noticed that very old lady living in the neighberhood can be th very Mona Lisa",
-    comments: [{_id: 11, userId: 123, content: "Shooot !", likes: []}, {_id: 12, userId: 123, content: "Dont like Mona.. and Leo either", likes: [{ _id: 67, userId: 123, type: "like" }] }],
-    likes: [{ _id: "434", userId: 123, type: "like" }]
-
+    comments: [
+      { _id: 11, userId: 123, content: "Shooot !", likes: [] },
+      { _id: 12, userId: 123, content: "Dont like Mona.. and Leo either", likes: [ { _id: 67, userId: 123, type: "like" } ] }
+    ],
+    likes: [ { _id: "434", userId: 123, type: "like" } ]
   },
   {
     upsert: true
@@ -89,9 +91,10 @@ db.posts.update(
   {
     title: "Mona Lisa is not alive !",
     content: "Rusty James from Minessota reported that very old lady living in the neighberhood probably have died today",
-    comments: [ {_id: 23, userId: 123, content: "Dont like Mona.. and Leo either", likes: [{ _id: 69, userId: 123, type: "like" }] } ],
-    likes: [{ _id: "434", userId: 123, type: "dislike" }]
-
+    comments: [
+      { _id: 23, userId: 123, content: "Dont like Mona.. and Leo either", likes: [ { _id: 69, userId: 123, type: "like" } ] }
+    ],
+    likes: [ { _id: "434", userId: 123, type: "dislike" } ]
   },
   {
     upsert: true
@@ -117,9 +120,11 @@ db.posts.update(
   {
     title: "Mona Lisa is alive !",
     content: "Rusty James from Minnesota noticed that very old lady living in the neighborhood can be th very Mona Lisa",
-    comments: [{_id: 11, userId: 123, content: "Shooot !", likes: []}, {_id: 12, userId: 123, content: "Dont like Mona.. and Leo either", likes: [{ _id: 67, userId: 123, type: "like" }] }],
+    comments: [
+      { _id: 11, userId: 123, content: "Shooot !", likes: [] },
+      { _id: 12, userId: 123, content: "Dont like Mona.. and Leo either", likes: [{ _id: 67, userId: 123, type: "like" }] }
+    ],
     likes: [{ _id: "434", userId: 123, type: "like" }]
-
   },
   {
     upsert: true
@@ -131,9 +136,11 @@ db.posts.update(
   {
     title: "Mona Lisa is not alive !",
     content: "Rusty James from Minnesota reported that very old lady living in the neighborhood probably have died today",
-    comments: [{_id: 21, userId: 123, content: "Shooot !", likes: []}, {_id: 23, userId: 123, content: "Dont like Mona.. and Leo either", likes: [{ _id: 69, userId: 123, type: "like" }] }],
+    comments: [
+      { _id: 21, userId: 123, content: "Shooot !", likes: [] },
+      { _id: 23, userId: 123, content: "Dont like Mona.. and Leo either", likes: [{ _id: 69, userId: 123, type: "like" }] }
+    ],
     likes: [{ _id: "434", userId: 123, type: "dislike" }]
-
   },
   {
     upsert: true
