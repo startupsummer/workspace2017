@@ -4,10 +4,7 @@
 `db.getCollection('users').insertOne( { _id: 2, firstName: "Oleg", lastname: "Baran"} )`
 
 2) Update user first and last name in a database using atomic update: <br />
-	`db.getCollection('users').updateOne( { _id:3 },
-    { $set: { firstName : "Ilya" } },
-    { upsert: true }
-    )`
+	`db.getCollection('users').updateOne( { _id:3 },{ $set: { firstName : "Ilya" } }, { upsert: true })`
 
 3) Upsert post to the database: <br />
 	`db.getCollection('posts').updateOne(
@@ -75,14 +72,7 @@
   )`
 
 5) Remove comment from a post: <br />
-	`db.getCollection('posts').updateOne(
-    { _id: 1},
-    { $pull: {
-         comments: { _id: 3 }
-
-
-    }}
-  )   `
+	`db.getCollection('posts').updateOne({ _id: 1},{ $pull: {comments: { _id: 3 }}})`
 
 6) Remove post from a database (with specific id): <br />
 	`db.getCollection('posts').deleteOne( { _id: 1 })`
@@ -101,26 +91,10 @@
 
 1) Implement like/unlike functionality for posts: <br />
 	- Like: <br />
-	 	`db.getCollection('posts').updateOne(
-      { _id: 1},
-      { $push: {
-          likes: {
-              _id: 3,
-              type: "hangry",
-              user_id: 3,            
-              }
-      }}
-    ) `
+	 	`db.getCollection('posts').updateOne({ _id: 1},{ $push: {likes: {_id: 3,type: "hangry",user_id: 3,}}})`
 
 	- Unlike: <br />
-		`db.getCollection('posts').updateOne(
-      { _id: 1},
-      { $pull: {
-           likes: { _id: 3 }
-
-
-      }}
-    )`
+		`db.getCollection('posts').updateOne({ _id: 1},{ $pull: {likes: { _id: 3 }}})`
 
 
 2) Implement like/unlike functionality for comments: <br />
@@ -137,12 +111,5 @@
       } }
     )`
 
-
 	- Unlike: <br />
-		`db.getCollection('posts').updateOne(
-      { _id: 1, "comments._id": 1},
-      { $pull: {
-        "comments.$.comment_likes":
-          { _id: 3 }
-      }}
-    )`
+		`db.getCollection('posts').updateOne({ _id: 1, "comments._id": 1},{ $pull: {"comments.$.comment_likes":{ _id: 3 }}})`
