@@ -10,6 +10,7 @@
 <body>
   <main class="main">
 
+
     <div class="main-block">
       <img class="main-block__img" src="/i-love-js.jpg">
       <p class="main-block__message">
@@ -26,19 +27,28 @@
       <input type="email" class="summer-form__txt-inp summer-form__txt-inp--simple" placeholder="E-MAIL" name="first-name" id="email"/>
       <input class="summer-form__txt-inp summer-form__txt-inp--simple" placeholder="PASSWORD" name="last-name" id="password" />
     </form>
-    <button class="summer-form__button">
-      Submit
+    <div class="summer-form__btn-block" style="display:flex;">
+      <button class="summer-form__button" id="reg-btn">
+        Register
+      </button>
+    <button class="summer-form__button summer-form__button--auth" id="auth-btn" disabled>
+      Authorize
     </button>
 
+  </div>
 
-    <button class="show-button">
+
+<aside class="aside-bar">
+      <button class="show-button" disabled id="show-button">
       Show Secret Information
     </button>
-    <div class="secret-data">
-      {{{json data1}}}
+    <div class="secret-data" id="secret-data">
+      <!-- {{{json data1}}}
       {{{json data2}}}
-      {{{json data3}}}
+      {{{json data3}}} -->
     </div>
+  </aside>
+
 
     <footer class="main-footer">
       <p>

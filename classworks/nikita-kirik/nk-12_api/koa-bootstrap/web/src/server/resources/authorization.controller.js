@@ -1,11 +1,24 @@
 const validate = require('./authorization.validator');
 // const DataBase = require('./');
-var passwordHash = require('password-hash');
-var jwt = require('jsonwebtoken');
-
+const passwordHash = require('password-hash');
+const jwt = require('jsonwebtoken');
 
 const storage = {};
 const secretKey = 'QQQ';
+
+module.exports.register = async (ctx) => {
+  const isValid = await validate(ctx);
+  if (!isValid) {
+    return;
+  }
+  const { email, password } = ctx.request.body;
+  if(email in storage) {
+    ctx.body = { status: 400, mesage: 'User with this email is exist' };
+  } else {
+    storage[email] = passwordHash.generate(password);
+    ctx.body = { status: 'OK', message: 'You are regestred' };
+  }
+};
 
 module.exports.authorize = async (ctx) => {
   const isValid = await validate(ctx);
@@ -18,29 +31,24 @@ module.exports.authorize = async (ctx) => {
     console.log('here 3');
     // if (storage[email] === passwordHash.generate(password)) {
     if (passwordHash.verify(password, storage[email])) {
-      var token = jwt.sign({ email: email }, secretKey);
+      var token = jwt.sign({ email: email }, secretKey, { expiresIn: 10 });
       ctx.body = { token: token };
     } else {
-      ctx.body = { key: 'WRANG PASSWORD' };
+      ctx.body = { status: 'WRANG PASSWORD' };
     }
   } else {
     console.log('here 4');
     storage[email] = passwordHash.generate(password);
-    ctx.body = { k: 'you are regestred' };
+    ctx.body = { status: 'You are regestred' };
   }
-
-  // const newUser = dataBase.add(ctx.request.body);
-  // if(!newUser) {
-  //   DataBase.get();
-  // }
 };
 
 module.exports.getSecret = (ctx) => {
   const decoded = jwt.verify(ctx.header.token, secretKey);
-  console.log('DECODED ',decoded);
+  console.log('DECODED ', decoded);
   if(decoded.email in storage) {
     ctx.body = { data1: 'Im', data2: 'a spy'}
   } else {
-    ctx.body = { error: '401' }
+    ctx.body = { status: '403', message: 'Tiken is expired' }
   }
 };

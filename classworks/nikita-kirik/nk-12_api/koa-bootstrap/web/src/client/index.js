@@ -15,21 +15,31 @@ $('.main-block__message').append(`...because ${getWhyILove()}`);
 
 let token = 12;
 
-document.querySelector('.summer-form__button').onclick = () => {
-  // const data = {
-  //   email: $('#email').val(),
-  //   password: $('#password').val(),
-  // };
+document.getElementById('reg-btn').onclick = () => {
   const data = {
     email: document.getElementById('email').value,
     password: document.getElementById('password').value,
   };
-  // const form = $('#summer-form');
-  // clientApi.post('/post-summer-form', null, new FormData(form));
-  // clientApi.post('authorization', null, data).then((responce) => {
-  //   console.log('!!!', responce);
-  //   token = responce;
-  // });
+  fetch(
+    'http://localhost:3001/register',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    },
+  ).then(resp => resp.json())
+  .then((respData) => {
+    if (respData.status === 'OK')
+    document.getElementById("auth-btn").disabled = false;
+  });
+};
+
+
+document.getElementById('auth-btn').onclick = () => {
+  const data = {
+    email: document.getElementById('email').value,
+    password: document.getElementById('password').value,
+  };
 
   fetch(
     'http://localhost:3001/authorization',
@@ -40,9 +50,10 @@ document.querySelector('.summer-form__button').onclick = () => {
     },
   ).then(resp => resp.json())
   .then((respData) => {
-    console.log('!!!', respData);
-    if ('token' in respData)
-    token = respData.token;
+    if ('token' in respData) {
+      token = respData.token;
+      document.getElementById("show-button").disabled = false;
+    }
   });
 };
 
@@ -68,11 +79,10 @@ document.querySelector('.show-button').onclick = () => {
   )
   .then(resp => resp.json())
   .then((respData) => {
-    if('data1' in respData ) {
-      ctx.render('index', {
-        data1: respData.data1,
-        data2: respData.data2,
-      });
+    if ('data1' in respData) {
+      document.getElementById("secret-data").textContent += `Secret data: ${respData.data1} ${respData.data2}`;
+    } else {
+      document.getElementById("secret-data").textContent += `${respData.status}: ${respData.message}`;
     }
   });
 

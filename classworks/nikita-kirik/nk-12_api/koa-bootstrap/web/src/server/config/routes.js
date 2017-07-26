@@ -11,9 +11,14 @@ router.get('/hello/:name', async (ctx) => {
   });
 });
 
+router.post('/register', async (ctx) => {
+  controller.register(ctx);
+});
+
 router.post('/authorization', async (ctx) => {
   controller.authorize(ctx);
 });
+
 
 // router.get('/secret-info', async (ctx) => {
 //   controller.getSecret(ctx);
