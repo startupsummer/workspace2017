@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "window": true,
+    "document": true,
+    "CustomEvent": true,
+    "XMLHttpRequest": true,
+    "getComputedStyle": true
+  },
+  "rules": {
+    "no-console": 0
+  }
+}
