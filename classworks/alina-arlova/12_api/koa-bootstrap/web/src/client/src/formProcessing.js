@@ -1,7 +1,7 @@
 function submitForm(e) {
   e.preventDefault();
 
-  const form = document.forms.infoForm;
+  const form = document.forms.signInForm;
 
   fetch('/form', {
     method: "post",

@@ -11,31 +11,18 @@
   padding-bottom: 30px;
 }
 
-.main-part__image {
-  align-self: center;
-  margin-top: 100px;
-}
-
-.main-part__text {
-  align-self: center;
-  margin-top: 20px;
-  font-size: 20px;
-}
-
 .main-part__count {
   align-self: center;
   margin-top: 20px;
   font-size: 18px;
 }
 
-.info {
+.sign-in, .sign-up {
   display: flex;
   justify-content: center;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
+.sign-in__form, .sign-up__form {
   padding: 15px;
 }
 
@@ -53,7 +40,7 @@
 .form__login,
 .form__password {
   line-height: 40px;
-  width: 100%;
+  //width: 100%;
   margin-bottom: 10px;
   padding-left: 10px;
   font-size: 16px;
@@ -64,7 +51,7 @@
 .form__submit {
   border-radius: 8px;
   height: 50px;
-  width: 100%;
+  //width: 100%;
   padding: 10px 30px 10px 30px;
   color: #f2f2f2;
   background-color: #7faba9;
