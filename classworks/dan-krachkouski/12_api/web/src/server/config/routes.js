@@ -33,8 +33,10 @@ const generateToken = (login) => {
   return jwt.sign({ login, expires }, 'supersecret')
 }
 
-const respondWithCookie = (ctx, token, expiresIn) => {
-  ctx.cookies.set('access_token', token, { expiresIn })
+const respondWithCookie = (ctx, token, expires) => {
+  ctx.cookies.set('access_token', token, {
+    maxAge: 1000 * 10
+  })
   ctx.body = null
 }
 
@@ -55,6 +57,11 @@ router.post('/auth', checkBodyMiddleware, async (ctx, next) => {
     const token = generateToken(login)
     respondWithCookie(ctx, token)
   }
+})
+
+router.del('/auth', async (ctx, next) => {
+  ctx.cookieso.set('access_token')
+  ctx.body = null
 })
 
 const validateAcessToken = (token) => {

@@ -29,8 +29,5 @@ document.querySelector('#test-access').onclick = (event) => {
 
 document.querySelector('#log-out').onclick = (event) => {
   // eslint-disable-next-line
-  // localStorage.clear()
-  // document.cookie = 'access_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-  // eslint-disable-next-line
-  alert('How do i delete a cookie?')
+  axios.delete('/auth')
 }
