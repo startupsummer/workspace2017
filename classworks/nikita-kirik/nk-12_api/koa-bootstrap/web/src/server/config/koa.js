@@ -53,7 +53,6 @@ module.exports = (app) => {
       ctx.session.date = dateFormat(date, "dddd, mmmm dS, yyyy, h:MM:ss TT");
       await next();
     } catch (err) {
-      console.log(err);
       ctx.status = err.status || 500;
       ctx.body = err.message;
       ctx.app.emit('error', err, ctx);

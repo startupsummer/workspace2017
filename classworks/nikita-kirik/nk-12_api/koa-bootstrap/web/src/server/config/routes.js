@@ -19,13 +19,7 @@ router.post('/authorization', async (ctx) => {
   controller.authorize(ctx);
 });
 
-
-// router.get('/secret-info', async (ctx) => {
-//   controller.getSecret(ctx);
-// })
-
 router.post('/secret-info', async (ctx) => {
-  console.log('token is geted', ctx);
   controller.getSecret(ctx);
 })
 

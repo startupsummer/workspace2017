@@ -20,7 +20,7 @@
 
   &__txt-inp {
     align-self: center;
-  
+
     padding: 10px;
     font-size: 16px;
     margin-bottom: 16px;
@@ -79,6 +79,8 @@
   // top: 0;
   // float: left;
   // display: flex;
+  display: flex;
+  justify-content: center;
   align-self: center;
   flex-direction: column;
   align-items: center;

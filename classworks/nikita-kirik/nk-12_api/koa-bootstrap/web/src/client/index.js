@@ -57,18 +57,7 @@ document.getElementById('auth-btn').onclick = () => {
   });
 };
 
-// document.querySelector('.show-button').onclick = () => {
-//   fetch(
-//     'secret-info',
-//     {
-//       method: 'GET',
-//       headers: token,
-//     },
-//   ).then();
-// };
-
 document.querySelector('.show-button').onclick = () => {
-  console.log(token);
   fetch(
     'http://localhost:3001/secret-info',
     {
@@ -80,14 +69,13 @@ document.querySelector('.show-button').onclick = () => {
   .then(resp => resp.json())
   .then((respData) => {
     if ('data1' in respData) {
-      document.getElementById("secret-data").textContent += `Secret data: ${respData.data1} ${respData.data2}`;
+      const secretBlock = document.createElement("div");
+      secretBlock.textContent = `Secret data: ${respData.data1} ${respData.data2}`;
+      document.getElementById("secret-data").textContent = '';
+      document.getElementById("secret-data").appendChild(secretBlock);
     } else {
-      document.getElementById("secret-data").textContent += `${respData.status}: ${respData.message}`;
+      document.getElementById("secret-data").textContent = `Error: ${respData.status}, ${respData.message}`;
     }
   });
 
 };
-
-// document.querySelector('.show-button').onclick = () => {
-//   clientApi.post('secret-info', null, {key: 'hi'}).then();
-// };
