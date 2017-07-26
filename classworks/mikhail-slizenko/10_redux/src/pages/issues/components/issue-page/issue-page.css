@@ -1,0 +1,22 @@
+.issue-page__header {
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 3px 3px 0 0;
+  padding: 15px 20px;
+}
+
+.issue-page__title {
+  color: rgb(36, 41, 46);
+  line-height: 1.25;
+  font-size: 24px;
+  margin: 0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.issue-page__body {
+  border: 1px solid #e1e4e8;
+  border-top: none;
+  border-radius: 3px 3px 0 0;
+  padding: 20px;
+}

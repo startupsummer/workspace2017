@@ -1,0 +1,16 @@
+.btn-link {
+  display: inline-block;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  background-color: transparent;
+  border: 0;
+  font-size: inherit;
+}
+
+.btn-link--selected {
+  font-weight: 600;
+}
+
+.btn-link + .btn-link {
+  margin-left: 10px;
+}
