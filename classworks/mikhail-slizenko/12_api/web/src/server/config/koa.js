@@ -21,23 +21,7 @@ module.exports = (app) => {
 
   app.use(serve(path.join(__dirname, './../../client')));
 
-  app.use(views(path.join(__dirname, './../../client'), {
-    default: 'html',
-    map: { html: 'handlebars' },
-  }));
-
   app.use(devMiddleware(compile));
-
-  app.use(session({
-    store: redisStore({
-      host: config.redis.host,
-      port: config.redis.port,
-    }),
-    ttl: 3600 * 10000,
-    cookie: {
-      expires: false,
-    },
-  }));
 
   app.use(logger());
 
@@ -48,7 +32,6 @@ module.exports = (app) => {
       console.log(err);
       ctx.status = err.status || 500;
       ctx.body = err.message;
-      // ctx.app.emit('error', err, ctx);
     }
   });
 

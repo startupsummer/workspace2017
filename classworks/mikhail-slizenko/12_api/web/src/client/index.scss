@@ -69,8 +69,13 @@ body {
   transition: color .4s ease;
 }
 
+@keyframes error {
+  5% { color: #f33; }
+  95% { color: #999; }
+}
+
 .remark--warning {
-    color: #f33;
+  animation: error 3s ease;
 }
 
 .message {
