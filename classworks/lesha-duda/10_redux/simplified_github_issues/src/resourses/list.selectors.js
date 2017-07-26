@@ -1,3 +1,1 @@
-export default {
-  getList: state => state
-};
+export const some = state => state;

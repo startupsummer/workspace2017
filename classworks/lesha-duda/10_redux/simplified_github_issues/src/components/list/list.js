@@ -9,14 +9,10 @@ import './list.css'
 
 class List extends Component {
   render() {
-    let issues = this.props.issue.state;
-    let tempIssues = [];
-
-    if(this.props.sortField.length > 0) {
-      tempIssues = issues
-        .filter((item) => (item.title !== undefined ? (item.title.toLowerCase() 
-          .includes(this.props.sortField.toLowerCase()) === true) : null ));
-    }
+    let { issues, sortField } = this.props;
+    const tempIssues = issues.filter((item) =>
+      (item.title || '').toLowerCase().includes(sortField.toLowerCase())
+    );
 
     if(this.props.sortField.length > 0) (issues = tempIssues)
     const issue = issues.map((issue) => {
@@ -60,6 +56,4 @@ List.propTypes = {
 
 export default connect(state => ({
   issue: fromStore.getList(state),
-}), {
-}) (List)
-
+})) (List)

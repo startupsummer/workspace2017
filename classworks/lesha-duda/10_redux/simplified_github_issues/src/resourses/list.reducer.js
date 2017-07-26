@@ -7,8 +7,8 @@ export default (state = { state: [] }, action) => {
       return {...state, state: newIssuesAdd}
     case 'closeListItem':
       const newIssuesDel = state.state.map(item => item.id === action.payload.id ? action.payload: item)
-      return {...state, state: newIssuesDel}
-    default: 
+      return { ...state, state: newIssuesDel }
+    default:
       return state;
   }
-} 
+}
