@@ -4,7 +4,7 @@ html, body {
 
 body {
     margin: 0;
-    padding-top: 100px;
+    padding: 50px;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -15,44 +15,64 @@ body {
     box-sizing: border-box;
 }
 
-.form {
-    width: 500px;
+.section  {
+  width: 500px;
+  border: 1px solid #ddd;
+  padding: 40px;
 }
 
-
-.form__item + .form__item {
-    margin-top: 20px;
+.section  + .section {
+  margin-top: 40px;
 }
 
-.form__title {
-    text-align: center;
-    margin-bottom: 2em;
+.section__item + .section__item {
+  margin-top: 30px;
 }
 
-.form__label {
-    display: block;
-    color: #444;
-    font-size: 14px;
-    margin-bottom: .5em;
+.section__title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1.2em;
+  font-size: 36px;
+  color: #000;
 }
 
-.form__input {
-    padding: 10px;
-    background-color: #eee;
-    border-radius: 3px;
-    border: none;
-    color: #222;
-    width: 100%;
+.label {
+  display: block;
+  color: #000;
+  margin-bottom: .5em;
+  font-size: 14px;
 }
 
-.form__button {
-    width: 100%;
-    border: none;
-    background-color: #589;
-    color: #222;
+.input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  width: 100%;
+  color: #000;
 }
 
-.form__remark {
-    font-size: 12px;
-    margin: 0;
+.btn {
+  width: 100%;
+  padding: 12px;
+  display: block;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.remark {
+  font-size: 12px;
+  margin-top: .5em;
+  color: #999;
+  transition: color .4s ease;
+}
+
+.remark--warning {
+    color: #f33;
+}
+
+.message {
+  margin: 0;
 }

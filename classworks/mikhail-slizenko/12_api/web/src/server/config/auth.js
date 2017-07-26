@@ -22,7 +22,7 @@ module.exports = async (ctx) => {
     const email = ctx.request.body.email;
     const newUser = { email: email, password: hashedPassword };
     users.push(newUser);
-    const token = jwt.sign(newUser, 'secret', { expiresIn: 600 });
+    const token = jwt.sign(newUser, 'secret', { expiresIn: '10min' });
     ctx.body = {token};
   }
 }
