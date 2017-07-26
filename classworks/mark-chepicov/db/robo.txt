@@ -1,9 +1,11 @@
 1.
+
 ```javascript
 db.getCollection('users').insertOne({_id: 1, first_name: "Mark", last_name: "Chepicov"})
 ```
 
 2.
+
 ```javascript
 db.getCollection('users').updateOne({_id: 1}, {$set: {first_name: "Andrew", last_name: "Orsich"}})
 ```
@@ -14,6 +16,7 @@ db.getCollection('users').insertOne({_id: 3, first_name: "Nikita", last_name: "N
 ```
 
 3.
+
 ```javascript
 db.posts.updateOne(
 { _id : 1 }, 
@@ -32,6 +35,7 @@ db.posts.updateOne(
 ```
 
 4.
+
 ```javascript
 db.posts.updateOne(
 { _id : 1 }, 
@@ -47,6 +51,7 @@ db.posts.updateOne(
 ```
 
 5.
+
 ```javascript
 db.posts.updateOne(
 { _id : 1 }, 
@@ -55,11 +60,13 @@ db.posts.updateOne(
 ```
 
 6.
+
 ```javascript
 db.posts.deleteOne( { _id : 1 } );
 ```
 
 7.
+
 ```javascript
 db.posts.aggregate(
    [
@@ -73,6 +80,7 @@ db.posts.aggregate(
 ```
 
 8.
+
 ```javascript
 db.posts.update(
     { _id: 1},
@@ -100,6 +108,8 @@ db.posts.update(
 ```
 
 9.
+
+```javascript
 db.posts.update(
     { _id: 1, "comment._id": 1},
     { "$push": 
