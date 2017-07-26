@@ -1,3 +1,4 @@
+```js
 use 13_databases
   db.user.insert({lastName: 'lName', firstName: 'fName'})
     db.user.find()
@@ -32,4 +33,5 @@ use 13_databases
   db.posts.update({},{$set: {comments:[]}},true, true)
   db.posts.update({_id: ObjectId("59785e5c1ed5f6571feba73f")} , {$push: {comments: {_id: '01', authorID: '001', content: 'some text', likes: []} }} )
   db.posts.update({_id: ObjectId("59785e5c1ed5f6571feba73f"), "comments._id": '01'}, {$push: { 'comments.$.likes': { authorId: '123' } }} )
+```
 
