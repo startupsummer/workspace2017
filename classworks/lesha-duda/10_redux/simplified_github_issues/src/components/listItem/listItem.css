@@ -1,0 +1,10 @@
+.container {
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.issues__title {
+  line-height: 1.25;
+  flex-grow: 1;
+}
