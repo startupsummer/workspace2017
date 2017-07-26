@@ -77,7 +77,25 @@ db.getCollection('post').update(
 ```
 9. Implement like/unlike functionality for comments.
 
+```
+db.getCollection('post').update( 
+ { _id: 12, 'coments.name': 'Jora' },
+ { $push: { 
+     "coments.$.likes": { 
+         _id: 444, 
+         "userName": "TestUser", 
+         "user_id": "testuser_id" 
+      } } }
+)
+```
 
-
-
+```
+db.getCollection('post').update( 
+ { _id: 12, 'coments.name': 'Jora' },
+ { $pull: { 
+     "coments.$.likes": { 
+         _id: 444,  
+      } } }
+)
+```
 
