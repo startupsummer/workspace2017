@@ -1,10 +1,16 @@
+Mandatory task:
+
+1. Create a new user in a database
+```
 db.getCollection('users').insertOne({_id: 1, firstName:'Sasha', lastrName:'Borisow'})
 db.getCollection('users').insertOne({_id: 1, firstName:'Jora', lastrName:'Volchenko'})
-
+```
+2. Update user first and last name in a database using atomic update
+```
 db.getCollection('users').updateOne({_id: 1}, { $set: {firstName: 'Inokentoj'} })
-
-
-
+```
+3. Upsert post to the database.
+```
 db.getCollection('post')
   .update(
   {_id: 11}, 
@@ -16,8 +22,9 @@ db.getCollection('post')
        }
    },
     { upsert: true })
-
-
+  ```  
+4. Add comment to the post
+```
 db.getCollection('post')
   .updateOne(
     {_id: 11}, 
@@ -29,23 +36,29 @@ db.getCollection('post')
       ]
      } 
     })
-
-
+ ```   
+5. Remove comment from a post.
+```
 db.getCollection('post').update( 
  { _id: 11 },
- { $pop: { coments: { $elemMatch: {name: 'Jvan'} } } }
+ { $pull: { coments: { $elemMatch: {name: 'Jvan'} } } }
 )
-
-
+```
+6. Remove post from a database.
+```
 db.getCollection('post').remove( { _id: 11} )
-
+```
+7. Using aggregation find out how much comments each post have.
+```
 db.getCollection('post').aggregate([
   {
     $project: { size: { $size: '$coments' } }
    }
 ])
-
-
+```
+Advanced:
+```
+8. Implement like/unlike functionality for posts.
 
 db.getCollection('post').update( 
  { _id: 12 },
@@ -57,11 +70,14 @@ db.getCollection('post').update(
       } } }
 )
 
-
-
-
 db.getCollection('post').update( 
  { _id: 12 },
- { $pop: { likes: { $elemMatch: { _id: 444 } } } }
+ { $pull: { likes: { $elemMatch: { _id: 444 } } } }
 )
+```
+9. Implement like/unlike functionality for comments.
+
+
+
+
 
