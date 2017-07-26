@@ -15,10 +15,10 @@ router.post('/post-form', async (ctx) => {
 
   if (ctx.validationErrors()) {
     ctx.status = 400;
-    ctx.body = {ok: false};
+    ctx.body = { ok: false };
   } else {
     console.dir(ctx.request.body);
-    ctx.body = {ok: true};
+    ctx.body = { ok: true };
   }
 });
 
