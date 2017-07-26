@@ -1,13 +1,9 @@
 const router = require('koa-router')();
-const passwordHash = require('password-hash');
 const jwt = require('jsonwebtoken');
+const signIn = require('./signIn');
+const signUp = require('./signUp');
 
 const users = [];
-
-function getUser(usersArray, email) {
-  return usersArray.find(item => item.email === email);
-}
-
 function verifyUser(usersArray, user) {
   if (usersArray.find(item =>
     item.email === user.email &&
@@ -39,57 +35,11 @@ router.get('/info', async (ctx) => {
 });
 
 router.post('/signIn', async (ctx) => {
-  let isIncorrectData = true;
-  const reqData = ctx.request.body;
-  ctx.checkBody('email', 'Invalid email').isEmail();
-  ctx.checkBody('password', 'Invalid password').notEmpty().isLength({ min: 3, max: 20 });
-  const errors = await ctx.validationErrors();
-  if (errors) {
-    console.log('Error :');
-    console.log(errors);
-    ctx.body = errors;
-    ctx.status = 400;
-    isIncorrectData = false;
-  } else {
-    const user = getUser(users, reqData.email);
-    if (user) {
-      if (passwordHash.verify(reqData.password, user.password)) {
-        const token = jwt.sign({
-          email: user.email,
-          password: user.password,
-          exp: Math.floor(Date.now() / 1000) + (10 * 60),
-          data: 'foobar',
-        }, 'secret');
-        user.token = token;
-        ctx.body = JSON.stringify({ token });
-        isIncorrectData = false;
-      }
-    }
-  }
-  if (isIncorrectData) {
-    ctx.body = { msg: 'incorrect data' };
-    ctx.status = 400;
-  }
+  await signIn(ctx, users);
 });
 
 router.post('/signUp', async (ctx) => {
-  const reqData = ctx.request.body;
-  ctx.checkBody('email', 'Invalid email').isEmail();
-  ctx.checkBody('password', 'Invalid password').notEmpty().isLength({ min: 3, max: 20 });
-  const errors = await ctx.validationErrors();
-  if (errors) {
-    console.log('Error :');
-    console.log(errors);
-    ctx.body = errors;
-    ctx.status = 400;
-  } else if (getUser(users, reqData.email)) {
-    ctx.body = { ok: false, msg: 'User is exits' };
-    ctx.status = 400;
-  } else {
-    const hashedPassword = passwordHash.generate(reqData.password);
-    users.push({ email: reqData.email, password: hashedPassword });
-    ctx.body = { ok: true };
-  }
+  await signUp(ctx, users);
 });
 
 module.exports = router.routes();
