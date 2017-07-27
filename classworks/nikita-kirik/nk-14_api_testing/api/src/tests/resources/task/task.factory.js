@@ -6,7 +6,7 @@ exports.task = (creatorId) => {
   let taskBuilder = new TaskBuilder()
   let task = taskBuilder
     .taskTitle()
-    .taskDiscription()
+    .taskDescription()
     .taskPaticipators()
     .taskCreator(creatorId)
     .build()

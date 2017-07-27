@@ -3,6 +3,14 @@ const app = require('../app.js')
 const request = supertest.agent(app.listen())
 
 const taskTest = require('./resources/task/index')
+const staffTest = require('./resources/staff/index')
 
-console.log('HERE');
-taskTest.test(request)
+describe('Tests for REST api', () => {
+
+  describe('#Test task', () => {
+    taskTest.test(request)
+  })
+  describe('#Test staff', () => {
+    staffTest.test(request)
+  })
+})

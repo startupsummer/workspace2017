@@ -16,8 +16,8 @@ class Task {
     return this
   }
 
-  taskDiscription (discr) {
-    this.data.discription = discr || faker.Lorem.sentence();
+  taskDescription (discr) {
+    this.data.description = discr || faker.Lorem.sentence();
     return this
   }
 

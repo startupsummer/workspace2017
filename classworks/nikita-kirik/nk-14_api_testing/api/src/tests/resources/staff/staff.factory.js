@@ -9,8 +9,6 @@ exports.admin = () => {
     .personalInfo()
     .email()
     .build()
-
-
   return staffWriteService.create(user)
 }
 
@@ -21,6 +19,5 @@ exports.client = () => {
     .personalInfo()
     .email()
     .build()
-
   return staffWriteService.create(user)
 }

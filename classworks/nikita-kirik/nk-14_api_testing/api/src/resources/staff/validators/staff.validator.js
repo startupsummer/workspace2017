@@ -4,6 +4,7 @@ const staffSchema = require('./staff.updateSchema')
 const cryptoHelper = require('infrastructure/helpers').crypto
 
 exports.validate = (ctx) => baseValidator(ctx, () => {
+
   let result = staffSchema.apply(ctx, ctx.request.body)
   if (result.error) {
     return result
