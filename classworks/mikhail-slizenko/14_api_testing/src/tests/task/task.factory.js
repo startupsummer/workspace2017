@@ -12,3 +12,6 @@ exports.createTask = (createrId) => {
 
   return tasksService.write.create(task)
 }
+
+exports.removeAllTasks = () =>
+  tasksService.write.remove()

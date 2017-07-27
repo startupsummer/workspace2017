@@ -3,13 +3,18 @@ const app = require('../../app')
 const request = supertest.agent(app.listen())
 const { signinAsRoot } = require('../resources/auth')
 
-const { createTask } = require('./task.factory')
-const { createAdmin } = require('../user/user.factory')
+const { createTask, removeAllTasks } = require('./task.factory')
+const { createAdmin, removeAllUsers } = require('../user/user.factory')
 
 module.exports = () => {
   describe('Tests for task', function() {
     let admin, token
-    before(async () => {
+    beforeEach(async () => {
+      await Promise.all([
+        removeAllTasks(),
+        removeAllUsers()
+      ])
+
       admin = await createAdmin()
       token = await signinAsRoot(request, admin)
       await createTask(admin._id)
@@ -22,6 +27,13 @@ module.exports = () => {
         .set('Authorization', `Bearer ${token}`)
         .expect(200)
         .end(done)
+    })
+
+    after( async () => {
+      await Promise.all([
+        removeAllTasks(),
+        removeAllUsers()
+      ])
     })
   })
 }

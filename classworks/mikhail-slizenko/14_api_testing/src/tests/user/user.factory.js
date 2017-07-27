@@ -25,3 +25,6 @@ exports.createAdmin = (id) => {
 
   return staffService.write.create(user)
 }
+
+exports.removeAllUsers = () =>
+  staffService.write.remove()

@@ -5,13 +5,18 @@ const { signinAsRoot } = require('../resources/auth')
 const chai  = require('chai');
 chai.should();
 
-const { createTask } = require('../task/task.factory')
-const { createAdmin, createClient } = require('./user.factory')
+const { createTask, removeAllTasks } = require('../task/task.factory')
+const { createAdmin, createClient, removeAllUsers } = require('./user.factory')
 
 module.exports = () => {
   describe('Tests for user', function() {
     let admin, client, clientPrey, tokenAdmin, tokenClient, task
-    before(async () => {
+    beforeEach(async () => {
+      await Promise.all([
+        removeAllTasks(),
+        removeAllUsers()
+      ])
+
       admin = await createAdmin()
       client = await createClient()
       clientPrey = await createClient()
@@ -73,6 +78,13 @@ module.exports = () => {
         .send(task)
         .expect(403)
         .end(done)
+    })
+
+    after(async () => {
+      await Promise.all([
+        removeAllTasks(),
+        removeAllUsers()
+      ])
     })
   })
 }
