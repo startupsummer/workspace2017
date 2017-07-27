@@ -24,7 +24,7 @@ router.get('/signUp', async (ctx) => {
 });
 
 router.get('/info', async (ctx) => {
-  const user = jwt.verify(ctx.query.token, 'secret');
+  const user = jwt.verify(ctx.query.token, 'secret11');
   if (verifyUser(users, user)) {
     await ctx.render('info');
     console.log('successful authorization');

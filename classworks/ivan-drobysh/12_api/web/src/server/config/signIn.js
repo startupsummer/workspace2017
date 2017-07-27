@@ -16,7 +16,7 @@ module.exports = async (ctx, users) => {
           password: user.password,
           exp: Math.floor(Date.now() / 1000) + (10 * 60),
           data: 'foobar',
-        }, 'secret');
+        }, 'secret11');
         user.token = token;
         ctx.body = JSON.stringify({ token });
         isIncorrectData = false;
