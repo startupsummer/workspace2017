@@ -7,14 +7,14 @@ const { signinAsRoot } = require('../auth');
 const chai = require('chai');
 chai.should();
 // 4
-exports.first = (request) => {
+exports.start = (request) => {
   let admin = UserFactory.getAdmin();
   let task1 = TaskFactory.getTask(admin._id);
   let task2 = TaskFactory.getTask(admin._id);
   let task3 = TaskFactory.getTask(admin._id);
   let token;
   describe('Test GET /tasks', function() {
-    before(async () => {
+    beforeEach(async () => {
       await taskServ.write.remove();
       await userServ.write.remove();
       await userServ.write.create(admin)
