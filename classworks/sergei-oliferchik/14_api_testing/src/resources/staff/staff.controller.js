@@ -58,7 +58,9 @@ exports.update = async (ctx, next) => {
         firstName: staffData.firstName,
         lastName: staffData.lastName
       }
-    }
+    },
+    null,
+    {new : true}
   )
 
   ctx.body = newStaff

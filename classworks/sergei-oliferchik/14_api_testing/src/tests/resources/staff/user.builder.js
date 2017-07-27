@@ -27,7 +27,7 @@ class Builder {
   }
 
   lastName(name) {
-    this.data.LastName = name;
+    this.data.lastName = name;
     return this;
   }
 
