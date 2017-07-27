@@ -3,12 +3,12 @@ const UserBuilder = require('./userBuilder')
 exports.user = () => {
   let userBuilder = new UserBuilder()
   let user = userBuilder
-    .email()
-    .passwordHash('qwerty')
     .firstName()
     .lastName()
+    .passwordHash('qwerty')
+    .admin(false)
+    .email()
     .build()
-
 
   return user
 }
@@ -16,7 +16,7 @@ exports.user = () => {
 exports.admin = () => {
   let userBuilder = new UserBuilder()
   let user = userBuilder
-    .admin()
+    .admin(true)
     .email()
     .passwordHash('qwerty')
     .firstName()

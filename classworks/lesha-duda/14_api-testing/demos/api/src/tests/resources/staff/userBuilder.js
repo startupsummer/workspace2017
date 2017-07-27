@@ -29,8 +29,8 @@ class UserBuilder {
     return this
   }
 
-  admin() {
-    this.data.isAdmin = true
+  admin(isAdmin) {
+    this.data.isAdmin = isAdmin
     return this
   }
 
