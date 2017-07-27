@@ -5,10 +5,10 @@ const { saveUser, updateClient, updateAnotherClient,
         createTask, updateTaskByAdmin, addParticipatorbyAdmin,
         addParticipatorbyClient } = require('./resources/staff/index.js');
 
-//saveUser(request);
-// updateClient(request);
-// updateAnotherClient(request);
-// createTask(request);
-// updateTaskByAdmin(request);
-// addParticipatorbyAdmin(request);
+saveUser(request);
+updateClient(request);
+updateAnotherClient(request);
+createTask(request);
+updateTaskByAdmin(request);
+addParticipatorbyAdmin(request);
 addParticipatorbyClient(request);
