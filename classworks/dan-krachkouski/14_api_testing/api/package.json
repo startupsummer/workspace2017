@@ -5,9 +5,9 @@
   "main": "src/app.js",
   "scripts": {
     "start": "NODE_PATH=../ node src/app.js",
-    "lint": "eslint ./ --ext js",
-    "test": "npm run lint && NODE_ENV=test mocha --timeout 20000 --harmony --recursive -c -R spec src/tests/app.spec.js",
-    "dev": "NODE_PATH=../ NODE_ENV=dev nodemon --harmony --inspect src/app.js"
+    "lint": "eslint ./ --ext .js --fix",
+    "test": "npm run lint && NODE_ENV=test NODE_PATH=../ mocha --timeout 20000 --harmony --recursive -c -R spec src/tests/app.spec.js",
+    "dev": "NODE_PATH=../ NODE_ENV=development nodemon --harmony --inspect src/app.js"
   },
   "dependencies": {
     "app-module-path": "^2.2.0",
@@ -36,12 +36,13 @@
     "winston": "^2.3.1"
   },
   "devDependencies": {
-    "Faker": "^0.7.2",
+    "babel-eslint": "^7.2.3",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "faker": "^4.1.0",
     "mocha": "^3.4.2",
     "mock-aws-s3": "^2.5.1",
     "mock-require": "^2.0.2",
