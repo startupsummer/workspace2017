@@ -1,0 +1,21 @@
+{
+  "name": "amazon-mock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.79.0",
+    "bluebird": "^3.5.0",
+    "mock-aws-s3": "^2.5.1",
+    "mock-require": "^2.0.2",
+    "rimraf": "^2.6.1"
+  },
+  "devDependencies": {
+    "mock-aws-s3": "^2.5.1"
+  }
+}
