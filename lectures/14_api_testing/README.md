@@ -2,6 +2,8 @@
 
 The general purpose of the lecture is to learn some basic information about automated testing, as well as learn how to write tests for REST api.
 
+[Lecture presentation](https://docs.google.com/a/paralect.com/presentation/d/1s6fBzB6YcJcFiX91t9lhoM1WjDFIHx8fU6nBFjOJQUY/edit?usp=sharing)
+
 ### Learning objectives
 
 1. Advantages and disadvantages of automated testing
