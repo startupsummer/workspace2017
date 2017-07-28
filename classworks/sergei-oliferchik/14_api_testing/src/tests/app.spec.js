@@ -116,11 +116,20 @@ describe('Authorization admin and 3 task', function() {
          .set('Authorization', `Bearer ${tokenAdmin}`)
          .send({ participatorIds })
          .expect((resp) => {
-           console.log(resp.body)
            const respParticipatorIds = resp.body.results.value.participatorIds.pop()
 
            participatorIds.should.equal(respParticipatorIds)
          })
+         .end(done);
+      })
+
+      it('est that when non admin staff member tries to add another staff to the task he gets an error 403', done => {
+        const participatorIds = user._id
+
+        request.post(`/api/v1/tasks/${mandatoryTask._id}/participators/${user._id}`)
+         .set('Authorization', `Bearer ${tokenUser2}`)
+         .send({ participatorIds })
+         .expect(403)
          .end(done);
       })
   });
