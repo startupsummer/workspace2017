@@ -30,7 +30,6 @@ class MockS3 {
   }
 
   deleteObject (search, callback) {
-    console.log('HERE !!!');
     if (callback) {
       this.mock.getObject(search, callback)
     } else {

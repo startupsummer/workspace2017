@@ -50,7 +50,6 @@ module.exports.test = (request) => {
       .expect(200)
       .end((err, resp) => {
         if(err) return done(err)
-        console.log(resp.body.results.value)
         should.equal(resp.body.results.value.fileFileName, null)
         done()
       })
