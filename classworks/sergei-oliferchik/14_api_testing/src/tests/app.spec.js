@@ -92,4 +92,21 @@ describe('Authorization admin and 3 task', function() {
          .end(done);
       })
 
+      it(' test that admin can successfully update the task, and, as a response, he gets the updated task', done => {
+        const title = '!!!!!!!!!!!!!!!'
+        const description = '@@@@@@@@@@@@@@@@@'
+
+        request.put(`/api/v1/tasks/${mandatoryTask._id}`)
+         .set('Authorization', `Bearer ${tokenAdmin}`)
+         .send(Object.assign({}, { title, description }))
+         .expect((resp) => {
+           const title = resp.body.results.value.title
+           const description = resp.body.results.value.description
+
+           title.should.equal(title)
+           description.should.equal(description)
+         })
+         .end(done);
+      })
+
   });
