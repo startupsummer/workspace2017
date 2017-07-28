@@ -18,18 +18,19 @@ const koaBody = require('koa-body');
 handlebars.registerHelper('json', context => JSON.stringify(context));
 
 module.exports = (app) => {
-  app.use(serve(path.join(__dirname, './../../client')));
 
-  app.use(validator());
-
-  app.use(koaBody({ multipart: true, formidable: { keepExtensions: true } }));
-
-  app.use(devMiddleware(compile));
+  app.use(logger());
 
   app.use(views(path.join(__dirname, './../../client'), {
     default: 'html',
     map: { html: 'handlebars' },
   }));
+
+  app.use(serve(path.join(__dirname, './../../client')));
+
+  app.use(validator());
+
+  app.use(koaBody({ multipart: true, formidable: { keepExtensions: true } }));
 
   app.use(session({
     store: redisStore({
@@ -41,8 +42,6 @@ module.exports = (app) => {
       expires: false,
     },
   }));
-
-  app.use(logger());
 
   app.use(async (ctx, next) => {
     try {
@@ -56,6 +55,8 @@ module.exports = (app) => {
   });
 
   app.use(routes);
+
+  app.use(devMiddleware(compile));
 };
 
 
