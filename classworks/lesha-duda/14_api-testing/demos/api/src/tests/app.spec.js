@@ -1,3 +1,6 @@
+const mock = require('./mock') 
+mock.setAmazonMock()
+
 const supertest = require('supertest')
 const assert = require('assert')
 const app = require('../app') 
@@ -6,10 +9,8 @@ const staffFactory = require('tests/resources/staff/userFactory')
 const taskFactory = require('tests/resources/task/taskFactory')
 const service = require('resources/staff/staff.service')
 const auth = require('./resources/auth')
-const writeServiceStaff = require('resources/staff/staff.service.js')
-const writeServiceTask = require('resources/tasks/tasks.service.js')
-
-
+const writeServiceStaff = require('resources/staff/staff.service')
+const writeServiceTask = require('resources/tasks/tasks.service')
 
 
 const func = () => new Promise(async (resolve) => {
@@ -22,14 +23,16 @@ const func = () => new Promise(async (resolve) => {
   resolve()
 })
 
+// const superAdmin = staffFactory.admin()
+// const taskMock = taskFactory.publicTask(superAdmin._id, [1])
+// const tokenSuperAdmin = auth.signinAsRoot(request, superAdmin)
+
 let admin, user1, user2
 let tasks = []
 let tokenAdmin, tokenUser1
 
 
 describe('User', function() {
-
-
   beforeEach(async () =>  {
     await func()
     tokenAdmin = await auth.signinAsRoot(request, admin)
@@ -112,5 +115,33 @@ describe('User', function() {
       .end(done)
   })
 
+  it('Mock af Amazon S3 service, uploading and updating', done => {    
+    request.put(`/api/v1/tasks/${tasks[0]._id}/files/`)
+      .set('Authorization', `Bearer ${tokenAdmin}`)
+      .set({
+        'Content-type': '/home/student2/Desktop/test/workspace2017/classworks/lesha-duda/14_api-testing/demos/api/src/image.jpg'
+      })
+      .attach('DANKR', '/home/student2/Desktop/test/workspace2017/classworks/lesha-duda/14_api-testing/demos/api/src/image.jpg')
+      .then(() => {
+        request.get(`/api/v1/tasks/${tasks[0]._id}/files/`)
+          .set('Authorization', `Bearer ${tokenAdmin}`)
+          .expect(200)
+          .end(done)
+      })
+  })
 
+  //   it('Mock af Amazon S3 service, delete', done => {    
+  //   request.put(`/api/v1/tasks/${tasks[0]._id}/files/`)
+  //     .set('Authorization', `Bearer ${tokenAdmin}`)
+  //     .set({
+  //       'Content-type': '/home/student2/Desktop/test/workspace2017/classworks/lesha-duda/14_api-testing/demos/api/src/image.jpg'
+  //     })
+  //     .attach('DANKR', '/home/student2/Desktop/test/workspace2017/classworks/lesha-duda/14_api-testing/demos/api/src/image.jpg')
+  //     .then(() => {
+  //       request.delete(`/api/v1/tasks/${tasks[0]._id}/files/`)
+  //       .set('Authorization', `Bearer ${tokenAdmin}`)
+  //       .expect((res) => console.log())
+  //       .end(done)
+  //     })
+  // })
  })

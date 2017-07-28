@@ -77,7 +77,9 @@ exports.deleteFile = async (ctx, next) => {
   ctx.assert(task, 404, errorMessages.tasks.notFound)
   ctx.assert(task.fileFileName, 404, errorMessages.tasks.fileNotFound)
 
-  let result = await helpers.amazonS3.deleteFile(task.fileFileName)
+  let result = await helpers.amazonS3.deleteFile(task.fileFileName, filesConstants)
+  console.dir(result)
+
   ctx.assert(!result.error, 400, result.error)
 
   let newTask = await tasksWriteService.findAndModify(
