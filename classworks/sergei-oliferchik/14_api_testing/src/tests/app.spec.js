@@ -23,19 +23,29 @@ describe('Authorization admin and 3 task', function() {
   let tokenUser;
 
     before(async () => {
-      await writeStaff.write.remove()
-      await writeTasks.write.remove()
+      await Promise.all([
+        writeStaff.write.remove(),
+        writeTasks.write.remove(),
 
-      await writeStaff.write.create(admin)
-      await writeStaff.write.create(user)
-      await writeStaff.write.create(user2)
-      await writeTasks.write.create(mandatoryTask)
-      await writeTasks.write.create(advancedTask)
-      await writeTasks.write.create(supperAdvancedTask)
+        writeStaff.write.create(admin),
+        writeStaff.write.create(user),
+        writeStaff.write.create(user2),
+        writeTasks.write.create(mandatoryTask),
+        writeTasks.write.create(advancedTask),
+        writeTasks.write.create(supperAdvancedTask),
 
-      tokenAdmin = await signinAsRoot(request, admin)
-      tokenUser = await signinAsRoot(request, user)
-      tokenUser2 = await signinAsRoot(request, user2, 'password')
+        tokenAdmin = signinAsRoot(request, admin)
+          .then(result => tokenAdmin = result),
+        tokenUser = signinAsRoot(request, user)
+          .then(result => tokenUser = result),
+        tokenUser2 = signinAsRoot(request, user2, 'password')
+          .then(result => tokenUser2 = result)
+      ])
+    })
+
+    after(async () => {
+      writeStaff.write.remove()
+      writeTasks.write.remove()
     })
 
     it('should return tasks', done => {
@@ -123,7 +133,7 @@ describe('Authorization admin and 3 task', function() {
          .end(done);
       })
 
-      it('est that when non admin staff member tries to add another staff to the task he gets an error 403', done => {
+      it('test that when non admin staff member tries to add another staff to the task he gets an error 403', done => {
         const participatorIds = user._id
 
         request.post(`/api/v1/tasks/${mandatoryTask._id}/participators/${user._id}`)
