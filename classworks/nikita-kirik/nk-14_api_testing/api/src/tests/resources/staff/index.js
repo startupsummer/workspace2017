@@ -17,23 +17,27 @@ module.exports.test = (request) => {
   let admin;
   let client, client2;
 
-  before(async () => {
+
+  afterEach(async () => {
     await staffWriteService.remove();
     await taskWriteService.remove();
-
-    client = await StaffFactory.client();
-    token = await tokenFact.signinAsRoot(request, client);
-
-    client2 = await StaffFactory.client();
-
-
-    admin = await StaffFactory.admin();
-    tokenAdmin = await tokenFact.signinAsRoot(request, admin);
-    task = await TaskFactory.task(admin._id);
-
   })
 
   describe('Client', () => {
+
+    beforeEach(async () => {
+      await staffWriteService.remove();
+      await taskWriteService.remove();
+
+      client = await StaffFactory.client();
+      token = await tokenFact.signinAsRoot(request, client);
+      
+      client2 = await StaffFactory.client();
+
+      admin = await StaffFactory.admin();
+      task = await TaskFactory.task(admin._id);
+    })
+
     it('should be able to update yourself', done => {
       request.put(`/api/v1/staff/${client._id}`)
       .set('Authorization', `Bearer ${token}`)
@@ -72,10 +76,29 @@ module.exports.test = (request) => {
       .expect(403, done)
     })
 
+    it('cannot add participators of the task', done => {
+      request.post(`/api/v1/tasks/${task._id}/participators/${client2._id}`)
+      .set('Authorization', `Bearer ${token}`)
+      .expect(403, done)
+    })
+
   })
 
 
   describe('Admin', () => {
+
+
+    beforeEach(async () => {
+      await staffWriteService.remove();
+      await taskWriteService.remove();
+
+      client = await StaffFactory.client();
+      admin = await StaffFactory.admin();
+      tokenAdmin = await tokenFact.signinAsRoot(request, admin);
+      task = await TaskFactory.task(admin._id);
+    })
+
+
     it('can update task', done => {
       request.put(`/api/v1/tasks/${task._id}`)
       .set('Authorization', `Bearer ${tokenAdmin}`)
