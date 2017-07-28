@@ -1,7 +1,6 @@
 const router = require('koa-router')();
 const jwt = require('jsonwebtoken');
 const hash = require('password-hash');
-// const auth = require('./authentication.js');
 
 const users = [];
 
@@ -13,7 +12,7 @@ router.get('/hello', async (ctx) => {
   });
 });
 
-router.post('/form', async (ctx) => {
+router.post('/SignIn', async (ctx) => {
   ctx.checkBody('login', 'Inappropriate length').notEmpty();
   ctx.checkBody('password', 'Inappropriate length').notEmpty();
 
@@ -25,14 +24,15 @@ router.post('/form', async (ctx) => {
     ctx.body = ctx.validationErrors();
   } else {
     console.dir(ctx.request.body)
-    ctx.body = { OK: 'true' }
-    // auth.authenticate(ctx.request.body.login, ctx.request.body.password);
-    signIn(login, password);
+    signIn(login, password, ctx);
   }
-
 });
 
-function signIn(login, password) {
+router.post('/Message', async (ctx) => {
+  authorize(ctx);
+});
+
+function signIn(login, password, ctx) {
   const sameUser = users.filter((user) => {
     return (user.login === login && hash.verify(password, user.passwordHash))
   });
@@ -48,13 +48,18 @@ function signIn(login, password) {
       console.log('The user with a such login already exists');
     } else {
       const passwordHash = hash.generate(password);
-      users.push({login, passwordHash});
       const token = jwt.sign({login}, 'secretMessage');
-      console.log('TOKEN ', token);
+      users.push({login, passwordHash, token});
+      ctx.body = JSON.stringify({ token });
       console.log('You are successfully authenticated');
     }
   }
-  console.log(users);
+}
+
+function authorize(ctx) {
+  const token = ctx.request.body.token;
+  let user = users.find((user) => user.token === token);
+  console.log(user.login);
 }
 
 module.exports = router.routes();

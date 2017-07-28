@@ -14,7 +14,7 @@
 
     <div class="forms">
       <div class="sign-in">
-        <form class="sign-in__form" name="signInForm" method="post" action="/form" >
+        <form class="sign-in__form" name="signInForm" method="post" action="/SignIn" >
             <h1 class="form__title"> Sign in </h1>
             <div class="form__input">
               <input class="form__login" type="email" name="login" placeholder="Enter your login"/>
@@ -25,8 +25,8 @@
       </div>
 
       <div class="sign-up">
-        <form class="sign-up__form" name="signUpForm" method="post" action="/form" >
-          <input class="form__submit" type="submit" value="View secret message" onclick=""/>
+        <form class="sign-up__form" name="getMessageForm" method="post" action="/Message" >
+          <input class="form__submit" type="submit" value="View secret message" onclick="getMessage(event)"/>
         </form>
       </div>
     </div>
