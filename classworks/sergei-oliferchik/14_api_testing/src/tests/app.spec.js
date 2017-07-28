@@ -109,4 +109,18 @@ describe('Authorization admin and 3 task', function() {
          .end(done);
       })
 
+      it('test that admin can add any staff to the list of participators of the task', done => {
+        const participatorIds = user._id
+
+        request.post(`/api/v1/tasks/${mandatoryTask._id}/participators/${user._id}`)
+         .set('Authorization', `Bearer ${tokenAdmin}`)
+         .send({ participatorIds })
+         .expect((resp) => {
+           console.log(resp.body)
+           const respParticipatorIds = resp.body.results.value.participatorIds.pop()
+
+           participatorIds.should.equal(respParticipatorIds)
+         })
+         .end(done);
+      })
   });
