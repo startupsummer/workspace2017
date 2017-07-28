@@ -17,6 +17,12 @@
   font-size: 18px;
 }
 
+.forms {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .sign-in, .sign-up {
   display: flex;
   justify-content: center;
@@ -24,6 +30,10 @@
 
 .sign-in__form, .sign-up__form {
   padding: 15px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .form__title {
@@ -40,7 +50,7 @@
 .form__login,
 .form__password {
   line-height: 40px;
-  //width: 100%;
+  width: 100%;
   margin-bottom: 10px;
   padding-left: 10px;
   font-size: 16px;
@@ -51,7 +61,7 @@
 .form__submit {
   border-radius: 8px;
   height: 50px;
-  //width: 100%;
+  width: 100%;
   padding: 10px 30px 10px 30px;
   color: #f2f2f2;
   background-color: #7faba9;

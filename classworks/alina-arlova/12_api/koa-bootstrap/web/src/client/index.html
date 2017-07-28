@@ -12,21 +12,23 @@
       <p class="main-part__count"> You visited this site {{ count }} times </p>
     </div>
 
-    <div class="sign-in">
-      <form class="sign-in__form" name="signInForm" method="post" action="/form" >
-          <h1 class="form__title"> Sign in </h1>
-          <div class="form__input">
-            <input class="form__login" type="email" name="login" placeholder="Enter your login"/>
-            <input class="form__password" type="password" name="password" placeholder="Enter your password"/>
-          </div>
-          <input class="form__submit" type="submit" value="Sign in" onclick="submitForm(event);"/>
-      </form>
-    </div>
+    <div class="forms">
+      <div class="sign-in">
+        <form class="sign-in__form" name="signInForm" method="post" action="/form" >
+            <h1 class="form__title"> Sign in </h1>
+            <div class="form__input">
+              <input class="form__login" type="email" name="login" placeholder="Enter your login"/>
+              <input class="form__password" type="password" name="password" placeholder="Enter your password"/>
+            </div>
+            <input class="form__submit" type="submit" value="Sign in" onclick="submitForm(event);"/>
+        </form>
+      </div>
 
-    <div class="sign-up">
-      <form class="sign-up__form" name="signUpForm" method="post" action="/form" >
-        <input class="form__submit" type="submit" value="View secret message" onclick=""/>
-      </form>
+      <div class="sign-up">
+        <form class="sign-up__form" name="signUpForm" method="post" action="/form" >
+          <input class="form__submit" type="submit" value="View secret message" onclick=""/>
+        </form>
+      </div>
     </div>
 
     <footer class="footer">
