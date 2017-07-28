@@ -28,7 +28,10 @@ module.exports = () => {
       request.put(`/api/v1/staff/${client._id}`)
         .set('Authorization', `Bearer ${token}`)
         .send(client)
-        .expect(200)
+        .expect(res => {
+          res.body.results.value.firstName.should.be.equal(client.firstName)
+          res.body.results.value.lastName.should.be.equal(client.lastName)
+        })
         .end(done)
     })
 

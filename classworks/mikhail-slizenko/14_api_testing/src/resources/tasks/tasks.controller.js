@@ -132,7 +132,8 @@ exports.addParticipator = async (ctx, next) => {
     { _id: ctx.params.id },
     {
       $push: { participatorIds: ctx.params.staffId }
-    }
+    }, null, 
+    { new: true }
   )
 
   ctx.body = newTask

@@ -2,6 +2,8 @@ const supertest = require('supertest')
 const app = require('../../app')
 const request = supertest.agent(app.listen())
 const { signinAsRoot } = require('../resources/auth')
+const chai  = require('chai');
+chai.should();
 
 const {
   createTask,
@@ -64,7 +66,8 @@ module.exports = () => {
       request.post(`/api/v1/tasks/${task._id}/participators/${client._id}`)
         .set('Authorization', `Bearer ${tokenAdmin}`)
         .send(task)
-        .expect(200)
+        .expect(res =>
+          res.body.results.value.participatorIds.should.include(client._id))
         .end(done)
     })
 
