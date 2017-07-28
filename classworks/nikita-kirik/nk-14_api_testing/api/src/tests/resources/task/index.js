@@ -7,7 +7,6 @@ const staffWriteService = staffService.write
 const taskService = require('../../../resources/tasks/tasks.service')
 const taskWriteService = taskService.write
 
-
 const chai = require('chai')
 chai.should()
 
@@ -38,7 +37,6 @@ module.exports.test = (request) => {
       .expect(200)
       .end((err, resp) => {
         if(err) return done(err)
-        // console.log(resp, "json ",   JSON.parse(resp.text) );
         // JSON.parse(resp.text).results.length.should.be.equal(3)
         resp.body.results.length.should.be.equal(3)
         done();

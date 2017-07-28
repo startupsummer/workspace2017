@@ -66,6 +66,10 @@ exports.updateFile = async (ctx, next) => {
     { _id: ctx.params.id },
     {
       $set: { fileFileName: generatedFileName }
+    },
+    null,
+    {
+      new: true
     }
   )
 
@@ -84,6 +88,10 @@ exports.deleteFile = async (ctx, next) => {
     { _id: ctx.params.id },
     {
       $set: { fileFileName: null }
+    },
+    null,
+    {
+      new: true
     }
   )
 

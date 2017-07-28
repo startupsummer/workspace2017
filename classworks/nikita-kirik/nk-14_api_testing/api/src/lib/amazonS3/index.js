@@ -19,6 +19,8 @@ class AmazonS3 {
   }
 
   delete (key) {
+    console.log('HERE INDEX');
+
     if (typeof key === 'string') {
       let params = {
         Bucket: this.bucket,
