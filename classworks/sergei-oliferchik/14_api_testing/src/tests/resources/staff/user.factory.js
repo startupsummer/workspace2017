@@ -2,17 +2,17 @@ const UserBuilder = require('./user.builder');
 const idGenerator = require('lib/mongo/idGenerator');
 
 
-exports.user = () => {
+exports.user = (password) => {
   let userBuilder = new UserBuilder()
   let user = userBuilder
     .addId(idGenerator.generate())
     .email()
-    .passwordHash('qwerty')
+    .passwordHash(password || 'qwerty')
     .firstName('Evgeny')
     .lastName('Zhivitsa')
     .user()
     .build()
-    
+
     return user
 }
 

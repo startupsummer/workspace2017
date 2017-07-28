@@ -1,4 +1,4 @@
-const faker = require('Faker')
+const faker = require('faker')
 
 class Builder {
   constructor()  {

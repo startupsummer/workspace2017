@@ -1,4 +1,4 @@
-const faker = require('Faker')
+const faker = require('faker')
 const cryptoHelper = require('infrastructure/helpers/crypto.helper')
 
 class Builder {
@@ -11,8 +11,9 @@ class Builder {
     return this;
   }
 
-  email(email) {
-    this.data.email = email || faker.Internet.email().toLowerCase();
+  email(email = faker.internet.email().toLowerCase()) {
+    console.log(email);
+    this.data.email = email;
     return this;
   }
 
@@ -32,12 +33,12 @@ class Builder {
   }
 
   admin() {
-    this.data.isAdmin = 'true';
+    this.data.isAdmin = true;
     return this;
   }
 
   user() {
-    this.data.isAdmin = 'false';
+    this.data.isAdmin = false;
     return this;
   }
 

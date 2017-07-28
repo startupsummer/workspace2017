@@ -17,6 +17,7 @@
     "busboy": "^0.2.14",
     "chai": "^4.1.0",
     "crypto-js": "^3.1.9-1",
+    "faker": "^4.1.0",
     "ioredis": "^3.1.1",
     "is-image": "^2.0.0",
     "joi": "^10.6.0",
@@ -35,7 +36,6 @@
     "winston": "^2.3.1"
   },
   "devDependencies": {
-    "Faker": "^0.7.2",
     "mocha": "^3.4.2",
     "mock-aws-s3": "^2.5.1",
     "mock-require": "^2.0.2",
