@@ -80,13 +80,24 @@ describe('User', function() {
   })
 
   it('admin can add any staff to the list of participators of the task', done => {
-    request.post(`/api/v1/${tasks[0]._id}/${user1._id}`)
+    request.post(`/api/v1/tasks/${tasks[0]._id}/participators/${user1._id}`)
       .set('Authorization', `Bearer ${tokenAdmin}`)
       .send({
         participatorIds: user2._id,
       })
-      .expect((res => console.log(res)))
+      .expect((task => assert(tasks[0]._id, task)))
       .end(done)
   })
+
+    it('Non admin staff member tries to add another staff to the task he gets an error 403', done => {
+    request.post(`/api/v1/tasks/${tasks[1]._id}/participators/${user2._id}`)
+      .set('Authorization', `Bearer ${tokenUser1}`)
+      .send({
+        participatorIds: user2._id,
+      })
+      .expect((res => console.log()))
+      .end(done)
+  })
+
 
  })
