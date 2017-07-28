@@ -1,23 +1,19 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Subnav from './Subnav';
 import Header from './Header';
 import Body from './Body';
+
+import {displayAll, countIssues} from './utils';
 
 export default class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTab: 'open',
-      data: props.data,
-      shouldBeDisplayed: props.shouldBeDisplayed,
-      openIssuesNum: props.openIssuesNum,
-      closedIssuesNum: props.closedIssuesNum,
+      currentTab: 'open'
     };
     this.handleShowOpenTab = this.handleShowOpenTab.bind(this);
     this.handleShowClosedTab = this.handleShowClosedTab.bind(this);
     this.handleAddNewIssue = this.handleAddNewIssue.bind(this);
-    this.handleCloseIssue = this.handleCloseIssue.bind(this);
-    this.handleSearchText = this.handleSearchText.bind(this);
   }
 
   handleShowOpenTab() {
@@ -29,80 +25,41 @@ export default class Container extends Component {
   }
 
   handleAddNewIssue() {
-    this.setState((prevState) => {
-      let newData = prevState.data,
-        newId = newData[newData.length - 1].id + 1;
-      newData.push({
-        "id": newId,
-        "title": "New issue",
-        "state": "open",
-      });
-      let newShouldBeDisplayed = this.props.displayAll(newData);
-      let [openIssuesCounter, closedIssuesCounter] = this.props.countIssues(prevState.data, newShouldBeDisplayed);
-      return {
-        currentTab: 'open',
-        data: newData,
-        shouldBeDisplayed: newShouldBeDisplayed,
-        openIssuesNum: openIssuesCounter,
-        closedIssuesNum: closedIssuesCounter
-      };
-    });
-    this.props.handleAddNewIssue();
-  }
+    const {data, handleAddNewIssue} = this.props;
 
-  handleCloseIssue(index) {
-    this.setState((prevState) => {
-      let newData = prevState.data, newShouldBeDisplayed = prevState.shouldBeDisplayed;
-      let deletedElement = newData.splice(index, 1)[0];
-      let deletedIdent = newShouldBeDisplayed.splice(index, 1)[0];
-      deletedElement.id = newData[newData.length - 1].id + 1;
-      deletedElement.state = 'closed';
-      newData.push(deletedElement);
-      newShouldBeDisplayed.push(deletedIdent);
-      let [openIssuesCounter, closedIssuesCounter] = this.props.countIssues(prevState.data, newShouldBeDisplayed);
-      return {
-        data: newData,
-        shouldBeDisplayed: newShouldBeDisplayed,
-        openIssuesNum: openIssuesCounter,
-        closedIssuesNum: closedIssuesCounter
-      };
+    const newData = data.concat({
+      id: data[data.length - 1].id + 1,
+      title: 'New issue',
+      state: 'open'
     });
-  }
 
-  handleSearchText(text) {
-    this.setState((prevState) => {
-      let dataCopy = prevState.data, newShouldBeDisplayed = [];
-      for (let i = 0; i < dataCopy.length; i++) {
-        if (~dataCopy[i].title.toLowerCase().indexOf(text.toLowerCase())) {
-          newShouldBeDisplayed.push(1);
-        } else {
-          newShouldBeDisplayed.push(0);
-        }
-      }
-      let [openIssuesCounter, closedIssuesCounter] = this.props.countIssues(prevState.data, newShouldBeDisplayed);
-      return {
-        shouldBeDisplayed: newShouldBeDisplayed,
-        openIssuesNum: openIssuesCounter,
-        closedIssuesNum: closedIssuesCounter
-      };
-    });
+    handleAddNewIssue(displayAll(newData));
+    this.handleShowOpenTab();
   }
 
   render() {
+    const { data } = this.props;
+    const [openIssuesNum, closedIssuesNum] = countIssues(data);
+
     return (
       <div className="container">
         <div className="issues-listing">
-          <Subnav onAddNewIssue={this.handleAddNewIssue} onSearchText={this.handleSearchText} />
+          <Subnav
+            onAddNewIssue={this.handleAddNewIssue}
+            onSearchText={this.props.handleSearchText}
+          />
           <Header
             currentTab={this.state.currentTab}
-            openIssuesNum={this.state.openIssuesNum}
-            closedIssuesNum={this.state.closedIssuesNum}
+            openIssuesNum={openIssuesNum}
+            closedIssuesNum={closedIssuesNum}
             onShowOpenTab={this.handleShowOpenTab}
-            onShowClosedTab={this.handleShowClosedTab} />
+            onShowClosedTab={this.handleShowClosedTab}
+          />
           <Body
+            data={data}
             currentTab={this.state.currentTab}
-            data={this.state.data} onCloseIssue={this.handleCloseIssue}
-            shouldBeDisplayed={this.state.shouldBeDisplayed} />
+            onCloseIssue={this.props.handleCloseIssue}
+          />
         </div>
       </div>
     );

@@ -12,35 +12,18 @@ export default class Body extends Component {
   }
 
   render() {
-    let items = [];
-    this.props.data.forEach((item, i) => {
-      if (this.props.shouldBeDisplayed[i] === 1) {
-        if (this.props.currentTab === 'open' && item.state === 'open') {
-          items.push(
-            <Item
-              title={item.title}
-              key={item.id}
-              index={i}
-              currentTab={this.props.currentTab}
-              onCloseIssue={this.closeIssue}/>
-          );
-        } else if (this.props.currentTab === 'closed' && item.state === 'closed') {
-          items.push(
-            <Item
-              title={item.title}
-              key={item.id}
-              index={i}
-              currentTab={this.props.currentTab}
-              onCloseIssue={this.closeIssue}/>
-          );
-        }
-      }
-    });
+    const { data, currentTab } = this.props;
 
     return (
       <div className="issues-listing__body">
         <ul className="issues">
-          {items}
+          {data.filter(issue => issue.state === currentTab).map(item => (
+            <Item
+              data={item}
+              key={item.id}
+              onCloseIssue={this.closeIssue}
+            />
+          ))}
         </ul>
       </div>
     );

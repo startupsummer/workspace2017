@@ -1,57 +1,71 @@
-import React, { Component } from 'react';
+import React, {Component, PropTypes} from 'react';
 import './App.css';
 import Pagehead from './Pagehead';
 import Container from './Container';
 
+import {displayAll} from './utils';
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {issuesNum: props.data.length};
+    this.state = {
+      issues: displayAll(props.data)
+    };
     this.handleAddNewIssue = this.handleAddNewIssue.bind(this);
+    this.handleCloseIssue = this.handleCloseIssue.bind(this);
+    this.handleSearchText = this.handleSearchText.bind(this);
   }
 
-  handleAddNewIssue() {
-    this.setState((prevState) => ({issuesNum: ++prevState.issuesNum}));
+  static propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      state: PropTypes.string.isRequired
+    })).isRequired
+  };
+
+  handleAddNewIssue(issues) {
+    this.setState({issues});
   }
 
-  countIssues(data, shouldBeDisplayed) {
-    let openIssuesCounter = 0, closedIssuesCounter = 0;
-    for (let i = 0; i < data.length; i++) {
-      if(shouldBeDisplayed[i] === 1) {
-        if (data[i].state === 'open') {
-          openIssuesCounter++;
-        } else {
-          closedIssuesCounter++;
+  handleCloseIssue(id) {
+    this.setState((prevState) => {
+      const newData = prevState.issues.map(issue => {
+        if (issue.id !== id) {
+         return issue;
         }
-      }
-    }
-    return [openIssuesCounter, closedIssuesCounter];
+
+        return {...issue, state: 'closed'};
+      });
+
+      return {issues: newData};
+    });
   }
 
-  displayAll(data) {
-    let showedData = [];
-    for (let i = 0; i < data.length; i++) {
-      showedData.push(1);
-    }
-    return showedData;
+  handleSearchText(text) {
+    this.setState((prevState) => {
+      const newData = prevState.issues.map(issue => ({
+        ...issue,
+        display: Boolean(~issue.title.toLowerCase().indexOf(text.toLowerCase()))
+      }));
+
+      return {issues: newData};
+    });
   }
 
   render() {
-    let showedData = this.displayAll(this.props.data);
-    let [openIssuesCounter, closedIssuesCounter] = this.countIssues(this.props.data, showedData);
+    const { issues } = this.state;
 
     return (
-    <div>
-      <Pagehead issuesNum={this.state.issuesNum} />
-      <Container
-        data={this.props.data}
-        handleAddNewIssue={this.handleAddNewIssue}
-        openIssuesNum={openIssuesCounter}
-        closedIssuesNum={closedIssuesCounter}
-        countIssues={this.countIssues}
-        shouldBeDisplayed={showedData}
-        displayAll={this.displayAll} />
-    </div>
+      <div>
+        <Pagehead issuesNum={issues.length}/>
+        <Container
+          data={issues}
+          handleAddNewIssue={this.handleAddNewIssue}
+          handleCloseIssue={this.handleCloseIssue}
+          handleSearchText={this.handleSearchText}
+        />
+      </div>
     );
   }
 }
