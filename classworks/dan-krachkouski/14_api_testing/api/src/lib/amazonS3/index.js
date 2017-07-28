@@ -19,6 +19,7 @@ class AmazonS3 {
   }
 
   delete (key) {
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1                       delerte')
     if (typeof key === 'string') {
       let params = {
         Bucket: this.bucket,

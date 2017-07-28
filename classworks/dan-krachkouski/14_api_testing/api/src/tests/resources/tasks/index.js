@@ -11,9 +11,7 @@ const config = require('config')
 require('chai').should()
 
 module.exports = (request) => {
-  let token = null
-
-  describe('#Tasks', () => {
+  describe('> Tasks', () => {
     beforeEach(async () => {
       await Promise.all([
         staffService.write.remove({}),
@@ -23,7 +21,7 @@ module.exports = (request) => {
 
     it('should return 3 created tasks to admin', async () => {
       const admin = await staffFactory.getAdmin()
-      token = await auth.signinAsRoot(request, admin, 'admin')
+      const token = await auth.signinAsRoot(request, admin, 'admin')
 
       await Promise.all([
         tasksFactory.getTask(admin._id),
@@ -43,7 +41,7 @@ module.exports = (request) => {
 
     it('should not allow regular user to create a task', async () => {
       const user = await staffFactory.getUser()
-      token = await auth.signinAsRoot(request, user, 'user')
+      const token = await auth.signinAsRoot(request, user, 'user')
 
       return request.post(`${config.apiPrefix}/tasks`)
         .set({
@@ -61,7 +59,7 @@ module.exports = (request) => {
 
     it('should alow admin to update any task', async () => {
       const admin = await staffFactory.getAdmin()
-      token = await auth.signinAsRoot(request, admin, 'admin')
+      const token = await auth.signinAsRoot(request, admin, 'admin')
 
       const task = await tasksFactory.getTask(admin._id)
 
@@ -80,7 +78,7 @@ module.exports = (request) => {
 
     it('should alow admin to add any staff to the list of participators of the task', async () => {
       const admin = await staffFactory.getAdmin()
-      token = await auth.signinAsRoot(request, admin, 'admin')
+      const token = await auth.signinAsRoot(request, admin, 'admin')
 
       const task = await tasksFactory.getTask('idididid')
       const user = await staffFactory.getUser()
@@ -104,7 +102,7 @@ module.exports = (request) => {
 
       const task = await tasksFactory.getTask(user._id)
 
-      token = await auth.signinAsRoot(request, impostor, 'user')
+      const token = await auth.signinAsRoot(request, impostor, 'user')
 
       return request.post(`${config.apiPrefix}/tasks/${task._id}/participators/ididid`)
         .set({

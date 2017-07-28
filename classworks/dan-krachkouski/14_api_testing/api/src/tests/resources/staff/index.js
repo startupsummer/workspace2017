@@ -13,7 +13,7 @@ require('chai').should()
 module.exports = (request) => {
   let token = null
 
-  describe('#Staff', () => {
+  describe('> Staff', () => {
     beforeEach(async () => {
       await Promise.all([
         staffService.write.remove({}),

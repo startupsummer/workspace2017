@@ -26,6 +26,27 @@ class MockS3 {
       }
     }
   }
+
+  delete (key) {
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1                       delerte')
+    if (typeof key === 'string') {
+      let params = {
+        Bucket: this.bucket,
+        Key: key
+      }
+      return this.mock.deleteObject(params).promise()
+    } else if (key instanceof Array) {
+      let params = {
+        Bucket: this.bucket,
+        Delete: {
+          Objects: key.map(deleteKey => ({
+            Key: deleteKey
+          }))
+        }
+      }
+      return this.mock.deleteObjects(params).promise()
+    }
+  }
 }
 
 exports.S3 = MockS3
