@@ -6,28 +6,41 @@ const staffFactory = require('tests/resources/staff/userFactory')
 const taskFactory = require('tests/resources/task/taskFactory')
 const service = require('resources/staff/staff.service')
 const auth = require('./resources/auth')
+const writeServiceStaff = require('resources/staff/staff.service.js')
+const writeServiceTask = require('resources/tasks/tasks.service.js')
+
+
+
+
+const func = () => new Promise(async (resolve) => {
+  admin = await staffFactory.admin()
+  user1 = await staffFactory.user()
+  user2 = await staffFactory.user()
+  tasks.push(await taskFactory.publicTask(admin._id, [1]))
+  tasks.push(await taskFactory.publicTask(admin._id, [1, 2, 3]))
+  tasks.push(await taskFactory.publicTask(admin._id, [1]))
+  resolve()
+})
 
 let admin, user1, user2
 let tasks = []
-
-
-const func = async = () => {
-  admin = staffFactory.admin()
-  user1 = staffFactory.user()
-  user2 = staffFactory.user()
-  tasks.push(taskFactory.publicTask(admin._id, [1]))
-  tasks.push(taskFactory.publicTask(admin._id, [1, 2, 3]))
-  tasks.push(taskFactory.publicTask(admin._id, [1]))
-}
-func()
+let tokenAdmin, tokenUser1
 
 
 describe('User', function() {
-  let tokenAdmin, tokenUser1
 
-  before(async () => {
+
+  beforeEach(async () =>  {
+    await func()
     tokenAdmin = await auth.signinAsRoot(request, admin)
     tokenUser1 = await auth.signinAsRoot(request, user1)
+  })
+
+  afterEach(async () => {
+    await writeServiceStaff.write.remove({})
+    await writeServiceTask.write.remove({})
+    admin, user1, user2, tokenAdmin, tokenUser1 = undefined
+    tasks = []
   })
 
   it('should return task information', done => {
@@ -89,13 +102,13 @@ describe('User', function() {
       .end(done)
   })
 
-    it('Non admin staff member tries to add another staff to the task he gets an error 403', done => {
+  it('Non admin staff member tries to add another staff to the task, in response get error 403', done => {
     request.post(`/api/v1/tasks/${tasks[1]._id}/participators/${user2._id}`)
       .set('Authorization', `Bearer ${tokenUser1}`)
       .send({
         participatorIds: user2._id,
       })
-      .expect((res => console.log()))
+      .expect(403)
       .end(done)
   })
 
