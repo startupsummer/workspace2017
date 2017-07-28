@@ -5,24 +5,20 @@ const { signinAsRoot } = require('../resources/auth')
 const chai  = require('chai');
 chai.should();
 
-const { createTask, removeAllTasks } = require('../task/task.factory')
-const { createAdmin, createClient, removeAllUsers } = require('./user.factory')
+const { createClient, removeAllUsers } = require('./user.factory')
 
 module.exports = () => {
   describe('Tests for user', function() {
-    let admin, client, clientPrey, tokenAdmin, tokenClient, task
+    let client, clientPrey, token
     beforeEach(async () => {
+      await removeAllUsers()
+
       await Promise.all([
-        removeAllTasks(),
-        removeAllUsers()
+        createClient().then(res => client = res),
+        createClient().then(res => clientPrey = res)
       ])
 
-      admin = await createAdmin()
-      client = await createClient()
-      clientPrey = await createClient()
-      tokenAdmin = await signinAsRoot(request, admin)
-      tokenClient = await signinAsRoot(request, client)
-      task = await createTask(client._id)
+      token = await signinAsRoot(request, client)
     })
 
     it('Non admin staff can successfully update himself', done => {
@@ -30,7 +26,7 @@ module.exports = () => {
       client.lastName = "Smith"
       client.password = 'qwerty'
       request.put(`/api/v1/staff/${client._id}`)
-        .set('Authorization', `Bearer ${tokenClient}`)
+        .set('Authorization', `Bearer ${token}`)
         .send(client)
         .expect(200)
         .end(done)
@@ -40,51 +36,12 @@ module.exports = () => {
       clientPrey.firstName = 'Will'
       clientPrey.password = 'qwerty'
       request.put(`/api/v1/staff/${clientPrey._id}`)
-        .set('Authorization', `Bearer ${tokenClient}`)
+        .set('Authorization', `Bearer ${token}`)
         .send(clientPrey)
         .expect(403)
         .end(done)
     })
 
-    it('Non admin staff tries to create a task', done => {
-      request.post('/api/v1/tasks')
-        .set('Authorization', `Bearer ${tokenClient}`)
-        .send(task)
-        .expect(403)
-        .end(done)
-    })
-
-    it('Admin can successfully update the task', done => {
-      task.title = 'Amazing title'
-      request.put(`/api/v1/tasks/${task._id}`)
-        .set('Authorization', `Bearer ${tokenAdmin}`)
-        .send(task)
-        .expect(res =>
-          res.body.results.value.title.should.be.equal(task.title))
-        .end(done)
-    })
-
-    it('Admin can add any staff to the list of participators', done => {
-      request.post(`/api/v1/tasks/${task._id}/participators/${client._id}`)
-        .set('Authorization', `Bearer ${tokenAdmin}`)
-        .send(task)
-        .expect(200)
-        .end(done)
-    })
-
-    it('Non admin staff member tries to add another staff to the task', done => {
-      request.post(`/api/v1/tasks/${task._id}/participators/${clientPrey._id}`)
-        .set('Authorization', `Bearer ${tokenClient}`)
-        .send(task)
-        .expect(403)
-        .end(done)
-    })
-
-    after(async () => {
-      await Promise.all([
-        removeAllTasks(),
-        removeAllUsers()
-      ])
-    })
+    after(async () => await removeAllUsers())
   })
 }
