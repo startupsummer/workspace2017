@@ -1,12 +1,27 @@
 const router = require('koa-router')();
 
 const utils = require('./utils.js');
-const db = {};
+const COCKIE_KEY = 'token';
 
-router.get('/hello', async (ctx) => {
+const requireAuth = async (ctx, next) => {
+  const token = ctx.cookies.get(COCKIE_KEY);
+  const verification = await utils.verifyToken(token);
+
+  if (!verification) {
+    ctx.status = 401;
+    return ctx.redirect('/');
+  }
+  return next();
+};
+
+router.get('/', async (ctx) => {
+  await ctx.render('login', { message: 'please login!' });
+});
+
+router.get('/protected', requireAuth, async (ctx) => {
   ctx.session.count = ctx.session.count ? ctx.session.count + 1 : 1;
 
-  await ctx.render('index', {
+  await ctx.render('protected', {
     name: ctx.params.name,
     count: ctx.session.count,
   });
@@ -28,20 +43,20 @@ router.post('/post-form', async (ctx) => {
 router.post('/auth', async (ctx) => {
   const {email, password} = ctx.request.body;
 
-  if (db[email]) {
-    const check = await utils.compare(password, db[email]);
-    if (check) {
-      const token = utils.generateToken(email);
-      ctx.body = {token};
-    } else {
+  if (utils.db[email]) {
+    const check = await utils.compare(password, utils.db[email]);
+    if (!check) {
       ctx.status = 401;
       return;
     }
   } else {
-    db[email] = await utils.generateHash(password);
+    utils.db[email] = await utils.generateHash(password);
   }
 
+  const token = utils.generateToken(email);
+  ctx.cookies.set(COCKIE_KEY, token, {maxAge: utils.TOKEN_EXP * 1000 });
   ctx.status = 200;
+  ctx.redirect('/protected');
 });
 
 module.exports = router.routes();
