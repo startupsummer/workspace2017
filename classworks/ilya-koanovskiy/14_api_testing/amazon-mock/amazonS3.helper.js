@@ -72,6 +72,7 @@ exports.uploadFile = async (fileName, stream, folder = DEFAULT_S3_FILES_FOLDER) 
 
   try {
     let key = folder ? `${folder}/${fileName}` : fileName
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", name);
     result.value = await s3.upload(key, data.buffer)
     result.value.size = data.length
   } catch (err) {

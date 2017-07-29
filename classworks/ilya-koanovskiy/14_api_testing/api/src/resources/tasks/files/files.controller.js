@@ -16,16 +16,25 @@ const tasksWriteService = tasksService.write
 const extensionRegExp = /(\.[^.]+)$/
 
 exports.getFile = async (ctx, next) => {
+   
   let task = await tasksReadService.findById(ctx.params.id)
+
+ 
+  
   ctx.assert(task, 404, errorMessages.tasks.notFound)
   ctx.assert(task.fileFileName, 404, errorMessages.tasks.fileNotFound)
 
   let result = await helpers.amazonS3.downloadFile(
     task.fileFileName, filesConstants.S3_FILES_FOLDER
   )
+
+  
+
+
   ctx.assert(!result.error, 400, result.error)
 
   let data = result.value
+
 
   ctx.set('Content-disposition', 'inline')
   ctx.set('Content-type', data.ContentType)
@@ -68,7 +77,7 @@ exports.updateFile = async (ctx, next) => {
       $set: { fileFileName: generatedFileName }
     }
   )
-
+  
   ctx.body = newTask
 }
 

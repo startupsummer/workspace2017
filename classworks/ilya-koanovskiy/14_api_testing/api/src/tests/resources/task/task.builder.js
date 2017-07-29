@@ -24,9 +24,15 @@ class Builder{
     return this;
   }
 
-    build () {
+  fileFileName(fileName) {
+    this.data.fileFileName = fileName;
+    return this;
+  }
+
+  build () {
     return this.data
   }
+
 }
 
 module.exports = Builder

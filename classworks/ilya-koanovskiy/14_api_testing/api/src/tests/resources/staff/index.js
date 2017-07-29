@@ -1,8 +1,8 @@
 const supertest = require('supertest');
-const app = require('../../../app')
+const app = require('app')
 const request = supertest.agent(app.listen())
-const user = require('./../../../resources/staff/staff.service.js')
-const task = require('./../../../resources/tasks/tasks.service.js')
+const userService = require('resources/staff/staff.service.js')
+const taskService = require('resources/tasks/tasks.service.js')
 const auth = require('./../../resources/auth')
 const chai = require('chai')
 const userFactory = require('./user.factory.js')
@@ -24,8 +24,8 @@ module.exports = () => describe('User api testing', function() {
   })
   
   afterEach(async () => {
-    user.write.remove();
-    task.write.remove();
+    await userService.write.remove();
+    await taskService.write.remove();
   })
 
   it('should return updated name of the user', done => {
