@@ -3,6 +3,7 @@ const cryptoHelper = require('infrastructure/helpers/crypto.helper')
 const idGenerator = require('lib/mongo/idGenerator')
 const writeService = require('resources/staff/staff.service.js')
 
+
 class UserBuilder {
   constructor() {
     this.data = {}
@@ -35,8 +36,7 @@ class UserBuilder {
   }
 
   build() {
-    writeService.write.create(this.data)
-    return this.data
+    return writeService.write.create(this.data)
   }
 }
 

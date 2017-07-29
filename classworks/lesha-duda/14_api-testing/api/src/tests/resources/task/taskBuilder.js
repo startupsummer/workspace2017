@@ -2,6 +2,7 @@ const faker = require('Faker')
 const idGenerator = require('lib/mongo/idGenerator.js')
 const writeService = require('resources/tasks/tasks.service.js')
 
+
 class TaskBuilder {
   constructor(id) {
     this.data = {}
@@ -25,8 +26,7 @@ class TaskBuilder {
   }
 
   build() {
-    writeService.write.create(this.data)
-    return this.data
+    return writeService.write.create(this.data)
   }
 }
 

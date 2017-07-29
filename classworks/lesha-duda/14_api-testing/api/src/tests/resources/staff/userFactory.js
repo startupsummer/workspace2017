@@ -1,8 +1,9 @@
 const UserBuilder = require('./userBuilder')
 
-exports.user = () => {
+
+exports.user = async () => {
   let userBuilder = new UserBuilder()
-  let user = userBuilder
+  let user = await userBuilder
     .firstName()
     .lastName()
     .passwordHash('qwerty')
@@ -13,9 +14,9 @@ exports.user = () => {
   return user
 }
 
-exports.admin = () => {
+exports.admin = async () => {
   let userBuilder = new UserBuilder()
-  let user = userBuilder
+  let user = await userBuilder
     .admin(true)
     .email()
     .passwordHash('qwerty')

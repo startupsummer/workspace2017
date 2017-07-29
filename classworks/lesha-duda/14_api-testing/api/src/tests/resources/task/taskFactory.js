@@ -1,9 +1,9 @@
 const TaskBuilder = require('./taskBuilder')
 
 
-exports.publicTask = (id, ids) => {
+exports.publicTask = async (id, ids) => {
   let taskBuilder = new TaskBuilder(id)
-  let task = taskBuilder
+  let task = await taskBuilder
     .title()
     .description()
     .participatorIds(ids)
