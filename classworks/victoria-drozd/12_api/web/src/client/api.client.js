@@ -39,13 +39,14 @@ const postJsonHeaders = {
 };
 
 export const get = (path, queryStringObject) =>
-  fetch(buildUrl(path, queryStringObject))
+  fetch(buildUrl(path, queryStringObject), { credentials: 'include' })
     .then(responseHandler);
 
 export const post = (path, queryStringObject, body) =>
   fetch(buildUrl(path, queryStringObject), {
     method: 'POST',
     headers: postJsonHeaders,
+    credentials: 'include',
     body: JSON.stringify(body),
   })
     .then(responseHandler);

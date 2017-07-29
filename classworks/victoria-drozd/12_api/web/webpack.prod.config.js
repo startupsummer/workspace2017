@@ -4,12 +4,15 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  entry: `${__dirname}/index.js`,
+  entry: { 
+    login: `${__dirname}/src/client/login.js`, 
+    protected: `${__dirname}/src/client/protected.js`
+  },
 
   output: {
     path: `${__dirname}/build/`,
     publicPath: '/build/',
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
   },
 
   module: {

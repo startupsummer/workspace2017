@@ -2,12 +2,15 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: `${__dirname}/src/client/index.js`,
+  entry: { 
+    login: `${__dirname}/src/client/login.js`, 
+    protected: `${__dirname}/src/client/protected.js`
+  },
 
   output: {
     path: `${__dirname}/build/`,
     publicPath: '/build/',
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
   },
 
   module: {
