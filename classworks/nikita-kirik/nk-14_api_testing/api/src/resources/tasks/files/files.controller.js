@@ -43,7 +43,7 @@ exports.updateFile = async (ctx, next) => {
 
   if (task.fileFileName) {
     // delete avatar from the amazon s3
-    await helpers.amazonS3.deleteFile(task.fileFileName)
+    await helpers.amazonS3.deleteFile(task.fileFileName, filesConstants.S3_FILES_FOLDER)
   }
 
   let data = await asyncBusboy(ctx.req)
@@ -72,8 +72,11 @@ exports.updateFile = async (ctx, next) => {
       new: true
     }
   )
+  ctx.body = {
+    newTask: newTask,
+    generatedFileName,
+  }
 
-  ctx.body = newTask
 }
 
 exports.deleteFile = async (ctx, next) => {
@@ -81,7 +84,7 @@ exports.deleteFile = async (ctx, next) => {
   ctx.assert(task, 404, errorMessages.tasks.notFound)
   ctx.assert(task.fileFileName, 404, errorMessages.tasks.fileNotFound)
 
-  let result = await helpers.amazonS3.deleteFile(task.fileFileName)
+  let result = await helpers.amazonS3.deleteFile(task.fileFileName, filesConstants.S3_FILES_FOLDER)
   ctx.assert(!result.error, 400, result.error)
 
   let newTask = await tasksWriteService.findAndModify(

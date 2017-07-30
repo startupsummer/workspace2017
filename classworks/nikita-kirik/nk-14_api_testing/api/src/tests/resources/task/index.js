@@ -1,14 +1,11 @@
-const TaskFactory = require('./task.factory')
-const StaffFactory = require('../staff/staff.factory')
+const taskFactory = require('./task.factory')
+const staffFactory = require('../staff/staff.factory')
 const tokenFact = require('../auth.js')
 
 const staffService = require('../../../resources/staff/staff.service')
 const staffWriteService = staffService.write
 const taskService = require('../../../resources/tasks/tasks.service')
 const taskWriteService = taskService.write
-
-const chai = require('chai')
-chai.should()
 
 module.exports.test = (request) => {
   let token;
@@ -18,12 +15,12 @@ module.exports.test = (request) => {
     await staffWriteService.remove();
     await taskWriteService.remove();
 
-    admin = await StaffFactory.admin();
+    admin = await staffFactory.admin();
     token = await tokenFact.signinAsRoot(request, admin);
 
-    await TaskFactory.task(admin._id);
-    await TaskFactory.task(admin._id);
-    await TaskFactory.task(admin._id);
+    await taskFactory.task(admin._id);
+    await taskFactory.task(admin._id);
+    await taskFactory.task(admin._id);
   })
 
   describe('Request', () => {

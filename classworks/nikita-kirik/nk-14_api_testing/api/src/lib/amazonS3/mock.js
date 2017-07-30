@@ -17,8 +17,6 @@ class MockS3 {
     }
   }
 
-
-
   getObject (search, callback) {
     if (callback) {
       this.mock.getObject(search, callback)
@@ -31,7 +29,7 @@ class MockS3 {
 
   deleteObject (search, callback) {
     if (callback) {
-      this.mock.getObject(search, callback)
+      this.mock.deleteObject(search, callback)
     } else {
       return {
         promise: () => this.mock.deleteObjectAsync(search)
@@ -41,7 +39,7 @@ class MockS3 {
 
   deleteObjects (search, callback) {
     if (callback) {
-      this.mock.getObject(search, callback)
+      this.mock.deleteObjects(search, callback)
     } else {
       return {
         promise: () => this.mock.deleteObjectsAsync(search)
@@ -51,7 +49,7 @@ class MockS3 {
 
   copyObject (search, callback) {
     if (callback) {
-      this.mock.getObject(search, callback)
+      this.mock.copyObject(search, callback)
     } else {
       return {
         promise: () => this.mock.copyObjectAsync(search)

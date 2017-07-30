@@ -7,7 +7,7 @@ const request = supertest.agent(app.listen())
 
 const taskTest = require('./resources/task/index')
 const staffTest = require('./resources/staff/index')
-const amazonTest = require('./amazonIntegrationTest')
+const amazonTest = require('./resources/task/files/amazonIntegrationTest')
 
 describe('TEST ', () => {
 
@@ -24,5 +24,4 @@ describe('TEST ', () => {
   describe('for Amazon S3 service', () => {
     amazonTest.test(request)
   })
-
 })

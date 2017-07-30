@@ -47,7 +47,6 @@ exports.deleteFile = async function (fileName, folder = constants.DEFAULT_S3_FIL
     value: {},
     error: null
   }
-
   try {
     let key = folder ? `${folder}/${fileName}` : fileName
     result.value = await s3.delete(key)
