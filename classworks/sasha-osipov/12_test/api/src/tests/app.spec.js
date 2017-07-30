@@ -1,12 +1,14 @@
+const supertest = require('supertest');
+const app = require('../app')
+const request = supertest.agent(app.listen())
+
 const { tasks } = require('./resources/tasks')
 const { users } = require('./resources/users')
 
-const test = async () => {
-    await Promise.resolve(tasks())
-    await Promise.resolve(users())
-}
+tasks(request)
+users(request)
 
-test()
+
 
 
 
