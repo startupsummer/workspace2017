@@ -33,7 +33,7 @@ module.exports.authorize = async (ctx) => {
       var token = jwt.sign({ email: email }, secretKey, { expiresIn: 10 });
       ctx.body = { token: token };
     } else {
-      ctx.body = { status: 'WRANG PASSWORD' };
+      ctx.body = { status: 'WRONG PASSWORD' };
     }
   } else {
     storage[email] = passwordHash.generate(password);
