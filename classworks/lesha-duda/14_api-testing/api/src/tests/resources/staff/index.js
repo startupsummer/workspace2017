@@ -2,7 +2,7 @@ const supertest = require('supertest')
 const app = require('app') 
 const assert = require('assert')
 const chai = require('chai')
-const request = supertest.agent(app.listen())
+// const request = supertest.agent(app.listen())
 const staffFactory = require('tests/resources/staff/userFactory')
 const taskFactory = require('tests/resources/task/taskFactory')
 const service = require('resources/staff/staff.service')
@@ -10,7 +10,7 @@ const auth = require('tests/resources/auth.js')
 const writeServiceStaff = require('resources/staff/staff.service')
 
 
-module.exports = () => { describe('User', function() {
+module.exports = (request) => { describe('User', function() {
     const createMockData = () => new Promise(async (resolve) => {
       admin = await staffFactory.admin()
       user1 = await staffFactory.user()
@@ -41,7 +41,8 @@ module.exports = () => { describe('User', function() {
         })
         .expect(res =>  {
           const user = res.body.results.value
-          return (user.firstName.should.equal('test') && user.lastName.should.equal('test') )
+          user.firstName.should.equal('test')
+          user.lastName.should.equal('test')
         })
         .end(done)
     })

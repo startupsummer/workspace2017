@@ -1,7 +1,7 @@
 const supertest = require('supertest')
 const app = require('app') 
 const assert = require('assert')
-const request = supertest.agent(app.listen())
+// const request = supertest.agent(app.listen())
 const staffFactory = require('tests/resources/staff/userFactory')
 const taskFactory = require('tests/resources/task/taskFactory')
 const service = require('resources/staff/staff.service')
@@ -10,7 +10,7 @@ const writeServiceStaff = require('resources/staff/staff.service')
 const writeServiceTask = require('resources/tasks/tasks.service')
 
 
-module.exports = () => { describe('User', function() {
+module.exports = (request) => { describe('User', function() {
     const createMockData = () => new Promise(async (resolve) => {
       admin = await staffFactory.admin()
       user1 = await staffFactory.user()
