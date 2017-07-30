@@ -27,21 +27,21 @@ module.exports = (app) => {
     map: { html: 'handlebars' },
   }));
 
-  app.use(devMiddleware(webpack(webpackConfig)));
-
   app.use(session({
-    store: redisStore({
-      host: config.redis.host,
-      port: config.redis.port,
-    }),
-    ttl: 3600 * 10000,
-    cookie: {
-      expires: false,
-    },
-  }));
+  store: redisStore({
+    host: config.redis.host,
+    port: config.redis.port,
+  }),
+  ttl: 3600 * 10000,
+  cookie: {
+    expires: false,
+  },
+}));
 
   app.use(logger());
 
+  app.use(devMiddleware(webpack(webpackConfig)));
+  
   app.use(async (ctx, next) => {
     try {
       await next();
@@ -52,6 +52,5 @@ module.exports = (app) => {
       ctx.app.emit('error', err, ctx);
     }
   });
-
   app.use(routes);
 };

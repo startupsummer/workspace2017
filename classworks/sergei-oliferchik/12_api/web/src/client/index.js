@@ -17,12 +17,12 @@ const passwordAuthorization = document.querySelector('.passwordAuthorization');
 const loginRegistration = document.querySelector('.loginRegistration');
 const passwordRegistration = document.querySelector('.passwordRegistration');
 
-const requestRegistration = () => post('hello', null, {
+const requestRegistration = () => post('sign-up', {
   loginRegistration: loginRegistration.value,
   passwordRegistration: passwordRegistration.value,
 });
 
-const requestAuthorization = () => post('hello', null, {
+const requestAuthorization = () => post('login', {
   loginAuthorization: loginAuthorization.value,
   passwordAuthorization: passwordAuthorization.value,
 });

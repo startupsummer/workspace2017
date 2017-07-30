@@ -1,69 +1,93 @@
-const router = require('koa-router')();
-const jwt = require('jsonwebtoken');
-const md5 = require('md5');
+const router = require('koa-router')()
+const jwt = require('jsonwebtoken')
+const md5 = require('md5')
 
-const dataBase = [];
+let authToken;
+let auth2;
 
+const dataBase = []
+
+const renderStartPage = async (ctx) => {
+  await ctx.render('index')
+}
 
 const validation = async (ctx, next) => {
-  const body = ctx.request.body;
+  const body = ctx.request.body
 
-  if(body.loginAuthorization && body.passwordAuthorization) {
-    ctx.checkBody('loginAuthorization').isEmail("your enter a bad email-authotization.");
+  ctx.checkBody('loginRegistration').isEmail("your enter a bad email-authotization.")
 
-    if (ctx.errors) {
-     ctx.status = 400;
-     ctx.body = ctx.errors;
-   }  else {
-     return next();
-   }
- } else {
-   ctx.checkBody('loginRegistration').isEmail("your enter a bad email-registration.");
-
-   if (ctx.errors) {
-    ctx.status = 400;
-    ctx.body = ctx.errors;
-  }  else {
-    return next();
+  if (ctx.errors) {
+   ctx.status = 400
+   ctx.body = ctx.errors
+  } else {
+    return next()
   }
- }
- return;
-};
-const authorization = async (ctx) => {
-  const body = ctx.request.body;
-  
-  if(body.loginAuthorization && body.passwordAuthorization) {
-    console.log(dataBase);
- } else {
-
-   const salt = new Date();
-   const password = body.passwordAuthorization;
-   const email = body.loginAuthorization;
-   const hash = md5(salt + password);
-   const token = jwt.sign({
-     IAT: Date.now(),
-     JTI: hash,
-     ехр: Date.now() + 100*60*60,
-     email,
-   }, 'shhhhh', { expiresIn: '1min' });
-
-   dataBase.push({
-     email,
-     salt,
-     hash,
-   });
-
-  ctx.set({'X-ACCESS-TOKEN': token});
 }
+
+const registration = async (ctx) => {
+  const body = ctx.request.body
+  const salt = new Date()
+  const password = body.passwordRegistration
+  const email = body.loginRegistration
+  const hash = md5(salt + password)
+  const data = {
+    email,
+    salt,
+    hash,
+  }
+
+  dataBase.push(data)
+  ctx.body = {email};
+}
+
+const authorization = async (ctx) => {
+  const body = ctx.request.body
+  const loginAuthorization = body.loginAuthorization
+  const passwordAuthorization = body.passwordAuthorization
+
+  const fitUsers = dataBase.filter(user => user.email === loginAuthorization)
+  const fitUser = fitUsers.find(user => user.hash === md5(user.salt + passwordAuthorization))
+
+  if (fitUser) {
+   const hash = fitUser.hash
+   const email = fitUser.email
+   const token = jwt.sign({
+     JTI: hash,
+     email,
+   }, 'shhhhh')
+   ctx.sessionSave = true;
+   ctx.session.token = token;
+ }
+
+  ctx.redirect('/second-page');
+}
+
+const secondPage = async (ctx) => {
+  const token = ctx.session.token
+  
+   console.log(ctx.session)
+  if (token) {
+    const decryptedJWT = jwt.verify(token, 'shhhhh')
+    const hash = decryptedJWT.JTI
+    const email = decryptedJWT.email
+    const fitToken = dataBase.find(el => el.email === email && el.hash === hash)
+
+    if (fitToken) {
+      await ctx.render('success')
+      return
+    }
+  }
+
+  await ctx.render('fail')
 }
 
 router
-  .get('/hello', async (ctx) => {
-    console.dir(ctx.request.headers)
-    await ctx.render('index');
-  })
-  .post('/hello', (ctx, next) => validation(ctx, next), ctx => authorization(ctx) );
+  .get('/hello', async (ctx) => renderStartPage(ctx) )
+  .post('/sign-up', (ctx, next) => validation(ctx, next), ctx => registration(ctx) )
+  .post('/login', (ctx, next) => authorization(ctx, next) )
+  .get('/second-page', async (ctx) => secondPage(ctx) )
 
 
 
-module.exports = router.routes();
+
+module.exports = router.routes()
