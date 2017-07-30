@@ -1,7 +1,6 @@
 const supertest = require('supertest')
 const app = require('app') 
 const assert = require('assert')
-// const request = supertest.agent(app.listen())
 const staffFactory = require('tests/resources/staff/userFactory')
 const taskFactory = require('tests/resources/task/taskFactory')
 const service = require('resources/staff/staff.service')
