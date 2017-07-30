@@ -268,3 +268,15 @@ strong {
 .issues__link:hover, .issues__link:focus {
     color: rgb(3, 102, 214);
 }
+
+.description {
+    font-weight: normal;
+    line-height: 1.125;
+    font-size: 32px;
+    margin-left: 150px;
+}
+
+.description__id {
+    font-weight: 300;
+    color: #a3aab1;
+}

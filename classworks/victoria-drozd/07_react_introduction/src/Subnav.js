@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
+import React, {PureComponent} from 'react';
 import Search from './Search';
 import Btn from './Btn';
 
-export default class Subnav extends Component {
-  constructor(props) {
-    super(props);
-    this.addNewIssue = this.addNewIssue.bind(this);
-    this.searchText = this.searchText.bind(this);
-  }
-
-  addNewIssue() {
-    this.props.onAddNewIssue();
-  }
-
-  searchText(text) {
-    this.props.onSearchText(text);
-  }
-
+export default class Subnav extends PureComponent {
   render() {
+    const {onAddNewIssue, onSearchText} = this.props;
     return (
       <div className="issues-listing__subnav">
         <div className="subnav">
-          <Search onSearchText={this.searchText} />
-          <Btn classes="btn btn-primary" text="New issue" type="new-issue" onAddNewIssue={this.addNewIssue}/>
+          <Search onSearchText={onSearchText}/>
+          <Btn classes="btn btn-primary" type="new-issue" onClick={onAddNewIssue}>
+            New issue
+          </Btn>
         </div>
       </div>
     );
