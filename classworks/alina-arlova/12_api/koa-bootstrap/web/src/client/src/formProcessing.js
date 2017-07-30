@@ -1,3 +1,6 @@
+
+const message = document.querySelector('.message__content');
+const notification = document.querySelector('.auth-message__content');
 let token;
 
 function submitForm(e) {
@@ -15,7 +18,10 @@ function submitForm(e) {
       password: form.elements.password.value }),
   })
     .then(res => res.json())
-    .then(data => {token = data.token});
+    .then(data => {
+      token = data.token;
+      notification.textContent = data.notification;
+    });
 }
 
 function getMessage(e) {
@@ -25,8 +31,13 @@ function getMessage(e) {
   fetch('/Message', {
     method: "post",
     headers: {
-    "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ token }),
-  });
+      "Content-Type": "application/json",
+      token: token,
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      message.textContent = data.message;
+      console.dir(data.message)
+    });
 }

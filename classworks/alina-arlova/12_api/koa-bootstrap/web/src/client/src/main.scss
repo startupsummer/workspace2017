@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.main-part {
+.main-part, .message {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -15,6 +15,12 @@
   align-self: center;
   margin-top: 20px;
   font-size: 18px;
+}
+
+.message__content {
+  align-self: center;
+  margin-top: 20px;
+  font-size: 24px;
 }
 
 .forms {

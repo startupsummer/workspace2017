@@ -8,10 +8,6 @@
 </head>
 
 <body>
-    <div class="main-part">
-      <p class="main-part__count"> You visited this site {{ count }} times </p>
-    </div>
-
     <div class="forms">
       <div class="sign-in">
         <form class="sign-in__form" name="signInForm" method="post" action="/SignIn" >
@@ -21,6 +17,11 @@
               <input class="form__password" type="password" name="password" placeholder="Enter your password"/>
             </div>
             <input class="form__submit" type="submit" value="Sign in" onclick="submitForm(event);"/>
+            <div class="auth-message">
+              <p class="auth-message__content">
+                You are not yet authorized
+              </p>
+            </div>
         </form>
       </div>
 
@@ -29,6 +30,10 @@
           <input class="form__submit" type="submit" value="View secret message" onclick="getMessage(event)"/>
         </form>
       </div>
+    </div>
+
+    <div class="message">
+      <p class="message__content">Here you will see a secret message</p>
     </div>
 
     <footer class="footer">
