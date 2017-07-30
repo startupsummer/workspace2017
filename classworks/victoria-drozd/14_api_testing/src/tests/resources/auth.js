@@ -15,6 +15,6 @@ const signin = (request, user) => {
   })
 }
 
-exports.signinAsRoot = function (request, user) {
+exports.signinAsRoot = (request, user) => {
   return signin(request, user)
 }

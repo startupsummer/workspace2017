@@ -1,10 +1,10 @@
 const TaskBuilder = require('./task.builder')
 
-exports.task = (userId) => {
+const getTaskData = (userId) => {
   let taskBuilder = new TaskBuilder()
-  let task = taskBuilder
-    .setTaskInfo(null, userId)
-    .build()
-
-  return task
+  return taskBuilder.setTaskInfo(null, userId)
 }
+
+exports.createTask = (userId) => getTaskData(userId).build()
+
+exports.getTaskData = getTaskData

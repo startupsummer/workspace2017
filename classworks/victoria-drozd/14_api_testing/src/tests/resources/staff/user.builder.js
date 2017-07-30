@@ -41,8 +41,7 @@ class Builder {
   }
 
   build () {
-    staffService.write.create(this.data)
-    return this.data
+    return staffService.write.create(this.data)
   }
 }
 

@@ -83,8 +83,8 @@ class BaseService extends BaseQueryService {
     sort = sort || {}
 
     let defaultOptions = { new: true }
-    _.merge(defaultOptions, options)
-    return this._collection.findAndModifyAsync(query, sort, updateQuery, options)
+    let resultOptions = _.merge(defaultOptions, options)
+    return this._collection.findAndModifyAsync(query, sort, updateQuery, resultOptions)
       .then(res => {
         this.emit('updated', {
           doc: res

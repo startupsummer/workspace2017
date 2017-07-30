@@ -40,7 +40,7 @@ exports.create = async (ctx, next) => {
 exports.update = async (ctx, next) => {
   ctx.assert(
     ctx.state.authorization.isAdmin() ||
-    ctx.state.user._id !== ctx.params.id,
+    ctx.state.user._id === ctx.params.id,
     403, errorMessages.authorization.permission
   )
 
