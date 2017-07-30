@@ -2,66 +2,52 @@ const supertest = require('supertest')
 const app = require('../../../app')
 const auth = require('tests/resources/auth')
 const chai = require('chai')
-const tasksService = require('resources/tasks/tasks.service')
 const staffService = require('resources/staff/staff.service')
 const userFactory = require('./user.factory')
 
 const request = supertest.agent(app.listen())
-let token
 
 chai.should()
 
-exports.updateYourself = () => {
-  describe('test 2: PUT /users/:id', () => {
-    let user
+module.exports = () => {
+  let client, client2, clientToken
 
+  describe('Staff testing', () => {
     before(async () => {
-      await tasksService.write.remove()
-      await staffService.write.remove()
-      user = await userFactory.client()
-      token = await auth.signinAsRoot(request, user)
+      client2 = await userFactory.client()
     })
 
-    it('should update user firstName and lastName', done => {
-      user.firstName = 'test1'
-      user.lastName = 'test2'
-      user.password = 'qwerty'
+    beforeEach(async () => {
+      client = await userFactory.client()
+      clientToken = await auth.signinAsRoot(request, client)
+    })
 
-      request.put(`/api/v1/staff/${user._id}`)
-        .set('Authorization', `Bearer ${token}`)
-        .send(user)
+    afterEach(async () => staffService.write.remove())
+
+    it('should update user firstName and lastName', done => {
+      client.firstName = 'test1'
+      client.lastName = 'test2'
+      client.password = 'qwerty'
+
+      request.put(`/api/v1/staff/${client._id}`)
+        .set('Authorization', `Bearer ${clientToken}`)
+        .send(client)
         .expect(200)
         .expect(res => {
           const {firstName, lastName} = res.body.results.value
-          firstName.should.equal(user.firstName)
-          lastName.should.equal(user.lastName)
+          firstName.should.equal(client.firstName)
+          lastName.should.equal(client.lastName)
         })
         .end(done)
     })
-  })
-}
-
-exports.updateAnother = () => {
-  describe('test 3: PUT /users/:id', () => {
-    let firstUser, secondUser
-
-    before(async () => {
-      await tasksService.write.remove()
-      await staffService.write.remove()
-
-      firstUser = await userFactory.client()
-      secondUser = await userFactory.client()
-
-      token = await auth.signinAsRoot(request, firstUser)
-    })
 
     it('should not update another user by not admin', done => {
-      secondUser.firstName = 'test'
-      secondUser.password = 'qwerty'
+      client2.firstName = 'test'
+      client2.password = 'qwerty'
 
-      request.put(`/api/v1/staff/${secondUser._id}`)
-        .set('Authorization', `Bearer ${token}`)
-        .send(secondUser)
+      request.put(`/api/v1/staff/${client2._id}`)
+        .set('Authorization', `Bearer ${clientToken}`)
+        .send(client2)
         .expect(403)
         .end(done)
     })

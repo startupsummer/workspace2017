@@ -8,130 +8,66 @@ const userFactory = require('../staff/user.factory')
 const taskFactory = require('./task.factory')
 
 const request = supertest.agent(app.listen())
-let token
 
 chai.should()
 
-exports.get = () => {
-  describe('test 1: GET /tasks', () => {
-    let user
+module.exports = () => {
+  let admin, client, adminToken, clientToken, task
 
+  describe('Tasks testing', () => {
     before(async () => {
-      await tasksService.write.remove()
-      await staffService.write.remove()
-
-      user = await userFactory.admin()
-      await taskFactory.createTask(user._id)
-      await taskFactory.createTask(user._id)
-      await taskFactory.createTask(user._id)
-
-      token = await auth.signinAsRoot(request, user)
+      admin = await userFactory.admin()
+      client = await userFactory.client()
+      adminToken = await auth.signinAsRoot(request, admin)
+      clientToken = await auth.signinAsRoot(request, client)
     })
+
+    beforeEach(async () => {
+      task = await taskFactory.createTask(admin)
+      await taskFactory.createTask(admin)
+      await taskFactory.createTask(admin)
+    })
+
+    afterEach(async () => tasksService.write.remove())
 
     it('should create and return 3 tasks for admin', done => {
       request.get('/api/v1/tasks')
-        .set('Authorization', `Bearer ${token}`)
+        .set('Authorization', `Bearer ${adminToken}`)
         .expect(200)
         .expect(res => res.body.results.length.should.equal(3))
         .end(done)
     })
-  })
-}
-
-exports.create = () => {
-  describe('test 4: POST /tasks', () => {
-    let user, task
-
-    before(async () => {
-      await tasksService.write.remove()
-      await staffService.write.remove()
-
-      user = await userFactory.client()
-      task = taskFactory.getTaskData(user._id)
-
-      token = await auth.signinAsRoot(request, user)
-    })
 
     it('should not create task for not admin', done => {
       request.post('/api/v1/tasks')
-        .set('Authorization', `Bearer ${token}`)
-        .send(task)
+        .set('Authorization', `Bearer ${clientToken}`)
+        .send(taskFactory.getTaskData(client._id))
         .expect(403)
         .end(done)
-    })
-  })
-}
-
-exports.update = () => {
-  describe('test 5: PUT /tasks/:id', () => {
-    let user, task
-
-    before(async () => {
-      await tasksService.write.remove()
-      await staffService.write.remove()
-
-      user = await userFactory.admin()
-      task = await taskFactory.createTask(user._id)
-
-      token = await auth.signinAsRoot(request, user)
     })
 
     it('should update and return task for admin', done => {
       task.title = 'test'
 
       request.put(`/api/v1/tasks/${task._id}`)
-        .set('Authorization', `Bearer ${token}`)
+        .set('Authorization', `Bearer ${adminToken}`)
         .send(task)
         .expect(200)
         .expect(res => res.body.results.value.title.should.equal(task.title))
         .end(done)
     })
-  })
-}
-
-exports.addStaffByAdmin = () => {
-  describe('test 6: POST /tasks/:id/participators/:userId', () => {
-    let user, task, participator
-
-    before(async () => {
-      await tasksService.write.remove()
-      await staffService.write.remove()
-
-      user = await userFactory.admin()
-      participator = await userFactory.client()
-      task = await taskFactory.createTask(user._id)
-
-      token = await auth.signinAsRoot(request, user)
-    })
 
     it('should add any user to task participators for admin', done => {
-      request.post(`/api/v1/tasks/${task._id}/participators/${participator._id}`)
-        .set('Authorization', `Bearer ${token}`)
+      request.post(`/api/v1/tasks/${task._id}/participators/${client._id}`)
+        .set('Authorization', `Bearer ${adminToken}`)
         .expect(200)
-        .expect(res => res.body.results.value.participatorIds.should.include(participator._id))
+        .expect(res => res.body.results.value.participatorIds.should.include(client._id))
         .end(done)
-    })
-  })
-}
-
-exports.addStaffByClient = () => {
-  describe('test 7: POST /tasks/:id/participators/:userId', () => {
-    let user, task, participator
-
-    before(async () => {
-      await tasksService.write.remove()
-      await staffService.write.remove()
-
-      user = await userFactory.client()
-      participator = await userFactory.client()
-      task = await taskFactory.createTask(user._id)
-
-      token = await auth.signinAsRoot(request, user)
     })
 
     it('should not add user to task participators for not admin', done => {
-      request.post(`/api/v1/tasks/${task._id}/participators/${participator._id}`)
-        .set('Authorization', `Bearer ${token}`)
+      request.post(`/api/v1/tasks/${task._id}/participators/${admin._id}`)
+        .set('Authorization', `Bearer ${clientToken}`)
         .expect(403)
         .end(done)
     })

@@ -1,11 +1,7 @@
 require('app-module-path').addPath(`${__dirname}/../`)
-const staff = require('./resources/staff')
-const tasks = require('./resources/tasks')
+const testStaff = require('./resources/staff')
+const testTasks = require('./resources/tasks')
 
-tasks.get()
-staff.updateYourself()
-staff.updateAnother()
-tasks.create()
-tasks.update()
-tasks.addStaffByAdmin()
-tasks.addStaffByClient()
+
+testStaff()
+testTasks()
