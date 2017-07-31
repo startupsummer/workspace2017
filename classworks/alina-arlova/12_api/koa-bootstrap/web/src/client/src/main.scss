@@ -11,6 +11,12 @@
   padding-bottom: 30px;
 }
 
+.auth-message__content {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
 .main-part__count {
   align-self: center;
   margin-top: 20px;
@@ -18,7 +24,7 @@
 }
 
 .message__content {
-  align-self: center;
+  text-align: center;
   margin-top: 20px;
   font-size: 24px;
 }
@@ -35,8 +41,8 @@
 }
 
 .sign-in__form, .sign-up__form {
-  padding: 15px;
-  width: 50%;
+  padding: 20px;
+  width: 30%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -50,14 +56,14 @@
 }
 
 .form__input {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .form__login,
 .form__password {
   line-height: 40px;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   padding-left: 10px;
   font-size: 16px;
   border: 1px solid #d0c8cb;

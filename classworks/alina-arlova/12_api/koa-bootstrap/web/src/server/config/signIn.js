@@ -17,13 +17,14 @@ exports.signIn = (ctx, users) => {
     });
 
     if (sameLogin.length) {
-      ctx.body = {notification: 'The user with a such login already exists'};
+      ctx.body = {notification: 'The user with such login already exists'};
     } else {
       const passwordHash = hash.generate(password);
       const token = jwt.sign({login}, 'secretMessage', { expiresIn: '10sec' });
       users.push({login, passwordHash, token});
-      ctx.body = JSON.stringify({ token });
-      ctx.body = {notification: 'You are successfully authenticated'};
+
+      ctx.body = {token: token, notification: 'You are successfully authenticated'};
+
     }
   }
 }
