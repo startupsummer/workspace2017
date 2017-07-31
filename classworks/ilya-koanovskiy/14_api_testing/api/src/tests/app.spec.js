@@ -16,8 +16,6 @@ const taskFactory = require('./resources/task/task.factory.js')
 
 chai.should();
 
-
-
-userTests();
-taskTests();
-amazonTests();
+userTests(request);
+taskTests(request);
+amazonTests(request);

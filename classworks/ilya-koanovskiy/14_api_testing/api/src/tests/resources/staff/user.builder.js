@@ -1,5 +1,5 @@
 const faker = require('Faker')
-const crypto = require('./../../../infrastructure/helpers/crypto.helper.js');
+const crypto = require('infrastructure/helpers/crypto.helper.js');
 
 class Builder{
   constructor() {

@@ -1,5 +1,5 @@
 const UserBuilder = require('./user.builder.js')
-const userService = require('./../../../resources/staff/staff.service.js');
+const userService = require('resources/staff/staff.service.js');
 
 exports.user = async (bool) => {
   let userBuilder = new UserBuilder()

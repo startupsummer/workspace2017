@@ -1,15 +1,12 @@
-const supertest = require('supertest');
 const app = require('app')
-const request = supertest.agent(app.listen())
 const taskService = require('resources/tasks/tasks.service.js')
 const userService = require('resources/staff/staff.service.js')
-const auth = require('./../../resources/auth')
-const chai = require('chai')
+const auth = require('tests/resources/auth')
 const taskFactory = require('./../task/task.factory.js')
 const userFactory = require('./../staff/user.factory.js')
 const path = require('path');
 
- module.exports =  () => describe('Amazon api testing', function() {
+ module.exports =  (request) => describe('Amazon api testing', function() {
   let task;
   let userUsual;
   let token

@@ -1,14 +1,19 @@
-const supertest = require('supertest');
 const app = require('app')
-const request = supertest.agent(app.listen())
 const userService = require('resources/staff/staff.service.js')
 const taskService = require('resources/tasks/tasks.service.js')
-const auth = require('./../../resources/auth')
+const auth = require('tests/resources/auth')
 const chai = require('chai')
 const userFactory = require('./../staff/user.factory.js')
 const taskFactory = require('./task.factory.js')
 
-module.exports = () => describe('Task api testing', function() {
+
+
+module.exports = (request) => describe('Task api testing', function() {
+  createTasks = async() => {
+    await taskFactory.task(userAdmin,[userAdmin._id]);
+    await taskFactory.task(userAdmin,[userAdmin._id]);
+    await taskFactory.task(userAdmin,[userAdmin._id]);
+  }
   let userAdmin;
   let task;
   let token;
@@ -19,6 +24,7 @@ module.exports = () => describe('Task api testing', function() {
     task = await taskFactory.task(userAdmin,[userAdmin._id]);  
     token = await auth.signinAsRoot(request,userAdmin);
     token2 = await auth.signinAsRoot(request,staff);
+    await createTasks();
   })
 
   afterEach(async () => {
@@ -27,9 +33,6 @@ module.exports = () => describe('Task api testing', function() {
   })
 
   it('should return right number of users tasks', done => {
-    taskFactory.task(userAdmin,[userAdmin._id]);
-    taskFactory.task(userAdmin,[userAdmin._id]);
-    taskFactory.task(userAdmin,[userAdmin._id]);
     request.get('/api/v1/tasks')
       .set('Authorization', `Bearer ${token}`)
       .expect((res) =>  res.body.results.should.have.lengthOf(4))

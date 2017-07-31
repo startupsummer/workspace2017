@@ -1,5 +1,5 @@
 const TaskBuilder = require('./task.builder.js')
-const taskService = require('./../../../resources/tasks/tasks.service.js');
+const taskService = require('resources/tasks/tasks.service.js');
 
 
 exports.task = async (user,ids,fileName = 'image.jpg') => {

@@ -1,16 +1,14 @@
-const supertest = require('supertest');
 const app = require('app')
-const request = supertest.agent(app.listen())
 const userService = require('resources/staff/staff.service.js')
 const taskService = require('resources/tasks/tasks.service.js')
-const auth = require('./../../resources/auth')
+const auth = require('tests/resources/auth')
 const chai = require('chai')
 const userFactory = require('./user.factory.js')
 const taskFactory = require('../task/task.factory.js')
 
 
 
-module.exports = () => describe('User api testing', function() {
+module.exports = (request) => describe('User api testing', function() {
   let userUsual;
   let task;
   let token;
