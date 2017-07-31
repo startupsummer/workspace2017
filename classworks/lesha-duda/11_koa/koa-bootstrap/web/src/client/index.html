@@ -39,8 +39,12 @@
 
     <script>
       function postData() {
+        preventDefault()
         fetch(`/hello`, {
           method: 'POST',
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+          },
           body: JSON.stringify({
             firstName: firstName.value,
             lastName: lastName.value,
