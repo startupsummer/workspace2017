@@ -13,6 +13,4 @@ app.listen(config.port, config.ip, () => {
   logger.info('Api is listening on %d, in %s mode', config.port, config.env)
 })
 
-//generateUsers();
-
 module.exports = app

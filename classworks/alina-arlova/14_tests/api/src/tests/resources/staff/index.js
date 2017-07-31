@@ -1,9 +1,9 @@
 
 const userFactory = require('./user.factory.js');
 const taskFactory = require('../tasks/tasks.factory.js');
-const usersDatabase = require('../../../resources/staff/staff.service.js');
-const tasksDatabase = require('../../../resources/tasks/tasks.service.js');
-const { generate } = require('../../../lib/mongo/idGenerator.js');
+const usersDatabase = require('resources/staff/staff.service.js');
+const tasksDatabase = require('resources/tasks/tasks.service.js');
+const { generate } = require('lib/mongo/idGenerator.js');
 const chai = require('chai');
 const { signinAsRoot } = require('../auth');
 

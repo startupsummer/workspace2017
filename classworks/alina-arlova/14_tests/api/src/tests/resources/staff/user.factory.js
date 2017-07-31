@@ -1,5 +1,5 @@
 const userBuilder = require('./user.builder.js');
-const database = require('../../../resources/staff/staff.service.js');
+const database = require('resources/staff/staff.service.js');
 
 exports.admin = () => {
   let builder = new userBuilder();

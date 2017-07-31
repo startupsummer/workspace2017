@@ -1,5 +1,5 @@
 const taskBuilder = require('./tasks.builder.js');
-const database = require('../../../resources/staff/staff.service.js');
+const database = require('resources/staff/staff.service.js');
 
 exports.task = (creatorId) => {
   let builder = new taskBuilder();

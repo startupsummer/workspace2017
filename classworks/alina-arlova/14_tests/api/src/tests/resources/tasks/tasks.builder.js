@@ -1,5 +1,5 @@
 const faker = require('Faker');
-const { generate } = require('../../../lib/mongo/idGenerator.js');
+const { generate } = require('lib/mongo/idGenerator.js');
 
 class Builder {
   constructor() {

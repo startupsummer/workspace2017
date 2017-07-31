@@ -6,9 +6,9 @@ const { saveUser, updateClient, updateAnotherClient,
         addParticipatorbyClient } = require('./resources/staff/index.js');
 
 saveUser(request);
-updateClient(request);
-updateAnotherClient(request);
-createTask(request);
-updateTaskByAdmin(request);
-addParticipatorbyAdmin(request);
-addParticipatorbyClient(request);
+//updateClient(request);
+//updateAnotherClient(request);
+//createTask(request);
+//updateTaskByAdmin(request);
+//addParticipatorbyAdmin(request);
+//addParticipatorbyClient(request);

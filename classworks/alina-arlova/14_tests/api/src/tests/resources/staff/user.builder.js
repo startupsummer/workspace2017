@@ -1,7 +1,7 @@
 const faker = require('Faker');
-const crypto = require('../../../infrastructure/helpers/crypto.helper.js');
-const database = require('../../../resources/staff/staff.service.js');
-const { generate } = require('../../../lib/mongo/idGenerator.js');
+const crypto = require('infrastructure/helpers/crypto.helper.js');
+const database = require('resources/staff/staff.service.js');
+const { generate } = require('lib/mongo/idGenerator.js');
 
 class Builder {
   constructor() {
