@@ -136,6 +136,8 @@ exports.updateTaskByAdmin = (request) => {
 exports.addParticipatorbyAdmin = (request) => {
   let token;
   let admin = userFactory.admin();
+  let client = userFactory.client();
+  let anotherAdmin = userFactory.admin();
   let task = taskFactory.task();
   describe('Addition participator by admin', function() {
     before(async () => {
@@ -143,15 +145,20 @@ exports.addParticipatorbyAdmin = (request) => {
       await tasksDatabase.write.remove();
 
       await usersDatabase.write.create(admin);
+      await usersDatabase.write.create(client);
+      await usersDatabase.write.create(anotherAdmin);
       await tasksDatabase.write.create(task);
       token = await signinAsRoot(request, admin);
     })
     it ('can be done', done => {
-      task.participatorIds.push(generate());
-
-      request.put(`/api/v1/tasks/${task._id}`)
+      request.post(`/api/v1/tasks/${task._id}/participators/${client._id}`)
       .set('Authorization', `Bearer ${token}`)
-      .send(task)
+      .expect(200)
+      .end(done)
+    })
+    it ('can be done', done => {
+      request.post(`/api/v1/tasks/${task._id}/participators/${anotherAdmin._id}`)
+      .set('Authorization', `Bearer ${token}`)
       .expect(200)
       .end(done)
     })
@@ -161,6 +168,7 @@ exports.addParticipatorbyAdmin = (request) => {
 exports.addParticipatorbyClient = (request) => {
   let token;
   let client = userFactory.client();
+  let anotherClient = userFactory.client();
   let task = taskFactory.task();
   describe('Addition participator by client', function() {
     before(async () => {
@@ -168,15 +176,13 @@ exports.addParticipatorbyClient = (request) => {
       await tasksDatabase.write.remove();
 
       await usersDatabase.write.create(client);
+      await usersDatabase.write.create(anotherClient);
       await tasksDatabase.write.create(task);
       token = await signinAsRoot(request, client);
     })
     it ('cannot be done', done => {
-      task.participatorIds.push(generate());
-
-      request.put(`/api/v1/tasks/${task._id}`)
+      request.post(`/api/v1/tasks/${task._id}/participators/${anotherClient._id}`)
       .set('Authorization', `Bearer ${token}`)
-      .send(task)
       .expect(403)
       .end(done)
     })

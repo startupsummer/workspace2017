@@ -119,7 +119,7 @@ exports.update = async (ctx, next) => {
 exports.addParticipator = async (ctx, next) => {
   ctx.assert(
     ctx.state.authorization.isAdmin() ||
-    ctx.state.user._id !== ctx.params.staffId,
+    ctx.state.user._id === ctx.params.staffId,
     403, errorMessages.authorization.permission
   )
 
