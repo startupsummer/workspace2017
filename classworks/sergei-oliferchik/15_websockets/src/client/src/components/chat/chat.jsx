@@ -17,7 +17,9 @@ class Chat extends React.Component {
   componentWillMount() {
     this.state = {
       content: '',
-      roomId: this.props.roomId
+      roomId: this.props.roomId,
+      typing: '',
+      typingSetTimeoutId: 0,
     };
 
     this.props.loadMessages({ roomId: this.state.roomId });
@@ -29,6 +31,17 @@ class Chat extends React.Component {
 
     socket.on('message:removed', message => {
       this.props.popMessage(message._id);
+    })
+
+    socket.on('message:typing', (userName, date) => {
+      clearTimeout(this.state.typingSetTimeoutId);
+
+      const typingSetTimeoutId = setTimeout(() => this.setState({ typing: '' }), 1000);
+
+      if(userName !== this.state.typing) {
+        console.log(userName.length)
+        this.setState({ typing: userName, typingSetTimeoutId });
+      }
     })
   }
 
@@ -72,10 +85,17 @@ class Chat extends React.Component {
     await this.props.removeMessage(payload)
   }
 
+  typingMessage = (e) => {
+    const userName = this.props.userId;
+    socket.emit('typing', { roomId: this.state.roomId || 'public', userName })
+
+    this.setState({ content: e.target.value });
+  }
+
   onRoomChanged = (evt) => {
     const roomId = evt.target.value || null;
-    this.props.setRoomId(roomId);
 
+    this.props.setRoomId(roomId);
     return this.props.loadMessages({ roomId });
   }
 
@@ -83,7 +103,7 @@ class Chat extends React.Component {
     const messages = this.props.messages.map(message => {
       return <Message key={message._id} content={message.content} senderId={message.senderId} deleteMessage={this.deleteMessange(message._id)} />;
     });
-
+    const typing = this.state.typing ? `typing ${this.state.typing}...` : ''
     return (
       <div className="chat-container">
         <div className="top">
@@ -103,7 +123,7 @@ class Chat extends React.Component {
             {messages}
           </div>
           <div className="footer">
-            <textarea value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })}/>
+            <textarea value={this.state.content} onChange={this.typingMessage} placeholder={typing}/>
             <button onClick={this.sendMessage}> Send </button>
           </div>
         </div>
