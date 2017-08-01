@@ -3,11 +3,12 @@ import { sendMessage, pushNewMessage, updateStateAfterRemove } from 'resources/m
 import { getUsername } from 'resources/user/user.selectors';
 import { setRoomId } from 'resources/room/room.actions';
 import { getRoomId } from 'resources/room/room.selectors';
-import { loadMessages, removeMessage } from 'resources/message/message.actions';
+import { loadMessages } from 'resources/message/message.actions';
 import { getMessages } from 'resources/message/message.selectors';
 import { connect } from 'react-redux';
 import Message from './components/message/index';
 import io from 'socket.io-client';
+import { removeMessage } from 'resources/message/message.api';
 
 const socket = io();
 
@@ -22,6 +23,12 @@ class Chat extends React.Component {
 
     this.props.loadMessages({ roomId: this.state.roomId });
     socket.emit('subscribe', { roomId: this.state.roomId || 'public' });
+    
+    socket.on('typing', (userId) => {
+      clearTimeout(this.ID);
+      this.setState({ typingValue: `${userId} is typing..` });
+      this.ID = setTimeout(() => this.setState({ typingValue: '' }), 2000);
+    });
 
     socket.on('message:sent', message => {
       this.props.pushNewMessage(message);
@@ -29,8 +36,7 @@ class Chat extends React.Component {
 
     socket.on('message:removed', message => {
       this.props.updateStateAfterRemove(message);
-    });
-    
+    }); 
   }
 
   componentWillReceiveProps(nextProps) {
@@ -74,7 +80,7 @@ class Chat extends React.Component {
         key={message._id}
         content={message.content}
         senderId={message.senderId}
-        removeMessage={() => this.props.removeMessage(message)}
+        removeMessage={() => removeMessage(message._id)}
       />);
     });
 
@@ -96,8 +102,20 @@ class Chat extends React.Component {
           <div className="content">
             {messages}
           </div>
+          <input
+            type="text"
+            className="typing"
+            value={this.state.typingValue}
+          />
           <div className="footer">
-            <textarea value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })}/>
+            <textarea
+              value={this.state.content} onChange={(e) => {
+                socket.emit('typing', this.props.userId);
+                this.setState({
+                  content: e.target.value,
+                })
+              }}
+            />
             <button onClick={this.sendMessage}> Send </button>
           </div>
         </div>
@@ -115,6 +133,5 @@ export default connect(state => ({
   sendMessage,
   pushNewMessage,
   setRoomId,
-  removeMessage,
   updateStateAfterRemove,
 })(Chat);

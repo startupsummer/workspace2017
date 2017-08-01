@@ -15,10 +15,6 @@ export const pushNewMessage = message => async (dispatch) => {
   dispatch({ type: 'messageSent', payload: message });
 };
 
-export const removeMessage = (message) => async (dispatch) => {
-  await api.removeMessage(message._id);
-};
-
 export const updateStateAfterRemove = (message) => async (dispatch) => {
   dispatch({ type: 'clearMessage', _id: message._id });
 }

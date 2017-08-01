@@ -2,8 +2,7 @@ const initialState = [];
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'clearMessage':
-      console.log('Go');  
+    case 'clearMessage': 
       return state.filter(message => message._id !== action._id);         
     case 'clearMessages':
       return [];
