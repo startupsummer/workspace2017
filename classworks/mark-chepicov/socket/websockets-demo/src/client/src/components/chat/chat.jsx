@@ -26,8 +26,9 @@ class Chat extends React.Component {
     socket.on('message:sent', message => {
       this.props.pushNewMessage(message);
     })
+ 
     socket.on('message:deleted', message => {
-      this.props.deleteMessage(message._id);
+      this.props.loadMessages({ roomId: message.roomId });
     })
   }
 
