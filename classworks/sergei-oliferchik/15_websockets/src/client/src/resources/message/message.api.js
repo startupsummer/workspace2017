@@ -13,3 +13,7 @@ export async function sendMessage(message) {
 export async function subscribeMessageSSEEvents() {
   return apiClient.post(`${baseUrl}/stream`);
 }
+
+export async function removeMessage(id) {
+  return apiClient.delete(`${baseUrl}/${id}`);
+}

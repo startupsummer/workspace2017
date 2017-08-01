@@ -1,5 +1,5 @@
 import React from 'react';
-import { sendMessage, pushNewMessage } from 'resources/message/message.actions';
+import { sendMessage, pushNewMessage, removeMessage, popMessage } from 'resources/message/message.actions';
 import { getUsername } from 'resources/user/user.selectors';
 import { setRoomId } from 'resources/room/room.actions';
 import { getRoomId } from 'resources/room/room.selectors';
@@ -17,7 +17,7 @@ class Chat extends React.Component {
   componentWillMount() {
     this.state = {
       content: '',
-      roomId: this.props.roomId 
+      roomId: this.props.roomId
     };
 
     this.props.loadMessages({ roomId: this.state.roomId });
@@ -25,6 +25,10 @@ class Chat extends React.Component {
 
     socket.on('message:sent', message => {
       this.props.pushNewMessage(message);
+    })
+
+    socket.on('message:removed', message => {
+      this.props.popMessage(message._id);
     })
   }
 
@@ -36,7 +40,7 @@ class Chat extends React.Component {
 
       this.props.loadMessages({ roomId });
 
-      socket.emit('subscribe', { roomId });
+      socket.emit('subscribe', { roomId: roomId || 'public' });
     }
 
     this.setState({ roomId });
@@ -44,7 +48,7 @@ class Chat extends React.Component {
 
   sendMessage = async () => {
     if (this.state.content) {
-      const message = { 
+      const message = {
         senderId: this.props.userId,
         roomId: this.state.roomId,
         content: this.state.content
@@ -60,30 +64,38 @@ class Chat extends React.Component {
     }
   }
 
+  deleteMessange = (id) => async () => {
+    const payload = {
+      senderId: id,
+      roomId: this.state.roomId
+    };
+    await this.props.removeMessage(payload)
+  }
+
   onRoomChanged = (evt) => {
     const roomId = evt.target.value || null;
     this.props.setRoomId(roomId);
-    
+
     return this.props.loadMessages({ roomId });
   }
 
   render() {
     const messages = this.props.messages.map(message => {
-      return <Message key={message._id} content={message.content} senderId={message.senderId} />;
+      return <Message key={message._id} content={message.content} senderId={message.senderId} deleteMessage={this.deleteMessange(message._id)} />;
     });
 
     return (
       <div className="chat-container">
         <div className="top">
           <h3>Chat</h3>
-          <select 
-            value={this.state.roomId || ''} 
+          <select
+            value={this.state.roomId || ''}
             onChange={this.onRoomChanged}>
             <option value=""> Public (no room) </option>
             <option value="1">Room #1</option>
             <option value="2">Room #2</option>
             <option value="3">Room #3</option>
-          </select> 
+          </select>
         </div>
 
         <div className="chat">
@@ -108,5 +120,7 @@ export default connect(state => ({
   loadMessages,
   sendMessage,
   pushNewMessage,
+  removeMessage,
+  popMessage,
   setRoomId,
 })(Chat);

@@ -15,7 +15,7 @@ class Message extends React.Component {
           </div>
         </div>
 
-        <div className="delete"></div>
+        <div className="delete" onClick={this.props.deleteMessage}></div>
       </div>
     );
   }

@@ -11,6 +11,15 @@ export const sendMessage = ({ senderId, content, roomId = null } = {}) => async 
   dispatch({ type: 'messageSent', payload: message });
 };
 
+export const removeMessage = ({ senderId, roomId = null } = {}) => async (dispatch) => {
+  const message = await api.removeMessage(senderId);
+  dispatch({ type: 'removeMessage', payload: senderId });
+};
+
 export const pushNewMessage = message => async (dispatch) => {
   dispatch({ type: 'messageSent', payload: message });
+};
+
+export const popMessage = id => async (dispatch) => {
+  dispatch({ type: 'removeMessage', payload: id });
 };

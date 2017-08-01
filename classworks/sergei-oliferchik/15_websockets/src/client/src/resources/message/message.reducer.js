@@ -4,6 +4,9 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'clearMessages':
       return [];
+    case 'removeMessage':
+      const IdDeleteMessage = action.payload;
+      return state.filter(message => message._id !== IdDeleteMessage);
     case 'fetchMessages':
       return action.payload.results;
     case 'messageSent':
