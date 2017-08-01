@@ -1,15 +1,11 @@
-const supertest = require('supertest')
-const app = require('../../../app')
 const auth = require('tests/resources/auth')
 const chai = require('chai')
 const staffService = require('resources/staff/staff.service')
 const userFactory = require('./user.factory')
 
-const request = supertest.agent(app.listen())
-
 chai.should()
 
-module.exports = () => {
+module.exports = (request) => {
   let client, client2, clientToken
 
   describe('Staff testing', () => {

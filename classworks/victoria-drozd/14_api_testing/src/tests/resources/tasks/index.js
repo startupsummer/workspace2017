@@ -7,11 +7,9 @@ const staffService = require('resources/staff/staff.service')
 const userFactory = require('../staff/user.factory')
 const taskFactory = require('./task.factory')
 
-const request = supertest.agent(app.listen())
-
 chai.should()
 
-module.exports = () => {
+module.exports = (request) => {
   let admin, client, adminToken, clientToken, task
 
   describe('Tasks testing', () => {
