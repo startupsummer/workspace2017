@@ -1,0 +1,27 @@
+@require '~styles/colors.styl'
+
+.message
+  display flex
+  justify-content space-between
+  background $color-primary
+  padding 10px
+  margin 5px 0
+  border-radius 5px
+
+  > .content-wrap
+    > .content
+      color white
+      font-size 18px
+
+    > .sender
+      color $color-secondary
+      font-size 12px  
+
+  > .delete
+    cursor pointer
+
+    &::before
+      font-size 20px
+      content 'x'
+      font-weight bold
+      color #ff9900    
