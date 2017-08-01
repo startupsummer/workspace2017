@@ -21,6 +21,5 @@ export const deleteMessage = id => async (dispatch) => {
 };
 
 export const deleteMessageAll = id => async (dispatch) => {
-  console.log(id)
   dispatch({ type: 'messageDelete', payload: id });
 };

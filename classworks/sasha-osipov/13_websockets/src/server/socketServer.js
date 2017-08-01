@@ -15,6 +15,10 @@ module.exports = (server) => {
       console.log('Left', roomId);
     });
 
+    socket.on('typing', text => {
+      socket.broadcast.emit('typing', text)
+    })
+
     messagesService.on('created', ({ doc: message }) => {
       io.to(message.roomId || 'public').emit('message:sent', message);
     });

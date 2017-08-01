@@ -17,7 +17,9 @@ class Chat extends React.Component {
   componentWillMount() {
     this.state = {
       content: '',
-      roomId: this.props.roomId 
+      roomId: this.props.roomId ,
+      typing: '',
+      typingTime: new Date()
     };
 
     this.props.loadMessages({ roomId: this.state.roomId });
@@ -29,6 +31,12 @@ class Chat extends React.Component {
 
     socket.on('message:delete', message => {
       this.props.deleteMessageAll(message._id);
+    })
+
+    socket.on('typing', text => {
+      this.setState({ typing: text });
+
+      
     })
   }
 
@@ -67,11 +75,21 @@ class Chat extends React.Component {
     return this.props.loadMessages({ roomId });
   }
 
+  changed = (e) => {
+    this.setState({ content: e.target.value })
+    socket.emit('typing', `${this.props.userId} is typing`)
+
+    setTimeout(() => {
+      socket.emit('typing', '')
+    }, 2500)
+  }
+
   render() {
     const messages = this.props.messages.map(message => {
       return <Message key={message._id} idMess={message._id} content={message.content} senderId={message.senderId} delete={ this.props.deleteMessage }/>;
     });
 
+    console.log(this.state.typing)
     return (
       <div className="chat-container">
         <div className="top">
@@ -88,10 +106,13 @@ class Chat extends React.Component {
 
         <div className="chat">
           <div className="content">
-            {messages}
+            {messages}   
+          </div>
+          <div className="typing">
+            {this.state.typing}
           </div>
           <div className="footer">
-            <textarea value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })}/>
+            <textarea value={this.state.content} onChange={ this.changed }/>
             <button onClick={this.sendMessage}> Send </button>
           </div>
         </div>
