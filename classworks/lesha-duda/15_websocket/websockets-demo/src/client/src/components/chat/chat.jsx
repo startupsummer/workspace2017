@@ -17,7 +17,8 @@ class Chat extends React.Component {
   componentWillMount() {
     this.state = {
       content: '',
-      roomId: this.props.roomId 
+      roomId: this.props.roomId,
+      typing: '',
     };
 
     this.props.loadMessages({ roomId: this.state.roomId });
@@ -30,6 +31,10 @@ class Chat extends React.Component {
     socket.on('message:delete', message => {
       this.props.deleteMessageAll(message._id);
     })
+
+    socket.on('message:typing', (userName) => {
+      this.showTyping(userName)
+    })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -40,8 +45,19 @@ class Chat extends React.Component {
       this.props.loadMessages({ roomId });
       socket.emit('subscribe', { roomId });
     }
-
     this.setState({ roomId });
+  }
+
+  typing = async () => {
+    socket.emit('typing', { roomId: this.state.roomId || 'public', userName: this.props.userId })
+  } 
+
+  showTyping = async (userName) => {
+    this.setState( {typing: `${userName} typing`} )
+
+    setTimeout(() => {
+      this.setState( {typing: ``} )
+    }, 1800);
   }
 
   sendMessage = async () => {
@@ -95,7 +111,10 @@ class Chat extends React.Component {
             {messages}
           </div>
           <div className="footer">
-            <textarea value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })}/>
+            <textarea value={this.state.content} onChange={(e) => {
+              this.setState({ content: e.target.value })
+              this.typing()
+            }} placeholder={this.state.typing}/>
             <button onClick={this.sendMessage}> Send </button>
           </div>
         </div>

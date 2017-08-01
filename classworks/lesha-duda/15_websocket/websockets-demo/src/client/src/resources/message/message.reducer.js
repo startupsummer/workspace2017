@@ -14,7 +14,6 @@ export default (state = initialState, action) => {
       return state;
     case 'messageDelete':
       const message_id = action.payload;
-      console.log(message_id)
       const deleteMessage = state.filter(m => m._id !== message_id)
       return deleteMessage
     default:

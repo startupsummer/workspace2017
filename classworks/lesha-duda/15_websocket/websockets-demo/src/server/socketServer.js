@@ -15,6 +15,10 @@ module.exports = (server) => {
       console.log('Left', roomId);
     });
 
+    socket.on('typing', ({roomId, userName}) => {
+      socket.broadcast.to(roomId || 'public').emit('message:typing', userName);
+    });
+
     messagesService.on('created', ({ doc: message }) => {
       io.to(message.roomId || 'public').emit('message:sent', message);
     });
@@ -22,6 +26,5 @@ module.exports = (server) => {
     messagesService.on('removed', ({ doc: message }) => {
       io.to(message.roomId || 'public').emit('message:delete', message);
     })
-
   });
 };
