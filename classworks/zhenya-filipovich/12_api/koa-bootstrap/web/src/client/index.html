@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>I certainly love Javascript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body id="root">
+  <main class="main">
+    <header class="header">
+      <img class="image" alt="I love JS">
+      <p class="reason"></p>
+    </header>
+    <form class="login-page__form form" method="POST">
+      <input class="form__email" type="email" placeholder="Email" />
+      <input class="form__password" type="password" placeholder="Password" />
+      <button class="form__submit sign-up" type="sumbit">Sign Up</button>
+      <a class="change-sign sign-in-link" href="/sign-in">Sign in</a>
+    </form>
+  </main>
+  <footer class="footer">
+    <p class="copy">Zhenya Filippovich, <span class="year"></span> &copy; All rights reserved</p>
+  </footer>
+    <script src="/main.js"></script>
+    <script>
+      const email = document.querySelector('.form__email');
+      const password = document.querySelector('.form__password');
+      const signUpSubmit = document.querySelector('.sign-up');
+
+
+      signUpSubmit.addEventListener('click', (e) => {
+        e.preventDefault();
+        fetch('/sign-up', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email.value,
+            password: password.value,
+          }),
+        });
+      });
+    </script>
+</body>
+
+</html>
