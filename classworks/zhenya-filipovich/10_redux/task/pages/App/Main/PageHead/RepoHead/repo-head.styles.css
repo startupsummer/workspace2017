@@ -1,0 +1,23 @@
+.container {
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+} 
+
+.repohead-container {
+  margin-bottom: 20px;
+}
+
+.pagehead-title {
+  font-size: 18px;
+  line-height: 26px;
+  color: #586069;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.pagehead-title svg {
+  fill: #959da5;
+  vertical-align: middle;
+}

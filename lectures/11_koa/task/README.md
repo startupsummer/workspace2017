@@ -4,11 +4,10 @@
 - Add additional middlewares to koa web server (koa-webpack-dev-middleware)
 - Save last user's visit to session and display it on the page
 - Add form 'How I spent the summer' to page (should include first name input, last name input, textarea, select to set summer quality)
-- Create additional fetch API to send form to koa api server
-- Send form data to API server
-- Add body validator to validate request data (koa-validate)
-- Create the document that represented your form data in database
-- Add question to pull request comment related to lecture scope (this is optional)
+- Create additional fetch API to send form to koa api server (use [api.client.js](./api.client.js))
+- Create koa route that accept POST request (`/post-form`).
+- Add body validator to validate request data (`koa-validate`). First name should be required and 3-20 characters, same for last name.
+- Output validated data to console (`console.dir`) and respond with following json: `{ok: true}`
 
 ## Resources
 
