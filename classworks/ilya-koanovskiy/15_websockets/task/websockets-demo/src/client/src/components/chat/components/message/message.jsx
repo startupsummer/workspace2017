@@ -23,7 +23,7 @@ class Message extends React.Component {
           </div>
         </div>
 
-        <div className="delete" onClick={() => {/*console.log(this.props.deleteMessage(this.props.id));*/ this.props.deleteMessage(this.props.id)}}></div>
+        <div className="delete" onClick={() => this.props.deleteMessage(this.props.id)}></div>
       </div>
     );
   }

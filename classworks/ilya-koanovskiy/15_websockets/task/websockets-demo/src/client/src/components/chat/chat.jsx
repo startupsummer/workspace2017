@@ -17,20 +17,31 @@ import './chat.styles';
 class Chat extends React.Component {
   componentWillMount() {
     this.state = {
+      isType: false,
       content: '',
       roomId: this.props.roomId 
     };
+
+    let timeout;
 
     this.props.loadMessages({ roomId: this.state.roomId });
     socket.emit('subscribe', { roomId: this.state.roomId || 'public'  });
 
     socket.on('message:sent', message => {
       this.props.pushNewMessage(message);
-    })
+    });
 
     socket.on('message:delete', message => {
       this.props.popMessage(message._id);
-    })
+    });
+
+    socket.on('type', (isType) => {
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        socket.emit('typing', { roomId: this.state.roomId, isType: false });
+      }, 500);
+      this.setState(isType);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -68,14 +79,20 @@ class Chat extends React.Component {
   onRoomChanged = (evt) => {
     const roomId = evt.target.value || null;
     this.props.setRoomId(roomId);
-    
     return this.props.loadMessages({ roomId });
+  }
+
+  changeHandler = () => {
+    socket.emit('typing', { roomId: this.state.roomId, isType: true });      
   }
 
   render() {
     const messages = this.props.messages.map(message => {
       return <Message id={message._id} key={message._id} content={message.content} senderId={message.senderId}/>;
     });
+    let text = null;
+
+    if (this.state.isType === true) text = <span>Typing...</span>
 
     return (
       <div className="chat-container">
@@ -92,11 +109,14 @@ class Chat extends React.Component {
         </div>
 
         <div className="chat">
+          
           <div className="content">
             {messages}
           </div>
+          { text }
           <div className="footer">
-            <textarea value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })}/>
+            
+            <textarea value={this.state.content} onChange={(e) => { this.changeHandler(); this.setState({ content: e.target.value }) }}/>
             <button onClick={this.sendMessage}> Send </button>
           </div>
         </div>

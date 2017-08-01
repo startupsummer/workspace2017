@@ -19,8 +19,12 @@ module.exports = (server) => {
       io.to(message.roomId || 'public').emit('message:sent', message);
     });
 
-    messagesService.on('removed', ({doc: message}) => {
-      io.to(message.roomId || 'public').emit('message:delete', message);
+    messagesService.on('removed', ({ doc: message }) => {
+      io.to(message.roomId || 'public').broadcast.emit('message:delete', message);
+    });
+
+    socket.on('typing', ({ roomId, isType }) => {
+      io.to(roomId || 'public').emit('type', { isType });
     });
 
     // socket.on('message:send', (msg, callback) => {
