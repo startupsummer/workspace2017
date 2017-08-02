@@ -30,7 +30,7 @@ module.exports = (request) => {
       await tasks.write.remove()
       await users.write.remove()
     })
-    it('should return some information', done => {
+    it('should return 3 tasks', done => {
       request.get('/api/v1/tasks')
         .set('Authorization', `Bearer ${tokenAdmin}`)
         .expect((res) => {
@@ -38,7 +38,7 @@ module.exports = (request) => {
         })
         .end(done)
     })
-    it('should return some information', done => {
+    it('should return changed title (Easiest task!)', done => {
       task.title = 'Easiest task!' 
       request.put(`/api/v1/tasks/${task._id}`)
         .set('Authorization', `Bearer ${tokenAdmin}`)
@@ -48,14 +48,14 @@ module.exports = (request) => {
         })
         .end(done)
     })
-    it('should return some information', done => {
+    it('should return error because client can\'t create tasks', done => {
       request.post('/api/v1/tasks')
         .set('Authorization', `Bearer ${tokenUser}`)
         .send(task)
         .expect(403)
         .end(done)
     })
-    it('should return some information', done => {
+    it('should return the id of task-participator', done => {
       request.post(`/api/v1/tasks/${task._id}/participators/${user._id}`)
         .set('Authorization', `Bearer ${tokenAdmin}`)
         .send(task)
@@ -65,7 +65,7 @@ module.exports = (request) => {
         })
         .end(done)
     })
-    it('should return some information', done => {
+    it('should return error because user can\'t add task-participators', done => {
       request.post(`/api/v1/tasks/${task._id}/participators/${user1._id}`)
         .set('Authorization', `Bearer ${tokenUser}`)
         .send(task)
