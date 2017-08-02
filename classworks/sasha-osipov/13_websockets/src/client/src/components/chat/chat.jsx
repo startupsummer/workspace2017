@@ -19,7 +19,7 @@ class Chat extends React.Component {
       content: '',
       roomId: this.props.roomId ,
       typing: '',
-      typingTime: new Date()
+      typingTimeoutId: ''
     };
 
     this.props.loadMessages({ roomId: this.state.roomId });
@@ -32,11 +32,17 @@ class Chat extends React.Component {
     socket.on('message:delete', message => {
       this.props.deleteMessageAll(message._id);
     })
+  }
 
+  componentDidMount() {
     socket.on('typing', text => {
-      this.setState({ typing: text });
-
+      clearTimeout(this.state.typingTimeoutId)
       
+      const typingTimeoutId = setTimeout(() => {
+        this.setState({ typing: '' })
+      }, 2000)
+
+      this.setState({ typing: text, typingTimeoutId });
     })
   }
 
@@ -78,10 +84,6 @@ class Chat extends React.Component {
   changed = (e) => {
     this.setState({ content: e.target.value })
     socket.emit('typing', `${this.props.userId} is typing`)
-
-    setTimeout(() => {
-      socket.emit('typing', '')
-    }, 2500)
   }
 
   render() {
@@ -89,7 +91,6 @@ class Chat extends React.Component {
       return <Message key={message._id} idMess={message._id} content={message.content} senderId={message.senderId} delete={ this.props.deleteMessage }/>;
     });
 
-    console.log(this.state.typing)
     return (
       <div className="chat-container">
         <div className="top">
