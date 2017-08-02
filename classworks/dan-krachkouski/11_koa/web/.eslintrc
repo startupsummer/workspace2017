@@ -1,0 +1,18 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "parser": "babel-eslint",
+  "extends": "standart",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": [
+          "../",
+          "node_modules/"
+        ]
+      }
+    }
+  },
+  "rules": {}
+}
