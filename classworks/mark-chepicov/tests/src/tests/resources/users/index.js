@@ -22,7 +22,7 @@ module.exports = (request) => {
       console.log("admin: ", admin._id)
     })
     
-    it('should return some information', done => {
+    it('should return changed the first name of user (Bill)', done => {
       user.firstName = 'Bill'
       user.lastName = 'Smith'
       user.password = '123456'
@@ -36,7 +36,7 @@ module.exports = (request) => {
         .end(done)
     })
 
-    it('should return some information', done => {
+    it('should return the 403 error because the user can\'t change any other user', done => {
       user1.firstName = 'LUL'
       user1.password = '123456'
       request.put(`/api/v1/staff/${ user1._id }`)
