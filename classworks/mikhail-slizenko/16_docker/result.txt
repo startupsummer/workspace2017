@@ -1,0 +1,13 @@
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                      NAMES
+cfa2bb8a0099        0e7cb459803f        "/bin/sh -c 'node ..."   52 seconds ago       Up 51 seconds       0.0.0.0:3334->3000/tcp     not-my-app
+03e2240fbab6        0e7cb459803f        "/bin/sh -c 'node ..."   About a minute ago   Up About a minute   0.0.0.0:3333->3000/tcp     my-app
+
+cat replacement.js > app.js
+
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+
+cat replacement.js > app.js
+
+You have successfully completed your task. Congrats!
+Your id is:  03e2240fbab6
