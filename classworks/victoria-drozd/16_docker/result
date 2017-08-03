@@ -1,0 +1,26 @@
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+a46d84733548        simply-simple-app   "/bin/sh -c 'node ..."   2 minutes ago       Up 2 minutes        0.0.0.0:3334->3000/tcp   elastic_clarke
+7a99aad41a08        simply-simple-app   "/bin/sh -c 'node ..."   3 minutes ago       Up 3 minutes        0.0.0.0:3333->3000/tcp   dazzling_kilby
+
+sudo docker cp a46d84733548:usr/src/simple-app/replacement.js ~/Desktop/repl.js
+sudo docker cp ~/Desktop/repl.js a46d84733548:usr/src/simple-app/app.js
+
+Example app listening on port 3000!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+
+sudo docker exec -it a46d84733548 bash
+touch test-message.js
+
+Example app listening on port 3000!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+You have successfully completed your task. Congrats!
+Your id is:  a46d84733548
+Example app listening on port 3000!
