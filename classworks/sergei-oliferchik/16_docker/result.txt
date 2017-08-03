@@ -1,0 +1,35 @@
+5)
+CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS              PORTS                    NAMES
+5b351dfed297        my_first_docker-file   "/bin/sh -c 'node ..."   51 seconds ago      Up 50 seconds       0.0.0.0:3334->3000/tcp   youthful_keller
+020d9f461749        my_first_docker-file   "/bin/sh -c 'node ..."   57 seconds ago      Up 56 seconds       0.0.0.0:3333->3000/tcp   eloquent_clarke
+
+7)
+sudo docker cp replacement.js 020d9f461749:/usr/src/app/app.js
+
+9)
+Example app listening on port 3000!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+
+
+11)
+sudo docker exec -it 020d9f461749 bash
+root@020d9f461749:/usr/src/app# touch test-message.js
+root@020d9f461749:/usr/src/app# ls
+Dockerfile  app.js  node_modules  package-lock.json  package.json  replacement.js  test-message.js
+
+
+12)
+logs 020d9f461749
+Example app listening on port 3000!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+You have successfully completed your task. Congrats!
+Your id is:  020d9f461749
+Example app listening on port 3000!
