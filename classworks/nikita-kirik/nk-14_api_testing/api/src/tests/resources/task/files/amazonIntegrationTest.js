@@ -3,7 +3,11 @@ const staffWriteService = staffService.write
 const taskService = require('../../../../resources/tasks/tasks.service')
 const taskWriteService = taskService.write
 
-const taskFactory = require('./../../task/task.factory')
+// const taskFactory = require('../../task/task.factory')
+const taskFactory = require('tests/resources/task/task.factory')
+
+
+
 const staffFactory = require('./../../staff/staff.factory')
 const tokenFact = require('./../../auth.js')
 
@@ -31,10 +35,10 @@ module.exports.test = (request) => {
       task = await taskFactory.task(admin._id);
     })
 
-    // after(async () => {
-    //   await staffWriteService.remove();
-    //   await taskWriteService.remove();
-    // })
+    after(async () => {
+      await staffWriteService.remove();
+      await taskWriteService.remove();
+    })
 
     it('Upload image', done => {
       request.put(`/api/v1/tasks/${task._id}/files/`)
@@ -63,7 +67,7 @@ module.exports.test = (request) => {
         done();
       })
     })
-    
+
     it('Delete image', done => {
       request.delete(`/api/v1/tasks/${task._id}/files/`)
       .set('Authorization', `Bearer ${token}`)

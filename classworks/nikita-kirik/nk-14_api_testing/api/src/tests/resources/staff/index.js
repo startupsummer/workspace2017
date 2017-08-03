@@ -1,6 +1,6 @@
-const StaffFactory = require('../staff/staff.factory')
-const TaskFactory = require('../task/task.factory')
-
+const staffFactory = require('./staff.factory')
+// const taskFactory = require('./tests/resources/task/task.factory')
+const taskFactory = require('../task/task.factory')
 const tokenFact = require('../auth.js')
 
 const staffService = require('../../../resources/staff/staff.service')
@@ -8,14 +8,10 @@ const staffWriteService = staffService.write
 const taskService = require('../../../resources/tasks/tasks.service')
 const taskWriteService = taskService.write
 
-const chai = require('chai')
-chai.should()
-
 module.exports.test = (request) => {
   let token;
   let admin;
   let client, client2;
-
 
   afterEach(async () => {
     await staffWriteService.remove();
@@ -28,13 +24,13 @@ module.exports.test = (request) => {
       await staffWriteService.remove();
       await taskWriteService.remove();
 
-      client = await StaffFactory.client();
+      client = await staffFactory.client();
       token = await tokenFact.signinAsRoot(request, client);
 
-      client2 = await StaffFactory.client();
+      client2 = await staffFactory.client();
 
-      admin = await StaffFactory.admin();
-      task = await TaskFactory.task(admin._id);
+      admin = await staffFactory.admin();
+      task = await taskFactory.task(admin._id);
     })
 
     it('should be able to update yourself', done => {
@@ -46,12 +42,11 @@ module.exports.test = (request) => {
         password: '123'
       })
       .expect(200)
-      .end((err, resp) => {
-        if(err) return done(err)
+      .expect(resp => {
         resp.body.results.value.firstName.should.be.equal('Nikita')
         resp.body.results.value.lastName.should.be.equal('Kirik')
-        done();
       })
+      .end(done)
     })
 
     it('cannot update another user info', done => {
@@ -86,10 +81,10 @@ module.exports.test = (request) => {
       await staffWriteService.remove()
       await taskWriteService.remove()
 
-      client = await StaffFactory.client()
-      admin = await StaffFactory.admin()
+      client = await staffFactory.client()
+      admin = await staffFactory.admin()
       tokenAdmin = await tokenFact.signinAsRoot(request, admin)
-      task = await TaskFactory.task(admin._id);
+      task = await taskFactory.task(admin._id);
     })
 
     it('can update task', done => {
@@ -101,23 +96,21 @@ module.exports.test = (request) => {
         participatorIds: []
       })
       .expect(200)
-      .end((err, resp) => {
-        if(err) return done(err)
+      .expect(resp => {
         resp.body.results.value.title.should.be.equal('Learn testing')
         resp.body.results.value.description.should.be.equal('Learn how to write tests for REST api server.')
-        done();
       })
+      .end(done)
     })
 
     it('can add participators of the task', done => {
       request.post(`/api/v1/tasks/${task._id}/participators/${client._id}`)
       .set('Authorization', `Bearer ${tokenAdmin}`)
       .expect(200)
-      .end((err, resp) => {
-        if(err) return done(err)
+      .expect(resp => {
         resp.body.results.value.participatorIds.should.include(client._id)
-        done()
       })
+      .end(done)
     })
 
   })

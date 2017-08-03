@@ -25,21 +25,14 @@ module.exports.test = (request) => {
 
   describe('Request', () => {
     it('should return 3 tasks', done => {
-      // request.get({
-      //   hostname: '/api/v1/tasks',
-      //   headers: { 'Authorization': `Bearer ${token}` }
-      // })
       request.get('/api/v1/tasks')
       .set('Authorization', `Bearer ${token}`)
       .expect(200)
-      .end((err, resp) => {
-        if(err) return done(err)
-        // JSON.parse(resp.text).results.length.should.be.equal(3)
+      .expect(resp => {
         resp.body.results.length.should.be.equal(3)
-        done();
       })
+      .end(done)
     })
-
 
   })
 

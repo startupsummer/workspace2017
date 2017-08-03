@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "Faker": "^0.7.2",
+    "babel-eslint": "^7.2.3",
     "mocha": "^3.4.2",
     "mock-aws-s3": "^2.5.1",
     "mock-require": "^2.0.2",
