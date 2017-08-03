@@ -1,0 +1,27 @@
+.image-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  max-width: 300px;
+  background-color: white;
+  box-shadow: 10px 10px 5px  rgba(0 , 0, 0, 0.2);
+  transition:all 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 11px 11px 5px rgba(0 , 0, 0, 0.2);
+  }
+  &__image {
+    max-width: 300px;
+    max-height: 225px;
+  }
+
+  &__text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: gray;
+  }
+}

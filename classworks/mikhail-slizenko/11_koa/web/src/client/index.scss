@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Ubuntu, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content {
+    padding-top: 100px;
+}
+
+.form {
+    padding-top: 50px;
+}
+
+.item {
+    text-align: center;
+}
+
+@import 'iLoveJs';
+@import 'footer';
