@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>I certainly love Javascript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="body">
+  <main class="body__main main">
+    <h1 class="main__title">Sign in</h1>
+    <form class="form" onsubmit="return false">
+      <input class="form__input" id="email" type="text" autocomplete="off" value="" placeholder="Email">
+      <input class="form__input" id="password" type="password"  autocomplete="off" value="" placeholder="Password">
+      <button class="form__button" onclick="sendData()">Sign in</button>
+      <a class="form__link"href="/signUp">Registration</a>
+    </form>
+  </main>
+  <footer class="body__footer footer">
+    <span class="footer__text"></span>
+  </footer>
+<script type="text/javascript" src="/bundle.js"></script></body>
+<script>
+  function sendData() {
+    fetch('/signIn', {
+      method: "post",
+      headers: {
+      "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email.value,
+        password: password.value,
+      }),
+    }).then((res) => res.json())
+    .then((data) => {
+      document.location.href = `/info?token=${data.token}`
+    });
+
+  }
+</script>
+</html>
