@@ -1,0 +1,39 @@
+<!--doctype html-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>I certainly love Javascript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="page">
+    <div class="page__main main">
+      <div class="main__content">
+        <img class="main__image" src="/i-love-js.jpg">
+        <span class="main__text"></span>
+        <span class="main__subtext">Hello {{{json name}}}. You visited this site {{{json count}}} times. </span>
+        <span class="main__subtext">Last visit {{{json last_session}}}</span>
+        <form class="main__form" name="summer">
+          <input class="main__input" type="text" name="firstName" placeholder="First Name">
+          <input class="main__input" type="text" name="lastName" placeholder="Last Name">
+          <textarea class="main__input" name="howSpent" placeholder="How you spent your summer"></textarea>
+          <span class="main__input main__input--center">Summer quality:</span>
+          <select class="main__input" name="quality" value="Summer quality" required>
+            <option>The worst summer in my life</option>
+            <option>Ny takoe...</option>
+            <option>Normas</option>
+            <option>Fine</option>
+            <option>WONDERFUL!!!</option>
+          </select>
+          <input class="main__input" type="submit" value="Send">
+        </form>
+      </div>
+    </div>
+    <div class="page__footer footer">
+      <span class="footer__text">Chepicov, <span class="footer__year"></span> © All rights reserved</span></div>
+  </div>
+  <script src="/bundle.js"></script>
+</body>
+</html>

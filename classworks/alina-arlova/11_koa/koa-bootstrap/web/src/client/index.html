@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>I certainly love Javascript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="main-part">
+      <img class="main-part__image" src="/i-love-js.jpg"/>
+      <p class="main-part__text">because it's simply awesome</p>
+      <p class="main-part__count"> You visited this site {{ count }} times </p>
+    </div>
+
+    <div class="info">
+      <form class="info__form" name="infoForm" method="post" action="/form" >
+        <div class="form">
+          <div class="form__input">
+            <input class="form__firstName" type="text" name="firstName" placeholder="First name"/>
+            <input class="form__lastName" type="text" name="lastName" placeholder="Last name"/>
+          </div>
+          <textarea class="form__description" name="description" placeholder="Description"></textarea>
+          <input class="form__submit" type="submit" value="Submit" onclick="submitForm(event);"/>
+        </div>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <p class="footer__text">
+        Alina Arlova, <span class="footer__year">2017</span> &copy; All rights reserved
+      </p>
+    </footer>
+
+    <script src="/src/formProcessing.js"></script>
+    <script src="/bundle.js"></script>
+</body>
+
+</html>
