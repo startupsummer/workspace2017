@@ -1,0 +1,23 @@
+c729c7d846e9        filipochka-app      "/bin/sh -c 'node ..."   About a minute ago   Up About a minute   0.0.0.0:3334->3000/tcp   keen_meitner
+7fb92cf477c7        filipochka-app      "/bin/sh -c 'node ..."   2 minutes ago        Up 2 minutes        0.0.0.0:3333->3000/tcp   compassionate_babbage
+
+sudo docker cp replacement.js keen_meitner:/home/student12/dockerTask/app.js
+
+sudo docker restart c729c7d846e9
+c729c7d846e9
+
+
+sudo docker exec -it c729c7d846e9 bash
+forgot logs:(
+
+
+
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+You have successfully completed your task. Congrats!
+Your id is:  c729c7d846e9
+Example app listening on port 3000!
