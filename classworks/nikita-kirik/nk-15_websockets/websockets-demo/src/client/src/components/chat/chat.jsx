@@ -1,11 +1,10 @@
 import React from 'react';
-import { sendMessage, pushNewMessage } from 'resources/message/message.actions';
+import { sendMessage, pushNewMessage, popMessage, deleteMessage } from 'resources/message/message.actions';
 import { getUsername } from 'resources/user/user.selectors';
 import { setRoomId } from 'resources/room/room.actions';
 import { getRoomId } from 'resources/room/room.selectors';
 import { loadMessages } from 'resources/message/message.actions';
 import { getMessages } from 'resources/message/message.selectors';
-import { deleteMessage } from 'resources/message/message.actions';
 import { connect } from 'react-redux';
 import Message from './components/message/index';
 import io from 'socket.io-client';
@@ -20,7 +19,6 @@ class Chat extends React.Component {
       content: '',
       roomId: this.props.roomId
     };
-
     this.props.loadMessages({ roomId: this.state.roomId });
     socket.emit('subscribe', { roomId: this.state.roomId || 'public'  });
 
@@ -29,7 +27,7 @@ class Chat extends React.Component {
     })
 
     socket.on('message:deleted', message => {
-      this.props.deleteMessage(message._id);
+      this.props.popMessage(message._id);
     })
   }
 
@@ -116,4 +114,5 @@ export default connect(state => ({
   pushNewMessage,
   setRoomId,
   deleteMessage,
+  popMessage,
 })(Chat);

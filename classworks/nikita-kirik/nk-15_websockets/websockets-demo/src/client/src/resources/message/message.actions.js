@@ -19,3 +19,7 @@ export const deleteMessage = msgId => async (dispatch) => {
   const message = await api.deleteMessage(msgId);
   dispatch({ type: 'deleteMessage', payload: msgId });
 };
+
+export const popMessage = msgId => async (dispatch) => {
+  dispatch({ type: 'deleteMessage', payload: msgId });
+};
