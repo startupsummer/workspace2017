@@ -1,0 +1,26 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": [
+          "../",
+          "node_modules/"
+        ]
+      }
+    }
+  },
+  "rules":{
+    "react/jsx-no-bind": [2, {
+      "ignoreRefs": true,
+      "allowArrowFunctions": false,
+      "allowBind": false
+    }],
+    "arrow-body-style": [2, "as-needed"],
+    "no-underscore-dangle": [0]
+  }
+}
