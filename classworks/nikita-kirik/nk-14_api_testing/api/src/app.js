@@ -5,8 +5,8 @@ const logger = require('logger')
 const Koa = require('koa')
 const app = new Koa()
 const applyMiddleware = require('config/koa')
-const path = require('path');
-// require('app-module-path').addPath(__dirname);
+// const path = require('path');
+require('app-module-path').addPath(__dirname);
 
 
 applyMiddleware(app)

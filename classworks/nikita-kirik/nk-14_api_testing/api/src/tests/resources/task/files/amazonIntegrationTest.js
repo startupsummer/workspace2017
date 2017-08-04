@@ -1,15 +1,11 @@
-const staffService = require('../../../../resources/staff/staff.service')
-const staffWriteService = staffService.write
-const taskService = require('../../../../resources/tasks/tasks.service')
-const taskWriteService = taskService.write
-
-// const taskFactory = require('../../task/task.factory')
 const taskFactory = require('tests/resources/task/task.factory')
+const staffFactory = require('tests/resources/staff/staff.factory')
+const tokenFact = require('tests/resources/auth.js')
 
-
-
-const staffFactory = require('./../../staff/staff.factory')
-const tokenFact = require('./../../auth.js')
+const staffService = require('resources/staff/staff.service')
+const staffWriteService = staffService.write
+const taskService = require('resources/tasks/tasks.service')
+const taskWriteService = taskService.write
 
 const path = require('path')
 const chai = require('chai')

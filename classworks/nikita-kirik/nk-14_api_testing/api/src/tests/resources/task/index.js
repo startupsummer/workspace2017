@@ -1,10 +1,10 @@
-const taskFactory = require('./task.factory')
-const staffFactory = require('../staff/staff.factory')
-const tokenFact = require('../auth.js')
+const taskFactory = require('tests/resources/task/task.factory')
+const staffFactory = require('tests/resources/staff/staff.factory')
+const tokenFact = require('tests/resources/auth.js')
 
-const staffService = require('../../../resources/staff/staff.service')
+const staffService = require('resources/staff/staff.service')
 const staffWriteService = staffService.write
-const taskService = require('../../../resources/tasks/tasks.service')
+const taskService = require('resources/tasks/tasks.service')
 const taskWriteService = taskService.write
 
 module.exports.test = (request) => {
