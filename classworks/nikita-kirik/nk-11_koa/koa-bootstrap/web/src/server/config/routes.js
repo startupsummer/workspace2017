@@ -19,7 +19,10 @@ router.post('/post-summer-form', async (ctx) => {
     ctx.body = ctx.errors;
     return;
   }
-  ctx.body = { key: 'Thats all right, mama !' };
+  ctx.body = {
+    status: 200,
+    message: 'Thats all right, mama !',
+  };
 });
 
 module.exports = router.routes();
