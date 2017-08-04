@@ -1,0 +1,34 @@
+.main {
+    font-size: 2em;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__jpg {
+        width: 200px;
+        height: 200px;
+    }
+
+    &__message {
+        text-align: center;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;   
+        align-items: center;
+        background-color: rgb(245, 244, 240);
+        padding: 30px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__input {
+        margin: 1em;
+    }
+
+}
