@@ -12,7 +12,7 @@ const getHandler = (request, response) => {
 };
 
 const getUser = (request, response) => {
-  response.end(`Hello! My name is ${username}!`); 
+  response.end(`Hello! My name is ${username}!`);
 };
 
 const showFormPage = (request, response) => {
@@ -21,17 +21,17 @@ const showFormPage = (request, response) => {
       console.log(err);
       return;
     }
-    response.writeHeader(200, {'Content-Type': 'text/html'}); 
-    response.end(result); 
+    response.writeHeader(200, {'Content-Type': 'text/html'});
+    response.end(result);
   });
 }
 
 const getImage = (request, response) => {
-    const options = {
+  const options = {
     url: 'https://static.pexels.com/photos/8700/wall-animal-dog-pet.jpg',
-    dest: './images'                  
+    dest: './images'
   }
-  
+
   download.image(options)
     .then(({ filename, image }) => filename)
     .then((filename) => {
@@ -40,15 +40,19 @@ const getImage = (request, response) => {
         response.writeHead(200, { 'Content-Type': 'image/jpeg' });
         response.end(data);
       });
-    })  
-  .catch((err) => {
-    throw err;
-  })
+      return filename;
+    })
+    .then((filename) => {
+      fs.unlink(`${filename}`, () => console.log('image was deleted'));
+    })
+    .catch((err) => {
+      throw err;
+    })
 }
 
 const processForm = (request, response) => {
   const form = new formidable.IncomingForm();
-  form.parse(request, (err, fields) => {   
+  form.parse(request, (err, fields) => {
     response.end(`My name is ${fields.firstname} ${fields.lastname}`);
   });
 }
@@ -64,7 +68,7 @@ const requestHandler = (request, response) => {
     switch (request.url) {
       case '/':
         getHandler(request, response);
-        break; 
+        break;
       case '/info':
         getUser(request, response);
         break;
@@ -75,7 +79,7 @@ const requestHandler = (request, response) => {
         getImage(request, response);
         break;
       default:
-        defaultPage(request, response);     
+        defaultPage(request, response);
     }
   }
 
