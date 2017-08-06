@@ -17,9 +17,9 @@ export const pushNewMessage = message => async (dispatch) => {
 
 export const deleteMessage = id => async (dispatch) => {
   await api.deleteMessage(id);
-  dispatch({ type: 'messageDelete', id });
+  dispatch({ type: 'messageDeleted', id });
 };
 
 export const removeMessage = id => async (dispatch) => {
-  dispatch({ type: 'messageDelete', id });
+  dispatch({ type: 'messageDeleted', id });
 };

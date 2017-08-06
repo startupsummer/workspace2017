@@ -24,6 +24,10 @@ module.exports = (server) => {
       io.to(message.roomId || 'public').emit('message:deleted', message);
     });
 
+    socket.on('userTyped', ({ roomId, senderId }) => {
+      io.to(roomId || 'public').emit('anotherUserTyped', { roomId, senderId });
+    });
+
     // socket.on('message:send', (msg, callback) => {
     //   setTimeout(() => {
     //     callback({ someData: 'test' });

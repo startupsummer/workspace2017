@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
       }
       return state;
 
-    case 'messageDelete':
+    case 'messageDeleted':
 
       const newState = [];
       state.forEach((message) => {

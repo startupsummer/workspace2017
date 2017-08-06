@@ -1,5 +1,7 @@
 import React from 'react';
-import { sendMessage, pushNewMessage, loadMessages, deleteMessage, removeMessage } from 'resources/message/message.actions';
+import {
+  sendMessage, pushNewMessage, loadMessages, deleteMessage, removeMessage,
+} from 'resources/message/message.actions';
 import { getUsername } from 'resources/user/user.selectors';
 import { setRoomId } from 'resources/room/room.actions';
 import { getRoomId } from 'resources/room/room.selectors';
@@ -16,6 +18,7 @@ class Chat extends React.Component {
     this.state = {
       content: '',
       roomId: this.props.roomId,
+      typingStatus: '',
     };
 
     this.props.loadMessages({ roomId: this.state.roomId });
@@ -27,6 +30,14 @@ class Chat extends React.Component {
 
     socket.on('message:deleted', message => {
       this.props.removeMessage(message._id);
+    });
+
+    socket.on('anotherUserTyped', ({ roomId, senderId }) => {
+      if (roomId !== this.state.roomId || senderId === this.props.userId) {
+        return;
+      }
+      console.log('meow');
+      this.anotherUserTyping(senderId);
     });
   }
 
@@ -72,6 +83,25 @@ class Chat extends React.Component {
     await this.props.deleteMessage(id);
   };
 
+  userTyping = (event) => {
+    socket.emit('userTyped', {
+      roomId: this.state.roomId,
+      senderId: this.props.userId,
+    });
+
+    this.setState({ content: event.target.value });
+  };
+
+  anotherUserTyping = (senderId) => {
+    clearTimeout(this.timer);
+
+    this.setState({ typingStatus: `${senderId} is typing...` });
+
+    this.timer = setTimeout(() => {
+      this.setState({ typingStatus: '' });
+    }, 1000);
+  };
+
   render() {
     const messages = this.props.messages.map(message => {
       return (<Message
@@ -87,22 +117,23 @@ class Chat extends React.Component {
       <div className="chat-container">
         <div className="top">
           <h3>Chat</h3>
-          <select 
-            value={this.state.roomId || ''} 
+          <select
+            value={this.state.roomId || ''}
             onChange={this.onRoomChanged}>
             <option value=""> Public (no room) </option>
             <option value="1">Room #1</option>
             <option value="2">Room #2</option>
             <option value="3">Room #3</option>
-          </select> 
+          </select>
         </div>
 
         <div className="chat">
           <div className="content">
             {messages}
           </div>
+          <span>{this.state.typingStatus}</span>
           <div className="footer">
-            <textarea value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })}/>
+            <textarea value={this.state.content} onChange={this.userTyping} />
             <button onClick={this.sendMessage}> Send </button>
           </div>
         </div>
