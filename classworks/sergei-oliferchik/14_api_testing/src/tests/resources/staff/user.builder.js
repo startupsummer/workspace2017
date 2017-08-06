@@ -12,7 +12,6 @@ class Builder {
   }
 
   email(email = faker.internet.email().toLowerCase()) {
-    console.log(email);
     this.data.email = email;
     return this;
   }

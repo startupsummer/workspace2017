@@ -21,7 +21,7 @@ exports.advancedTask = () => {
     .addCreaterId('1')
     .title('Learn testing')
     .description('Learn how to write tests for REST api server.')
-    .participatorIds(['1','2','3'])
+    .participatorIds()
     .build();
 
   return task;
@@ -34,7 +34,7 @@ exports.supperAdvancedTask = () => {
     .addCreaterId('1')
     .title('HEllo')
     .description('Learn how to write tests for REST api server.')
-    .participatorIds(['1', '2', '3', '4', '5'])
+    .participatorIds()
     .build();
 
   return task;

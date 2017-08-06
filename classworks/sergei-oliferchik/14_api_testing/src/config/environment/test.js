@@ -1,6 +1,6 @@
 let base = {
   mongo: {
-    connection: 'connection string'
+    connection: 'mongodb://sergei:qwe@ds029454.mlab.com:29454/api_testing'
   }
 }
 

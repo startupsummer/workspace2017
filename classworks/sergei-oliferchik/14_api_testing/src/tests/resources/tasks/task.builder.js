@@ -26,7 +26,7 @@ class Builder {
   }
 
   participatorIds(members) {
-    this.data.participatorIds = members;
+    this.data.participatorIds = members ? [...members] : [];
     return this;
   }
 
