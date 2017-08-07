@@ -28,7 +28,7 @@
           <option value="Good">Good </option>
           <option value="Bad">Bad </option>
         </select>
-        <button class="form__element" type="submit" onclick="postData()">Submit</button>
+        <button id="buttonClick" class="form__element" type="submit" onclick="postData()">Submit</button>
       </form>
     </div>  
 
@@ -38,6 +38,11 @@
     <script src="bundle.js"></script>
 
     <script>
+      const button = document.getElementById("buttonClick");
+      button.addEventListener("click", function(event) {
+        event.preventDefault();
+      })
+
       function postData() {
         fetch(`/hello`, {
           method: 'POST',
