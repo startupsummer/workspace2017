@@ -1,0 +1,24 @@
+---
+- hosts: server
+  vars_files:
+    - vars/variables.yml
+
+  connection: local
+  become_user: root
+  become: true
+  roles:
+    - angstwad.docker_ubuntu
+
+  tasks:
+    - name: Build an image
+      docker_image:
+        path: .
+        name: "{{pageName}}"
+        tag: latest
+
+    - name: Create a data container
+      docker:
+        name: mydata
+        image: "{{pageName}}"
+        ports:
+          - "9999:3000"
