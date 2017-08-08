@@ -1,0 +1,18 @@
+---
+- hosts: myHosts
+  connection: local
+  vars_files:
+    - ./vars/variables.yml
+  roles:
+    - angstwad.docker_ubuntu
+  tasks:
+    - name: Build an image
+      docker_image:
+        path: ..
+        name: "{{ imgName }}"
+    - name: Create a data container
+      docker_container:
+        name: "{{ containerName }}"
+        image: test-koa-app
+        ports:
+          - "9999:3002"

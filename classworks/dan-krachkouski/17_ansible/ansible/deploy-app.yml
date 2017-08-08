@@ -1,0 +1,21 @@
+---
+- hosts: local
+  vars_files:
+    - ./vars/variables.yml
+
+  roles:
+    - role: 'angstwad.docker_ubuntu'
+    - role: 'andrewrothstein.docker-py'
+
+  tasks:
+    - name: Rebuild docker image
+      docker_image:
+        path: ../
+        name: "{{ docker_image_name }}"
+        tag: latest
+
+    - name: Start docker container
+      docker_container:
+        name: "hellonworld-{{ port }}"
+        image: "{{ docker_image_name }}"
+        ports: "{{ port }}:3000"

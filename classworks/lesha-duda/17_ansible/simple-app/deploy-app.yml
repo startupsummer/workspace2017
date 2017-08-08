@@ -1,0 +1,20 @@
+- name: Run docker.ubuntu
+  hosts: local
+  vars_files: 
+    - vars/variables.yml
+  roles:
+    - role: angstwad.docker_ubuntu
+    - role: andrewrothstein.docker-py
+
+  tasks:
+    - name: Deploy docker image
+      docker_image:
+        path: .
+        name: "{{ docker_image }}"
+    
+    - name: Start docker container
+      docker_container:
+        name: "{{ docker_containter }}"
+        image: "{{ docker_image }}"
+        ports: "{{ ports }}"
+

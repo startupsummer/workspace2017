@@ -1,0 +1,1 @@
+ansible-playbook -i hosts/local -c local deploy-app.yml
