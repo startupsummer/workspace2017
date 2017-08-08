@@ -1,0 +1,20 @@
+---
+  - hosts: webservers
+    vars_files:
+      - vars/variables.yml
+    remote_user: root
+    become: true
+    roles:
+      - angstwad.docker_ubuntu
+      - andrewrothstein.docker-py
+    tasks:
+      - name: pull an image
+        docker_image:
+          name: ansibleapp
+          path: .
+
+      - name: create docker container
+        docker:
+          name: ansibleapp
+          image: ansibleapp
+          ports: "9999:3000"
