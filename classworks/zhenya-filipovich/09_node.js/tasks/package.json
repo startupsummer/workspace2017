@@ -1,0 +1,23 @@
+{
+  "name": "tasks",
+  "version": "1.0.0",
+  "description": "The main objective of the task is to learn using of the Node.js.",
+  "main": "http-server.js",
+  "scripts": {
+    "dev": "NODE_PATH=../ nodemon --harmony --inspect http-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "formidable": "^1.1.1",
+    "image-downloader": "^3.2.2",
+    "logger": "0.0.1",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "nodemon": "^1.11.0"
+  }
+}

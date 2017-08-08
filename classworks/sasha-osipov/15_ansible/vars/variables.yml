@@ -1,0 +1,5 @@
+---
+  port: 9999
+  image_name: docker_image
+  container_name: ansible_task
+

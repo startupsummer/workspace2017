@@ -1,0 +1,23 @@
+7ebddcd34ab5
+f0caecc50931
+
+sudo docker exec -it f0caecc50931 bash   
+cat replacement.js > app.js   
+
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+
+sudo docker exec -it f0caecc50931  bash
+touch test-message.js
+
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+You have successfully completed your task. Congrats!
+Your id is:  f0caecc50931
+Example app listening on port 3000!

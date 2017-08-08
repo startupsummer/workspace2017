@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>I certainly love Javascript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="forms">
+      <div class="sign-in">
+        <form class="sign-in__form" name="signInForm" method="post" action="/SignIn" >
+            <h1 class="form__title"> Sign in </h1>
+            <div class="form__input">
+              <input class="form__login" type="email" name="login" placeholder="Enter your login"/>
+              <input class="form__password" type="password" name="password" placeholder="Enter your password"/>
+            </div>
+            <input class="form__submit" type="submit" value="Sign in" onclick="submitForm(event);"/>
+            <div class="auth-message">
+              <p class="auth-message__content">
+                You are not yet authorized
+              </p>
+            </div>
+        </form>
+      </div>
+
+      <div class="sign-up">
+        <form class="sign-up__form" name="getMessageForm" method="post" action="/Message" >
+          <input class="form__submit" type="submit" value="View secret message" onclick="getMessage(event)"/>
+        </form>
+      </div>
+    </div>
+
+    <div class="message">
+      <p class="message__content">Here you will see a secret message</p>
+    </div>
+
+    <footer class="footer">
+      <p class="footer__text">
+        Alina Arlova, <span class="footer__year">2017</span> &copy; All rights reserved
+      </p>
+    </footer>
+
+    <script src="/src/formProcessing.js"></script>
+    <script src="/bundle.js"></script>
+</body>
+
+</html>
