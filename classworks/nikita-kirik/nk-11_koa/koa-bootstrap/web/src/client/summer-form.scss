@@ -1,0 +1,60 @@
+.summer-form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-bottom: 20px;
+  width: 35%;
+
+  &__title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    opacity: 80%;
+  }
+
+  &__txt-inputs {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__txt-inp {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 16px;
+
+    &--txt-area {
+      height: 200px;
+    }
+
+    &--simple {
+      width: 40%;
+    }
+
+    &--select {
+      width: 60px;
+      align-self: center;
+    }
+
+  }
+
+  &__txt-erea {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  &__button {
+    display: inline-block;
+    align-self: center;
+    padding: 10px;
+    width: 200px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-family: 'Ubuntu';
+  }
+}
+
+.session-message {
+  font-size: 20px;
+  margin-bottom: 25px;
+  align-self: center;
+}
