@@ -17,6 +17,7 @@ router.post('/post-summer-form', async (ctx) => {
 
   if (ctx.errors) {
     ctx.body = ctx.errors;
+    ctx.status = 400;
     return;
   }
   ctx.body = {

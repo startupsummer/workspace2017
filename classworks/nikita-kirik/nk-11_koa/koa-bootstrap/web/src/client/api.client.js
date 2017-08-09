@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import qs from 'querystring';
 
-const baseApiUrl = 'http://localhost:3001';
+const baseApiUrl = 'http://localhost:3002';
 
 const getQueryString = (queryStringObject = {}) => {
   // return `${qs.stringify({ ...queryStringObject })}`;
@@ -24,8 +24,8 @@ const responseHandler = response => {
       .then(obj => { throw new Error(JSON.stringify(obj)); });
     }
 
-    return response.text()
-    .then(text => { throw new Error(text); });
+    // return response.text()
+    // .then(text => { throw new Error(text); });
   }
 
   return response.json()
@@ -46,4 +46,4 @@ fetch(buildUrl(path, queryStringObject), {
   headers: postJsonHeaders,
   body: JSON.stringify(body),
 })
-.then(responseHandler);
+// .then(responseHandler);

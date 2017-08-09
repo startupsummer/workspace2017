@@ -13,7 +13,6 @@ const { devMiddleware, hotMiddleware } = require("../../../koa-webpack-middlewar
 const webpackOptions = require("../../../webpack.config.js");
 
 const staticFiles = require('koa-static');
-const dateFormat = require('dateformat');
 const koaBody = require('koa-body');
 const validate = require('koa-validate');
 
@@ -51,8 +50,6 @@ module.exports = (app) => {
 
   app.use(async (ctx, next) => {
     try {
-      const date = new Date();
-      ctx.session.date = dateFormat(date, "dddd, mmmm dS, yyyy, h:MM:ss TT");
       await next();
     } catch (err) {
       console.log(err);
