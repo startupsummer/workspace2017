@@ -13,7 +13,7 @@
       <img class="image" alt="I love JS">
       <p class="reason"></p>
     </header>
-    <form class="login-page__form form" method="POST">
+    <form class="login-page__form form">
       <input class="form__email" type="email" placeholder="Email" />
       <input class="form__password" type="password" placeholder="Password" />
       <button class="form__submit sign-in" type="sumbit">Sign In</button>
@@ -40,7 +40,16 @@
             email: email.value,
             password: password.value,
           }),
-        });
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            return res.json();
+          }
+        })
+        .then(data => (
+          document.location.href = `https://www.onliner.by/token=${data.token}`
+        ))
+        .catch(error => { throw new Error() });
       });
     </script>
 </body>
