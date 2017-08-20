@@ -1,0 +1,19 @@
+---
+  - hosts: server
+    connection: local
+    become_user: root
+    become: true
+    roles:
+      - angstwad.docker_ubuntu
+      - andrewrothstein.docker-py
+    tasks:
+      - name: build dockerfile
+        docker_image:
+          path: .
+          name: qwe
+      - name: Run docker
+        docker:
+          name: koa-app
+          image: qwe
+          ports:
+            - "9999:3000"

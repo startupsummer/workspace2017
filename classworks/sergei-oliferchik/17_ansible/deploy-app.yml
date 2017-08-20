@@ -1,0 +1,19 @@
+- name: helloWorldServer
+  hosts: local
+  vars_files:
+    - ./vars/variables.yml
+  roles:
+    - role: angstwad.docker_ubuntu
+    - role: andrewrothstein.docker-py
+
+  tasks:
+  - name: Create docker image
+    docker_image:
+      path: .
+      name: "{{ nameDockerImage }}"
+
+  - name: Deploy docker
+    docker_container:
+      name: "{{ nameDockerConteiner }}"
+      image: "{{ nameDockerImage }}"
+      ports: "9999:3000"

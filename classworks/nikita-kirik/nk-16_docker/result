@@ -1,0 +1,33 @@
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+6dd82cb37ff3        my-image3           "/bin/sh -c 'node ..."   5 minutes ago       Up 5 minutes        0.0.0.0:3334->3000/tcp   elegant_varahamihira
+af3479d2f560        my-image3           "/bin/sh -c 'node ..."   8 minutes ago       Up 8 minutes        0.0.0.0:3333->3000/tcp   determined_pike
+
+
+
+sudo docker exec -it determined_pike bash
+cat replacement.js > app.js
+
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+
+
+
+sudo docker exec -d determined_pike touch test-message.js
+
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+You have successfully completed your task. Congrats!
+Your id is:  af3479d2f560
+Example app listening on port 3000!

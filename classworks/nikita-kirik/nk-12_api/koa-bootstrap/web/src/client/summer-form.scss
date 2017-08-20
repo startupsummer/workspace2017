@@ -1,0 +1,95 @@
+.summer-form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-bottom: 20px;
+  width: 35%;
+
+  &__title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    opacity: 80%;
+  }
+
+  &__txt-inputs {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__txt-inp {
+    align-self: center;
+
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 16px;
+
+    &--txt-area {
+      height: 200px;
+    }
+
+    &--simple {
+      width: 40%;
+    }
+
+    &--select {
+      width: 60px;
+      align-self: center;
+    }
+
+  }
+
+  &__txt-erea {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  &__btn-block {
+    justify-content: center;
+  }
+
+  &__button {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 200px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-family: 'Ubuntu';
+    &--auth {
+      margin-left: 10px;
+
+    }
+
+  }
+}
+
+.show-button {
+  align-self: center;
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+
+.aside-bar {
+  // position: fixed;
+  // left: 0;
+  // top: 0;
+  // float: left;
+  // display: flex;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 300px;
+}
+
+.session-message {
+  font-size: 20px;
+  margin-bottom: 25px;
+  align-self: center;
+}

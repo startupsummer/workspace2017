@@ -1,0 +1,34 @@
+5.
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                      NAMES
+8da8ce38931c        simple-docker-app   "/bin/sh -c 'node ..."   4 seconds ago        Up 3 seconds        0.0.0.0:3334->3000/tcp     affectionate_beaver
+5110cb907983        simple-docker-app   "/bin/sh -c 'node ..."   About a minute ago   Up About a minute   0.0.0.0:3333->3000/tcp     zealous_lovelace
+
+6.
+docker exec -it 8da8ce38931c bash
+cat replacement.js > app.js
+
+9.
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+
+11.
+touch test-message.js
+
+13.
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+You have successfully completed your task. Congrats!
+Your id is:  8da8ce38931c
+Example app listening on port 3000!

@@ -1,0 +1,13 @@
+0cfbf0e1ab31        my-app              "/bin/sh -c 'node ..."   9 seconds ago       Up 8 seconds        0.0.0.0:3334->3000/tcp   infallible_leakey0
+efc62ce51491        my-app              "/bin/sh -c 'node ..."   17 seconds ago      Up 16 seconds       0.0.0.0:3333->3000/tcp   xenodochial_hermann
+cat replacement.js > app.js
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+cat > test-message.js
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+You have successfully completed your task. Congrats!
+Your id is:  efc62ce51491
+Example app listening on port 3000!
+

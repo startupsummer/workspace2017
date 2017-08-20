@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>I certainly love Javascript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <main class="main">
+
+    <div class="main-block">
+      <img class="main-block__img" src="/i-love-js.jpg">
+      <p class="main-block__message">
+      </p>
+    </div>
+    <div class="session-message">
+      Hello {{{json name}}}. You visited this site {{{json count}}} times. <br> The last at {{{json date}}}
+    </div>
+
+    <form class="summer-form" enctype="multipart/form-data" id="summer-form">
+      <div class="summer-form__title">
+        How I spent the summer
+      </div>
+      <div class="summer-form__txt-inputs">
+        <input class="summer-form__txt-inp summer-form__txt-inp--simple" placeholder="first name" name="first-name" id="first-name-inp"/>
+        <input class="summer-form__txt-inp summer-form__txt-inp--simple" placeholder="last name" name="last-name" id="last-name-inp" />
+      </div>
+      <textarea class="summer-form__txt-inp" name="" placeholder="Message" name="message" id="text-area-inp"></textarea>
+
+      Rate your summer quality
+      <select class="summer-form__txt-inp summer-form__txt-inp--select" id="select-inp">
+        <option data="1" value="1" selected>1</option>
+        <option data="2" value="2">2</option>
+        <option data="3" value="3">3</option>
+      </select>
+
+    </form>
+
+    <button class="summer-form__button">
+    <!-- <button class="summer-form__button" onclick="onSubmitSummerForm()"> -->
+    <!-- <button class="summer-form__button" onclick="(() => { console.log('IM HERE'); })()"> -->
+      Send Message
+    </button>
+
+
+    <footer class="main-footer">
+      <p>
+        Nikita Kirik, &nbsp <span class="main-footer__year" id="main-footer__year"> </span> &nbsp &copy All rights reserved
+      </p>
+    </footer>
+
+  </main>
+  <script src="/bundle.js"></script>
+
+</body>
+
+</html>

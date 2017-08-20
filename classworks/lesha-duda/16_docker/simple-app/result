@@ -1,0 +1,25 @@
+Container list:
+	fbdaadf486eb
+	0d863468961d
+
+sudo docker cp replacement.js 0d863468961d:/home/student2/Desktop/docker/workspace2017/classworks/lesha-duda/16_docker/simple-app/app.js
+
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+
+
+sudo docker exec -it 0d863468961d bash
+touch test-message.js
+
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+You have successfully completed your task. Congrats!
+Your id is:  0d863468961d
+Example app listening on port 3000!
+

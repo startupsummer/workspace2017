@@ -1,0 +1,22 @@
+---
+  - hosts: server
+    connection: local
+    become_user: root
+    become: true
+    vars_files:
+      - ./vars/variables.yml
+    roles:
+      - role: angstwad.docker_ubuntu
+      - role: andrewrothstein.docker-py
+    tasks:
+      - name: build dockerfile
+        docker_image:
+          name: "{{ image_name }}"
+          path: ./
+        
+      - name: docker container
+        docker_container:
+          name: "{{ container_name }}"
+          image: docker_image
+          ports: "{{ port }}:3000"
+ 

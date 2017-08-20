@@ -1,0 +1,22 @@
+---
+  - name: Hello world application
+    hosts: servers
+    connection: local
+    become_user: root
+    become: true
+    vars_files:
+      - ./vars/variables.yml
+    roles:
+      - angstwad.docker_ubuntu
+      - andrewrothstein.docker-py
+    tasks:
+      - name: Build an image
+        docker_image:
+          name: koa-app-image
+          path: ./
+      - name: Run docker
+        docker:
+          name: koa-app
+          image: koa-app-image
+          ports:
+            - "9999:3000"

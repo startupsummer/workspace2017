@@ -1,0 +1,17 @@
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
+e91181ab79c4        7cd95aff4218        "/bin/sh -c 'node ..."   37 seconds ago      Up 36 seconds       0.0.0.0:3334->3000/tcp     my-second-container
+adbdc0fc96a6        7cd95aff4218        "/bin/sh -c 'node ..."   58 seconds ago      Up 57 seconds       0.0.0.0:3333->3000/tcp     my-first-container
+
+docker exec -ti my-second-container bash
+cat replacement.js > a
+
+Example app listening on port 3000!
+This is the secret message for Startup Summer students!
+This is SSSSUPER the secret message for Startup Summer students!
+Example app listening on port 3000!
+
+docker exec -ti my-second-container bash
+touch test-message.js
+
+You have successfully completed your task. Congrats!
+Your id is:  e91181ab79c4

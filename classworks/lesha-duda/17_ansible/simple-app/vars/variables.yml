@@ -1,0 +1,3 @@
+docker_image: simple-app
+docker_containter: simple-app
+ports: 9999:3000
