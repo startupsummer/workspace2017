@@ -36,6 +36,12 @@ If lecturer decline pull request, he will assign label `Work In Progress` and pr
 9. July 17th - Reading materials: [Introduction to Node.JS](./lectures/09_node.js/README.md). [Lecture video](https://vimeo.com/226159364/9959499431)
 10. July 18th - Reading materials: [React.JS with Redux](./lectures/10_redux/README.md). [Lecture video](https://vimeo.com/226113605/2232760a47)
 11. July 24th - Reading materials: [Koa.JS 2 (async/await)](./lectures/11_koa/README.md). [Lecture video](https://vimeo.com/226713981/a93ff71a1c)
-12. July 25th - Reading materials: [Node.JS API Server](./lectures/12_api/README.md).
-13. July 26th - Reading materials: [Databases: SQL vs NoSQL, MongoDB](./lectures/13_databases/README.md)
-14. July 27th - API testing
+12. July 25th - Reading materials: [Node.JS API Server](./lectures/12_api/README.md). [Lecture video](https://vimeo.com/227037500/13dc2c5cab)
+13. July 26th - Reading materials: [Databases: SQL vs NoSQL, MongoDB](./lectures/13_databases/README.md). [Lecture video](https://vimeo.com/227051877/ce3bb09473)
+14. July 27th - Reading materials: [Api testing](./lectures/14_api_testing/README.md). [Lecture video](https://vimeo.com/227231424/a1c4445159)
+15. August 1st - Reading materials: [Websockets](./lectures/15_websockets/README.md). [Lecture video](https://vimeo.com/228220816/2c756003b8)
+16. August 2nd - React Native
+17. August 3rd - Reading materials: [Docker](./lectures/16_docker/README.md).
+18. August 8th - Reading materials: [Ansible](./lectures/17_ansible/README.md).
+19. August 16th - Amazon
+20. August 21st - Reading materials: [Continuous Integration](./lectures/19_continuous_integration).
