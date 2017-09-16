@@ -1,0 +1,52 @@
+@require '~styles/colors.styl'
+
+.chat-container
+  > .top
+      display flex
+      justify-content space-between
+      align-items center
+
+  > .chat
+    flex 1
+    max-width 500px
+    padding 20px
+    width 400px
+    border-radius 10px
+    background rgba(255,255,255,.8)
+    box-shadow 3px 3px 12px #d0d0d0
+
+    > .content
+      height 400px
+      overflow-y scroll
+
+    > .typing
+      border none
+      outline none
+      font-style italic
+      color rgba(120, 120, 120, 1)
+      padding-left 10px
+
+    > .footer
+      justify-content space-between
+      display flex
+      margin-top 20px
+
+      textarea
+        flex 1
+        font-size 18px
+        border none
+        border-radius 5px
+        box-shadow 0px 0px 5px #969696
+        resize none
+        padding 8px
+        margin-right 10px
+
+      button
+        font-family 'Inconsolata'
+        font-size 20px
+        padding 0 30px 
+        cursor pointer
+        border none
+        color white
+        background $color-primary-darker
+        border-radius 5px  
