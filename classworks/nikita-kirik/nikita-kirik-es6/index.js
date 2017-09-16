@@ -14,10 +14,24 @@ iterableQ.sort((a, b) => a.number - b.number);
 const generator = iterableQ.getIterator();
 const iterator = generator();
 
-for (const item of iterator) {
+for (const item of iterator) { // eslint-disable-line
   console.log(item);
 }
 
 iterableQ.dequeue();
 
 console.log(iterableQ.size);
+
+
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve('!!!'), 1000);
+  reject('???');
+});
+
+promise.then(
+  (result) => {
+    console.log(`Resolve: ${result}`);
+  },
+  (error) => {
+    console.log(`Rejected: ${error}`);
+  });
