@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>I certainly love Javascript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script>
+    function postData(){
+      return  fetch('/hello', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: document.getElementsByName('firstName')[0].value,
+          surname: document.getElementsByName('secondName')[0].value,
+          thoughts: document.getElementsByName('thoughts')[0].value,
+          quality: document.getElementsByName('quality')[0].value
+        })
+      })
+    }
+  </script>
+</head>
+
+<body>
+  <div class="main">
+    <div class="main__firstBlock">
+      <img class="main__image" src="i-love-js.jpg">
+      <span class="main__text"></span>
+      <span>You visit this page {{ count }} times</span>
+    </div>
+
+    <div class="main__formBlock">
+      <form class="main__form">
+        <div class="main__name main__item">
+          <input type="email" name="firstName" placeholder="Type your email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required/>
+        </div>
+        <div class="main__surname main__item">
+          <input type="password" name="secondName" placeholder="Type your password"/>
+        </div>
+        <div class="main__thoughtsInput main__item">
+          <textarea row="22" col="22" name="thoughts" placeholder="Type your thoughts"></textarea>
+        </div>
+        <div class="main__select main__item">
+          <select name="quality">
+            <option value="Awesome">Awesome</option>
+            <option value="Good">Good</option>
+            <option value="Nice">Nice</option>
+            <option selected value="Very nice">Very nice</option>
+          </select>
+        </div>
+        <div class="main__submitButton">
+          <input onclick="postData()" value="Submit" type="button"/>
+        </div>
+      </form>
+    </div>
+
+    <div class="main__secondBlock">
+      <footer class="main__footer">Ilya Kohanovskiy, <span class="main__footer--year"></span> © All rights reserved</footer>
+    </div>
+    
+  </div>
+  <script src="bundle.js"></script>
+</body>
+</html>

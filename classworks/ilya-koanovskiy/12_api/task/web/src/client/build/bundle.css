@@ -1,0 +1,1 @@
+.main__secondBlock{display:flex;align-self:center}.main__firstBlock{display:flex;flex-grow:1;flex-direction:column;align-items:center}body{background-color:#c96;margin:0;padding:0;min-height:100vh}.main,body{display:flex;flex-direction:column}.main{flex-grow:1;padding-top:100px}
