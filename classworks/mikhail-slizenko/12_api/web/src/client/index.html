@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>I certainly love Javascript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+   <main class="content">
+    <form class="section js-form">
+      <h1 class="section__title">Sign in</h1>
+      <div class="section__item">
+        <label class="label" for="">Email:</label>
+        <input class="input" type="email" name="email">
+        <p class="remark">example@domain.com</p>
+      </div>
+      <div class="section__item">
+        <label class="label" for="">Password:</label>
+        <input class="input" type="password" name="password">
+        <p class="remark">Your password must be 6-16 characters</p>
+      </div>
+      <div class="section__item">
+        <button type="submit" class="btn js-submit">Sign in</button>
+      </div>
+    </form>
+   <div class="section secret">
+     <button type="submit" class="btn js-secret">Get something</button>
+     <p class="message"></p>
+   </div>
+  </main>
+  <script src="/main.js"></script>
+</body>
+</html>

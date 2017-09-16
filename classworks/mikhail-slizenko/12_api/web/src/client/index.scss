@@ -1,0 +1,83 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 50px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+* {
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.section  {
+  width: 500px;
+  border: 1px solid #ddd;
+  padding: 40px;
+}
+
+.section  + .section {
+  margin-top: 40px;
+}
+
+.section__item + .section__item {
+  margin-top: 30px;
+}
+
+.section__title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1.2em;
+  font-size: 36px;
+  color: #000;
+}
+
+.label {
+  display: block;
+  color: #000;
+  margin-bottom: .5em;
+  font-size: 14px;
+}
+
+.input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  width: 100%;
+  color: #000;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  display: block;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.remark {
+  font-size: 12px;
+  margin-top: .5em;
+  color: #999;
+  transition: color .4s ease;
+}
+
+@keyframes error {
+  5% { color: #f33; }
+  95% { color: #999; }
+}
+
+.remark--warning {
+  animation: error 3s ease;
+}
+
+.message {
+  margin: 0;
+}
